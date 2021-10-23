@@ -204,7 +204,7 @@ Deployed canisters.
 +
 
 また、最初の展開時には、 `+dfx+` は `+default+` アイデンティティと、`+default+` アイデンティティが管理するローカルの Cycle ウォレットを作成することに注意してください。
-サイクルウォレットは特別なタイプの Canister で、link:../developers-guide/concepts/tokens-cycles{outfilesuffix}[サイクル] を他の Canister に転送することができます。
+Cycle ウォレットは特別なタイプの Canister で、link:../developers-guide/concepts/tokens-cycles{outfilesuffix}[Cycle] を他の Canister に転送することができます。
 
 +
 このサンプルアプリケーションをローカルにデプロイするためには、デフォルトの開発者アイデンティティ、サイクルウォレットの使用、サイクルの管理などについて特に知る必要はありません。これらのトピックについては後ほど説明しますが、今のところ、これらが自動的に作成されることを覚えておいてください。

@@ -158,7 +158,7 @@ dfx start
 npm install
 ----
 +
-このステップについてさらに情報が欲しい場合は link:../developers-guide/webpack-config{outfilesuffix}#troubleshoot-node[Ensuring node is available in a project] を参照してください。
+このステップについてさらに情報が欲しい場合は link:../developers-guide/webpack-config{outfilesuffix}#troubleshoot-node[node がプロジェクトで利用可能であることを確認する] を参照してください。
 . 以下のコマンドで、あなたの最初のアプリケーションを登録、構築そして展開します。
 +
 [source,bash]

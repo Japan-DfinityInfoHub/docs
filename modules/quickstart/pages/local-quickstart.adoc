@@ -203,7 +203,7 @@ Deployed canisters.
 別の名前でプロジェクトを作成した場合、 `+hello+` や `+hello_assets+` ではなく、プロジェクトの名前になります。
 +
 
-また、最初の展開時には、 `+dfx+` は `+default+` アイデンティティと、`+default+` アイデンティティが管理するローカルのサイクルウォレットを作成することに注意してください。
+また、最初の展開時には、 `+dfx+` は `+default+` アイデンティティと、`+default+` アイデンティティが管理するローカルの Cycle ウォレットを作成することに注意してください。
 サイクルウォレットは特別なタイプの Canister で、link:../developers-guide/concepts/tokens-cycles{outfilesuffix}[サイクル] を他の Canister に転送することができます。
 
 +

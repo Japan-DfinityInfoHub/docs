@@ -28,7 +28,7 @@ ifdef::env-github,env-browser[:outfilesuffix:.adoc]
 * フロントエンド開発用のテンプレートファイルをプロジェクトに含めたい場合は、 `+node.js+` がインストールされている必要があります。
 
 このチュートリアルは、ターミナルを開いてコマンドを実行するなど、コンピュータ上で一般的な作業を行う方法を知っていることを前提としています。
-コンピュータで新しいターミナルを開く方法や、 `node.js` をインストールする方法がわからない場合は、link:newcomers{outfilesuffix}[Preliminary steps for newcomers] を参照してください。
+コンピュータで新しいターミナルを開く方法や、`node.js` をインストールする方法がわからない場合は、link:newcomers{outfilesuffix}[初めての人のための準備] を参照してください。
 準備ができたら <<download-and-install>> に進みます。
 
 [[download-and-install]]

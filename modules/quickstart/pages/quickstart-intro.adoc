@@ -32,7 +32,7 @@ link:../developers-guide/concepts/tokens-cycles{outfilesuffix}[トークンと C
 開発者はアプリケーションを動作させるために Cycle を取得・管理する必要がありますが、それにはいくつかの方法があります。
 
 * ICP トークンを取り扱っている取引所で購入し、link:network-quickstart{outfilesuffix}#convert-tokens[{sdk-short-name} コマンドラインインターフェイス]または link:https://nns.ic0.app/#/auth[Network Nervous System アプリケーション]を使用して、トークンを Cycle に変換します。
-* そのようなサービスを提供しているプロバイダーにアカウントや link:../developers-guide/default-wallet{outfilesuffix}#wallet-create-wallets[Cycle ウォレット]を登録して、Cycle を取得します。
+* Cycle を配布するサービスを提供しているプロバイダーに、アカウントや link:../developers-guide/default-wallet{outfilesuffix}#wallet-create-wallets[Cycle ウォレット]を登録して、Cycle を取得します。
 * 他の開発者と連携し、Cycle ウォレットや Canister を使って Canister 間で Cycle を直接 link:../developers-guide/default-wallet{outfilesuffix}#wallet-send[送信]または link:../developers-guide/default-wallet{outfilesuffix}#wallet-receive[受信]します。
 
 Cycle を必要とし消費するのは Canister だけであり、それらはオペレーションやリソースの支払いのために使用されます。Cycle は通常、Canister 同士でやり取りされ、ユーザーや開発者には転送されません。ただし、Cycle を配布したりする際には、自分用に作成された Cycle ウォレットや同様のアプリケーションで Cycle を管理することができます。

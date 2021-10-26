@@ -31,7 +31,7 @@ _クイックスタート_ チュートリアルでは、{sdk-short-name} を初
 link:../developers-guide/concepts/tokens-cycles{outfilesuffix}[トークンと Cycle] で説明したように、 {platform} 上で動作するアプリケーションである Canister スマートコントラクトを動かすためには **Cycle** が必要です。
 開発者はアプリケーションを動作させるために Cycle を取得・管理する必要がありますが、それにはいくつかの方法があります。
 
-* ICP トークンをリストアップしている取引所で購入し、link:network-quickstart{outfilesuffix}#convert-tokens[{sdk-short-name} コマンドラインインターフェイス]または link:https://nns.ic0.app/#/auth[Network Nervous System アプリケーション]を使用して、トークンを Cycle に変換します。
+* ICP トークンを取り扱っている取引所で購入し、link:network-quickstart{outfilesuffix}#convert-tokens[{sdk-short-name} コマンドラインインターフェイス]または link:https://nns.ic0.app/#/auth[Network Nervous System アプリケーション]を使用して、トークンを Cycle に変換します。
 * そのようなサービスを提供しているプロバイダーにアカウントや link:../developers-guide/default-wallet{outfilesuffix}#wallet-create-wallets[Cycle ウォレット]を登録して、Cycle を取得します。
 * 他の開発者と連携し、Cycle ウォレットや Canister を使って Canister 間で Cycle を直接 link:../developers-guide/default-wallet{outfilesuffix}#wallet-send[送信]または link:../developers-guide/default-wallet{outfilesuffix}#wallet-receive[受信]します。
 

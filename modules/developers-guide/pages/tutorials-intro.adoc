@@ -4,7 +4,7 @@
 :company-id: DFINITY
 ifdef::env-github,env-browser[:outfilesuffix:.adoc]
 
-link:../quickstart/quickstart-intro{outfilesuffix}[クイックスタート] では、プロジェクトディレクトリやサンプルコードの中身を探索せずに、新しいプロジェクトを作成し展開するための基本的なワークフローへの簡略化した導入を提供しました。
+link:../quickstart/quickstart-intro{outfilesuffix}[クイックスタート] では、プロジェクトディレクトリやサンプルコードの中身を探索せずに、新しいプロジェクトを作成しデプロイするための基本的なワークフローを簡単に紹介しました。
 
 次に、{platform} 上で動作するプログラムの作成を実践的に体験するために、いくつかの単純なプログラムを書いていきましょう。
 

@@ -14,17 +14,17 @@ NOTE: ほとんどのチュートリアルでは、 {proglang} プログラミ�
 
 * link:tutorials/explore-templates{outfilesuffix}[デフォルトプロジェクトを探索する] では、新しくプロジェクトを作るときに、初めからワークスペースに追加されているファイルやフォルダを調査することで、プロジェクトを制作する一連の流れを詳しく見ていきます。
 
-* link:tutorials/define-an-actor{outfilesuffix}[ actor を使って処理を要求する] では、 "Hello, World!" Canister で頻繁に定義している典型的な `+print+` 関数を `+hello+` 関数を備えた actor （オブジェクト）で置き換える方法に焦点を当てています。
+* link:tutorials/define-an-actor{outfilesuffix}[Actor を使って処理を要求する] では、 "Hello, World!" Canister で頻繁に定義している典型的な `+print+` 関数を `+hello+` 関数を備えた Actor （オブジェクト）で置き換える方法に焦点を当てています。
 
 * link:tutorials/hello-location{outfilesuffix}[文字列の引数を渡す] では、ターミナルのコマンドラインで使う関数に引数を渡す複数の方法を紹介します。
 
-* link:tutorials/counter-tutorial{outfilesuffix}[インクリメントする] では、インクリメントをしてカウンターの値を返す関数を持つ actor を作成する Dapps を書くプロセスを一通り紹介します。
+* link:tutorials/counter-tutorial{outfilesuffix}[インクリメントする] では、インクリメントをしてカウンターの値を返す関数を持つ Actor を作成する Dapps を書くプロセスを一通り紹介します。
 
 * link:tutorials/calculator{outfilesuffix}[関数での計算で整数を使う] では、 {proglang} での実践的で単純な計算を行う Dapp の書き方とプロジェクト環境のカスタマイズ方法の学び方を示します。
 
 * link:tutorials/phonebook{outfilesuffix}[ライブラリのモジュールを導入する] では、連想配列で動作する基礎的な {proglang} ライブラリの関数の導入と利用の方法を示します。
 
-* link:tutorials/multiple-actors{outfilesuffix}[多様な actors を使用する] では、同じプロジェクトで複数の Canisters をコンパイルする方法を示すために、複数の関連しない actors を単一のプロジェクトに含める方法を説明します。
+* link:tutorials/multiple-actors{outfilesuffix}[多様な Actors を使用する] では、同じプロジェクトで複数の Canisters をコンパイルする方法を示すために、複数の関連しない Actors を単一のプロジェクトに含める方法を説明します。
 
 * link:tutorials/custom-frontend{outfilesuffix}[フロントエンドをカスタマイズする] では、デフォルトのサンプル Canister のフロントエンドを、単純な React フレームワークで作成する方法を説明します。もし既に CSS, HTML, JavaScript, React, または別のフレームワークを使ったユーザーインターフェースの組み立て方を知っているのであれば、このチュートリアルを飛ばしてしまって構いません。
 

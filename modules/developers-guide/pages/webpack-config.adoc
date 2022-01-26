@@ -1,6 +1,6 @@
 = Front-end Overview
 
-Internet Computer blockchain では、私たちの https://www.npmjs.com/package/@dfinity/agent[JavaScript agent] を使って、あなたの dapps のために Web 3.0 のフロントエンドをホストすることができます。また、`+dfx+` が提供する https://github.com/dfinity/certified-assets[asset canister] を使って静的ファイルを {IC} にアップロードすることで、アプリケーション全体を分散型技術で実行することができます。このセクションでは、`+dfx new+` で提供されるデフォルトのフロントエンドテンプレート、フロントエンドの設定オプション、プロジェクトのユーザーインターフェイスを構築するための他のフレームワークの使用について詳しく説明します。
+Internet Computer blockchain では、私たちの https://www.npmjs.com/package/@dfinity/agent[JavaScript agent] を使って、あなたの dapps のために Web 3.0 のフロントエンドをホストすることができます。また、`+dfx+` が提供する https://github.com/dfinity/certified-assets[asset canister] を使って静的ファイルを IC にアップロードすることで、アプリケーション全体を分散型技術で実行することができます。このセクションでは、`+dfx new+` で提供されるデフォルトのフロントエンドテンプレート、フロントエンドの設定オプション、プロジェクトのユーザーインターフェイスを構築するための他のフレームワークの使用について詳しく説明します。
 
 ここではフロントエンドDAPの開発の様々な段階でのサンプルコードを含むチュートリアルへのクイックリンクをご紹介します。
 

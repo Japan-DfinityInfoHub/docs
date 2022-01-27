@@ -1,6 +1,6 @@
 = Front-end Overview
 
-Internet Computer blockchain では、私たちの https://www.npmjs.com/package/@dfinity/agent[JavaScript agent] を使って、あなたの dapps のために Web 3.0 のフロントエンドをホストすることができます。また、`+dfx+` が提供する https://github.com/dfinity/certified-assets[asset canister] を使って静的ファイルを IC にアップロードすることで、アプリケーション全体を分散型技術で実行することができます。このセクションでは、`+dfx new+` で提供されるデフォルトのフロントエンドテンプレート、フロントエンドの設定オプション、プロジェクトのユーザーインターフェイスを構築するための他のフレームワークの使用について詳しく説明します。
+Internet Computer blockchain では、私たちの https://www.npmjs.com/package/@dfinity/agent[JavaScript agent] を使って、あなたの dapps のために Web 3.0 のフロントエンドをホストすることができます。また、`+dfx+` が提供する https://github.com/dfinity/certified-assets[asset canister] を使って静的ファイルを Internet Computer にアップロードすることで、アプリケーション全体を分散型技術で実行することができます。このセクションでは、`+dfx new+` で提供されるデフォルトのフロントエンドテンプレート、フロントエンドの設定オプション、プロジェクトのユーザーインターフェイスを構築するための他のフレームワークの使用について詳しく説明します。
 
 ここではフロントエンドDAPの開発の様々な段階でのサンプルコードを含むチュートリアルへのクイックリンクをご紹介します。
 
@@ -14,7 +14,7 @@ Internet Computer blockchain では、私たちの https://www.npmjs.com/package
 
 チュートリアルでお気づきのように、プロジェクトにはテンプレートの `index.js` と `+webpack.config.js+` ファイルが含まれています。
 
-デフォルトでは、`+index.js+` ファイルは、`+src/declarations+` フォルダにあるエージェントをインポートします。このディレクトリは、`dfx deploy` を実行したときに、ローカルまたはICにデプロイするときに、`+dfx+` によって生成されます。
+デフォルトでは、`+index.js+` ファイルは、`+src/declarations+` フォルダにあるエージェントをインポートします。このディレクトリは、`dfx deploy` を実行しローカルまたは Internet Computer にデプロイするときに、`+dfx+` によって生成されます。
 
 その生成されたコードは以下のようになります。
 
@@ -22,9 +22,9 @@ Internet Computer blockchain では、私たちの https://www.npmjs.com/package
 ----
 import { Actor, HttpAgent } from "@dfinity/agent";
 
-// Imports candid interface
+// candid interfaceをimport
 import { idlFactory } from './hello.did.js';
-// CANISTER_ID is replaced by webpack based on node enviroment
+// CANISTER_ID は、ノード環境に応じて webpack で置き換え
 export const canisterId = process.env.HELLO_CANISTER_ID;
 
 /**
@@ -36,7 +36,7 @@ export const canisterId = process.env.HELLO_CANISTER_ID;
 export const createActor = (canisterId, options) => {
   const agent = new HttpAgent({ ...options?.agentOptions });
   
-  // Fetch root key for certificate validation during development
+  // 開発中の証明書検証のためのルートキーをfetch
   if(process.env.NODE_ENV !== "production") agent.fetchRootKey();
 
   // Creates an actor with using the candid interface and the HttpAgent
@@ -54,7 +54,7 @@ export const createActor = (canisterId, options) => {
 export const hello = createActor(canisterId);
 ----
 
-そして、`+index.js+` に戻ると、生成されたアクターを受け取り、それを使って `+hello+` キャニスターの `greet` メソッドを呼び出しているのがわかります。
+そして、`+index.js+` に戻ると、生成されたアクターを受け取り、それを使って `+hello+`  Canisterの `greet` メソッドを呼び出しているのがわかります。
 
 [source,js]
 ----
@@ -62,7 +62,7 @@ import { hello } from "../../declarations/hello";
 
 document.getElementById("clickMeBtn").addEventListener("click", async () => {
   const name = document.getElementById("name").value.toString();
-  // Interact with hello actor, calling the greet method
+  // Interact with hello actor, greet methodをコール
   const greeting = await hello.greet(name);
 
   document.getElementById("greeting").innerText = greeting;
@@ -73,7 +73,7 @@ document.getElementById("clickMeBtn").addEventListener("click", async () => {
 
 === webpackの設定を変更する
 
-webpack は、JavaScript ベースのアプリケーション用のモジュールバンドルラーとして人気があり、高度な設定が可能であるため、新しいプロジェクトでは、デフォルトの `+webpack.config.js+` ファイルが作成され、使用したい特定のモジュール（`react` や `markdown` など）を簡単に追加できるようになっています。
+webpack は、JavaScript ベースのアプリケーション用のモジュールバンドラーとして人気があり、高度な設定が可能であるため、新しいプロジェクトでは、デフォルトの `+webpack.config.js+` ファイルが作成され、使用したい特定のモジュール（`react` や `markdown` など）を簡単に追加できるようになっています。
 
 テンプレートの `+webpack.config.js` ファイルのコードを確認すると、ローカル開発の場合は `.dfx/local/canister_ids.json` から、その他の環境を設定した場合は `./canister_ids.json` からキャニスターIDを推定しています。どのネットワークを使用するかは、プロセス変数の `DFX_NETWORK` や、`NODE_ENV` が `"production"` に設定されているかどうかに基づいて決定されます。
 
@@ -115,7 +115,7 @@ initCanisterIds();
 多くの場合、デフォルトの `+webpack.config.js+` ファイルをそのまま、何も変更せずに使用することもできますし、プラグインやモジュール、その他のカスタム構成を追加して、ニーズに合わせて使用することもできます。
 具体的に `+webpack.config.js+` の設定をどのように変更するかは、使用したい他のツールやフレームワークに大きく依存します。
 
-例えば、フロントエンドのチュートリアルである link:tutorials/custom-frontend{outfilesuffix}[Customize the front-end] や link:tutorials/my-contacts{outfilesuffix}[Add a stylesheet] を試したことがある方は、React JavaScript で動作するように以下の部分を変更しているかもしれません。
+例えば、フロントエンドのチュートリアルである https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/tutorials/custom-frontend.html[Customize the front-end] や https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/tutorials/my-contacts.html[Add a stylesheet] を試したことがある方は、React JavaScript で動作するように以下の部分を変更しているかもしれません。
 
 [source,js]
 ----
@@ -154,7 +154,7 @@ dfx build hello
 
 == 他のモジュールをReactフレームワークで使用する
 
-link:https://github.com/dfinity/examples[examples]リポジトリにあるいくつかのチュートリアルやサンプルプロジェクトでは、`+npm install+` コマンドを使ってReactモジュールを追加する方法が説明されています。
+link:https://github.com/dfinity/examples[リポジトリにあるいくつかのチュートリアルやサンプルプロジェクト]では、`+npm install+` コマンドを使ってReactモジュールを追加する方法が説明されています。
 これらのモジュールを使って、プロジェクトで使用したいユーザーインターフェースコンポーネントを構築することができます。
 例えば、以下のコマンドを実行して、`+react-router+` モジュールをインストールすることができます。
 
@@ -203,7 +203,7 @@ webpack開発サーバ-`+webpack-dev-server+` は、webpackアセットへのイ
 ----
 npm start
 ----
-. Webブラウザーを開き、8080ポートを使用して、アプリケーションのアセットキャニスターにナビゲートします。
+. Webブラウザーを開き、8080ポートを使用して、アプリケーションのアセットCanisterにナビゲートします。
 +
 例:
 +
@@ -214,6 +214,270 @@ http://localhost:8080
 . プロジェクトの `+index.js+` ファイルをテキストエディターで開き、内容を変更します。
 +
 例えば、JavaScriptを使ってページに要素を追加するような場合です。
++
+document.body.onload = addElement;
++
+[source,js]
+----
+document.body.onload = addElement;
+
+function addElement () {
+  // div要素を新規に生成
+  const newDiv = document.createElement("div");
+
+  // それに乗せるコンテント
+  const newContent = document.createTextNode("Test live page reloading!");
+
+  // anweDiv要素のnewContentを追加
+  newDiv.appendChild(newContent);
+
+  // 新しく作成したnewDiv要素とnewContentをDOMに追加
+  const currentDiv = document.getElementById("div1");
+  document.body.insertBefore(newDiv, currentDiv);
+}
+----
+. `+index.js+` ファイルへの変更を保存しますが、エディタを開いたままにしておき、変更を続けます。
+. ブラウザを更新するか、またはブラウザが自動的に更新されるのを待つと、変更内容が表示されます。
++
+プロジェクトのフロントエンドの作業が終わったら、Control-Cを押してwebpack開発サーバーを停止することができます。
+
+
+== 他のフレームワークを使うと
+
+webpack以外のバンドラーを使いたい場合もあるでしょう。バンドラーごとの説明はまだ準備できていませんが、お使いのバンドラーに精通していれば、以下の手順で作業を進めることができます。
+
+. `+package.json+` から `+copy:types+`, `+prestart+`, `+prebuild+` のスクリプトを削除します。
+. `+dfx deploy+` を実行して、Canister用のローカルバインディングを生成します。
+. 生成されたバインディングを保存したいディレクトリにコピーします。
+. `+declarations/<canister_name>/index.js+` を修正し、`+process.env.<CANISTER_NAME>_CANISTER_ID+` をバンドラーの環境変数に相当するパターンに置き換えます。
+  * 望ましいワークフローであれば、CanisterIDをハードコードすることもできます。
+. 宣言をコミットして、コードベースにimportします。
+
+////
+
+== Using Bootstrap
+
+////
+
+////
+= Front-end Overview
+
+The {platform} allows you to host Web 3.0 front-ends for your dapps, using our https://www.npmjs.com/package/@dfinity/agent[JavaScript agent]. By using the https://github.com/dfinity/certified-assets[asset canister] provided by `+dfx+` to upload static files to the {IC}, you will be able to run your entire application on decentralized technology. This section takes a closer look at the default front-end template that is provided by `+dfx new+`, front-end configuration options, and using other frameworks to build the user interface for your projects.
+
+Here are some quick links to tutorials with example code for various stages of developing your front-end dapp:
+
+* A tutorial on building a React dapp link:tutorials/custom-frontend{outfilesuffix}[Customize the front-end]
+* Using link:tutorials/hello-location{outfilesuffix}#candid-ui[Candid] as a bare-bones interface to expose and test the functions in a canister.
+* Using link:tutorials/explore-templates{outfilesuffix}#default-frontend[raw HTML and JavaScript] to display a simple HTML entry page.
+* Using link:tutorials/custom-frontend{outfilesuffix}[React and compiled JavaScript] to embed HTML attributes and elements directly in a page.
+* Using link:tutorials/my-contacts{outfilesuffix}[React and TypeScript] to import CSS properties from an external file.
+
+== How the default templates are used
+
+As you might have noticed in the tutorials, projects include template `index.js` and `+webpack.config.js+` files.
+
+By default, the `+index.js+` file imports an agent that is located in `+src/declarations+` folder. That directory will be generated by `+dfx+` when you run `dfx deploy`, either locally or when deploying to the IC.
+
+That generated code will look like this: 
+
+[source,js]
+----
+import { Actor, HttpAgent } from "@dfinity/agent";
+
+// Imports candid interface
+import { idlFactory } from './hello.did.js';
+// CANISTER_ID is replaced by webpack based on node enviroment
+export const canisterId = process.env.HELLO_CANISTER_ID;
+
+/**
+ * 
+ * @param {string | Principal} canisterId Canister ID of Agent
+ * @param {{agentOptions?: import("@dfinity/agent").HttpAgentOptions; actorOptions?: import("@dfinity/agent").ActorConfig}} [options]
+ * @return {import("@dfinity/agent").ActorSubclass<import("./hello.did.js")._SERVICE>}
+ */
+export const createActor = (canisterId, options) => {
+  const agent = new HttpAgent({ ...options?.agentOptions });
+  
+  // Fetch root key for certificate validation during development
+  if(process.env.NODE_ENV !== "production") agent.fetchRootKey();
+
+  // Creates an actor with using the candid interface and the HttpAgent
+  return Actor.createActor(idlFactory, {
+    agent,
+    canisterId,
+    ...options?.actorOptions,
+  });
+};
+  
+/**
+ * A ready-to-use agent for the hello canister
+ * @type {import("@dfinity/agent").ActorSubclass<import("./hello.did.js")._SERVICE>}
+ */
+export const hello = createActor(canisterId);
+----
+
+Then, if you return to `+index.js+`, you can see see that it takes the generated actor, and uses it to make a call to the `+hello+` canister's `greet` method:
+
+[source,js]
+----
+import { hello } from "../../declarations/hello";
+
+document.getElementById("clickMeBtn").addEventListener("click", async () => {
+  const name = document.getElementById("name").value.toString();
+  // Interact with hello actor, calling the greet method
+  const greeting = await hello.greet(name);
+
+  document.getElementById("greeting").innerText = greeting;
+});
+----
+
+In many projects, you will be able to use the code under `+declarations+` without any changes, and make your changes in `hello_assets/src`. However, if your project has additional requirements, continue reading below.
+
+=== Modifying the webpack configuration
+
+Because webpack is a popular and highly-configurable module bundler for JavaScript-based applications, new projects create a default `+webpack.config.js+` file that makes it easy to add the specific modules—such as `react` and `markdown`—that you want to use.
+
+If you review the code in the template `+webpack.config.js+` file, you see that it infers canister ID's from your `.dfx/local/canister_ids.json` for local development, and from `'./canister_ids.json'` for any other environments you configure. It decides which network to use based on a `DFX_NETWORK` proccess variable, or based on whether `NODE_ENV` is set to `"production"`.
+
+You can see these steps in the following code block:
+
+[source,js]
+----
+let localCanisters, prodCanisters, canisters;
+
+try {
+  localCanisters = require(path.resolve(".dfx", "local", "canister_ids.json"));
+} catch (error) {
+  console.log("No local canister_ids.json found. Continuing production");
+}
+
+function initCanisterIds() {
+  try {
+    prodCanisters = require(path.resolve("canister_ids.json"));
+  } catch (error) {
+    console.log("No production canister_ids.json found. Continuing with local");
+  }
+
+  const network =
+    process.env.DFX_NETWORK ||
+    (process.env.NODE_ENV === "production" ? "ic" : "local");
+
+  canisters = network === "local" ? localCanisters : prodCanisters;
+
+  for (const canister in canisters) {
+    process.env[canister.toUpperCase() + "_CANISTER_ID"] =
+      canisters[canister][network];
+  }
+}
+initCanisterIds();
+----
+
+=== Entry and output configuration
+
+In many cases, you can use the default `+webpack.config.js+` file as-is, without any modification, or you can add plug-ins, modules, and other custom configuration to suit your needs.
+The specific changes you make to the `+webpack.config.js+` configuration largely depend on the other tools and frameworks you want to use.
+
+For example, if you have experimented with the link:tutorials/custom-frontend{outfilesuffix}[Customize the front-end] or link:tutorials/my-contacts{outfilesuffix}[Add a stylesheet] front-end tutorials, you might have modified the following section to work with React JavaScript:
+
+[source,js]
+----
+    module: {
+      rules: [
+        { test: /\.(ts|tsx|jsx)$/, loader: "ts-loader" },
+        { test: /\.css$/, use: ['style-loader','css-loader'] }
+      ]
+    }
+  };
+}
+----
+
+
+If your application does not use `+dfx+` to run your build script, you can provide the variables yourself. For example:
+
+[source,bash]
+----
+DFX_NETWORK=staging NODE_ENV=production HELLO_CANISTER_ID=rrkah... npm run build
+----
+
+// tag::node[] 
+[[troubleshoot-node]]
+=== Ensuring node is available in a project
+
+Because projects rely on webpack to provide the framework for the default front-end, you must have `+node.js+` installed in your development environment and accessible in the project directory.
+
+* If you want to develop your project without using the default webpack configuration and canister aliases, you can remove the `+assets+` canister from the `+dfx.json+` file or build your project using a specific canister name. For example, you can choose to build only the hello program without front-end assets by running the following command:
++
+....
+dfx build hello
+....
+
+* If you are using the default webpack configuration and running `+dfx build+` fails, you should try running `+npm install+` in the project directory then re-running `+dfx build+`.
+
+* If running `+npm install+` in the project directory doesn't fix the issue, you should check the configuration of the `+webpack.config.js+` file for syntax errors.
+// end::node[]   
+
+== Using other modules with the React framework
+
+Several tutorials and sample projects in the link:https://github.com/dfinity/examples[examples] repository illustrate how to add React modules using the `+npm install+` command.
+You can use these modules to construct the user interface components you want to use in your project.
+For example, you might run the following command to install the `+react-router+` module:
+
+[source,bash]
+----
+npm install --save react react-router-dom
+----
+
+You could then use the module to construct a navigation component similar to the following:
+
+[source,react]
+----
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+const Navigation = () => {
+  return (
+    <nav className="main-nav">
+      <ul>
+        <li><NavLink to="/myphotos">Remember</NavLink></li>
+        <li><NavLink to="/myvids">Watch</NavLink></li>
+        <li><NavLink to="/audio">Listen</NavLink></li>
+        <li><NavLink to="/articles">Read</NavLink></li>
+        <li><NavLink to="/contribute">Write</NavLink></li>
+      </ul>
+    </nav>
+  );
+}
+
+export default Navigation;
+----
+
+== Iterate faster using webpack-dev-server
+
+Starting with dfx 0.7.7, we now provide you with webpack dev-server in our `+dfx new+` starter.
+
+The webpack development server—`+webpack-dev-server+`—provides in-memory access to the webpack assets, enabling you to make changes and see them reflected in the browser right away using live reloading.
+
+To take advantage of the `+webpack-dev-server+`:
+
+. Create a new project and change to your project directory.
+. Start the {IC} locally, if necessary, and deploy as you normally would, for example, by running the `+dfx deploy+` command.
+. Start the webpack development server by running the following command:
++
+[source,bash]
+----
+npm start
+----
+. Open a web browser and navigate to the asset canister for your application using port 8080.
++
+For example:
++
+....
+http://localhost:8080
+....
+. Open a new terminal window or tab and navigate to your project directory.
+. Open the `+index.js+` file for your project in a text editor and make changes to the content.
++
+For example, you might add an element to the page using JavaScript:
 +
 document.body.onload = addElement;
 +
@@ -236,25 +500,27 @@ function addElement () {
   document.body.insertBefore(newDiv, currentDiv);
 }
 ----
-. `+index.js+` ファイルへの変更を保存しますが、エディタを開いたままにしておき、変更を続けます。
-. ブラウザを更新するか、またはブラウザが自動的に更新されるのを待つと、変更内容が表示されます。
+. Save your changes to the `index.js` file but leave the editor open to continue making changes.
+. Refresh the browser or wait for it to refresh on its own to see your change. 
 +
-プロジェクトのフロントエンドの作業が終わったら、Control-Cを押してwebpack開発サーバーを停止することができます。
+When you are done working on the front-end for your project, you can stop the webpack development server by pressing Control-C.
 
 
-== 他のフレームワークを使うと
+== Using other frameworks
 
-webpack以外のbundlerを使いたい場合もあるでしょう。bundlerごとの説明はまだ準備できていませんが、お使いのバンドラーに精通していれば、以下の手順で作業を進めることができます。
+You may want to use a bundler other than webpack. Per-bundler instructions are not ready yet, but if you are familiar with your bundler, the following steps should get you going:
 
-. `+package.json+` から `+copy:types+`, `+prestart+`, `+prebuild+` のスクリプトを削除します。
-. `+dfx deploy+` を実行して、キャニスター用のローカルバインディングを生成します。
-. 生成されたバインディングを保存したいディレクトリにコピーします。
-. `+declarations/<canister_name>/index.js+` を修正し、`+process.env.<CANISTER_NAME>_CANISTER_ID+` をバンドラーの環境変数に相当するパターンに置き換えます。
-  * 望ましいワークフローであれば、キャニスターIDをハードコードすることもできます。
-. 宣言をコミットして、コードベースにインポートします。
+. Remove the `+copy:types+`, `+prestart+`, and `+prebuild+` scripts from `+package.json+`
+. Run `+dfx deploy+` to generate the local bindings for your canisters
+. Copy the generated bindings to a directory where you would like to keep them
+. Modify `+declarations/<canister_name>/index.js+` and replace `+process.env.<CANISTER_NAME>_CANISTER_ID+` with the equivalent pattern for environment variables for your bundler
+  * Alternately hardcode the canister ID if that is your preferred workflow
+. Commit the declarations and import them in your codebase
 
 ////
 
 == Using Bootstrap
+
+////
 
 ////

@@ -253,9 +253,6 @@ webpack以外のバンドラーを使いたい場合もあるでしょう。バ�
   * 望ましいワークフローであれば、CanisterIDをハードコードすることもできます。
 . 宣言をコミットして、コードベースにimportします。
 
-////
-== Using Bootstrap
-////
 
 ////
 = Front-end Overview

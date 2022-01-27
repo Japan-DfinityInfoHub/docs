@@ -4,7 +4,7 @@ Internet Computer blockchain では、私たちの https://www.npmjs.com/package
 
 ここではフロントエンドDAPの開発の様々な段階でのサンプルコードを含むチュートリアルへのクイックリンクをご紹介します。
 
-* React dapp構築のチュートリアル https://github.com/Japan-DfinityInfoHub/docs/blob/main/modules/developers-guide/pages/tutorials/custom-frontend.adoc[フロントエンドをカスタマイズする]
+* React dapp構築のチュートリアル https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/tutorials/custom-frontend.html[フロントエンドをカスタマイズする]
 * https://github.com/Japan-DfinityInfoHub/docs/blob/main/modules/developers-guide/pages/tutorials/hello-location.adoc#candid-ui[Candid]を、キャニスター内の機能を公開してテストするための最低限のインターフェースとして使用する。
 * https://github.com/Japan-DfinityInfoHub/docs/blob/main/modules/developers-guide/pages/tutorials/explore-templates.adoc#default-frontend[raw HTML and JavaScript]を使って、シンプルなHTMLエントリーページを表示しています。
 * https://github.com/Japan-DfinityInfoHub/docs/blob/main/modules/developers-guide/pages/tutorials/custom-frontend.adoc[ReactとコンパイルされたJavaScript]を使って、HTMLの属性や要素を直接ページに埋め込みます。
@@ -39,7 +39,7 @@ export const createActor = (canisterId, options) => {
   // 開発中の証明書検証のためのルートキーをfetch
   if(process.env.NODE_ENV !== "production") agent.fetchRootKey();
 
-  // Creates an actor with using the candid interface and the HttpAgent
+  // actor をcandid インターフェースとHttpAgentを利用して生成
   return Actor.createActor(idlFactory, {
     agent,
     canisterId,
@@ -75,7 +75,7 @@ document.getElementById("clickMeBtn").addEventListener("click", async () => {
 
 webpack は、JavaScript ベースのアプリケーション用のモジュールバンドラーとして人気があり、高度な設定が可能であるため、新しいプロジェクトでは、デフォルトの `+webpack.config.js+` ファイルが作成され、使用したい特定のモジュール（`react` や `markdown` など）を簡単に追加できるようになっています。
 
-テンプレートの `+webpack.config.js` ファイルのコードを確認すると、ローカル開発の場合は `.dfx/local/canister_ids.json` から、その他の環境を設定した場合は `./canister_ids.json` からキャニスターIDを推定しています。どのネットワークを使用するかは、プロセス変数の `DFX_NETWORK` や、`NODE_ENV` が `"production"` に設定されているかどうかに基づいて決定されます。
+テンプレートの `+webpack.config.js+` ファイルのコードを確認すると、ローカル開発の場合は `.dfx/local/canister_ids.json` から、その他の環境を設定した場合は `./canister_ids.json` からキャニスターIDを推定しています。どのネットワークを使用するかは、プロセス変数の `DFX_NETWORK` や、`NODE_ENV` が `"production"` に設定されているかどうかに基づいて決定されます。
 
 これらの手順は以下のコードブロックで見ることができます。
 
@@ -191,9 +191,9 @@ export default Navigation;
 
 dfx 0.7.7から、`+dfx new+` スターターにwebpack dev-serverが搭載されました。
 
-webpack開発サーバ-`+webpack-dev-server+` は、webpackアセットへのインメモリアクセスを提供し、ライブリロードを使って変更を行い、すぐにブラウザに反映させることができます。
+webpack開発サーバ `+webpack-dev-server+` は、webpackアセットへのインメモリアクセスを提供し、ライブリロードを使って変更を行い、すぐにブラウザに反映させることができます。
 
-`webpack-dev-server+` を利用するには、次のようにします。
+`+webpack-dev-server+` を利用するには、次のようにします。
 
 . 新しいプロジェクトを作成し、プロジェクトディレクトリに変更します。
 . 必要に応じて{IC}をローカルで起動し、`+dfx deploy+` コマンドを実行するなど、通常の操作でデプロイします。
@@ -254,9 +254,7 @@ webpack以外のバンドラーを使いたい場合もあるでしょう。バ�
 . 宣言をコミットして、コードベースにimportします。
 
 ////
-
 == Using Bootstrap
-
 ////
 
 ////

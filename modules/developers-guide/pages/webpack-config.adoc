@@ -4,7 +4,7 @@ Internet Computer blockchain では、私たちの https://www.npmjs.com/package
 
 ここではフロントエンドDAPの開発の様々な段階でのサンプルコードを含むチュートリアルへのクイックリンクをご紹介します。
 
-* React dapp構築のチュートリアル https://github.com/Japan-DfinityInfoHub/docs/blob/main/modules/developers-guide/pages/tutorials/custom-frontend.adoc[フロントエンドをカスタマイズする］
+* React dapp構築のチュートリアル https://github.com/Japan-DfinityInfoHub/docs/blob/main/modules/developers-guide/pages/tutorials/custom-frontend.adoc[フロントエンドをカスタマイズする]
 * https://github.com/Japan-DfinityInfoHub/docs/blob/main/modules/developers-guide/pages/tutorials/hello-location.adoc#candid-ui[Candid]を、キャニスター内の機能を公開してテストするための最低限のインターフェースとして使用する。
 * https://github.com/Japan-DfinityInfoHub/docs/blob/main/modules/developers-guide/pages/tutorials/explore-templates.adoc#default-frontend[raw HTML and JavaScript]を使って、シンプルなHTMLエントリーページを表示しています。
 * https://github.com/Japan-DfinityInfoHub/docs/blob/main/modules/developers-guide/pages/tutorials/custom-frontend.adoc[ReactとコンパイルされたJavaScript]を使って、HTMLの属性や要素を直接ページに埋め込みます。

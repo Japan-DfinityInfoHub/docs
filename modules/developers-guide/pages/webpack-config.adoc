@@ -511,8 +511,7 @@ You may want to use a bundler other than webpack. Per-bundler instructions are n
 . Modify `+declarations/<canister_name>/index.js+` and replace `+process.env.<CANISTER_NAME>_CANISTER_ID+` with the equivalent pattern for environment variables for your bundler
   * Alternately hardcode the canister ID if that is your preferred workflow
 . Commit the declarations and import them in your codebase
-////
 
-////
 == Using Bootstrap
 ////
+

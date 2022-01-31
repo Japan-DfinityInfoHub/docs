@@ -7,22 +7,22 @@ ifdef::env-github,env-browser[:outfilesuffix:.adoc]
 シンプルな Dapp の作成、ビルド、デプロイの基本的な方法を理解しデフォルトのプロジェクトファイルとサンプルのフロントエンドにも慣れたところで、プロジェクトのフロントエンドのユーザーエクスペリエンスをカスタマイズするさまざまな方法を試してみたくなったのではないでしょうか。
 
 このチュートリアルでは、 React フレームワークを使って、デフォルトのサンプル Dapp の新しいフロントエンドを作成し、表示されるインターフェイスをカスタマイズするための基本的な修正方法を説明します。
-後のチュートリアルでは、ここで紹介したテクニックをさらに発展させていきますが、CSS、HTML、JavaScript、React や他のフレームワークを使ってユーザーインターフェースを構築する方法をすでに知っている場合は、このチュートリアルを読み飛ばしても構いません。
+後のチュートリアルでは、ここで紹介したテクニックをさらに発展させていきますが、CSS 、HTML 、JavaScript 、React や他のフレームワークを使ってユーザーインターフェースを構築する方法をすでに知っている場合は、このチュートリアルを読み飛ばしても構いません。
 
 
 注：このチュートリアルでは、React フレームワークを使用して、 Canister スマートコントラクトの Document Object Model (DOM) を管理する方法を説明します。
-React には独自のカスタム DOM 構文があるため、 JSX で書かれたフロントエンドコードをコンパイルするためには、 webpack の設定を変更する必要があります。React と JSX の使い方の学習については、https://reactjs.org/[React のウェブサイト]のlink:https://reactjs.org/docs/getting-started.html[始めましょう]を参照してください。
+React には独自のカスタム DOM 構文があるため、 JSX で書かれたフロントエンドコードをコンパイルするためには、 webpack の設定を変更する必要があります。React と JSX の使い方の学習については、 https://reactjs.org/[React のウェブサイト] の link:https://reactjs.org/docs/getting-started.html[get start] を参照してください。
 
 == 始める前に
 
 チュートリアルを始める前に、以下のことを確認してください：
 
 * フロントエンド開発のために `+node.js+` がインストールされており、プロジェクトで `+npm install+` を使用してパッケージをインストールすることができること。
-ローカルのオペレーティングシステムやパッケージマネージャに node をインストールする方法については、link:https://nodejs.org/en/[Node]のウェブサイトを参照してください。
+ローカルのオペレーティングシステムやパッケージマネージャに node をインストールする方法については、link:https://nodejs.org/en/[Node] のウェブサイトを参照してください。
 
 * {sdk-short-name} パッケージを link:../../quickstart/local-quickstart{outfilesuffix}#download-and-install[ダウンロード＆インストール] からダウンロードしてインストールする。
 
-* IDE として Visual Studio Code を使用している場合、 link:./../quickstart/local-quickstart{outfilesuffix}#install-vscode[言語編集プラグインのインストール]で説明されているように、{proglang} の Visual Studio Code プラグインがインストールされていること。
+* IDE として Visual Studio Code を使用している場合、 link:./../quickstart/local-quickstart{outfilesuffix}#install-vscode[言語編集プラグインのインストール] で説明されているように、{proglang} の Visual Studio Code プラグインがインストールされていること。
 
 * ローカルコンピュータ上で実行されている {sdk-short-name} プロセスをすべて停止します。
 
@@ -91,9 +91,9 @@ include::example$custom-frontend-package.json[]
 
 このチュートリアルで React を使用するための変更を行う前に、プロジェクトの `+dfx.json+` 設定ファイルにあるデフォルトのフロントエンド設定を確認しましょう。
 
- デフォルトの `+dfx.json+` 設定ファイルのレビュー：
+. デフォルトの `+dfx.json+` 設定ファイルのレビュー：
 
-. 設定ファイル`+dfx.json+`をテキストエディターで開きます。
+. 設定ファイル `+dfx.json+` をテキストエディターで開きます。
 . また、 `+canisters+` キーには、 `custom_greeting_assets` Canister の設定が含まれています。
 +
 ....
@@ -131,7 +131,7 @@ include::example$custom-frontend-package.json[]
 カスケードスタイルシート (CSS ) や JavaScript のカスタムファイルがある場合は、このパスで指定されたフォルダにインクルードします。
 プロジェクトをビルドすると、 `+dist+` の設定で指定したディレクトリからプロジェクトのアセットが提供されます。
 
-* `+type+` の設定は、 `+custom_greeting_assets+` が、https://github.com/dfinity/certified-assets[asset canisterを証明]を使用することを指定します。この Canister には、 {platform} 上で静的アセットをホストするために必要なものがすべて付属しています。
+* `+type+` の設定は、 `+custom_greeting_assets+` が、 https://github.com/dfinity/certified-assets[assets Canisterを証明] を使用することを指定します。この Canister には、 {platform} 上で静的アセットをホストするために必要なものがすべて付属しています。
 --
 +
 このチュートリアルでは、 React の JavaScript を `+index.jsx+` ファイルに追加しますが、そのためには `dfx.json` ファイルのデフォルト設定を変更する必要はありません。
@@ -151,7 +151,7 @@ include::example$custom-frontend-package.json[]
 このファイルは標準的な HTML で、 `+src/custom_greeting_assets/assets+` ディレクトリにある CSS ファイルと画像への参照を含んでいます。
 デフォルトの `+index.html+` ファイルには、 `+name+` 引数の入力フィールドとクリック可能なボタンを表示するための標準的な HTML 構文も含まれています。
 +
-これは、link:explore-templates{outfilesuffix}#default-frontend[デフォルトのフロントエンドを確認する]で見たのと同じデフォルトのフロントエンドです。
+これは、 link:explore-templates{outfilesuffix}#default-frontend[デフォルトのフロントエンドを確認する] で見たのと同じデフォルトのフロントエンドです。
 . テキストエディターで、 `+src/custom_greeting_assets/src/index.js+` ファイルを開きます。
 +
 ....
@@ -185,7 +185,7 @@ document.getElementById("clickMeBtn").addEventListener("click", async () => {
 ----
 entry: {
   //frontend.entrypoint は、このビルドの HTML ファイルを指しているので
-拡張子を `.js` に変更する必要があります。
+  //拡張子を `.js` に変更する必要があります。
   index: path.join(__dirname, asset_entry).replace(/\.html$/, ".jsx"),
 },
 ----
@@ -289,7 +289,7 @@ dfx deploy
 ----
 npm start
 ----
-. ブラウザを開き、http://localhost:8080 に移動します。
+. ブラウザを開き、 http://localhost:8080 に移動します。
 
 . greeting を入力するプロンプトが表示されていることを確認します。
 +

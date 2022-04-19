@@ -1,5 +1,45 @@
 # Hello, World!
 
+このサンプルは、2つの Caninster スマートコントラクトからなるごく単純な Dapp です。
+
+* シンプルなバックエンド Canister ``hello`` で、アプリケーションのロジックを実装しています。 
+と
+* シンプルなフロントエンドアセット Caninster である ``hello_assets`` は、Dapp の Web ユーザーインターフェースのアセットを提供します。
+
+これは、偏在的な _hello world_ に相当する Dapp で、次のように動作しているのを見ることができます。
+https://6lqbm-ryaaa-aaaai-qibsa-cai.ic0.app/[here on the IC].
+
+このサンプルは、以下の説明に従って `dfx new` を実行して作成されたデフォルトのプロジェクトに基づいています。
+link:../quickstart/local-quickstart{outfilesuffix}[Motoko] and
+link:../rust-guide/rust-quickstart{outfilesuffix}[Rust] quickstart documents.
+
+サンプルコードはこちらの github から
+https://github.com/dfinity/examples[samples]
+repository in both https://github.com/dfinity/examples/tree/master/motoko/hello[Motoko] and https://github.com/dfinity/examples/tree/master/rust/hello[Rust].
+
+Canister ``hello`` は Motoko で実装されても Rust で実装されても、同じ Candid インターフェイスを提供します。
+
+```candid
+service : {
+  greet: (text) -> (text);
+}
+```
+
+フロントエンド Canister である ``hello_assets`` は、引数のテキストボックスと、その引数で挨拶した関数を呼び出すためのボタンを持つ HTML ページを表示します。
+呼び出しの結果はメッセージボックスに表示されます。
+
+image:hello.png[hello フロントエンド]
+
+フロントエンド Canister は `dfx` によって提供される汎用的な Canister ですが
+ブラウザに提供するアセットは、dfxプロジェクトの設定とプロジェクトファイルによって決定されます。
+
+フロントエンド Canister とそのアセットは、両方のプロジェクトで同じものです。
+
+
+
+////
+# Hello, World!
+
 This sample demonstrates a dead simple dapp consisting of two canister smart contracts:
 
 * a simple backend canister, ``hello``, implementing the logic of the application, and
@@ -34,9 +74,7 @@ the assets it serves to browsers are determined by the dfx project settings and 
 
 The frontend canister and its assets are identical for both projects.
 
-
-
-
+////
 
 
 

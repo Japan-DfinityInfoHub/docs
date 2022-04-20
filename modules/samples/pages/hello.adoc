@@ -4,7 +4,7 @@
 
 * アプリケーションのロジックを実装しているシンプルなバックエンド Canister である ``hello``
 と
-* シンプルなフロントエンドアセット Caninster である ``hello_assets`` は、Dapp の Web ユーザーインターフェースのアセットを提供します。
+* Dapp の Web ユーザーインターフェースのアセットを提供するシンプルなフロントエンドアセット Caninster である ``hello_assets``
 
 これは、偏在的な _hello world_ に相当する Dapp で、次のように動作しているのを見ることができます。
 https://6lqbm-ryaaa-aaaai-qibsa-cai.ic0.app/[here on the IC].

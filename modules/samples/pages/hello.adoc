@@ -13,7 +13,7 @@ https://6lqbm-ryaaa-aaaai-qibsa-cai.ic0.app/[here on the IC].
 link:../quickstart/local-quickstart{outfilesuffix}[Motoko] and
 link:../rust-guide/rust-quickstart{outfilesuffix}[Rust] のクイックスタートドキュメント。
 
-サンプルコードはこちらの github から
+サンプルコードはこちらの github の
 https://github.com/dfinity/examples[samples]
 repository in both https://github.com/dfinity/examples/tree/master/motoko/hello[Motoko] and https://github.com/dfinity/examples/tree/master/rust/hello[Rust].
 

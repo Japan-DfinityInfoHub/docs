@@ -7,7 +7,6 @@
 * Dapp の Web ユーザーインターフェースのアセットを提供するシンプルなフロントエンドアセット Caninster である ``hello_assets``
 
 これは、よくある _hello world_ に相当する Dapp で、 https://6lqbm-ryaaa-aaaai-qibsa-cai.ic0.app/[IC 上のここで] 動作しているのを見ることができます。
-https://6lqbm-ryaaa-aaaai-qibsa-cai.ic0.app/[here on the IC].
 
 このサンプルは、以下の説明に従って `dfx new` を実行して作成されたデフォルトのプロジェクトに基づいています。
 link:../quickstart/local-quickstart{outfilesuffix}[Motoko] and

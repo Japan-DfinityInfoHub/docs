@@ -14,7 +14,7 @@ link:../rust-guide/rust-quickstart{outfilesuffix}[Rust] のクイックスター
 
 サンプルコードはこちらの github の
 https://github.com/dfinity/examples[samples]
-repository in both https://github.com/dfinity/examples/tree/master/motoko/hello[Motoko] and https://github.com/dfinity/examples/tree/master/rust/hello[Rust].
+リポジトリの、 https://github.com/dfinity/examples/tree/master/motoko/hello[Motoko] と https://github.com/dfinity/examples/tree/master/rust/hello[Rust] のどちらでも見ることができます。
 
 Canister ``hello`` は Motoko で実装されても Rust で実装されても、同じ Candid インターフェイスを提供します。
 

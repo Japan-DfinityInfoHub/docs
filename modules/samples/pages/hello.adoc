@@ -11,7 +11,7 @@ https://6lqbm-ryaaa-aaaai-qibsa-cai.ic0.app/[here on the IC].
 
 このサンプルは、以下の説明に従って `dfx new` を実行して作成されたデフォルトのプロジェクトに基づいています。
 link:../quickstart/local-quickstart{outfilesuffix}[Motoko] and
-link:../rust-guide/rust-quickstart{outfilesuffix}[Rust] quickstart documents.
+link:../rust-guide/rust-quickstart{outfilesuffix}[Rust] のクイックスタートドキュメント。
 
 サンプルコードはこちらの github から
 https://github.com/dfinity/examples[samples]

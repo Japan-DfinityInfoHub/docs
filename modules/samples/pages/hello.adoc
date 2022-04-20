@@ -29,7 +29,7 @@ service : {
 
 image:hello.png[hello フロントエンド]
 
-フロントエンド Canister は `dfx` によって提供される汎用的な Canister ですが
+フロントエンド Canister は `dfx` によって提供される汎用的な Canister ですが、
 ブラウザに提供するアセットは、dfxプロジェクトの設定とプロジェクトファイルによって決定されます。
 
 フロントエンド Canister とそのアセットは、両方のプロジェクトで同じものです。

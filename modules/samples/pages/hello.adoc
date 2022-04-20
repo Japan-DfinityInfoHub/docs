@@ -73,6 +73,9 @@ the assets it serves to browsers are determined by the dfx project settings and 
 
 The frontend canister and its assets are identical for both projects.
 
+
+
+
 ////
 
 

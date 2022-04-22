@@ -6,7 +6,7 @@
 :company-id: DFINITY
 ifdef::env-github,env-browser[:outfilesuffix:.adoc]
 
-世界中の開発者がハッカソンに参加し Dapp やツールなど様々なプロジェクトを Internet Computer  上で構築しています。触発されるべく優勝したプロジェクトのいくつかのソースコードをご覧ください。
+世界中の開発者がハッカソンに参加し Dapp やツールなど様々なプロジェクトを Internet Computer 上で構築しています。優勝したプロジェクトのいくつかのソースコードをご覧になり、インスピレーションを得てください。
 
 [[dfinihack]]
 == DFINIHack
@@ -20,10 +20,10 @@ Sidekick は、数行のコードで Canister スマートコントラクトを�
 - https://ffgig-jyaaa-aaaae-aaaoa-cai.raw.ic0.app[ Canister ライブ]
 
 === IC Vault
-IC Vault はエンドツゥエンドの暗号化（ 言い換えると Internet Computer 内部で平文を見ることができない）により、Internet Computer を経由したデバイス間のデータの安全な同期を保証します。
+IC Vault はエンドツーエンドの暗号化（ 言い換えると Internet Computer 内部で平文を見ることができない）により、Internet Computer を経由したデバイス間のデータが安全に同期されることを保証します。
 
 - https://github.com/timohanke/hack13[ GitHub のコードはこちら]
-- https://xggrc-cyaaa-aaaaj-aaasq-cai.raw.ic0.app[ Canister ライブ]
+- https://xggrc-cyaaa-aaaaj-aaasq-cai.raw.ic0.app[デモ用 Canister]
 - https://youtu.be/16xxA8EKEhE[ YouTube のプレゼンテーション]
 
 === PrivIC
@@ -44,7 +44,7 @@ IC Notary はある時点の文書（または任意のファイル）を保有�
 - https://jbxh5-eqaaa-aaaae-qaaoq-cai.ic0.app[ Canister ライブ]
 
 === IC Netboot
-IC Netboot は開発者が Canister から直接、仮想マシン（VM）を起動できるようにし、起動インフラの分散化と冗長化をします。さらに、zookeeper のようなアプリケーションのVMデータの予備になりえます。最後にTFTP/DHCP/iPXE のような合法的なプロトコルで Internet Computer と会話するためのコンセプトの証明となります。
+IC Netboot は開発者が Canister から直接、仮想マシン（VM）を起動できるようにし、起動インフラを分散化するとともに機能停止を防ぎます。さらに、zookeeper のようなアプリケーションのVMデータの予備になりえます。最後にTFTP/DHCP/iPXE のような合法的なプロトコルで Internet Computer と会話するための概念実証（Proof of Concept）となります。
 
 - https://github.com/farazshaikh/team14[ GitHub のコードはこちら]
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>DEX Sample :: Dfinity 日本語ドキュメント</title>
+    <title>DEX サンプル :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/samples/dex.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1158,43 +1158,43 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">DEX Sample</h1>
+<h1 class="page">DEX サンプル</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>To enable DEFI applications on the IC, canisters need to interact with token canisters and the ledger canister. This sample dapp illustrates how to facilitate these interactions.</p>
+<p>IC 上で DEFI アプリケーションを実現するためには、DEFI の Canister は token Canister や ledger Canister と相互に対話する必要があります。このサンプル Dapp ではこれらの相互対話を容易にする方法を説明します。</p>
 </div>
 <div class="paragraph">
-<p>The sample exchange is implemented in <a href="https://github.com/dfinity/examples/tree/master/motoko/defi">Motoko</a> and <a href="https://github.com/dfinity/examples/tree/master/rust/defi">Rust</a> and can be seen <a href="https://gzz56-daaaa-aaaal-qai2a-cai.ic0.app/">running on the IC</a>.</p>
+<p>サンプルのDEFIは <a href="https://github.com/dfinity/examples/tree/master/motoko/defi">Motoko</a> と <a href="https://github.com/dfinity/examples/tree/master/rust/defi">Rust</a> で実装されており、 <a href="https://gzz56-daaaa-aaaal-qai2a-cai.ic0.app/"> IC 上で動作中のもの</a> を見ることが出来ます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_architecture"><a class="anchor" href="#_architecture"></a>Architecture</h2>
+<h2 id="_アーキテクチャ"><a class="anchor" href="#_アーキテクチャ"></a>アーキテクチャ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The design of the IC allows for more complex on-chain computation. In combination with cheap storage, it is possible to have on-chain order books. This sample code takes advantage of these features and stores user balances and orders inside the exchange canister. The sample exchange functionality can be condensed into the following steps:</p>
+<p>IC の設計が複雑なオンチェーン演算処理を可能としています。IC の安価なストレージと組み合わせれば、オンチェーンでのオーダーブックも可能です。このサンプルコードではこれらの機能を利用して、ユーザーの残高と注文を取引所 Canister に保存します。サンプルの取引所機能は以下のステップに要約することが出来ます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Exchange takes custody of funds (different mechanism for tokens and ICP, see below).</p>
+<p>取引所が資金を保管する（ ICP と他のトークンでは仕組みが異なる、後述）。</p>
 </li>
 <li>
-<p>Exchange updates internal balance book.</p>
+<p>取引所が内部帳簿の収支を更新する。</p>
 </li>
 <li>
-<p>Users trade on exchange causing the exchange to update its internal balance book.</p>
+<p>ユーザーが取引所で取引を行い、取引所は内部帳簿の収支を更新する。</p>
 </li>
 <li>
-<p>Withdrawing funds from the exchange gives custody back to the user.</p>
+<p>取引所から資金を引き出すと、保管されていた資金はユーザーに戻される。</p>
 </li>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_interface"><a class="anchor" href="#_interface"></a>Interface</h3>
+<h3 id="_インターフェイス"><a class="anchor" href="#_インターフェイス"></a>インターフェイス</h3>
 <div class="paragraph">
-<p>Request user-specific ledger account identifier from the exchange. This unique account identifier represents a user-specific subaccount in the exchange&#8217;s ledger account, allowing it to differentiate between user deposits.</p>
+<p>取引所からユーザー固有の元帳アカウント識別子をリクエストします。この一意のアカウント識別子は、取引所の元帳アカウントのユーザー固有のサブアカウントを表し、ユーザーのデポジットを区別できるようにします。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1202,7 +1202,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Initiate user deposit to exchange. If the user wants to deposit ICP, the exchange moves the funds from the user-specific deposit address to its default subaddress and adjusts the user&#8217;s ICP balance on the DEX. If the user wants to deposit a DIP token, the exchange tries to move the approved funds to its token account and adjusts the user&#8217;s balance.</p>
+<p>取引所へのユーザーのデポジットを開始します。ユーザーが ICP をデポジットしたい場合、取引所はユーザー固有のデポジットアドレスからそのデフォルトのサブアドレスに資金を移動し、DEX でユーザーの ICP 残高を調整します。ユーザーが DIP トークンのデポジットを希望している場合、取引所は承認された資金をそのトークン口座に移動しようとし、ユーザーの残高を調整します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1210,7 +1210,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Withdraw request to the exchange. The exchange will send funds back to the user if the user has a sufficient balance.</p>
+<p>取引所へ出金依頼をします。取引所はユーザーが十分な残高を持っている場合、ユーザーに資金を送り返します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1218,7 +1218,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Place new order to exchange. If the order matches an existing order, it will get executed.</p>
+<p>取引所に新しい注文を出します。既に出ている反対売買の注文と一致した場合、すぐに成立します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1226,7 +1226,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Allows the user to cancel submitted orders.</p>
+<p>ユーザーに発注をキャンセル出来るようにします。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1234,7 +1234,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Request user&#8217;s balance on exchange for a specific token.</p>
+<p>ユーザーの持っている取引所にある特定トークン残高を要求します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1243,81 +1243,81 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fee"><a class="anchor" href="#_fee"></a>Fee</h3>
+<h3 id="_手数料"><a class="anchor" href="#_手数料"></a>手数料</h3>
 <div class="paragraph">
-<p>It is the responsibility of the exchange to subtract fees from the trades. This is important because the exchange must pay fees for withdrawals and internal transfers.</p>
+<p>取引から手数料を差し引くのは取引所の責任です。取引所が出金等の内部送金の手数料を支払わなければならないため重要です。</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_token_exchange_walkthrough"><a class="anchor" href="#_token_exchange_walkthrough"></a>Token Exchange Walkthrough</h2>
+<h2 id="_トークン取引所の動作説明"><a class="anchor" href="#_トークン取引所の動作説明"></a>トークン取引所の動作説明</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section contains a detailed walkthrough of the core exchange functionalities. Most interactions require multiple steps and are simplified by using the provided frontend. Since the exchange canister functions are public, advanced users can use <code>dfx</code> to interact with the exchange.</p>
+<p>このセクションでは、取引所の中核機能を詳しく説明していきます。ほとんどの相互対話には複数のステップを要求され、提供されるフロントエンドを使用することで簡略化されます。取引所 Canister の機能は公開されているので、スキルのあるユーザーは <code>dfx</code> を使用して取引所とやり取りすることができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_depositing_icp"><a class="anchor" href="#_depositing_icp"></a>Depositing ICP</h3>
+<h3 id="_icp_のデポジット"><a class="anchor" href="#_icp_のデポジット"></a>ICP のデポジット</h3>
 <div class="paragraph">
-<p>The ledger canister provides a unique interface so that interactions with ICP need to be resolved separately.</p>
+<p>ICP のやり取りにおいて別々に解決（Resolve）しなければならない処理があるため、Ledger Canister は独自のインターフェースを提供しています。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The user calls the <code>getDepositAddress</code> function. The response contains a unique account identifier representing a user-specific subaccount controlled by the exchange. The exchange can identify the user responsible for deposits through this address.</p>
+<p>ユーザーは <code>getDepositAddress</code> 関数を呼び出します。レスポンスは取引所が管理するユーザー固有のサブアカウントを表す一意のアカウント識別子を含んでいます。取引所はこのアドレスを通してデポジットするユーザーを特定することができます。</p>
 </li>
 <li>
-<p>User transfers ICP to the fetched deposit address and waits for the transfer to complete.</p>
+<p>ユーザは取得したデポジット先アドレスに ICP を転送し、完了するのを待ちます。</p>
 </li>
 <li>
-<p>To notify the exchange, the user calls <code>deposit</code> with the ICP token principal. The exchange will look into the user&#8217;s subaccount and adjust the user&#8217;s balance on the exchange. In a second step, the exchange will transfer the funds from the user subaccount to its default subaccount, where the exchange keeps all of its ICP.</p>
+<p>取引所に通知するために、ユーザーは ICP トークンの Principal で <code>deposit</code> を呼び出します。取引所はユーザーのサブアカウントを調べ、取引所におけるユーザーの残高を調整します。第二段階として、取引所はユーザーのサブアカウントからデフォルトのサブアカウントに資金を転送し、そこに取引所のすべての ICP を保持します。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_depositing_tokens"><a class="anchor" href="#_depositing_tokens"></a>Depositing Tokens</h3>
+<h3 id="_トークンのデポジット"><a class="anchor" href="#_トークンのデポジット"></a>トークンのデポジット</h3>
 <div class="paragraph">
-<p>Depositing tokens is more straightforward because DIP20 provides a richer interface to interact with.</p>
+<p>DIP20 では、よりリッチなインターフェースで対話ができるため、トークンのデポジットがより簡単になります。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The user calls the <code>approve</code> function of the token canister. This gives the exchange the ability to transfer funds to itself on behalf of the user.</p>
+<p>ユーザーは、 token Canister の <code>approve</code> 関数を呼び出します。これにより、取引所はユーザーに代わって取引所に資金を送金することができるようになります。</p>
 </li>
 <li>
-<p>Similar to the ICP depositing, the user calls the <code>deposit</code> function of the exchange. The exchange then transfers the approved token funds to itself and adjusts the user&#8217;s exchange balance.</p>
+<p>ICP のデポジットと同様に、ユーザーは取引所の <code>deposit</code> 機能を呼び出します。取引所は承認されたトークンを取引所に転送し、ユーザーの取引所残高を調整します。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_placing_orders"><a class="anchor" href="#_placing_orders"></a>Placing Orders</h3>
+<h3 id="_オーダー発注"><a class="anchor" href="#_オーダー発注"></a>オーダー発注</h3>
 <div class="paragraph">
-<p>After depositing funds to the exchange, the user can place orders. An order consists of two tuples. <code>from: (Token1, amount1)</code> and <code>to: (Token2, amount2)</code>. These orders get added to the exchange. What happens to these orders is specific to the exchange implementation. This sample provides a simple exchange that only executes exactly matching orders. Be aware this is just a toy exchange, and the exchange functionality is just for completeness. Hint: The exchange can be greedy sometimes ;)</p>
+<p>取引所に資金をデポジットした後、ユーザーは注文を出すことができます。注文は2つのタプルから構成されます。 <code>from: (Token1, amount1)</code> と <code>to: (Token2, amount2)</code> です。これらの注文は取引所に追加されます。これらの注文に何が起こるかは、取引所の実装に依存します。このサンプルでは、完全に一致する注文のみを実行するシンプルな取引所を提供します。これは単なるおもちゃの取引所であり、取引所の機能は単に説明のためです。ヒント：取引所は時々貪欲になることがあります。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_withdrawing_funds"><a class="anchor" href="#_withdrawing_funds"></a>Withdrawing Funds</h3>
+<h3 id="_資金の出金"><a class="anchor" href="#_資金の出金"></a>資金の出金</h3>
 <div class="paragraph">
-<p>Compared to depositing funds, withdrawing funds is simpler. Since the exchange has custody of the funds, the exchange will send funds back to the user on <code>withdraw</code> requests. The internal exchange balances are adjusted accordingly.</p>
+<p>資金をデポジットすることに比べて、資金の出金は簡単です。取引所が資金を保管しているため、 <code>withdraw</code> のリクエストがあると、取引所はユーザーに資金を送り返します。それに応じて、取引所内の残高が調整されます。</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_common_mistakes"><a class="anchor" href="#_common_mistakes"></a>Common mistakes</h2>
+<h2 id="_よくある間違い"><a class="anchor" href="#_よくある間違い"></a>よくある間違い</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Concurrent execution: If canister functions have <code>await</code> statements, it is possible that execution is interleaved. To avoid bugs, it is necessary to carefully consider the placement of data structure updates to prevent double-spend attacks.</p>
+<p>同時実行。 Canister 関数が <code>await</code> ステートメントを持つ場合、実行がインターリーブされる可能性があります。バグを回避するために、データ構造の更新の配置を慎重に検討し、ダブルスペンド攻撃を防ぐ必要があります。</p>
 </li>
 <li>
-<p>Floating Points: More advanced exchanges should take care of floating points and make sure to limit decimals.</p>
+<p>浮動小数点数。より高性能な取引所では、浮動小数点に注意し、小数を制限するようにする必要があります。</p>
 </li>
 <li>
-<p>No panics after await: When a panic happens, the state gets rolled back. This can cause issues with the correctness of the exchange.</p>
+<p>await 後に回復不能なエラー（Panic）を起こさないこと。回復不能なエラーが起きると、状態がロールバックされます。これは、交換の正しさに問題を引き起こす可能性があります。</p>
 </li>
 </ul>
 </div>

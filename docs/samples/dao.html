@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Basic Dao :: Dfinity 日本語ドキュメント</title>
+    <title>基本的な DAO :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/samples/dao.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1158,38 +1158,31 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Basic Dao</h1>
+<h1 class="page">基本的な DAO</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This sample project demonstrates a basic DAO
-(<a href="https://en.wikipedia.org/wiki/Decentralized_autonomous_organization">Decentralized Autonomous Organization</a>)
-that can be deployed to the <a href="https://github.com/dfinity/ic">Internet Computer</a>. The basic DAO sample code is available in <a href="https://github.com/dfinity/examples/tree/master/motoko/basic_dao">Motoko</a> and <a href="https://github.com/dfinity/examples/tree/master/rust/basic_dao">Rust</a>.</p>
+<p>これは <a href="https://github.com/dfinity/ic">Internet Computer</a> 上にデプロイされている基本的な DAO <a href="https://en.wikipedia.org/wiki/Decentralized_autonomous_organization">( Decentralized Autonomous Organization )</a> のサンプルプロジェクトのデモです。
+ 基本的な DAO のサンプルコードは <a href="https://github.com/dfinity/examples/tree/master/motoko/basic_dao">Motoko</a> と <a href="https://github.com/dfinity/examples/tree/master/rust/basic_dao">Rust</a> で見ることが出来ます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<h2 id="_概要"><a class="anchor" href="#_概要"></a>概要</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A <code>basic_dao</code> can be initialized with a set of accounts: mappings from principal IDs to an amount of tokens.
-Account owners can query their account balance by calling <code>account_balance</code> and transfer tokens to other
-accounts by calling <code>transfer</code>. Anyone can call <code>list_accounts</code> to view all accounts.</p>
+<p><code>basic_dao</code> は Principal ID とトークン数をマッピングしたアカウントセットで初期化することができます。
+アカウントのオーナーは <code>account_balance</code> を呼び出してアカウント残高を照会したり、 <code>transfer</code> を呼び出してトークンを他のアカウントに転送することができます。誰でもすべてのアカウントを閲覧するために <code>list_accounts</code>  を呼び出すことができます。</p>
 </div>
 <div class="paragraph">
-<p>Account owners can submit proposals by calling <code>submit_proposal</code>. A proposal specifies a canister, method
-and arguments for this method. Account owners can cast votes (either <code>Yes</code> or <code>No</code>) on a proposal by calling <code>vote</code>.
-The amount of votes cast is equal to amount of tokens the account owner has. If enough <code>Yes</code> votes are cast,
-<code>basic_dao</code> will execute the proposal by calling the proposal&#8217;s given method with the given args against the given
-canister. If enough <code>No</code> votes are cast, the proposal is not executed, and is instead marked as <code>Rejected</code>.</p>
+<p>アカウントのオーナーは <code>submit_proposal</code> を呼び出してプロポーザルを提出することができます。プロポーザルでは、Canister、メソッド、およびこのメソッドの引数を指定します。アカウントのオーナーは <code>vote</code> を呼び出すことで、提案に対して ( <code>Yes</code> か <code>No</code> のどちらかの) 票を投じることができます。
+投票数はそのアカウントのオーナーが持っているトークン数と同じです。もし十分な数の <code>Yes</code> 票が投じられたら <code>basic_dao</code> は、指定された Canister 、与えられた引数、指定されたメソッドを呼び出すことでその提案を実行します。もし <code>No</code> の票数が多く投じられた場合、提案は実行されず、代わりに <code>Rejected</code> として登録されます。</p>
 </div>
 <div class="paragraph">
-<p>Certain system parameters, like the number of <code>Yes</code> votes needed to pass a proposal, can be queried by calling
-<code>get_system_params</code>. These system params can be modified via the proposal process, i.e. a proposal can be
-made to call <code>update_system_params</code> with updated values. The below demo does exactly that.</p>
+<p>あるプロポーザルを可決するために必要な <code>Yes</code> の票数などの特定のシステムパラメータを <code>get_system_params</code> で問い合わせることができます。これらのシステムパラメータはプロポーザルプロセスを通じて変更することができます。つまり、プロポーザルは <code>update_system_params</code> で更新された値を呼び出すようにすることができます。以下のデモはまさにそれを行っています。</p>
 </div>
 <div class="paragraph">
-<p>View the <a href="https://github.com/dfinity/examples/blob/master/rust/basic_dao/src/basic_dao/src/basic_dao.did">canister service definition</a> for more details.</p>
+<p>詳しくは <a href="https://github.com/dfinity/examples/blob/master/rust/basic_dao/src/basic_dao/src/basic_dao.did"> Canister のサービス定義</a> をご覧ください。</p>
 </div>
 </div>
 </div>

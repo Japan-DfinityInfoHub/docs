@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Token Transfer Sample Code :: Dfinity 日本語ドキュメント</title>
+    <title>トークン転送 のサンプルコード :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/samples/tokentransfer.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1158,12 +1158,12 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Token Transfer Sample Code</h1>
+<h1 class="page">トークン転送 のサンプルコード</h1>
 <div class="paragraph">
-<p>Token Transfer is a canister that can transfer tokens from its account to other accounts. It is an example of a canister that uses the Ledger canister and is useful for any financial integration or defi dapps that you may like to build. Sample code is available in <a href="https://github.com/dfinity/examples/tree/master/motoko/ledger-transfer">Motoko</a> and <a href="https://github.com/dfinity/examples/tree/master/rust/tokens_transfer">Rust</a>.</p>
+<p>Token Transfer（トークン転送）は自分のアカウントから他のアカウントにトークンを転送することができる Canister です。Ledger Canister を使用した例であり、金融統合や Defi Dapp を作りたいときに便利です。サンプルコードは <a href="https://github.com/dfinity/examples/tree/master/motoko/ledger-transfer">Motoko</a> と <a href="https://github.com/dfinity/examples/tree/master/rust/tokens_transfer">Rust</a> で公開されています。</p>
 </div>
 <div class="paragraph">
-<p>The sample code revolves around one core <code>ledger_transfer</code> function which takes as input the amount of tokens to transfer, the account (and optionally the subaccount) to which to transfer the tokens and returns either success or an error in case e.g. the tokens transfer canister doesn&#8217;t have enough tokens to do the transfer. In case of success, a unique identifier of the transaction is returned. This identifier will be stored in the memo of the transaction in the Ledger.</p>
+<p>このサンプルコードは、転送トークン数や転送先アカウント（オプションでサブアカウントも可能）を入力に取り、また転送に必要なトークンがない場合などに Canister に成否を返すような、<code>ledger_transfer</code> 関数を中心に据えています。成功した場合、トランザクションの一意な識別子が返されます。この識別子は、Ledger のトランザクションの memo に保存されます。</p>
 </div>
 </article>
 <aside class="toc sidebar">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Encrypted Note-taking :: Dfinity 日本語ドキュメント</title>
+    <title>暗号化されたノート（Encrypted Notes） :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/samples/encrypted-notes.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1158,48 +1158,48 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Encrypted Note-taking</h1>
+<h1 class="page">暗号化されたノート（Encrypted Notes）</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://github.com/dfinity/examples/tree/master/motoko/encrypted-notes-dapp">Encrypted Notes</a> is an experimental dapp for authoring and storing confidential information in the form of short pieces of text. The user can access their notes via any number of automatically synchronized devices authenticated via <a href="https://smartcontracts.org/docs/ic-identity-guide/what-is-ic-identity.html">Internet Identity</a>. Thanks to the end-to-end encryption performed by the dapp’s frontend, the user does not need to trust the dapp’s backend.</p>
+<p><a href="https://github.com/dfinity/examples/tree/master/motoko/encrypted-notes-dapp"> Encrypted Notes </a>は、短いテキスト形式で秘密の情報を作成・保存する試験的なアプリケーションです。ユーザーは <a href="https://smartcontracts.org/docs/ic-identity-guide/what-is-ic-identity.html"> Internet Identity </a>で認証された、自動的に同期される複数のデバイスから自分のノートにアクセスすることができます。アプリのフロントエンドがエンドツーエンドで暗号化するため、ユーザーはアプリのバックエンドを信頼する必要がありません。</p>
 </div>
 <div class="paragraph">
-<p>You can play around with the <a href="https://cvhrw-2yaaa-aaaaj-aaiqa-cai.ic0.app/">dapp deployed on the IC</a>.</p>
+<p>こちらの <a href="https://cvhrw-2yaaa-aaaaj-aaiqa-cai.ic0.app/"> IC 上にデプロイされている Dapp </a>から試すことが出来ます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_idea"><a class="anchor" href="#_idea"></a>Idea</h2>
+<h2 id="_アイディア"><a class="anchor" href="#_アイディア"></a>アイディア</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We wanted to build an example of a simple (but not too simple) dapp running purely on the IC. This example relies upon the <em>web-serving</em> and <em>storage capabilities</em> of the IC. We focused on the following two key features for our example dapp: (1) client-side, <em>end-to-end encryption</em> and (2) <em>multi-user</em> and <em>multi-device</em> support.</p>
+<p>純粋に IC 上で動作する簡素な（しかし簡素すぎない）アプリケーションの例を示したいと思います。この例は IC の <em>ウェブ配信機能</em> と <em>ストレージ機能</em> に依存しています。このアプリの例で次の2つの主要な機能に焦点を当てます。(1)クライアントサイドでの <em>エンドツーエンドの暗号化</em> 、(2) <em>マルチユーザー</em> 、 <em>マルチデバイス</em> のサポート。</p>
 </div>
 <div class="paragraph">
-<p>To demonstrate the potential of the IC as a platform for developing such dapps, we implemented this example using two distinct Canister Development Kits (CDKs). The Motoko CDK allows developers to implement actor-based dapps using the <a href="https://smartcontracts.org/docs/language-guide/motoko.html">Motoko</a> language. The Rust CDK allows implementing dapps in <a href="https://smartcontracts.org/docs/rust-guide/rust-intro.html">Rust</a>. In both cases, canisters are compiled into WebAssembly files that are then deployed onto the IC.</p>
+<p>このようなアプリの開発プラットフォームとしての IC の可能性を示すために、2種類の Canister Development Kits ( CDKs )を用いて実装を行いました。Motoko CDK は<a href="https://smartcontracts.org/docs/language-guide/motoko.html"> Motoko </a> 言語を使って Actor ベースの Dapp を実装するためのものです。Rust CDK は<a href="https://smartcontracts.org/docs/rust-guide/rust-intro.html"> Rust </a> 言語で実装されたアプリを提供します。いずれも Canister を WebAssembly ファイルにコンパイルし、 IC 上にデプロイします。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_approach"><a class="anchor" href="#_approach"></a>Approach</h2>
+<h2 id="_アプローチ"><a class="anchor" href="#_アプローチ"></a>アプローチ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The basic functionality of Encrypted Notes consists of two main components.</p>
+<p>Encrypted Notes の基本機能は2つの主要コンポーネントで構成されています。</p>
 </div>
 <div class="paragraph">
-<p>First, we re-used the code of a (non-encrypted) dapp called <a href="https://github.com/pattad/ic_notes">IC-Notes</a>. In particular IC-Notes relies on the <a href="https://smartcontracts.org/docs/ic-identity-guide/auth-how-to.html">Internet Identity</a> (II) canister for user authentication, an approach that is also inherited by Encrypted Notes. For development purposes, we deploy a local instance of the II canister (along with a local instance of Encrypted Notes); when deploying Encrypted Notes onto the mainnet, the real-world instance of II is used for authentication.</p>
+<p>第一に、<a href="https://github.com/pattad/ic_notes"> IC-Notes </a>というDapp のコード（非暗号化） を再利用しました。特に IC-Notes はユーザー認証のために<a href="https://smartcontracts.org/docs/ic-identity-guide/auth-how-to.html"> Internet Identity </a> ( II ) Canister に依存しており、このアプローチは Encrypted Notes にも継承されています。開発目的では II Canister のローカルインスタンス（ Encrypted Notes のローカルインスタンスと共に)をデプロイします。Encrypted Notes をメインネットにデプロイする場合、現実世界の II インスタンスが認証に使用されます。</p>
 </div>
 <div class="paragraph">
-<p>Second, we enabled client-side, end-to-end encryption for the note contents, borrowing the solution from another existing dapp called <a href="https://github.com/timohanke/icvault">IC-Vault</a>. Our Encrypted Notes dapp follows the approach of IC-Vault to support managing multiple devices.</p>
+<p>第二に、クライアントサイドでノートの内容のエンドツーエンドの暗号化を可能にしました。これは、<a href="https://github.com/timohanke/icvault"> IC-Vault </a>という別の既存のアプリからソリューションを借用したものです。私たちの Encrypted Notes アプリは IC-Vault のアプローチを踏襲し、複数のデバイスの管理をサポートしています。</p>
 </div>
 <div class="paragraph">
-<p>In the context of the canisters discussed in this document, a device is not necessarily a separate physical device but a logical instance device, e.g., a web browser, with its own local data storage. For example, we consider two web browsers running on the same laptop as two independent devices; these browsers generate their own encryption keys. In contrast, the II canister relies on hardware-generated encryption keys, distinguishing only hardware devices.</p>
+<p>このドキュメントで論じる Canister の文脈では、デバイスは必ずしも独立した物理デバイスではなく論理的なインスタンスデバイスです。つまり、独自のローカルデータストレージを持つ Web ブラウザなどです。例えば、同じノートパソコン上で動作する2つの Web ブラウザを独立した2つのデバイスと見なし、これらのブラウザは独自の暗号鍵を生成します。これに対し、II Canister はハードウェアが生成する暗号鍵に依存し、ハードウェアデバイスのみを識別します。</p>
 </div>
 <div class="paragraph">
-<p>To support multiple devices per user, IC-Vault employs a device manager, a canister that securely synchronizes device-specific keys across all the devices that are associated with a user. The remainder of this document focuses on the Encrypted Notes canister that implements a device manager in a similar way but as part of its main canister.</p>
+<p>ユーザーごとに複数のデバイスをサポートするために、IC-Vault はデバイスマネージャーとユーザーに結びついたすべてのデバイス間でデバイス固有の鍵を安全に同期させる Canister を採用しています。このドキュメントの残りの部分では、メイン Canister の一部として同様の方法でデバイスマネージャーを実装している Encrypted Notes Canister に焦点を当てます。</p>
 </div>
 <div class="paragraph">
-<p>For further details and user stories, please refer to the <a href="https://github.com/dfinity/examples/blob/master/motoko/encrypted-notes-dapp/README.md">README file</a>.</p>
+<p>詳細やユーザーストーリーは <a href="https://github.com/dfinity/examples/blob/master/motoko/encrypted-notes-dapp/README.md"> README ファイル</a> を参照して下さい。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/encrypted-notes-arch.png" alt="High-level architecture overview diagram of the Encrypted Notes dapp"></span></p>
@@ -1207,64 +1207,61 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_note_management"><a class="anchor" href="#_note_management"></a>Note management</h2>
+<h2 id="_ノートマネージメント"><a class="anchor" href="#_ノートマネージメント"></a>ノートマネージメント</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Users are linked to II in the frontend, getting the user a principal that can be used for calling API queries and updates.</p>
+<p>ユーザーはフロントエンドで II にリンクされ、APIクエリやアップデートを呼び出すために使用できる Principal を取得します。</p>
 </li>
 <li>
-<p>Internally, we store the map of the form <code>Principal → [Notes]</code>
-and a <code>counter</code>.</p>
+<p>内部的には、<code>Principal → [Notes]</code> という形式のマップと、<code>counter</code> を格納しています。</p>
 </li>
 <li>
-<p><code>counter</code> stores the number of notes the canister has created (across all principals).</p>
+<p><code>counter</code> には、Canister が作成した（すべての Principal にわたる）ノートの数が格納されます。</p>
 </li>
 <li>
-<p>Method <code>create</code> adds a note to its principal’s entry (if it exists),
-or adds the principal to the map with the <code>note_id == counter</code>,
-and then increments <code>counter</code>.</p>
+<p><code>create</code> メソッドは、Principal のエントリがすでに存在する場合にはそのエントリに、そうでなければ Principal を新たにマップに追加し、<code>note_id == counter</code> であるノートを追加した後に、<code>counter</code> をインクリメントします。</p>
 </li>
 <li>
-<p>Method <code>update</code> pulls a note, for the caller’s Principal and for the provided <code>note_id</code> and replaces it with the provided <code>text</code> (this <code>text</code> is assumed to be encrypted by the frontend).</p>
+<p><code>update</code> メソッドは、呼び出し元の Principal と指定された <code>note_id</code> に対応するノートを取り出し、与えられた <code>text</code> で置き換えます （この <code>text</code> はフロントエンドによって暗号化されていると仮定します）。</p>
 </li>
 <li>
-<p>Method <code>delete</code> finds the note with the given <code>note_id</code> in the map and removes it. To ensure that note IDs are always globally unique, we do not decrease <code>counter</code>.</p>
+<p><code>delete</code>  メソッドは、指定された <code>note_id</code> を持つノートをマップから探し出し削除します。ノート ID が常にグローバルに一意であることを保証するために、 <code>counter</code> を減少させないようにします。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cryptography"><a class="anchor" href="#_cryptography"></a>Cryptography</h2>
+<h2 id="_暗号化"><a class="anchor" href="#_暗号化"></a>暗号化</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Encryption of notes is entirely client-side. However, our example dapp is still not protected against potentially data-revealing attacks by a possibly malicious node provider. For example, the attacker can infer how many notes a particular user has, user activity statistics, etc. Therefore, please carefully read the <a href="https://github.com/dfinity/examples/blob/master/motoko/encrypted-notes-dapp/README.md#disclaimer-please-read-carefully">disclaimer</a> before using any of the code or patterns from this dapp.</p>
+<p>ノートの暗号化は完全にクライアントサイドで行われます。しかし、このサンプルアプリは、悪意のあるノードプロバイダによるデータ漏洩攻撃の可能性からはまだ保護されていません。例えば、攻撃者は特定のユーザーが何冊のノートを持っているかや、ユーザーの活動統計などを推論することができます。したがって、このアプリのコードやパターンを使用する前に、<a href="https://github.com/dfinity/examples/blob/master/motoko/encrypted-notes-dapp/README.md#disclaimer-please-read-carefully">免責条項</a>をよく読んでください。</p>
 </li>
 <li>
-<p>Recall that, in our definition, a device is not necessarily a separate physical device but simply a web browser instance with an independent local storage.</p>
+<p>このアプリの定義では、デバイスは必ずしも独立した物理デバイスではなく、単に独立したローカルストレージを持つ web ブラウザのインスタンスであることを思い出してください。</p>
 </li>
 <li>
-<p>The dapp uses three different kinds of keys:</p>
+<p>Dapp は３種類の違う鍵を利用します。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Symmetric AES-GCM <em>secret key</em>: used to encrypt the notes of a given principal. The notes of a principal are stored in the Encrypted Notes canister encrypted with this secret key. Thus the frontend of the dapp needs to know this secret key to decrypt notes from this user and to send encrypted notes to be stored in the Encrypted Notes canister.</p>
+<p>対称型 AES-GCM  <em>秘密鍵</em> ： 指定された Principal のノートを暗号化するために使用されます。Principal のノートはこの秘密鍵で暗号化されて Encrypted notes Canister に保存されます。したがって、アプリのフロントエンドはこのユーザーのノートを復号したり、 Encrypted Notes Canister に暗号化したノートを格納するためにこの秘密鍵を知っている必要があります。</p>
 </li>
 <li>
-<p>Device RSA-OAEP <em>public key</em>: used to encrypt the symmetric AES <em>secret key</em> of the principal. The encrypted secret key is stored in the canister for each device registered to the principal. The same key is used for different principals using that device.</p>
+<p>デバイス RSA-OAEP <em>公開鍵</em> ： Principal の対称型 AES <em>秘密鍵</em> を暗号化するために使用されます。暗号化された秘密鍵は  Principal に登録されたデバイスそれぞれに対して Canister に格納されます。そのデバイスを使用する Principal が異なると同じ鍵が使用されます。</p>
 </li>
 <li>
-<p>Device RSA-OAEP <em>private key</em>: used to decrypt the symmetric AES <em>secret key</em> stored in the Encrypted Notes canister for a given principal. Once the frontend  decrypts the secret key, it can use this key for decrypting the notes stored in the Encrypted Notes canister.</p>
+<p>デバイス RSA-OAEP <em>秘密鍵</em> ：Encrypted notes Canister に格納されている、指定された Principal の対称型 AES <em>秘密鍵</em> を復号するために使用されます。フロントエンドが秘密鍵を復号すると、 Encrypted Notes Canister に保存されているノートを復号するためにこの鍵を使用することができます。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>We store a map of the form:</p>
+<p>フォームのマップを保存します。</p>
 <div class="literalblock">
 <div class="content">
 <pre>Principal → (DeviceAlias → PublicKey,
@@ -1273,33 +1270,33 @@ and then increments <code>counter</code>.</p>
 </div>
 </li>
 <li>
-<p>This map is used for managing user devices, as explained next.</p>
+<p>このマップは次に説明するように、ユーザーデバイスを管理するために使用されます。</p>
 </li>
 <li>
-<p>To register a device, the frontend generates a device alias, a public key, and a private key (held in its local storage).</p>
+<p>デバイスを登録するために、フロントエンドはデバイス・エイリアス、公開鍵、秘密鍵（ローカルストレージに保持）を生成します。</p>
 </li>
 <li>
-<p>Adding a device:</p>
+<p>デバイスを追加すると、以下が行われます。</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Device registration:</strong> If this identity is already known, a new device will remain unsynced at first; at this time, only the <code>alias</code> and <code>publickey</code> of this device will be added to the Encrypted Notes canister.</p>
+<p><strong>デバイスの登録：</strong> この ID がすでに登録されていると、このデバイスの <code>alias</code> と <code>publickey</code> だけが Encrypted Notes Canister に追加されます。</p>
 </li>
 <li>
-<p><strong>Device synchronization:</strong> Once an unsynced device obtains the list of all unsynced devices for this II, it will encrypt the symmetric AES <em>secret key</em> under each unsynced device&#8217;s public key. Afterwards, the unsynced device obtains the encrypted symmetric AES <em>secret key</em>, decrypts it, and then uses it to decrypt the existing notes stored in the Encrypted Notes canister.</p>
+<p><strong>デバイスの同期：</strong> 同期していないデバイスがこの II のすべての同期していないデバイスのリストを取得すると、同期していないデバイスのそれぞれの公開鍵で対称型 AES <em>秘密鍵</em> を暗号化します。その後、同期していないデバイスは暗号化された対称型 AES <em>秘密鍵</em> を取得して復号し、それを使って Encrypted Notes Canister に保存されている既存のノートを復号します。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Once authenticated with II:</p>
+<p>一度 II で認証すると、以下が行われます。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If this identity is not known, then the frontend generates a symmetric AES <em>secret key</em> and encrypts it with its own public key. Then the frontend calls <code>seed(publickey, ciphertext)</code>, adding that ciphertext and its associated <code>publickey</code> to the map.</p>
+<p>この ID が未登録の場合、フロントエンドは対称型 AES <em>秘密鍵</em> を生成し、それを自身の公開鍵で暗号化します。そして <code>seed(publickey, ciphertext)</code> を呼び出し、その暗号文とそれに関連する <code>publickey</code> をマップに追加します。</p>
 </li>
 <li>
-<p>If a user wants to register a subsequent device, the frontend calls <code>register_device</code>, passing in the <code>alias</code> and <code>publickey</code> of that device. The frontend then calls <code>submit_ciphertexts([publickey, ciphertext])</code> for all the devices it needs to register. This allows the registered devices to pull and decrypt the AES key to encrypt and decrypt the user notes.</p>
+<p>ユーザーが後続のデバイスを登録したい場合、フロントエンドは <code>register_device</code> を呼び出して、そのデバイスの <code>alias</code> と <code>publickey</code> を渡します。次に、フロントエンドは登録する必要があるすべてのデバイスに対して <code>submit_ciphertexts([publickey, ciphertext])</code> を呼び出します。これにより、登録されたデバイスはユーザーノートを暗号・復号化するための AES 鍵を復号し引き出すことができるようになります。</p>
 </li>
 </ul>
 </div>
@@ -1309,10 +1306,10 @@ and then increments <code>counter</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sequence_diagrams"><a class="anchor" href="#_sequence_diagrams"></a>Sequence Diagrams</h2>
+<h2 id="_シーケンスダイヤグラム"><a class="anchor" href="#_シーケンスダイヤグラム"></a>シーケンスダイヤグラム</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_adding_new_device"><a class="anchor" href="#_adding_new_device"></a>Adding New Device</h3>
+<h3 id="_新しいデバイスの追加"><a class="anchor" href="#_新しいデバイスの追加"></a>新しいデバイスの追加</h3>
 <div class="paragraph">
 <p><span class="image"><img src="_images/encrypted-notes-seq.png" alt="UML sequence diagram showing device registration and synchronization"></span></p>
 </div>

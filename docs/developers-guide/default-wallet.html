@@ -1829,11 +1829,11 @@ This method creates a new "empty" canister placeholder with an initial cycle bal
 After you have registered the canister principal, you can install code for your canister as a separate step.</p>
 </div>
 <div class="paragraph">
-<p>For example, you can run a command similar to the following to create a new wallet and assign a principal as a controller:</p>
+<p>For example, you can run a command similar to the following to create a new canister and assign a principal as a controller:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>dfx canister --network  call f3yw6-7qaaa-aaaab-qaabq-cai wallet_create_canister '(record { cycles = 5000000000000 : nat64; controller = principal "vpqee-nujda-46rtu-4noo7-qnxmb-zqs7g-5gvqf-4gy7t-vuprx-u2urx-gqe"})'</pre>
+<pre>dfx canister --network=ic call f3yw6-7qaaa-aaaab-qaabq-cai wallet_create_canister '(record{cycles = 5000000000000 : nat64; settings = record{controller = principal "vpqee-nujda-46rtu-4noo7-qnxmb-zqs7g-5gvqf-4gy7t-vuprx-u2urx-gqe"}})'</pre>
 </div>
 </div>
 <div class="paragraph">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>NFT Minting :: Dfinity 日本語ドキュメント</title>
+    <title>NFT ミント（ NFT Minting ） :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/samples/nft.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1158,129 +1158,125 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">NFT Minting</h1>
+<h1 class="page">NFT ミント（ NFT Minting ）</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This example demonstrates implementing an NFT canister. NFTs (non-fungible tokens) are unique tokens with arbitrary
-metadata - usually an image of some kind - to form the digital equivalent of trading cards. There are a few different
-NFT standards for the Internet Computer, but the most cycles-efficient and feature-complete one is the <a href="https://github.com/Psychedelic/DIP721">DIP-721</a> standard, so
-that is the standard that this canister uses.</p>
+<p>このサンプルでは NFT Canister の実装を説明します。NFT（ non-fungible tokens ）は、任意のメタデータ（通常は何らかの画像）を持つ一意のトークンで、トレーディングカードに相当するデジタルデータを形成するものです。いくつかの異なる Internet Computer のNFT規格はいくつかありますが、最も Cycle 効率がよく機能が充実しているのが <a href="https://github.com/Psychedelic/DIP721">DIP-721</a> 規格なので、この Canister はこの規格を採用しています。</p>
 </div>
 <div class="paragraph">
-<p>The canister is a basic implementation of the standard, with support for the minting, burning, and notification interface extensions.</p>
+<p>Canister はミント、バーンおよび通知の拡張インタフェースをサポートした規格の基本的な実装です。</p>
 </div>
 <div class="paragraph">
-<p>The sample code is available in the <a href="https://github.com/dfinity/examples">samples repository</a> in <a href="https://github.com/dfinity/examples/tree/master/rust/dip721-nft-container">Rust</a> and Motoko is coming soon!
-A running instance of the Rust canister for demonstration purposes is available as <a href="https://t5l7c-7yaaa-aaaab-qaehq-cai.ic0.app">t5l7c-7yaaa-aaaab-qaehq-cai</a>.
-The interface is meant to be programmatic, but the Rust version additionally contains HTTP functionality so you can view a metadata file at <code>&lt;canister URL&gt;/&lt;NFT ID&gt;/&lt;file ID&gt;</code>.
-It contains six NFTs, so you can look at items from <code>&lt;canister URL&gt;/0/0</code> to <code>&lt;canister URL&gt;/5/0</code>.</p>
+<p>サンプルコードは <a href="https://github.com/dfinity/examples/tree/master/rust/dip721-nft-container">Rust</a> の <a href="https://github.com/dfinity/examples">サンプルリポジトリ</a>で公開されており、Motoko は近日公開予定です。
+デモ用の Rust Canister の実行インスタンスは <a href="https://t5l7c-7yaaa-aaaab-qaehq-cai.ic0.app">t5l7c-7yaaa-aaaab-qaehq-cai</a> で公開されています。
+このインターフェースはプログラムによるものですが、Rust 版には HTTP 機能が追加されており、<code>&lt;canister URL&gt;/&lt;NFT ID&gt;/&lt;file ID&gt;</code> のメタデータファイルを閲覧することが可能です。
+6つの NFT が含まれていて、 <code>&lt;canister URL&gt;/0/0</code> から <code>&lt;canister URL&gt;/5/0</code> までのアイテムを見ることができます。</p>
 </div>
 <div class="paragraph">
-<p>Command-line length limitations would prevent you from minting an NFT with a large file, like an image or video, via <code>dfx</code>. To that end,
-there is a <a href="https://github.com/dfinity/experimental-minting-tool">command-line minting tool</a> provided for minting simple NFTs.</p>
+<p>コマンドラインの長さの制限で画像やビデオのような大きなファイルを <code>dfx</code> 経由で NFT をミントすることができません。そのため
+<a href="https://github.com/dfinity/experimental-minting-tool"> minting tool （コマンドライン）</a> が用意されており、簡単なNFTをミントすることができます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ideas"><a class="anchor" href="#_ideas"></a>Ideas</h2>
+<h2 id="_アイディア"><a class="anchor" href="#_アイディア"></a>アイディア</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The NFT canister is not very complicated since the <a href="https://github.com/Psychedelic/DIP721">DIP-721</a> standard specifies mostly <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> operations,
-but we can still use it to explain three important concepts concerning dapp development for the Internet Computer:</p>
+<p>NFT Canister は <a href="https://github.com/Psychedelic/DIP721">DIP-721</a> 規格が主に <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> 操作を指定しているので、それほど複雑なものではありません。
+しかし Internet Computer の Dapp 開発に関する3つの重要なコンセプトを説明するには十分利用可能です。</p>
 </div>
 <div class="sect2">
-<h3 id="_stable_memory_for_canister_upgrades"><a class="anchor" href="#_stable_memory_for_canister_upgrades"></a>Stable Memory for Canister Upgrades</h3>
+<h3 id="_canister_アップグレードのためのステーブルメモリ_stable_memory"><a class="anchor" href="#_canister_アップグレードのためのステーブルメモリ_stable_memory"></a>Canister アップグレードのためのステーブルメモリ（ Stable Memory ）</h3>
 <div class="paragraph">
-<p>The Internet Computer employs <a href="https://smartcontracts.org/docs/language-guide/motoko.html#_orthogonal_persistence">Orthogonal Persistence</a>, so developers generally do not need to think a lot about storing their data.
-When upgrading canister code, however, it is necessary to explicitly handle canister data. The NFT canister example shows how stable memory can be handled using <code>pre_upgrade</code> and <code>post_upgrade</code>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_certified_data"><a class="anchor" href="#_certified_data"></a>Certified Data</h3>
-<div class="paragraph">
-<p>Generally, when a function only reads data (instead of modifying the state of the canister), it is
-beneficial to use a <a href="https://smartcontracts.org/docs/developers-guide/concepts/canisters-code.html#query-update">query call instead of an update call</a>.
-But, since query calls do not go through consensus, <a href="https://smartcontracts.org/docs/security-best-practices/general-security-best-practices.html#_certify_query_responses_if_they_are_relevant_for_security">certified responses</a>
-should be used wherever possible. The HTTP interface of the Rust implementation shows how certified data can be handled.</p>
+<p>Internet Computer は <a href="https://smartcontracts.org/docs/language-guide/motoko.html#_orthogonal_persistence">直交永続性（ Orthogonal Persistence ）</a> を採用しているため、開発者は通常、データの保存について深く考える必要はありません。
+しかし、Canister コードをアップグレードする場合、Canister データを明示的に処理する必要があります。NFT Canister のサンプルでは、 <code>pre_upgrade</code> と <code>post_upgrade</code> を使ってステーブルメモリをどのように処理するかを示しています。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_delegating_control_over_assets"><a class="anchor" href="#_delegating_control_over_assets"></a>Delegating Control over Assets</h3>
+<h3 id="_認証データ_certified_data"><a class="anchor" href="#_認証データ_certified_data"></a>認証データ（ Certified Data ）</h3>
 <div class="paragraph">
-<p>For a multitude of reasons, users may want to give control over their assets to other identities, or even delete (burn) an item.
-The NFT canister example contains all those cases and shows how it can be done.</p>
+<p>一般的に、関数が（ Canister のステートを変更するのではなく）データを読み取るだけの場合は、
+<a href="https://smartcontracts.org/docs/developers-guide/concepts/canisters-code.html#query-update">update call の代わりに query call</a> を使用するのが便利です。
+しかし、クエリコールはコンセンサスを経ないため、 <a href="https://smartcontracts.org/docs/security-best-practices/general-security-best-practices.html#_certify_query_responses_if_they_are_relevant_for_security">認証済みレスポンス</a> を可能な限り使用する必要があります。Rust 実装の HTTP インターフェースは認証済みデータをどのように処理できるかを示しています。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_アセットに対するコントロールの委任"><a class="anchor" href="#_アセットに対するコントロールの委任"></a>アセットに対するコントロールの委任</h3>
+<div class="paragraph">
+<p>さまざまな理由から、ユーザーは自分の資産の管理を他の ID に委ねたり、アイテムを削除（バーン）したい場合があります。
+NFT Canister のサンプルはこれらのケースをすべて含んでどのように実行できるかを示しています。</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_approach"><a class="anchor" href="#_approach"></a>Approach</h2>
+<h2 id="_アプローチ"><a class="anchor" href="#_アプローチ"></a>アプローチ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Since the basic functions required in <a href="https://github.com/Psychedelic/DIP721">DIP-721</a> are very straightforward to implement, this section only discusses how the above ideas are handled/implemented.</p>
+<p><a href="https://github.com/Psychedelic/DIP721">DIP-721</a> で必要とされる基本的な機能は非常に簡単に実装できるため、ここでは上記の考え方をどのように処理・実装するかについてのみ説明します。</p>
 </div>
 <div class="sect2">
-<h3 id="_stable_storage_for_canister_upgrades"><a class="anchor" href="#_stable_storage_for_canister_upgrades"></a>Stable Storage for Canister Upgrades</h3>
+<h3 id="_canister_アップグレードのためのステーブルストレージ"><a class="anchor" href="#_canister_アップグレードのためのステーブルストレージ"></a>Canister アップグレードのためのステーブルストレージ</h3>
 <div class="paragraph">
-<p>During canister code upgrades, memory is not persisted between different canister calls. Only memory in stable memory is carried over.
-Because of that it is necessary to write all data to stable memory before the upgrade happens, which is usually done in the <code>pre_upgrade</code> function.
-This function is called by the system before the upgrade happens. After the upgrade, it is normal to load data from stable memory into memory
-during the <code>post_upgrade</code> function. The <code>post_upgrade</code> function is called by the system after the upgrade happened.
-In case an error occurs during any part of the upgrade (including <code>post_upgrade</code>), the entire upgrade is reverted.</p>
+<p>Canister コードのアップグレード中、異なる Canister 呼び出し間でメモリは保持されません。ステーブルメモリ内のメモリのみが引き継がれます。
+そのため、アップグレードが行われる前にすべてのデータをステーブルメモリに書き込む必要があり、これは通常 <code>pre_upgrade</code> 関数で実行されます。
+この関数はアップグレードが行われる前にシステムから呼び出されます。アップグレード後は通常、ステーブルメモリからメモリにデータをロードします。
+<code>post_upgrade</code> 関数はアップグレード後にシステムから呼び出されます。
+アップグレードの途中でエラーが発生した場合、アップグレード（ <code>post_upgdrade</code> を含む）はすべて元に戻されます。</p>
 </div>
 <div class="paragraph">
-<p>The Rust CDK (Canister Development Kit) currently only supports one value in stable memory, so it is necessary to create an object that can hold everything you care about.
-In addition, not every data type can be stored in stable memory; only ones that implement the <a href="https://docs.rs/candid/latest/candid/types/trait.CandidType.html">CandidType trait</a>
-(usually via the <a href="https://docs.rs/candid/latest/candid/derive.CandidType.html">CandidType derive macro</a>) can be written to stable memory.</p>
+<p>Rust CDK（ Canister Development Kit ）は現在、ステーブルメモリに1つの値しかサポートしていないので、気になるものをすべて保持できるオブジェクトを作成する必要があります。
+さらに、すべてのデータ型をステーブルメモリに格納できるわけではありません。 <a href="https://docs.rs/candid/latest/candid/types/trait.CandidType.html">CandidType trait</a> を実装したものだけがステーブルメモリに格納できます。
+（通常は <a href="https://docs.rs/candid/latest/candid/derive.CandidType.html">CandidType derive macro</a> を介して）ステーブルメモリに書き込むことができます。</p>
 </div>
 <div class="paragraph">
-<p>Since the state of our canister includes an <code>RbTree</code> which does not implement the <code>CandidType</code>, it has to be converted into a data structure (in this case a <code>Vec</code>) that implements <code>CandidType</code>.
-Luckily, both <code>RbTree</code> and <code>Vec</code> implement functions that allow converting to/from iterators, so the conversion can be done quite easily.
-After conversion, a separate <code>StableState</code> object is used to store data during the upgrade.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_certified_data_2"><a class="anchor" href="#_certified_data_2"></a>Certified Data</h3>
-<div class="paragraph">
-<p>To serve assets via http over <code>&lt;canister-id&gt;.ic0.app</code> instead of <code>&lt;canister-id&gt;.raw.ic0.app</code>, responses have to
-<a href="https://wiki.internetcomputer.org/wiki/HTTP_asset_certification">contain a certificate</a> to validate their content.
-Obtaining such a certificate cannot happen during a query call since it has to go through consensus, so it has to be created during an update call.</p>
-</div>
-<div class="paragraph">
-<p>A certificate is very limited in its content. At the time of writing, canisters can submit no more than 32 bytes of data to be certified.
-To make the most out of that small amount of data, a <code>HashTree</code> (the <code>RbTree</code> from the previous section is also a <code>HashTree</code>) is used.
-A <code>HashTree</code> is a tree-shaped data structure where the whole tree can be summarized (hashed) into one small hash of 32 bytes.
-Whenever some content of the tree changes, the hash also changes. If the hash of such a tree is certified, it means that the content of the tree can be considered certified.
-To see how data is certified in the NFT example canister, look at the function <code>add_hash</code> in <code>http.rs</code>.</p>
-</div>
-<div class="paragraph">
-<p>For the response to be verified, it has to be checked that a) the served content is part of the tree, and b) the tree containing that content actually can be hashed to the certified hash.
-The function <code>witness</code> is responsible for creating a tree with minimal content that still can be verified to fulfill a) and b).
-Once this minimal tree is constructed, certificate and minimal hash tree are sent as part of the <code>IC-Certificate</code> header.</p>
-</div>
-<div class="paragraph">
-<p>For a much more detailed explanation how certification works, see <a href="https://dfinity.org/howitworks/response-certification">this explanation video</a>.</p>
+<p>この Canister のステートには <code>CandidType</code> を実装していない <code>RbTree</code> が含まれているので、これを <code>CandidType</code> を実装したデータ構造（この場合は <code>Vec</code> ）に変換する必要があります。
+幸いなことに、 <code>RbTree</code> と <code>Vec</code> の両方がイテレータとの変換を可能にする関数を実装しているので、変換は非常に簡単に行うことができます。
+変換後はアップグレード中のデータを保存するために、別の <code>StableState</code> オブジェクトが使用されます。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_managing_control_over_assets"><a class="anchor" href="#_managing_control_over_assets"></a>Managing Control over Assets</h3>
+<h3 id="_認証データ_certified_data_2"><a class="anchor" href="#_認証データ_certified_data_2"></a>認証データ（ Certified Data ）</h3>
 <div class="paragraph">
-<p><a href="https://github.com/Psychedelic/DIP721">DIP-721</a> specifies multiple levels of control over the NFTs:
-- Owner: This person owns an NFT. They can transfer the NFT, add/remove operators, or burn the NFT.
-- Operator: Sort of a delegated owner. The operator does not own the NFT, but can do the same actions an owner can do.
-- Custodian: Creator of the NFT collection/canister. They can do anything (transfer, add/remove operators, burn, and even un-burn) to NFTs, but also mint new ones or change the symbol or description of the collection.</p>
+<p><code>&lt;canister-id&gt;.raw.ic0.app</code> の代わりに <code>&lt;canister-id&gt;.ic0.app</code> を介して http でアセットを提供するには、レスポンスに以下のものが必要です。
+<a href="https://wiki.internetcomputer.org/wiki/HTTP_asset_certification">証明書を含む</a> レスポンスのコンテンツを検証する必要があります。
+このような証明書の取得はコンセンサスを得なければならないため、クエリコール中に行うことはできず、アップデートコールで作成する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>The NFT example canister keeps access control in these three levels very simple: For every level of control, a separate list (or set) of principals is kept.
-Those three levels are then manually checked every single time someone attempts to do something for which they require authorisation.
-If a user is not authorised to call a certain function an error is returned.</p>
+<p>証明書のコンテンツは非常に限定されています。この文章を書いている時点では、Canister は32バイト以上のデータを送信して証明書を発行することができません。
+その少ないデータを最大限に活用するために、<code>HashTree</code> が使われています（前のセクションで出てきた <code>RbTree</code> も <code>HashTree</code> です）。
+<code>HashTree</code> はツリー状のデータ構造で、ツリー全体を32バイトの小さなハッシュにまとめることができます（ハッシュ化される）。
+ツリーの内容が変更されるたびにハッシュも変更されます。このようなツリーのハッシュが認証されていれば、ツリーの内容は認証されていると考えてもよいです。
+NFT のサンプル Canister でデータがどのように認証されるかを見るには、 <code>http.rs</code> の関数 <code>add_hash</code> を見てください。</p>
 </div>
 <div class="paragraph">
-<p>Burning an NFT is a special case. To burn an NFT means to either delete the NFT (not intended in DIP-721) or to set ownership to <code>null</code> (or a similar value).
-On the Internet Computer, this non-existing principal is called the <a href="https://smartcontracts.org/docs/interface-spec/index.html#ic-management-canister">Management Canister</a>.
-Quote from the link: "The IC management canister is just a facade; it does not actually exist as a canister (with isolated state, Wasm code, etc.)." and its address is <code>aaaaa-aa</code>.
-Using this management canister address, we can construct its principal and set the management canister as the owner of a burned NFT.</p>
+<p>レスポンスが検証されるためには、a) 送られたコンテンツがツリーの一部であること、b) そのコンテンツを含むツリーが実際に認証済みハッシュにハッシュ化できること、を確認しないといけません。
+関数 <code>witness</code> は、a) と b) を満たすように検証可能な最小限のコンテンツを含むツリーを作成する責任を負います。
+この最小限のツリーが構築されると、証明書と最小限のハッシュツリーが <code>IC-Certificate</code> ヘッダーの一部として送信されます。</p>
+</div>
+<div class="paragraph">
+<p>認証の仕組みについては、 <a href="https://dfinity.org/howitworks/response-certification">こちらの解説動画</a> をご覧ください。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_アセットに対するコントロール管理"><a class="anchor" href="#_アセットに対するコントロール管理"></a>アセットに対するコントロール管理</h3>
+<div class="paragraph">
+<p><a href="https://github.com/Psychedelic/DIP721">DIP-721</a> では、NFTに対する複数の管理レベルを規定しています。
+- 所有者：この人物はNFTを所有しています。NFTの譲渡、オペレータの追加・削除、NFTのバーンが可能です。
+- オペレータ：委任された所有者に近いです。オペレーターは NFT を所有しませんが、所有者と同じ操作を行うことができます。
+- カストディアン：NFT コレクション・ Canister の作成者です。NFTの譲渡、オペレーターの追加・削除、バーン、バーン解除が可能です。また、新しい NFT をミントしたりコレクションのシンボルや説明を変更することもできます。</p>
+</div>
+<div class="paragraph">
+<p>NFT の Canister のサンプルではこれら3つのレベルのアクセス制御を非常にシンプルに保っています。制御レベルごとに、Principal の個別のリスト（またはセット）が保持されます。
+制御レベルごとに Principal のリスト（またはセット）が作成され、誰かが認証を必要とする操作を行うたびに、この3つのレベルが手動でチェックされます。
+もしユーザーがある関数を呼び出す権限がない場合は、エラーが返されます。</p>
+</div>
+<div class="paragraph">
+<p>NFT のバーンは特殊なケースです。NFTをバーンということは NFT を削除するか（ DIP-721 では意図していない）、所有権を <code>null</code>（または類似の値）に設定することを意味します。
+Internet Computer ではこの存在しない Principal は <a href="https://smartcontracts.org/docs/interface-spec/index.html#ic-management-canister">Management Canister</a> と呼ばれています。
+以下はリンク先からの引用です。「 IC Management Canister は単なる見せかけであり、実際には（独立したステートやWasm コードなどの持つ） Canister として存在しません。」（引用終わり）アドレスは <code>aaaa-aa</code> になります。
+この Management Canister のアドレスを使って Principal を構築し、Management Canister をバーンした NFT のオーナーとして設定することが可能です。</p>
 </div>
 </div>
 </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>2. Create a Dapp Project (1 min) :: Dfinity 日本語ドキュメント</title>
+    <title>2. Dapp プロジェクト作成（作業時間：約１分） :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/quickstart/2-quickstart.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1158,25 +1158,25 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">2. Create a Dapp Project (1 min)</h1>
+<h1 class="page">2. Dapp プロジェクト作成（作業時間：約１分）</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The SDK comes with a starter default project that has a backend in Motoko and frontend code in HTML, CSS, and JS. Developers can use this default project to start their own dapps. In this tutorial, we will build and deploy this bundled project, so there is no need to download any other dapp code.</p>
+<p>SDKには Motoko でバックエンドを、HTML 、CSS 、JS でフロントエンドを構成したスターター・デフォルトプロジェクトが付属しています。開発者はこのデフォルトプロジェクトを使用して、独自の Dapp を開始することができます。このチュートリアルではこの付属のプロジェクトをビルドしてデプロイしますので、他の Dapp コードをダウンロードする必要はありません。</p>
 </div>
 <div class="paragraph">
-<p>The <code>dfx new hello</code> command uses the template code to create a new project directory named <code>hello</code>, template files, and a new <code>hello</code> Git repository for your project. You can create many projects with many names.</p>
+<p><code>dfx new hello</code> コマンドはテンプレートコードを使用して、新しいプロジェクトディレクトリ <code>hello</code> とテンプレートファイル、そしてプロジェクトのための新しい <code>hello</code> Git リポジトリを作成します。異なる名前で異なるプロジェクトを作成することができます。</p>
 </div>
 <div class="paragraph">
-<p>This is roughly analogus in Web2 to Rail&#8217;s <code>rails new</code>, React.js&#8217;s <code>create-react-app</code>, or Rust&#8217;s <code>cargo new</code>.</p>
+<p>これは Web2 における Rail の <code>rails new</code> 、React.js の <code>create-react-app</code> 、Rust の <code>cargo new</code> とほぼ同じようなものです。</p>
 </div>
 <div class="paragraph">
-<p>To create a new project for your first application:</p>
+<p>最初のアプリケーションのための新しいプロジェクトを作成するには以下の手順で行います。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2_1_open_a_terminal_and_create_a_new_project_named_hello"><a class="anchor" href="#_2_1_open_a_terminal_and_create_a_new_project_named_hello"></a>2.1 Open a Terminal and Create a new project named "hello"</h2>
+<h2 id="_2_1_ターミナルを開きhello_という名前で新しいプロジェクトを作成します"><a class="anchor" href="#_2_1_ターミナルを開きhello_という名前で新しいプロジェクトを作成します"></a>2.1 ターミナルを開き、"hello “ という名前で新しいプロジェクトを作成します。</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1186,7 +1186,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2_2_move_to_your_project_directory"><a class="anchor" href="#_2_2_move_to_your_project_directory"></a>2.2 Move to your project directory</h2>
+<h2 id="_2_2_プロジェクトディレクトリに移動します"><a class="anchor" href="#_2_2_プロジェクトディレクトリに移動します"></a>2.2 プロジェクトディレクトリに移動します。</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1194,7 +1194,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Your directory should look like this:</p>
+<p>ディレクトリは以下のようになっているはずです。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/quickstart/cd-hello.png" alt="cd new"></span></p>
@@ -1202,18 +1202,18 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2_3_understanding_your_dapp_project"><a class="anchor" href="#_2_3_understanding_your_dapp_project"></a>2.3 Understanding your dapp project</h2>
+<h2 id="_2_3_dapp_プロジェクトを理解する"><a class="anchor" href="#_2_3_dapp_プロジェクトを理解する"></a>2.3 Dapp プロジェクトを理解する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Your <code>Hello</code> dapp project is composed of two canisters</p>
+<p><code>Hello</code> Dapp プロジェクトは2つの Canister で構成されています。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>hello</code> canister which contains the template backend logic</p>
+<p><code>hello</code> Canister はテンプレートとしてバックエンドロジックが格納されています。</p>
 </li>
 <li>
-<p><code>hello_assets</code> canister which contains the dapp assets (images, html files, etc)</p>
+<p><code>hello_assets</code> Canister は Dapp のアセット（画像、html ファイルなど）が格納されています。</p>
 </li>
 </ul>
 </div>
@@ -1221,18 +1221,18 @@
 <p><span class="image"><img src="_images/quickstart/2-canisters-hello-dapp.png" alt="hello Dapp"></span></p>
 </div>
 <div class="paragraph">
-<p>You may wonder "why two canisters?" These canisters are created for you to help you organize your project. You could have your assets and backend logic in one canister, but IC developers have found that it is useful to create two canisters (one for backend and one for frontend).</p>
+<p>なぜ Canister が2つあるのか、と思われるかもしれません。これらの Canister はあなたのプロジェクトを整理する助けになるように作成されたものです。アセットとバックエンドロジックを1つの Canister に入れることもできますが、IC の開発者は2つの Canister （バックエンド用とフロントエンド用）を作成するほうが便利だと考えています。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conclusion"><a class="anchor" href="#_conclusion"></a>Conclusion</h2>
+<h2 id="_結論"><a class="anchor" href="#_結論"></a>結論</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You now have the default project created ready to be deployed locally.</p>
+<p>これでローカルにデプロイできるデフォルトのプロジェクトが作成されました。</p>
 </div>
 <div class="paragraph">
-<p>Continue with the main tutorial: <a href="quickstart-intro.html">quickstart intro</a>.</p>
+<p>本題のチュートリアルに進みます。 <a href="quickstart-intro.html">quickstart イントロダクション</a> をご覧ください。</p>
 </div>
 </div>
 </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>3. Deploying the Hello Dapp on Local Machine (3 min) :: Dfinity 日本語ドキュメント</title>
+    <title>3. Hello Dappのローカルマシンへのデプロイ（作業時間：約３分） :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/quickstart/3-quickstart.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1158,39 +1158,39 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">3. Deploying the Hello Dapp on Local Machine (3 min)</h1>
+<h1 class="page">3. Hello Dappのローカルマシンへのデプロイ（作業時間：約３分）</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now that your <code>hello</code> project is created, the next step is to deploy it locally. To deploy locally, <code>dfx</code> can start a local instance of the execution environment. This environment is not a full IC replica, nor does it download any of the state of an IC replica. It is a lightweight environment designed exlcusively for deploying dapps.</p>
+<p><code>hello</code> プロジェクトが作成されましたので、次のステップはこれをローカル環境にデプロイします。ローカル環境にデプロイするために、 <code>dfx</code> は実行環境のローカルインスタンスを開始することができます。この環境は完全な IC レプリカではなく、IC レプリカのステートをダウンロードするものでもありません。Dapp をデプロイするために特別に設計された軽量な環境です。</p>
 </div>
 <div class="paragraph">
-<p>For this, developers should keep two terminals open:</p>
+<p>このために開発者は２つのターミナルを開く必要があります。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Terminal window/tab A:</strong></p>
+<p><strong>ターミナルウィンドウ  タブ A ：</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Shows the local instance of the execution environment running</p>
+<p>実行環境のローカルインスタンスを表示します。</p>
 </li>
 <li>
-<p>Is analogous to how developers often start local servers in web2 projects (e.g. Node.js&#8217;s Express, Python&#8217;s Django, Ruby&#8217;s Rails, etc&#8230;&#8203;)</p>
+<p>Web2 プロジェクトで開発者がローカルサーバを起動するのに似ています（例：Node.js の Express、Python の Django、Ruby の Rails など）。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Terminal window/tab B:</strong></p>
+<p><strong>ターミナルウィンドウ  タブ B ：</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Used to send <strong>messages</strong> to the local instance of the execution environment</p>
+<p>実行環境のローカルインスタンスに <strong>メッセージ</strong> を送信するために使用されます。</p>
 </li>
 <li>
-<p>Is analogous to how developers send HTTP API messages to servers running locally (e.g. Postman, Panic).</p>
+<p>開発者がローカルで動作しているサーバーに HTTP API メッセージを送る方法に似ています（例： Postman、Panic ）。</p>
 </li>
 </ul>
 </div>
@@ -1198,30 +1198,30 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>For ease, this tutorial will distinguish between both windows by color scheme:</p>
+<p>このチュートリアルではわかりやすくするために、両ウィンドウを配色で区別して説明します。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_terminal_a"><a class="anchor" href="#_terminal_a"></a>Terminal A</h3>
+<h3 id="_ターミナル_a"><a class="anchor" href="#_ターミナル_a"></a>ターミナル A</h3>
 <div class="paragraph">
 <p><span class="image"><img src="_images/quickstart/dfx-new-hello-2.png" alt="dfx new"></span></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_terminal_b"><a class="anchor" href="#_terminal_b"></a>Terminal B</h3>
+<h3 id="_ターミナル_b"><a class="anchor" href="#_ターミナル_b"></a>ターミナル B</h3>
 <div class="paragraph">
 <p><span class="image"><img src="_images/quickstart/terminal-b-ls.png" alt="terminal b ls"></span></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_3_1_start_the_local_instance_of_the_execution_environment_terminal_a"><a class="anchor" href="#_3_1_start_the_local_instance_of_the_execution_environment_terminal_a"></a>3.1 Start the Local Instance of the Execution Environment (Terminal A)</h2>
+<h2 id="_3_1_実行環境のローカルインスタンスを起動するターミナル_a"><a class="anchor" href="#_3_1_実行環境のローカルインスタンスを起動するターミナル_a"></a>3.1 実行環境のローカルインスタンスを起動する（ターミナル A ）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Navigate to the root directory for your project, if necessary. In this tutorial, you should be in the folder <code>hello</code> because that is the name of the project created in section 2 above.</p>
+<p>必要であればプロジェクトのルートディレクトリに移動してください。このチュートリアルでは <code>hello</code> フォルダにいるはずです。これは上記のセクション 2 で作成したプロジェクトの名前だからです。</p>
 </div>
 <div class="paragraph">
-<p>Start the local canister execution environment in Terminal A:</p>
+<p>ターミナル A でローカル Canister の実行環境を起動します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1232,36 +1232,36 @@
 <p><span class="image"><img src="_images/quickstart/terminal-a-dfx-start.png" alt="dfx start"></span></p>
 </div>
 <div class="paragraph">
-<p>Notes:</p>
+<p>Note:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Depending on your platform and local security settings, you might see a warning displayed. If you are prompted to allow or deny incoming network connections, click "Allow."</p>
+<p>ご使用のプラットフォームやローカルのセキュリティ設定により、警告が表示される場合があります。受信ネットワーク接続の許可または拒否を求めるプロンプトが表示された場合、"許可 "をクリックします。</p>
 </li>
 <li>
-<p>Check no other network process is running that would create a port conflict on 8000.</p>
+<p>8000 番ポートを使っている他のネットワークプロセスがなく、コンフリクトが発生しないことを確認してください。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Congratulations - there is now a local Instance of the execution environmentof the IC running on your machine. Leave this window/tab open and running while you continue.</strong> If the window/tab is closed, the local instance of the execution environment of the IC will not be running and the rest of the tutorial will fail.</p>
+<p><strong>おめでとうございます。 これであなたのマシン上でICの実行環境のローカルインスタンスが動作します。このウィンドゥ タブを開いたままにしておいてください。</strong> ウィンドウタブを閉じると、IC の実行環境のローカルインスタンスが実行されなくなり、このチュートリアルの続きができなくなります。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_3_2_deploy_the_hello_dapp_to_the_locally_terminal_b"><a class="anchor" href="#_3_2_deploy_the_hello_dapp_to_the_locally_terminal_b"></a>3.2 Deploy the "hello" Dapp to the Locally (Terminal B)</h2>
+<h2 id="_3_2_hello_dapp_をローカルにデプロイするターミナル_b"><a class="anchor" href="#_3_2_hello_dapp_をローカルにデプロイするターミナル_b"></a>3.2 “hello" Dapp をローカルにデプロイする（ターミナル B ）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Note: since this is a local deployment, this section has fewer steps than deploying to mainnet (which requires <a href="developers-guide/concepts/tokens-cycles">cycles</a>).</p>
+<p>Note: これはローカルへのデプロイなのでこのセクションはメインネットへのデプロイ（ <a href="developers-guide/concepts/tokens-cycles">Cycle</a> が必要）よりもステップが少なくなっています。</p>
 </div>
 <div class="paragraph">
-<p>To deploy your first dapp locally:</p>
+<p>最初の Dapp をローカルにデプロイするには以下の手順です：</p>
 </div>
 <div class="sect2">
-<h3 id="_3_2_1_check_that_you_are_still_in_the_root_directory_for_your_project_if_needed"><a class="anchor" href="#_3_2_1_check_that_you_are_still_in_the_root_directory_for_your_project_if_needed"></a>3.2.1 Check that you are still in the root directory for your project, if needed.</h3>
+<h3 id="_3_2_1_必要に応じてまだプロジェクトのルートディレクトリにいることを確認する"><a class="anchor" href="#_3_2_1_必要に応じてまだプロジェクトのルートディレクトリにいることを確認する"></a>3.2.1 必要に応じてまだプロジェクトのルートディレクトリにいることを確認する。</h3>
 <div class="paragraph">
-<p>Ensure that node modules are available in your project directory, if needed, by running the following command (it does not hurt to run this many times):</p>
+<p>必要に応じて以下のコマンドを実行して、プロジェクトディレクトリに Node モジュールがあることを確認します（何度実行しても問題ありません）。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1273,7 +1273,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_2_2_register_build_and_deploy_dapp"><a class="anchor" href="#_3_2_2_register_build_and_deploy_dapp"></a>3.2.2 Register, build and deploy dapp:</h3>
+<h3 id="_3_2_2_dapp_の登録ビルドデプロイをする"><a class="anchor" href="#_3_2_2_dapp_の登録ビルドデプロイをする"></a>3.2.2 Dapp の登録、ビルド、デプロイをする：</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx deploy</code></pre>
@@ -1283,7 +1283,7 @@
 <p><span class="image"><img src="_images/quickstart/terminal-b-dfx-deploy.png" alt="dfx deploy"></span></p>
 </div>
 <div class="paragraph">
-<p>Your dapp is now composed of two canisters as you can see in the copy below (from terminal B):</p>
+<p>以下のコピーでわかるように、あなたの Dapp は2つの Canister で構成されています（ターミナル B から）：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1294,10 +1294,10 @@ Installing code for canister hello_assets, with canister_id ryjl3-tyaaa-aaaaa-aa
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><code>hello</code> canister <code>rrkah-fqaaa-aaaaa-aaaaq-cai</code> which contains the backend logic.</p>
+<p><code>hello</code> Canister ：バックエンドロジックを含む <code>rrkah-fqaaa-aaaaq-cai</code></p>
 </li>
 <li>
-<p><code>hello_assets</code> canister <code>yjl3-tyaaa-aaaaa-aaaba-cai</code> which contains the frontend assets (e.g. HTML, JS, CSS).</p>
+<p><code>hello_assets</code> Canister ：フロントエンドのアセット（例： HTML、JS、CSS ）が格納されている <code>yjl3-tyaaa-aaaaaba-cai</code></p>
 </li>
 </ol>
 </div>
@@ -1305,10 +1305,10 @@ Installing code for canister hello_assets, with canister_id ryjl3-tyaaa-aaaaa-aa
 </div>
 </div>
 <div class="sect1">
-<h2 id="_3_3_testing_the_dapp_locally_via_the_command_line_terminal_b"><a class="anchor" href="#_3_3_testing_the_dapp_locally_via_the_command_line_terminal_b"></a>3.3 Testing the Dapp Locally via the Command Line (Terminal B)</h2>
+<h2 id="_3_3_コマンドラインでローカルの_dapp_をテストするターミナル_b"><a class="anchor" href="#_3_3_コマンドラインでローカルの_dapp_をテストするターミナル_b"></a>3.3 コマンドラインでローカルの Dapp をテストする（ターミナル B ）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now that the canister is deployed to local replica, you can send it a message. Since the canister has a method called <code>greet</code> (which accepts a string as a parameter), we will send it a message.</p>
+<p>Canister がローカル・レプリカにデプロイされたので、メッセージを送信することができます。Canister にはパラメータとして文字列を受け取る <code>greet</code> というメソッドがあるのでメッセージを送信してみましょう。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1318,29 +1318,29 @@ Installing code for canister hello_assets, with canister_id ryjl3-tyaaa-aaaaa-aa
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>dfx canister call</code> command requires you to specify a canister name and a method—or function—to call.</p>
+<p><code>dfx canister call</code> コマンドでは Canister 名と呼び出すメソッド （または関数）を指定する必要があります。</p>
 </li>
 <li>
-<p><code>hello</code> specifies the name of the <strong>canister</strong> you want to call.</p>
+<p><code>hello</code> は呼び出したい <strong>Canister</strong> の名前です。</p>
 </li>
 <li>
-<p><code>greet</code> specifies the name of the <strong>function</strong> you want to call in the <code>hello</code> canister.</p>
+<p><code>greet</code> は <code>hello</code> Canister の中で呼び出したい <strong>function</strong> の名前です。</p>
 </li>
 <li>
-<p><code>everyone</code> is the text data type argument that you want to pass to the <code>greet</code> function.</p>
+<p><code>everyone</code> は <code>greet</code> 関数に渡したいテキストデータ型の引数です。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_3_4_testing_the_dapp_locally_via_the_browser"><a class="anchor" href="#_3_4_testing_the_dapp_locally_via_the_browser"></a>3.4 Testing the Dapp Locally via the Browser</h2>
+<h2 id="_3_4_ブラウザでローカルの_dappをテストする"><a class="anchor" href="#_3_4_ブラウザでローカルの_dappをテストする"></a>3.4 ブラウザでローカルの Dappをテストする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now that you have verified that your dapp has been deployed and tested its operation using the command line, let&#8217;s verify that you can access the front-end using your web browser.</p>
+<p>Dapp がデプロイされコマンドラインで動作確認ができたところで、Web ブラウザを使ってフロントエンドにアクセスできることを確認しましょう。</p>
 </div>
 <div class="sect2">
-<h3 id="_3_4_1_on_terminal_b_start_the_development_server_with"><a class="anchor" href="#_3_4_1_on_terminal_b_start_the_development_server_with"></a>3.4.1 On terminal B, start the development server with:</h3>
+<h3 id="_3_4_1_ターミナル_b_で開発用サーバを起動する"><a class="anchor" href="#_3_4_1_ターミナル_b_で開発用サーバを起動する"></a>3.4.1 ターミナル B で開発用サーバを起動する：</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">npm start</code></pre>
@@ -1348,9 +1348,9 @@ Installing code for canister hello_assets, with canister_id ryjl3-tyaaa-aaaaa-aa
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_4_2_test_the_dapp_locally_in_the_browser"><a class="anchor" href="#_3_4_2_test_the_dapp_locally_in_the_browser"></a>3.4.2  Test the dapp locally in the browser</h3>
+<h3 id="_3_4_2_ブラウザでローカルの_dappをテストする"><a class="anchor" href="#_3_4_2_ブラウザでローカルの_dappをテストする"></a>3.4.2 ブラウザでローカルの Dappをテストする。</h3>
 <div class="paragraph">
-<p>To see your dapp running locally in the browser on http://localhost:8080.</p>
+<p>ローカルで動作している Dapp をブラウザの http://localhost:8080 で確認します。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/front-end-prompt.png" alt="Sample HTML page"></span></p>
@@ -1359,8 +1359,11 @@ Installing code for canister hello_assets, with canister_id ryjl3-tyaaa-aaaaa-aa
 <ol class="arabic">
 <li>
 <p>Input a name, then click <strong>Click Me</strong> to return a greeting.</p>
+</li>
+<li>
+<p>名前を入力し、<strong>Click Me</strong> をクリックすると greet の値を返します。</p>
 <div class="paragraph">
-<p>For example:</p>
+<p>例：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/front-end-result.png" alt="Hello" width="everyone! greeting"></span></p>
@@ -1372,24 +1375,24 @@ Installing code for canister hello_assets, with canister_id ryjl3-tyaaa-aaaaa-aa
 </div>
 </div>
 <div class="sect1">
-<h2 id="_3_5_stop_the_local_canister_execution_environment"><a class="anchor" href="#_3_5_stop_the_local_canister_execution_environment"></a>3.5 Stop the local canister execution environment</h2>
+<h2 id="_3_5_ローカル_canister_の実行環境を停止する"><a class="anchor" href="#_3_5_ローカル_canister_の実行環境を停止する"></a>3.5 ローカル Canister の実行環境を停止する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After testing the application in the browser, you can stop the local canister execution environment so that it does not continue running in the background. We will not need it running to deploy on-chain.</p>
+<p>ブラウザでアプリケーションをテストした後、ローカル Canister の実行環境を停止して、バックグラウンドで実行し続けないようにします。オンチェーンでのデプロイにはこの実行環境は必要ありません。</p>
 </div>
 <div class="paragraph">
-<p>To stop the local deployment:</p>
+<p>ローカルのデプロイを停止するには以下の手順です：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In the terminal A, press Control-C to interrupt the local network process.</p>
+<p>ターミナル A で Control-C を押して、ローカルネットワークの処理を中断します。</p>
 </li>
 <li>
-<p>In the terminal B, press Control-C to interrupt the development server process.</p>
+<p>ターミナル B で Control-C を押して、開発サーバーのプロセスを中断します。</p>
 </li>
 <li>
-<p>Stop the local canister execution environment running on your local computer:</p>
+<p>ローカルコンピュータ上で動作しているローカル Canister 実行環境を停止します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx stop</code></pre>
@@ -1401,36 +1404,34 @@ Installing code for canister hello_assets, with canister_id ryjl3-tyaaa-aaaaa-aa
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conclusion"><a class="anchor" href="#_conclusion"></a>Conclusion</h2>
+<h2 id="_結論"><a class="anchor" href="#_結論"></a>結論</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You have now tested the dapp by deploing it locally. You are ready to acquire cycles to deploy on-chain.</p>
+<p>ローカルにデプロイしたアプリをテストしました。オンチェーンにデプロイするための Cycle を取得する準備ができました。</p>
 </div>
 <div class="paragraph">
-<p>Continue with the main tutorial: <a href="quickstart-intro.html">quickstart intro</a>.</p>
+<p>本題のチュートリアルに進みます。 <a href="quickstart-intro.html">quickstart イントロダクション</a> をご覧ください。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_troubleshooting"><a class="anchor" href="#_troubleshooting"></a>Troubleshooting</h2>
+<h2 id="_トラブルシューティング"><a class="anchor" href="#_トラブルシューティング"></a>トラブルシューティング</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_node_js_is_not_properly_installed"><a class="anchor" href="#_node_js_is_not_properly_installed"></a>Node.js is not properly installed</h3>
+<h3 id="_node_js_が正しくインストールされていない"><a class="anchor" href="#_node_js_が正しくインストールされていない"></a>Node.js が正しくインストールされていない</h3>
 <div class="paragraph">
-<p>If your dapp does not show in the browser, it is possible that Node.js is not installed. Confirm it is installed by running:</p>
+<p>ブラウザでアプリが表示されない場合、Node.js がインストールされていない可能性があります。インストールされていることを確認してください。</p>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_prior_installations_of_dfx"><a class="anchor" href="#_prior_installations_of_dfx"></a>Prior installations of dfx</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_dfxを過去にインストールした場合"><a class="anchor" href="#_dfxを過去にインストールした場合"></a>dfxを過去にインストールした場合</h3>
 <div class="paragraph">
-<p>If you have previously created IC dapps before February 2022, you may need to do a clean install. You can delete SDK and associated profiles and re-install it. Follow the instructions here: <a href="../developers-guide/install-upgrade-remove.html">Install, upgrade, or remove software</a>.</p>
+<p>2022年2月以前に IC Dapps を作成したことがある場合、クリーンインストールが必要な場合があります。SDK と関連するプロファイルを削除して再インストールしてください。<a href="../developers-guide/install-upgrade-remove.html">インストール、アップグレード、ソフトウェア削除</a> にある手順で行ってください。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">node --version</code></pre>
+</div>
 </div>
 </div>
 </div>

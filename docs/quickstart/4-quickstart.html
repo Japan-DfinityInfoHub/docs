@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>4. Acquiring Cycles to Deploy On-chain (5 min) :: Dfinity 日本語ドキュメント</title>
+    <title>4. オンチェーンデプロイのための Cycle 取得（作業時間：約5分） :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/quickstart/4-quickstart.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -135,27 +135,27 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="1-quickstart.html">1. Installing Tools</a>
+    <a class="nav-link" href="1-quickstart.html">1. ツールのインストール</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="2-quickstart.html">2. Create a Project</a>
+    <a class="nav-link" href="2-quickstart.html">2. プロジェクトの作成</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="3-quickstart.html">3. Deploy Locally</a>
+    <a class="nav-link" href="3-quickstart.html">3. ローカル環境へデプロイ</a>
     
   </li>
   <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="4-quickstart.html">4. Acquire Cycles</a>
+    <a class="nav-link" href="4-quickstart.html">4. Cycle の取得</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cycles-faucet.html">Claim Your Free Cycles</a>
+    <a class="nav-link" href="cycles-faucet.html">Cycle のフォーセット（無料）</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="5-quickstart.html">5. Deploy On-chain</a>
+    <a class="nav-link" href="5-quickstart.html">5. オンチェーンデプロイ</a>
     
   </li>
 </ul>
@@ -1151,71 +1151,71 @@
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
     <li><a href="quickstart-intro.html">クイックスタート</a></li>
-    <li><a href="4-quickstart.html">4. Acquire Cycles</a></li>
+    <li><a href="4-quickstart.html">4. Cycle の取得</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Japan-DfinityInfoHub/docs/edit/main/modules/quickstart/pages/4-quickstart.adoc"><svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg></a></div>
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">4. Acquiring Cycles to Deploy On-chain (5 min)</h1>
+<h1 class="page">4. オンチェーンデプロイのための Cycle 取得（作業時間：約5分）</h1>
 <div class="sect1">
-<h2 id="_4_1_cycles_an_introduction"><a class="anchor" href="#_4_1_cycles_an_introduction"></a>4.1 Cycles: an Introduction</h2>
+<h2 id="_4_1_cycle_の紹介"><a class="anchor" href="#_4_1_cycle_の紹介"></a>4.1 Cycle の紹介</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order to run on-chain, IC dapps require cycles to pay for compute and storage. This means that the developer needs to acquire cycles and fill their canister with them. Cycles are created from ICP tokens.</p>
+<p>IC Dapp がオンチェーンで動作するためには演算とストレージの代金として Cycle が必要です。開発者は Cycle を獲得し、Canister に充填する必要があります。Cycle は ICP トークンから生成されます。</p>
 </div>
 <div class="paragraph">
-<p>This flow may be surprising to people familiar with Web2 software where they can add a credit card to a hosting provider, deploy their apps, and get charged later. In Web3, blockchains require their smart contracts consume <strong>something</strong> (whether it is Ethereum&#8217;s gas or the IC&#8217;s cycles). The next steps will likely be familiar to those in crypto or blockchain, but new entrants may be confused as to why first step of deploying a dapp is often "go get tokens."</p>
+<p>このフローは、ホスティングプロバイダーにクレジットカードを追加してアプリをデプロイし、後で課金される Web2 ソフトウェアに慣れている人々には驚くべきことかもしれません。Web3 ではブロックチェーンはスマートコントラクトが （ Ethereum のガスであれ、IC の Cycle であれ） <strong>なにか</strong> を消費することを要求されます。このステップは暗号やブロックチェーンの関係者にはおなじみのものでしょうが、 Dapp デプロイの最初のステップでなぜ "トークンを取りに行く "なのか、新規参入者が混乱するところかもしれません。</p>
 </div>
 <div class="paragraph">
-<p>You may wonder why dapps do not just run on ICP tokens. Why create a new construct of cycles? The reason is that the cost of ICP tokens fluctuate wildly with the crypto market, but cycles are predictable and relatively stable tokens which are pegged to <a href="https://en.wikipedia.org/wiki/Special_drawing_rights">SDR</a>. One trillion cycles will always cost one SDR, regardless of the price of ICP.</p>
+<p>ICP トークンのみでなぜ Dapp を走らせないのでしょうか。Cycle という新しい構造をなぜ作るのでしょうか。ICP トークンのコストは暗号市場によって大きく変動しますが、Cycle は <a href="https://en.wikipedia.org/wiki/Special_drawing_rights">SDR</a> にペッグされる予測可能で比較的安定したトークンです。1兆 Cycle は ICP の価格に関係なく常に1 SDR のコストがかかります。</p>
 </div>
 <div class="paragraph">
-<p>Practical notes about cycles:</p>
+<p>Cycle に関する実用的な注意点：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>There is a free <a href="cycles-faucet.html">free cycles faucet</a> that grants new developers 15 trillion cycles</p>
+<p>新規開発者は無料の15兆 Cycleを <a href="cycles-faucet.html">Cycle のフォーセット（無料）</a> で貰えます。</p>
 </li>
 <li>
-<p>It takes 100 billion cycles to deploy a canister, but in order to load up the canister with sufficient cycles, <code>dfx</code> injects 3 trillion cycles for any canister created (this is a parameter that can be changed).</p>
+<p>Canister を配置するには1000億 Cycle が必要ですが、十分な Cycle で Canister をロードするために <code>dfx</code> はどの Canister を作成しても3兆 Cycle を注入します（変更可能なパラメータです）。</p>
 </li>
 <li>
-<p>You can see a table of compute and storage costs here: <a href="../developers-guide/computation-and-storage-costs.html">Computation and storage costs</a>.</p>
+<p>演算コストとストレージコストの一覧表は <a href="../developers-guide/computation-and-storage-costs.html">コンピューティング・ストレージコスト</a> でご覧になれます。</p>
 </li>
 <li>
-<p>You can learn more about acquiring and managing ICP in <a href="https://wiki.internetcomputer.org/wiki/Managing_ICP_holdings">Acquiring and managing ICP tokens</a>.</p>
+<p>ICP の取得と管理については <a href="https://wiki.internetcomputer.org/wiki/Managing_ICP_holdings">Acquiring and managing ICP tokens</a> で詳しく説明されています。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In this tutorial, we present two ways of acquiring cycles:</p>
+<p>このチュートリアルでは Cycle を取得する2つの方法を紹介します：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Option 1:</strong> Section <strong>4.3</strong> shows one how to get cycles via the cycles faucet (most common for new developers)</p>
+<p><strong>オプション1：</strong> セクション <strong>4.3</strong> では Cycle のフォーセットから Cycle を取得する方法を紹介しています（新規開発者に最も一般的な方法です）。</p>
 </li>
 <li>
-<p><strong>Option 2:</strong> Section <strong>4.4</strong> shows one how to get cycles via ICP token (most common for developers who want more cycles)</p>
+<p><strong>オプション2：</strong> セクション <strong>4.4</strong> では ICP トークンを使って Cycle を取得する方法を紹介しています（より多くの Cycle を求める開発者に最も一般的です）。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>By the end of this section, you will now have three canisters:</p>
+<p>このセクションが終わるころには Canister は3つになっていることでしょう：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>hello</code> canister (not yet deployed to the IC)</p>
+<p><code>hello</code> Canister（まだ IC にデプロイされていない）</p>
 </li>
 <li>
-<p><code>hello_assets</code> canister in your project (not yet deployed to the IC)</p>
+<p>プロジェクトの <code>hello_assets</code> Canister（まだ IC にデプロイされていない）</p>
 </li>
 <li>
-<p>Your cycles wallet canister that holds your cycles (deployed on the IC)</p>
+<p>Cycle wallet Canister（ IC にデプロイされている）</p>
 </li>
 </ul>
 </div>
@@ -1225,13 +1225,13 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_4_2_check_the_connection_to_the_internet_computer_blockchain_terminal_b"><a class="anchor" href="#_4_2_check_the_connection_to_the_internet_computer_blockchain_terminal_b"></a>4.2 Check the Connection to the Internet Computer Blockchain (Terminal B)</h2>
+<h2 id="_4_2_internet_computer_ブロックチェーンへの接続を確認するターミナル_b"><a class="anchor" href="#_4_2_internet_computer_ブロックチェーンへの接続を確認するターミナル_b"></a>4.2 Internet Computer ブロックチェーンへの接続を確認する（ターミナル B）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As a sanity check, it is good practice to check if your connection to the IC is stable:</p>
+<p>サニティーチェックとして IC への接続が安定しているかどうかを確認することは優れた実践方法です：</p>
 </div>
 <div class="paragraph">
-<p>Verify the current status of the Internet Computer blockchain and your ability to connect to it:</p>
+<p>Internet Computer のブロックチェーンの今の状態と接続状態を確認します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1239,7 +1239,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>If successful you will see an output resembling the following:</p>
+<p>成功すると次のような出力が表示されます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1251,18 +1251,18 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_4_3_option_1_acquiring_cycles_via_the_free_cycles_faucet_2_min"><a class="anchor" href="#_4_3_option_1_acquiring_cycles_via_the_free_cycles_faucet_2_min"></a>4.3 Option 1: Acquiring Cycles via the Free Cycles Faucet (2 min)</h2>
+<h2 id="_4_3_オプション1cycle_フォーセット無料による_cycle_の取得_作業時間約2分"><a class="anchor" href="#_4_3_オプション1cycle_フォーセット無料による_cycle_の取得_作業時間約2分"></a>4.3 オプション1：Cycle フォーセット（無料）による Cycle の取得 （作業時間：約2分）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This is option is best for people who want minimal time investment and have never used cycles faucet (faucet can be used only once).</p>
+<p>このオプションは最小限の時間しか投資したくない人と Cycle フォーセットを使ったことがない人に最適です（フォーセットの利用は1度のみ）。</p>
 </div>
 <div class="paragraph">
-<p>For the purposes of this tutorial, you can acquire free cycles for your <code>Hello</code> dapp from the cycles faucet. Follow the instructions here: <a href="cycles-faucet.html">Claim your free cycles</a>.</p>
+<p>このチュートリアルでは Cycle フォーセットから <code>Hello</code> Dapp 用の無料の Cycle を取得することができます。 <a href="cycles-faucet.html">Cycle のフォーセット（無料）</a> の説明に従ってください。</p>
 </div>
 <div class="sect2">
-<h3 id="_4_3_1_check_your_cycles_balance_terminal_b"><a class="anchor" href="#_4_3_1_check_your_cycles_balance_terminal_b"></a>4.3.1 Check your cycles balance (Terminal B)</h3>
+<h3 id="_4_3_1_cycle_残高の確認をするターミナル_b"><a class="anchor" href="#_4_3_1_cycle_残高の確認をするターミナル_b"></a>4.3.1 Cycle 残高の確認をする（ターミナル B ）</h3>
 <div class="paragraph">
-<p>Now that you have used the cycles faucet, you can check your cycles balance:</p>
+<p>Cycle フォーセットを使用した後は Cycle 残高を確認しておきましょう：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1270,33 +1270,33 @@
 </div>
 </div>
 <div class="paragraph">
-<p>You should see around 15 trillion cycles if you run this after using the cycles wallet. If so, skip to section <strong>5. Deploying on-chain</strong>.</p>
+<p>Cycle ウォレットを使用した後にこれを実行すると約15兆 Cycle が表示されるはずです。その場合はセクション <strong>5 オンチェーンデプロイ</strong> にスキップしてください。</p>
 </div>
 <div class="paragraph">
-<p>If you do not see any cycles, deploying on-chain in the rest of the tutorial will not work. You should try <strong>4.4 Option 2: Converting ICP token into cycles</strong>.</p>
+<p>Cycle が表示されない場合、チュートリアルの残りの部分、オンチェーンデプロイを実行してもうまくいきません。<strong>4.4 オプション2：ICP トークンを Cycle に変換する</strong> を試す必要があります。</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_4_4_option_2_converting_icp_token_into_cycles_5_min"><a class="anchor" href="#_4_4_option_2_converting_icp_token_into_cycles_5_min"></a>4.4 Option 2: Converting ICP Token into Cycles (5 min)</h2>
+<h2 id="_4_4_オプション2icp_トークンを_cycle_に変換する作業時間約5分"><a class="anchor" href="#_4_4_オプション2icp_トークンを_cycle_に変換する作業時間約5分"></a>4.4 オプション2：ICP トークンを Cycle に変換する（作業時間：約5分）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This is option is best for people who have already exhausted the cycles wallet or who want to set up their environment to add more cycles in the future.</p>
+<p>このオプションはすでに Cycle ウォレットを使い切った方や将来的に Cycle を追加するために環境を整えたい方に最適です。</p>
 </div>
 <div class="paragraph">
-<p><a href="4-2-convert-ICP-to-cycles.html">Convert ICP into cycles</a>.</p>
+<p><a href="4-2-convert-ICP-to-cycles.html">ICP トークンを Cycle に変換</a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conclusion"><a class="anchor" href="#_conclusion"></a>Conclusion</h2>
+<h2 id="_結論"><a class="anchor" href="#_結論"></a>結論</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You have now acquired cycles and stored them in your cycles wallet. You are ready to deploy the dapp on-chain.</p>
+<p>これで Cycle を取得し Cycle ウォレットに保存しました。これで Dapp をオンチェーンにデプロイする準備が整いました。</p>
 </div>
 <div class="paragraph">
-<p>Continue with the main tutorial: <a href="quickstart-intro.html">quickstart intro</a>.</p>
+<p>本題のチュートリアルに進みます。 <a href="quickstart-intro.html">quickstart イントロダクション</a> をご覧ください。</p>
 </div>
 </div>
 </div>

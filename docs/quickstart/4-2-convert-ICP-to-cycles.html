@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>4.4 Converting ICP Tokens into Cycles (5 min) :: Dfinity 日本語ドキュメント</title>
+    <title>4.4 ICP トークンを Cycle に変換する（作業時間：約５分） :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/quickstart/4-2-convert-ICP-to-cycles.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1150,47 +1150,47 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="4-2-convert-ICP-to-cycles.html">4.4 Converting ICP Tokens into Cycles (5 min)</a></li>
+    <li><a href="4-2-convert-ICP-to-cycles.html">4.4 ICP トークンを Cycle に変換する（作業時間：約５分）</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Japan-DfinityInfoHub/docs/edit/main/modules/quickstart/pages/4-2-convert-ICP-to-cycles.adoc"><svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg></a></div>
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">4.4 Converting ICP Tokens into Cycles (5 min)</h1>
+<h1 class="page">4.4 ICP トークンを Cycle に変換する（作業時間：約５分）</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This is option is best for people who have already exhausted the <a href="developers-guide/default-wallet">cycles wallet</a> or who want to set up their environment to add more <a href="developers-guide/concepts/tokens-cycles">cycles</a> in the future.</p>
+<p>このオプションはすでに <a href="developers-guide/default-wallet">Cycle ウォレット</a>  を使い果たしてしまった人や、将来的に <a href="developers-guide/concepts/tokens-cycles">Cycle</a> を追加するために環境をセットアップしたい人に最適なものです。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_basic_summary_of_this_section"><a class="anchor" href="#_basic_summary_of_this_section"></a>Basic Summary of this Section</h2>
+<h2 id="_このセクションの基本的なサマリー"><a class="anchor" href="#_このセクションの基本的なサマリー"></a>このセクションの基本的なサマリー</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To create cycles from ICP, the basic steps:</p>
+<p>ICP から Cycle を作成するための基本的な手順：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Transfer tokens to the Ledger account controlled by <code>dfx</code></p>
+<p>トークンを <code>dfx</code> が管理する Ledger アカウントに転送する。</p>
 </li>
 <li>
-<p>Tell IC Ledger convert your ICP tokens into cycles</p>
+<p>IC Ledger に ICP トークンを Cycle に変換するよう指示する。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_4_4_1_transfer_tokens_to_the_ledger_account_controlled_by_dfx_terminal_b"><a class="anchor" href="#_4_4_1_transfer_tokens_to_the_ledger_account_controlled_by_dfx_terminal_b"></a>4.4.1 Transfer Tokens to the Ledger Account Controlled by <code>dfx</code> (Terminal B)</h2>
+<h2 id="_4_4_1_トークンを_dfx_が管理する_ledger_アカウントに転送するターミナル_b"><a class="anchor" href="#_4_4_1_トークンを_dfx_が管理する_ledger_アカウントに転送するターミナル_b"></a>4.4.1 トークンを <code>dfx</code> が管理する Ledger アカウントに転送する（ターミナル B ）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When you first installed <code>dfx</code>, it created and saved locally "developer identity" which contains ledger <code>account id</code>.This is where ICP tokens controlled by <code>dfx</code> are stored.</p>
+<p>最初に <code>dfx</code> をインストールすると、Ledger の <code>account id</code> を含む "developer identity" が作成されローカルに保存されます。このアカウントには <code>dfx</code> が管理する ICP トークンが保存されます。</p>
 </div>
 <div class="paragraph">
-<p><strong>1. Find your Ledger <code>account id</code></strong></p>
+<p><strong>1. Ledger <code>account id</code> を見つけるには</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1198,7 +1198,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Example output</p>
+<p>アウトプットの例</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1206,16 +1206,16 @@
 </div>
 </div>
 <div class="paragraph">
-<p><strong>2. Transfer tokens to your Ledger <code>account id</code></strong></p>
+<p><strong>2. トークンを Ledger の <code>account id</code> に転送する</strong></p>
 </div>
 <div class="paragraph">
-<p>You can acquire ICP tokens in <a href="https://wiki.internetcomputer.org/wiki/Managing_ICP_holdings">multiple exchanges</a>.</p>
+<p>ICP トークンは <a href="https://wiki.internetcomputer.org/wiki/Managing_ICP_holdings">複数の取引所</a> で取得することができます。</p>
 </div>
 <div class="paragraph">
-<p>You can transfer from any exchange, wallet, or <a href="https://wiki.internetcomputer.org/wiki/ICP_custody_with_NNS_frontend_dapp">NNS Frontend dapp</a> by sending ICP tokens to the <code>account id</code> from Step #1 above. For the sake of this tutorial, we recommend sending it 2 ICP tokens.</p>
+<p>どの取引所、ウォレット、または <a href="https://wiki.internetcomputer.org/wiki/ICP_custody_with_NNS_frontend_dapp">NNS Frontend Dapp</a> からも上記のステップ #1 の <code>account id</code> に ICP トークンを送ることで送金できます。このチュートリアルのために 2ICP を送ることをお勧めします。</p>
 </div>
 <div class="paragraph">
-<p><strong>3. Confirm there is ICP in the account</strong></p>
+<p><strong>3. アカウントに ICP があることを確認する</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1223,15 +1223,15 @@
 </div>
 </div>
 <div class="paragraph">
-<p>If there is no ICP in the account, the rest of the tutorial will not work.</p>
+<p>アカウントに ICP が存在しない場合、残りのチュートリアルは動作しません。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_4_4_2_tell_ledger_convert_your_tokens_into_cycles_terminal_b"><a class="anchor" href="#_4_4_2_tell_ledger_convert_your_tokens_into_cycles_terminal_b"></a>4.4.2 Tell Ledger convert your tokens into cycles (Terminal B)</h2>
+<h2 id="_4_4_2_ledger_にトークンを_cycle_に変換するよう指示するターミナル_b"><a class="anchor" href="#_4_4_2_ledger_にトークンを_cycle_に変換するよう指示するターミナル_b"></a>4.4.2 Ledger にトークンを Cycle に変換するよう指示する（ターミナル B ）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now that your <code>account id</code> has ICP tokens, we need to tell the Ledger Canister to convert it into cycles for us.</p>
+<p><code>account id</code> に ICP トークンがあることが確認できたら、Ledger Canister に Cycle に変換するように指示する必要があります。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1239,7 +1239,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>If the transaction is successful, the ledger records the event and you should see output similar to the following:</p>
+<p>トランザクションが成功した場合、台帳にはそのイベントが記録され以下のような出力が表示されます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1248,22 +1248,22 @@ Canister created with id: "gastn-uqaaa-aaaae-aaafq-cai"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Save this canister id as you will need it below.</strong></p>
+<p><strong>この Canister id は後で必要になりますので保存してください。</strong></p>
 </div>
 <div class="paragraph">
-<p>The canister <code>gastn-uqaaa-aaaae-aaafq-cai</code> above <strong>is NOT the <code>Hello</code> dapp we are creating in this tutorial.</strong> This is a canister created for you and for only one purpose: <strong>hold your cycles and transfer them to your dapps.</strong></p>
+<p>上記の Canister <code>gastn-uqaaa-aaaae-aaafq-cai</code> は <strong>このチュートリアルで作成する <code>Hello</code> Dapp ではありません。</strong> これはたった一つの目的のために作られたあなたのための Canister です。その目的は <strong>Cycle を保持し Dapp に転送</strong> することです。</p>
 </div>
 <div class="paragraph">
-<p>The reason for this new canister is simple: by design, cycles can only be contained within canisters. Since this new "cycle-holding canister" has no other purpose and it referred to as the "cycles wallet".</p>
+<p>この新しい Canister を作成する理由は簡単で、設計上 Cycle は Canister の中にしか格納することができないからです。この 「Cycle を保管する Canister」 は他の用途がないため、「Cycle ウォレット」と呼ばれています。</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="_images/quickstart/1-cycles-wallet.png" alt="Cycles wallet"></span></p>
+<p><span class="image"><img src="_images/quickstart/1-cycles-wallet.png" alt="Cycle wallet"></span></p>
 </div>
 <div class="paragraph">
-<p>The canister created above (while it does hold cycles) is a generic canister and does not have all the features required from a <strong>"cycles wallet"</strong>, so we will use <code>dfx</code> to update it with the code containing all the cycles wallet features:</p>
+<p>上記で作成した Canister は（そのままでも Cycle を保持しますが）一般的な Canister で、「 <strong>Cycle ウォレット</strong>」 に必要なすべての機能があるわけではありません。そこで <code>dfx</code> を使ってすべての Cycle ウォレットの機能を保持できるようにコードを更新します。</p>
 </div>
 <div class="paragraph">
-<p>In our example, $CYCLES_WALLET_CANISTER_ID is <code>gastn-uqaaa-aaaae-aaafq-cai</code> so we use the following structure:</p>
+<p>この例では、$CYCLES_WALLET_CANISTER_ID は <code>gastn-uqaaa-aaaae-aaafq-cai</code> なので以下の構造を使用することにします：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1272,7 +1272,7 @@ dfx identity --network ic deploy-wallet $CYCLES_WALLET_CANISTER_ID</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In our example, the command would be:</p>
+<p>この例では、コマンドは以下のようにします：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1281,7 +1281,7 @@ dfx identity --network ic deploy-wallet gastn-uqaaa-aaaae-aaafq-cai</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If the transaction is successful, the ledger records the event and you should see output similar to the following:</p>
+<p>トランザクションが成功した場合、台帳にはそのイベントが記録され以下のような出力が表示されます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1292,23 +1292,23 @@ The wallet canister on the "ic" network for user "default" is "gastn-uqaaa-aaaae
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conclusion"><a class="anchor" href="#_conclusion"></a>Conclusion</h2>
+<h2 id="_結論"><a class="anchor" href="#_結論"></a>結論</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You have now converted ICP into cycles and stored them in your cycles wallet. You are ready to deploy the dapp on-chain.</p>
+<p>これで ICP を Cycle に変換し、Cycle ウォレットに保存できました。これで Dapp をオンチェーンにデプロイする準備が整いました。</p>
 </div>
 <div class="paragraph">
-<p>Continue with part 4 of the main tutorial: Acquiring Cycles to Deploy On-chain <a href="4-quickstart.html">Acquiring Cycles to Deploy On-chain</a>.</p>
+<p>メインチュートリアルのパート 4 に進みます：ページタイトル「オンチェーンデプロイのための Cycle 取得」、リンク先は <a href="4-quickstart.html">Cycle の取得</a> です。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_troubleshooting"><a class="anchor" href="#_troubleshooting"></a>Troubleshooting</h2>
+<h2 id="_トラブルシューティング"><a class="anchor" href="#_トラブルシューティング"></a>トラブルシューティング</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_check_your_cycles_are_properly_configured_with_your_dfx_terminal_b"><a class="anchor" href="#_check_your_cycles_are_properly_configured_with_your_dfx_terminal_b"></a>Check your cycles are properly configured with your dfx (Terminal B)</h3>
+<h3 id="_dfx_で_cycle_が正しく設定されていることを確認するターミナル_b"><a class="anchor" href="#_dfx_で_cycle_が正しく設定されていることを確認するターミナル_b"></a>dfx で Cycle が正しく設定されていることを確認する（ターミナル B ）</h3>
 <div class="paragraph">
-<p>Check that your cycles wallet canister is properly configured and holds the necessary balance of cycles. For this tutorial, make sure you have at least 3 trillion cycles (3000000000000) by running</p>
+<p>Cycle ウォレット（ Canister ）が正しく設定され必要な Cycle の残高があることを確認します。このチュートリアルでは少なくとも3兆 Cycle （3,000,000,000,000）あることを確認するために以下を実行します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1316,7 +1316,7 @@ The wallet canister on the "ic" network for user "default" is "gastn-uqaaa-aaaae
 </div>
 </div>
 <div class="paragraph">
-<p>If you did not convert enough ICP tokens to cycles to complete the operation, you can add cycles to your cycles wallet by running a command similar to the following:</p>
+<p>実行するのに十分な ICP トークンを Cycle に変換できなかった場合、次のようなコマンドを実行して Cycle ウォレットに Cycle を追加することができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1324,7 +1324,7 @@ The wallet canister on the "ic" network for user "default" is "gastn-uqaaa-aaaae
 </div>
 </div>
 <div class="paragraph">
-<p>This command converts an additional 1.005 ICP tokens to cycles for the <code>gastn-uqaaa-aaaae-aaafq-cai</code> cycles wallet created in step 2 of 4.3.2. The command returns output similar to the following:</p>
+<p>このコマンドは 4.3.2 のステップ2で作成した <code>gastn-uqaaa-aaaaafq-cai</code> Cycle ウォレットに対して追加の1.005 ICP トークンを Cycle に変換します。このコマンドは次のような出力を返します：</p>
 </div>
 <div class="listingblock">
 <div class="content">

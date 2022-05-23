@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>5. Deploying On-chain (1 min) :: Dfinity 日本語ドキュメント</title>
+    <title>5. オンチェーンへデプロイ（作業時間：約1分） :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/quickstart/5-quickstart.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1158,12 +1158,12 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">5. Deploying On-chain (1 min)</h1>
+<h1 class="page">5. オンチェーンへデプロイ（作業時間：約1分）</h1>
 <div class="sect1">
-<h2 id="_5_1_deploy_the_dapp_on_chain_via_dfx_terminal_b"><a class="anchor" href="#_5_1_deploy_the_dapp_on_chain_via_dfx_terminal_b"></a>5.1 Deploy the Dapp On-chain via dfx (Terminal B)</h2>
+<h2 id="_5_1_dfx_でdapp_をオンチェーンにデプロイするターミナル_b"><a class="anchor" href="#_5_1_dfx_でdapp_をオンチェーンにデプロイするターミナル_b"></a>5.1 dfx でDapp をオンチェーンにデプロイする（ターミナル B ）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now that you have your <a href="developers-guide/concepts/tokens-cycles">cycles</a> and your <code>dfx</code> is configured to transfer cycles, you are now ready to deploy your <code>Hello</code> dapp on-chain.</p>
+<p><a href="developers-guide/concepts/tokens-cycles">Cycle</a> を手に入れ、<code>dfx</code> が Cycle を転送するように設定されたので <code>Hello</code> Dapp をチェーン上にデプロイする準備ができています。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1176,10 +1176,10 @@
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>--network</code> option specifies the network alias or URL for deploying the dapp. This option is required to install on the Internet Computer blockchain mainnet. <code>--with-cycles</code> explicitly tells <code>dfx</code> how many cycles to use, otherwise it will use the default of 3 trillion.</p>
+<p><code>--network</code> オプションを使って Dapp をデプロイするためのネットワークエイリアスまたは URL を指定します。このオプションは Internet Computer のブロックチェーンメインネットにインストールするために必要です。<code>--with-cycles</code> は明示的に <code>dfx</code> に使用する Cycle を指定します。しない場合はデフォルトの3兆 Cycle が指定されます。</p>
 </div>
 <div class="paragraph">
-<p>If successful, your terminal should look like this:</p>
+<p>成功するとターミナルは以下のように出力されます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1217,37 +1217,37 @@ URLs:
 </div>
 </div>
 <div class="paragraph">
-<p>Note the bottom of the message which returns the URL where you can see your canister&#8217;s frontend deployed on-chain: <a href="https://5h5yf-eiaaa-aaaaa-qaada-cai.ic0.app/" class="bare">https://5h5yf-eiaaa-aaaaa-qaada-cai.ic0.app/</a></p>
+<p>メッセージの一番下に URL が返されており、ここからあなたの Canister のフロントエンドがオンチェーンにデプロイされていることを確認できます：https://5h5yf-eiaaa-aaaaa-qaada-cai.ic0.app/</p>
 </div>
 <div class="paragraph">
-<p>In the example above, we created a <code>Hello</code> dapp that is composed of two canisters:</p>
+<p>上の例では、2つの Canister で構成される <code>Hello</code> という Dapp を作成しました：</p>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><code>hello</code> canister <code>5o6tz-saaaa-aaaaa-qaacq-cai</code> which contains the backend logic.</p>
+<p><code>hello</code> Canister <code>5o6tz-saaaa-aaa-qaacq-cai</code>：バックエンドロジックを構成</p>
 </li>
 <li>
-<p><code>hello_assets</code> canister <code>5h5yf-eiaaa-aaaaa-qaada-cai</code> which contains the frontend assets (e.g. HTML, JS, CSS).</p>
+<p><code>hello_assets</code> Canister <code>5h5yf-eiaaa-aaa-qaada-cai</code>：フロントエンドのアセット（例：HTML、JS、CSS ）を構成</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_5_2_see_your_dapp_live_on_chain_via_a_browser"><a class="anchor" href="#_5_2_see_your_dapp_live_on_chain_via_a_browser"></a>5.2 See your Dapp Live On-chain via a Browser</h2>
+<h2 id="_5_2_ブラウザを通じてオンチェーンで動作する自分の_dapp_を見てみる"><a class="anchor" href="#_5_2_ブラウザを通じてオンチェーンで動作する自分の_dapp_を見てみる"></a>5.2 ブラウザを通じてオンチェーンで動作する自分の Dapp を見てみる</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Navigate to and enter a name: <a href="https://5h5yf-eiaaa-aaaaa-qaada-cai.ic0.app/" class="bare">https://5h5yf-eiaaa-aaaaa-qaada-cai.ic0.app/</a></p>
+<p><a href="https://5h5yf-eiaaa-aaaaa-qaada-cai.ic0.app/" class="bare">https://5h5yf-eiaaa-aaaaa-qaada-cai.ic0.app/</a> に移動し、名前を入力します。</p>
 </div>
 <div class="paragraph">
-<p>Before your dapp loads, your browser will quickly show a message that reads: Installing "Internet Computer Validating Service Worker". This <a href="https://developer.chrome.com/docs/workbox/service-worker-overview/">service worker</a> comes from the IC and it is used to make sure the web app the user sees is the correct, untampered frontend. Once loaded, your browser will cache the service worker and your web app will load much quicker.</p>
+<p>Dapp がロードされる前に、ブラウザにはすぐに次のようなメッセージが表示されます：Installing "Internet Computer Validating Service Worker"。この <a href="https://developer.chrome.com/docs/workbox/service-worker-overview/">service worker</a> は IC から来たもので、ユーザーが見るウェブアプリが正しく、改ざんされていないフロントエンドであることを確認するために使用されます。一度読み込まれるとブラウザはサービスワーカーをキャッシュし、ウェブアプリはより速く読み込まれるようになります。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/quickstart/service-worker.png" alt="Hello" width="everyone! greeting"></span></p>
 </div>
 <div class="paragraph">
-<p>After loading the service worker, your dapp will load:</p>
+<p>サービスワーカーをロードした後 Dapp がロードされます：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/front-end-result.png" alt="Hello" width="everyone! greeting"></span></p>
@@ -1255,10 +1255,10 @@ URLs:
 </div>
 </div>
 <div class="sect1">
-<h2 id="_5_3_testing_the_on_chain_dapp_via_the_command_line_terminal_b"><a class="anchor" href="#_5_3_testing_the_on_chain_dapp_via_the_command_line_terminal_b"></a>5.3 Testing the On-chain Dapp via the Command Line (Terminal B)</h2>
+<h2 id="_5_3_コマンドラインターミナル_b_でオンチェーンの_dapp_をテストする"><a class="anchor" href="#_5_3_コマンドラインターミナル_b_でオンチェーンの_dapp_をテストする"></a>5.3 コマンドライン（ターミナル B ）でオンチェーンの Dapp をテストする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Since the canister has a method called <code>greet</code> (which accepts a string as a parameter), we can send it a message via <code>dfx</code>.</p>
+<p>Canister には、（パラメータとして文字列を受け取る）<code>greet</code> というメソッドがあるので 、<code>dfx</code> を介してメッセージを送ることができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1266,47 +1266,47 @@ URLs:
 </div>
 </div>
 <div class="paragraph">
-<p>Note the way the message is constructed:</p>
+<p>メッセージの構成に注目してください：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>dfx canister --network ic call</code> is setup for calling a canister on the IC.</p>
+<p><code>dfx canister --network ic call</code> は IC 上の Canister を呼び出すための設定です。</p>
 </li>
 <li>
-<p><code>hello greet</code> means we are sending a message to a canister named <code>hello</code> and evoking its <code>greet</code> method. <code>dfx</code> knows which <code>hello</code> canister (out of the many in the IC), one refers to because a mapping of <code>hello</code> to a canister id is stored locally in <code>.dfx/local/canister_ids.json</code>.</p>
+<p><code>hello greet</code> は <code>hello</code> という名前の Canister にメッセージを送信し、その Canister の <code>greet</code> メソッドを呼び出すことを意味します。 <code>hello</code> と Canister id のマッピングがローカルの <code>.dfx/local/canister_ids.json</code> に保存されているため、<code>dfx</code> は呼び出したい <code>hello</code> Canister が（IC 内のたくさんの Canister のうち）どれであるか分かります。</p>
 </li>
 <li>
-<p><code>'("everyone": text)'</code> is the parameter we are sending to <code>greet</code> (which accepts <code>Text</code> as its only input).</p>
+<p><code>'("everyone": text)'</code> は <code>greet</code> に送るパラメータです（このパラメータは <code>Text</code> だけを入力として受け取ります）。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conclusion"><a class="anchor" href="#_conclusion"></a>Conclusion</h2>
+<h2 id="_結論"><a class="anchor" href="#_結論"></a>結論</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You have now deployed the dapp on-chain! You can read the conclusion of the tutorial.</p>
+<p>これで Dapp をオンチェーンにデプロイできました！ チュートリアルの最後まで読むことができました。</p>
 </div>
 <div class="paragraph">
-<p>Continue with the main tutorial: <a href="quickstart-intro.html">quickstart intro</a>.</p>
+<p>本題のチュートリアルに戻ります。 <a href="quickstart-intro.html">quickstart イントロダクション</a> をご覧ください。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_troubleshooting"><a class="anchor" href="#_troubleshooting"></a>Troubleshooting</h2>
+<h2 id="_トラブルシューティング"><a class="anchor" href="#_トラブルシューティング"></a>トラブルシューティング</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_403_error"><a class="anchor" href="#_403_error"></a>403 Error</h3>
+<h3 id="_403_エラー"><a class="anchor" href="#_403_エラー"></a>403 エラー</h3>
 <div class="paragraph">
-<p>If you receive a 403 error, it is possible the identity you are using does not have enough cycles. You should try the following to debug:</p>
+<p>403エラーが表示される場合使用している ID に十分な Cycle がない可能性があります。デバッグのために以下を試してみてください。</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_1_confirm_you_are_using_the_identity_you_assume_are_using"><a class="anchor" href="#_1_confirm_you_are_using_the_identity_you_assume_are_using"></a>1. Confirm you are using the identity you assume are using</h2>
+<h2 id="_1_利用していると思われる_id_を確認する"><a class="anchor" href="#_1_利用していると思われる_id_を確認する"></a>1. 利用していると思われる ID を確認する</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1316,7 +1316,7 @@ URLs:
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2_confirm_the_identity_you_are_using_has_enough_cycles_on_chain"><a class="anchor" href="#_2_confirm_the_identity_you_are_using_has_enough_cycles_on_chain"></a>2. Confirm the identity you are using has enough cycles on-chain</h2>
+<h2 id="_2_使用している_id_がオンチェーンに十分な_cycle_を有していることを確認する"><a class="anchor" href="#_2_使用している_id_がオンチェーンに十分な_cycle_を有していることを確認する"></a>2. 使用している ID がオンチェーンに十分な Cycle を有していることを確認する</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1326,13 +1326,13 @@ URLs:
 </div>
 </div>
 <div class="sect1">
-<h2 id="_3_try_proxying_through_your_wallet"><a class="anchor" href="#_3_try_proxying_through_your_wallet"></a>3. Try proxying through your wallet</h2>
+<h2 id="_3_ウォレット経由のプロキシを試す"><a class="anchor" href="#_3_ウォレット経由のプロキシを試す"></a>3. ウォレット経由のプロキシを試す</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Sometimes (especially when you created the canisters with <code>dfx</code> versions before 0.9.0) your wallet is set as your canister&#8217;s controller. To have your wallet be the source of the deployment instruction, add the flag <code>--wallet &lt;insert-your-wallet-id-here&gt;</code> to the deploy or call command.</p>
+<p>時々、（特に 0.9.0 より前のバージョンの <code>dfx</code> で Canister を作成した場合）あなたのウォレットが Canister のコントローラーとして設定されていることがあります。ウォレットをデプロイ指示の送信元にするには、デプロイやコールコマンドに <code>--wallet &lt;insert-your-wallet-id-here&gt;</code> というフラグを追加してください。</p>
 </div>
 <div class="paragraph">
-<p>If this works and you would like to add your own principal as a controller of the canister (so you don&#8217;t have to use the <code>--wallet</code> option anymore), you can run this:</p>
+<p>これがうまくいって自分の Principal をCanister のコントローラーとして追加したい場合（そうすればもう <code>--wallet</code> オプションを使う必要はありません）次のように実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">

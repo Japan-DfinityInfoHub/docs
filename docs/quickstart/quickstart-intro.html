@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Quick start :: Dfinity 日本語ドキュメント</title>
+    <title>クイックスタート :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/quickstart/quickstart-intro.html">
     <meta name="description" content="Download the DFINITY Canister SDK and learn how to deploy your first application.">
     <meta name="keywords" content="Internet Computer,blockchain,cryptocurrency,ICP tokens,smart contracts,cycles,wallet,software canister,developer onboarding">
@@ -1159,39 +1159,39 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Quick start</h1>
+<h1 class="page">クイックスタート</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This is a quick tutorial for deploying a "Hello World" dapp to the  Internet Computer (IC) in 10 minutes or less. Deployment of the dapp requires basic knowledge of using a terminal. Code editing knowledge is not necessary.</p>
+<p>"Hello World" Dapp をInternet Computer (IC) に10 分以内でデプロイするためのクイックチュートリアルです。アプリのデプロイにはターミナルの使い方の基本的な知識が必要です。コード編集の知識は必要ありません。</p>
 </div>
 <div class="paragraph">
-<p>Before starting, take a look at a version of this dapp running on-chain: <a href="https://6lqbm-ryaaa-aaaai-qibsa-cai.ic0.app/" class="bare">https://6lqbm-ryaaa-aaaai-qibsa-cai.ic0.app/</a></p>
+<p>始める前にこの Dapp のオンチェーンで動いているバージョンを見てみましょう： <a href="https://6lqbm-ryaaa-aaaai-qibsa-cai.ic0.app/" class="bare">https://6lqbm-ryaaa-aaaai-qibsa-cai.ic0.app/</a></p>
 </div>
 <div class="paragraph">
-<p>In this tutorial,  you will learn how to:</p>
+<p>このチュートリアルでは以下の項目を学べます：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Install the Canister SDK</p>
+<p>Canister SDK をインストールする</p>
 </li>
 <li>
-<p>Build and deployed a dapp locally</p>
+<p>Dapp をローカル環境にビルドとデプロイをする</p>
 </li>
 <li>
-<p>Collect free cycles to power your dapp</p>
+<p>Dappを動かすための Cycle（無料）を入手する</p>
 </li>
 <li>
-<p>Create a "cycles wallet" from which you can transfer cycles to any other dapps you want to power</p>
+<p>Cycle ウォレットを作成しそこから他のDappsに Cycle を転送する</p>
 </li>
 <li>
-<p>Deploy a dapp on-chain</p>
+<p>Dapp のオンチェーンデプロイ</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>This simple <code>Hello</code> dapp is composed of two <a href="https://wiki.internetcomputer.org/wiki/Glossary#C">canister smart contracts</a> (one for backend and one for frontend). The dapp&#8217;s functionality works as such: it accepts a text argument as input and returns a greeting. For example, if you call the <code>greet</code> method with the text argument <code>Everyone</code> on the command-line via the canister SDK (see instructions below on how to install the canister SDK), the dapp will return <code>Hello, Everyone!</code> in your terminal:</p>
+<p>このシンプルな <code>Hello</code> Dapp は、2つの（バックエンド用とフロントエンド用） <a href="https://wiki.internetcomputer.org/wiki/Glossary#C">Canister スマートコントラクト</a>  で構成されています。このアプリの機能は入力としてテキストの引数を受け取り、挨拶（greet）を返すというものです。例えば Canister SDK（Canister のインストール方法は後述）を使ってコマンドラインで <code>greet</code> メソッドを <code>Everyone</code> というテキスト引数で呼び出すと、Dapp はターミナルに <code>Hello, Everyone!</code> を返します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1202,7 +1202,7 @@ $ "Hello, Everyone"</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>via the dapp in a browser, a pop-up window will appear with the message: <code>Hello, Everyone!</code>**</p>
+<p>Dapp をブラウザで実行すると、ポップアップウィンドウが表示され、メッセージが表示されます：<code>Hello, Everyone!</code></p>
 </li>
 </ul>
 </div>
@@ -1210,150 +1210,148 @@ $ "Hello, Everyone"</code></pre>
 <p><span class="image"><img src="_images/front-end-result.png" alt="Hello" width="everyone! greeting"></span></p>
 </div>
 <div class="paragraph">
-<p>Note that the "Hello World" dapp consists of back-end code written in <a href="language-guide/motoko">Motoko</a>, a programming language specifically designed for interacting with the (IC), and a simple webpack-based front-end.</p>
+<p>"Hello World” アプリは (IC) との対話に特化したプログラミング言語である <a href="language-guide/motoko">Motoko</a> で書かれたバックエンドコードと、webpack ベースのシンプルなフロントエンドから構成されていることに注意してください。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_topics_covered_in_this_tutorial"><a class="anchor" href="#_topics_covered_in_this_tutorial"></a>Topics Covered in this Tutorial</h2>
+<h2 id="_このチュートリアルで扱うトピック"><a class="anchor" href="#_このチュートリアルで扱うトピック"></a>このチュートリアルで扱うトピック</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Canisters</strong> are the smart contracts installed on the IC. They contain the code to be ran and a state, which is produced as a result of running the code. As is the case of the "Hello World" dapp, it is common for dapps to be composed of multiple canisters.</p>
+<p><strong>Canister</strong> とは IC に搭載されたスマートコントラクトのことです。実行するコードと、実行した結果、生成されるステートが格納されています。"Hello World” アプリのように複数の Canister で構成されるのが一般的です。</p>
 </li>
 <li>
-<p><strong><a href="developers-guide/concepts/tokens-cycles">Cycles</a></strong> refer to a unit of measurement for resource consumption, typically for processing, memory, storage, and network bandwidth. For the sake of this tutorial, cycles are analogous to Ethereum&#8217;s gas: cycles are needed to run dapps, but unlike gas they are stable and less expensive. Every canister has a cycles account from which the resources consumed by the canister are charged. The Internet Computer&#8217;s utility token (ICP) can be converted to cycles and transferred to a canister. ICP can always be converted to cycles using the current price of ICP measured in <a href="https://en.wikipedia.org/wiki/Special_drawing_rights">SDR</a> (a basket of currencies) using the convention that one trillion cycles correspond to one SDR. <strong>Get free cycles from the cycles faucet.</strong></p>
+<p><strong><a href="developers-guide/concepts/tokens-cycles">Cycle</a></strong> は一般的にプロセス、メモリ、ストレージ、ネットワーク帯域のリソースの消費量を表す単位を指します。このチュートリアルのために敢えて例えると、Cycle はイーサリアムのガスに似ています。（ガス同様に）Cycle は Dapps を動かすのに必要ですが、ガスと違って Cycle はステーブルであり、消費価格もガスほど高くありません。それぞれの Canister には リソースが消費する Cycle をチャージするための Cycle アカウントがあります。Internet Computer のユーティリティ・トークン（  ICP ）は Cycle に変換して Canister に転送することができます。ICP は常に <a href="https://en.wikipedia.org/wiki/Special_drawing_rights">SDR</a> （通貨バスケット）の対 ICP 時価で Cycle に変換することができ、1兆 Cycle が 1SDR に対応しています。<strong>Cycle のフォーセットから無料で Cycle を入手することができます。</strong></p>
 </li>
 <li>
-<p>A <strong><a href="developers-guide/default-wallet">cycles wallet</a></strong> is a canister that holds cycles and powers up dapps.</p>
+<p><strong><a href="developers-guide/default-wallet">Cycle ウォレット</a></strong> は Cycle を格納し Dapp 動かすための Canister です。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_1_install_tools"><a class="anchor" href="#_1_install_tools"></a>1. <a href="1-quickstart.html">Install tools</a></h2>
+<h2 id="_1_ツールのインストール"><a class="anchor" href="#_1_ツールのインストール"></a>1. <a href="1-quickstart.html">ツールのインストール</a></h2>
 <div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>Required tools: Canister SDK and node.js.</pre>
-</div>
+<div class="paragraph">
+<p>必要なツールは Canister SDK と node.js です。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2_create_default_project_1_min"><a class="anchor" href="#_2_create_default_project_1_min"></a>2. <a href="2-quickstart.html">Create default project</a> (1 min)</h2>
+<h2 id="_2_プロジェクトの作成_作業時間約1分"><a class="anchor" href="#_2_プロジェクトの作成_作業時間約1分"></a>2. <a href="2-quickstart.html">プロジェクトの作成</a> （作業時間：約1分）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After the SDK is installed, create the default "Hello, World!" project with two canisters (backend and frontend).</p>
+<p>SDK をインストールしたら、2つの（バックエンドとフロントエンド）Canister を持つデフォルトの "Hello, World” プロジェクトを作成します。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_3_deploy_dapp_locally_3_min"><a class="anchor" href="#_3_deploy_dapp_locally_3_min"></a>3. <a href="3-quickstart.html">Deploy dapp locally</a> (3 min)</h2>
+<h2 id="_3_ローカル環境へのデプロイ_作業時間約3分"><a class="anchor" href="#_3_ローカル環境へのデプロイ_作業時間約3分"></a>3. <a href="3-quickstart.html">ローカル環境へのデプロイ</a> （作業時間：約3分）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Test project by deploying it on your local machine.</p>
+<p>プロジェクトをローカルマシンにデプロイしてテストします。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_4_acquiring_cycles_5_min"><a class="anchor" href="#_4_acquiring_cycles_5_min"></a>4. <a href="4-quickstart.html">Acquiring cycles</a> (5 min)</h2>
+<h2 id="_4_cycle_の取得_作業時間約5分"><a class="anchor" href="#_4_cycle_の取得_作業時間約5分"></a>4. <a href="4-quickstart.html">Cycle の取得</a> （作業時間：約5分）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Add cycles to your account to deploy dapp on-chain.</p>
+<p>オンチェーンに Dapp をデプロイするための Cycle をアカウントに追加します。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_5_deploy_on_chain_1_min"><a class="anchor" href="#_5_deploy_on_chain_1_min"></a>5.<a href="5-quickstart.html">Deploy on-chain</a> (1 min)</h2>
+<h2 id="_5_オンチェーンデプロイ_作業時間約1分"><a class="anchor" href="#_5_オンチェーンデプロイ_作業時間約1分"></a>5.<a href="5-quickstart.html">オンチェーンデプロイ</a> （作業時間：約1分）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use cycles to deploy the "Hello, World!" dapp on-chain.</p>
+<p>Cycle を使って、"Hello, World!” Dapp をオンチェーンにデプロイします。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_wrap_up"><a class="anchor" href="#_wrap_up"></a>Wrap-up</h2>
+<h2 id="_完成"><a class="anchor" href="#_完成"></a>完成</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Congratulations! You have built a dapp fully on-chain (both backend and frontend) within 10 minutes.</p>
+<p>おめでとうございます！10分以内に完全にオンチェーン（バックエンドとフロントエンドの両方）の Dapp を構築しました。</p>
 </div>
 <div class="paragraph">
-<p>Tutorial takeaways:</p>
+<p>チュートリアルで得られたもの：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Dapps can be composed of multiple canisters</p>
+<p>Dapp は複数の Canister でも構成可能</p>
 </li>
 <li>
-<p>Dapps can be deployed locally and on-chain</p>
+<p>Dapp はローカルにもオンチェーンにもデプロイ可能</p>
 </li>
 <li>
-<p>Cycles are needed power dapps</p>
+<p>Dapp を動かすには Cycle が必要</p>
 </li>
 <li>
-<p>Get free cycles from the cycles wallet</p>
+<p>Cycle ウォレットから無料の Cycle を入手可能</p>
 </li>
 <li>
-<p>Free cycles can be used to power additional dapps</p>
+<p>無料の Cycle は他の Dapp を動作させるために利用可能</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_troubleshooting"><a class="anchor" href="#_troubleshooting"></a>Troubleshooting</h2>
+<h2 id="_トラブルシューティング"><a class="anchor" href="#_トラブルシューティング"></a>トラブルシューティング</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>If you get stuck or run into problems search for solutions or post questions in the <a href="https://forum.dfinity.org">Developer forum</a> or <a href="https://discord.com/invite/cA7y6ezyE2">DISCORD</a>.</p>
+<p>もし詰まったり問題にぶつかったときは、<a href="https://forum.dfinity.org">開発者フォーラム</a> や <a href="https://discord.com/invite/cA7y6ezyE2">DISCORD</a> で、解決策を探したり質問を投稿しましょう。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_starting_from_scratch"><a class="anchor" href="#_starting_from_scratch"></a>Starting from scratch</h2>
+<h2 id="_ゼロからスタート"><a class="anchor" href="#_ゼロからスタート"></a>ゼロからスタート</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you wish to start from scratch, delete the SDK and associated profiles and re-install it. Follow the instructions here: <a href="../developers-guide/install-upgrade-remove.html">Install, upgrade, or remove software</a>.</p>
+<p>ゼロから始める場合は SDK と関連するプロファイルを削除し、再インストールしてください。 <a href="../developers-guide/install-upgrade-remove.html">ソフトウェアのインストール、アップグレード、削除</a> の手順に従ってください。</p>
 </div>
 <div class="paragraph">
-<p><strong>Be sure to save any identities linked to dapps or ICP.</strong></p>
+<p><strong>Dapp や ICP に紐づく ID は必ず保存してください。</strong></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ready_for_the_next_challenge"><a class="anchor" href="#_ready_for_the_next_challenge"></a>Ready for the next challenge?</h2>
+<h2 id="_次のチャレンジの用意は良いですか"><a class="anchor" href="#_次のチャレンジの用意は良いですか"></a>次のチャレンジの用意は良いですか？</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Build DAOs, NFTs and more <a href="../samples/index.html">here</a>.</p>
+<p>DAOやNFTなどの構築など <a href="../samples/index.html">サンプルコード</a> に進みましょう。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_want_to_learn_more"><a class="anchor" href="#_want_to_learn_more"></a>Want to learn more?</h2>
+<h2 id="_もっと学びたい人に"><a class="anchor" href="#_もっと学びたい人に"></a>もっと学びたい人に</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you are looking for more information before getting started or want to view a demonstration of how to deploy before you try it for yourself, check out the following related resources:</p>
+<p>始める前にもっと情報を知りたい、自分で試す前にデプロイ方法のデモを見たいという方は、以下の関連リソースをご覧ください：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="../developers-guide/concepts/tokens-cycles.html#using-tokens">How you can use ICP tokens (overview)</a></p>
+<p><a href="../developers-guide/concepts/tokens-cycles.html#using-tokens">トークンと Cycle</a></p>
 </li>
 <li>
-<p><a href="https://www.youtube.com/watch?v=jduSMHxdYD8">Building on the Internet Computer: Fundamentals (video)</a></p>
+<p><a href="https://www.youtube.com/watch?v=jduSMHxdYD8">Building on the Internet Computer: Fundamentals （ビデオ）</a></p>
 </li>
 <li>
-<p><a href="https://www.youtube.com/watch?v=60uHQfoA8Dk">What is the DFINITY Canister SDK (video)</a></p>
+<p><a href="https://www.youtube.com/watch?v=60uHQfoA8Dk">What is the DFINITY Canister SDK （ビデオ）</a></p>
 </li>
 <li>
-<p><a href="https://www.youtube.com/watch?v=yqIoiyuGYNA">Deploying your first dapp (video)</a></p>
+<p><a href="https://www.youtube.com/watch?v=yqIoiyuGYNA">Deploying your first dapp (ビデオ）</a></p>
 </li>
 </ul>
 </div>

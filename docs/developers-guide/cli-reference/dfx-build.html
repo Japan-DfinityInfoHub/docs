@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>dfx build :: Dfinity 日本語ドキュメント</title>
+    <title>dfx build（ビルド） :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/cli-reference/dfx-build.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../../_/css/site.css">
@@ -162,7 +162,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../../samples/index.html">Sample Code</a>
+    <a class="nav-link" href="../../samples/index.html">サンプルコード</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
@@ -170,27 +170,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../samples/host-a-website.html">Static Website</a>
+    <a class="nav-link" href="../../samples/host-a-website.html">静的ウェブサイト</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../samples/dex.html">Basic DEX</a>
+    <a class="nav-link" href="../../samples/dex.html">ベーシック DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../samples/nft.html">NFT Minting</a>
+    <a class="nav-link" href="../../samples/nft.html">NFT ミント</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../samples/dao.html">Basic DAO</a>
+    <a class="nav-link" href="../../samples/dao.html">ベーシック DAO</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../samples/encrypted-notes.html">Encrypted Note-taking</a>
+    <a class="nav-link" href="../../samples/encrypted-notes.html">暗号化されたノート</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../samples/tokentransfer.html">Token Transfer</a>
+    <a class="nav-link" href="../../samples/tokentransfer.html">トークン転送</a>
     
   </li>
 </ul>
@@ -1150,31 +1150,31 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../index.html">Developer Center</a></li>
-    <li><a href="dfx-build.html">dfx build</a></li>
+    <li><a href="dfx-build.html">dfx build（ビルド）</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Japan-DfinityInfoHub/docs/edit/main/modules/developers-guide/pages/cli-reference/dfx-build.adoc"><svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg></a></div>
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">dfx build</h1>
+<h1 class="page">dfx build（ビルド）</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx build</code> command to compile your program into a WebAssembly module that can be deployed on the Internet Computer.
-You can use this command to compile all of the programs that are defined for a project in the project&#8217;s <code>dfx.json</code> configuration file or a specific canister.</p>
+<p>Internet Computer にデプロイできるようにプログラムを WebAssembly モジュールにコンパイルするには <code>dfx build</code> コマンドを使用します。
+このコマンドはプロジェクトの <code>dfx.json</code> 設定ファイルや特定の Canister に定義されているすべてのプログラムをコンパイルするために使用することができます。</p>
 </div>
 <div class="paragraph">
-<p>Note that you can only run this command from within the project directory structure.
-For example, if your project name is <code>hello_world</code>, your current working directory must be the <code>hello_world</code> top-level project directory or one of its subdirectories.</p>
+<p>このコマンドはプロジェクトのディレクトリ構造内からのみ実行できることに注意してください。
+例えばプロジェクト名が <code>hello_world</code> の場合、現在の作業ディレクトリは <code>hello_world</code> のトップレベルのプロジェクトディレクトリかそのサブディレクトリのいずれかでなければなりません。</p>
 </div>
 <div class="paragraph">
-<p>The <code>dfx build</code> command looks for the source code to compile using the information you have configured under the <code>canisters</code> section in the <code>dfx.json</code> configuration file.</p>
+<p><code>dfx build</code> コマンドは設定ファイル <code>dfx.json</code> の <code>canisters</code> セクションで設定された情報を元に、コンパイルするソースコードを探します。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic usage</h2>
+<h2 id="_基本的な利用法"><a class="anchor" href="#_基本的な利用法"></a>基本的な利用法</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1184,10 +1184,10 @@ For example, if your project name is <code>hello_world</code>, your current work
 </div>
 </div>
 <div class="sect1">
-<h2 id="_flags"><a class="anchor" href="#_flags"></a>Flags</h2>
+<h2 id="_フラグ"><a class="anchor" href="#_フラグ"></a>フラグ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx build</code> command.</p>
+<p><code>dfx build</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1196,32 +1196,32 @@ For example, if your project name is <code>hello_world</code>, your current work
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Flag（フラグ）</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--check</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Builds canisters using a temporary, hard-coded, locally-defined canister identifier for testing that your program compiles without connecting to the Internet Computer プラットフォーム.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internet Computer プラットフォームに接続せずにプログラムのコンパイルをテストします。一時的なハードコードされたローカル定義の Canister id を使用して Canister を構築します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_options"><a class="anchor" href="#_options"></a>Options</h2>
+<h2 id="_オプション"><a class="anchor" href="#_オプション"></a>オプション</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can specify the following option for the <code>dfx build</code> command.</p>
+<p><code>dfx build</code> コマンドには以下のオプションを指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1230,24 +1230,24 @@ For example, if your project name is <code>hello_world</code>, your current work
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Option（オプション）</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--network &lt;network&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the network alias or URL you want to connect to. You can use this option to override the network specified in the <code>dfx.json</code> configuration file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">接続したいネットワークのエイリアスまたは URL を指定します。このオプションを使用すると <code>dfx.json</code> 設定ファイルで指定されたネットワークを上書きします。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_arguments"><a class="anchor" href="#_arguments"></a>Arguments</h2>
+<h2 id="_引数"><a class="anchor" href="#_引数"></a>引数</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can specify the following arguments for the <code>dfx build</code> command.</p>
+<p><code>dfx build</code> コマンドには以下の引数を指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1256,30 +1256,30 @@ For example, if your project name is <code>hello_world</code>, your current work
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Argument（引数）</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--all</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Builds all of the canisters configured in the project&#8217;s <code>dfx.json</code> file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">プロジェクトの <code>dfx.json</code> ファイルで設定されたすべての Canister をビルドします。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>canister_name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the name of the canister you want to build.
-If you are not using the <code>--all</code> option, you can continue to use <code>dfx build</code> or provide a canister name as an argument (the canister name must match at least one name that you have configured in the <code>canisters</code> section of the <code>dfx.json</code> configuration file for your project.)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ビルドしたい Canister の名前を指定します。
+<code>--all</code> オプションをもし使用しない場合、引数なしの <code>dfx build</code> を使用するか、引数に Canister 名を指定します（ Canister 名はプロジェクトの <code>dfx.json</code> 設定ファイルの <code>canisters</code> セクションで設定した名前と少なくともひとつは一致しなければなりません）。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<h2 id="_例"><a class="anchor" href="#_例"></a>例</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the <code>dfx build</code> command to build one or more WebAssembly modules from the programs specified in the <code>dfx.json</code> configuration file under the <code>canisters</code> key.
-For example, if your <code>dfx.json</code> configuration file defines one <code>hello_world</code> canister and one <code>hello_world_assets</code> canister, then running <code>dfx build</code> compiles two WebAssembly modules:</p>
+<p><code>dfx build</code> コマンドを使うと <code>dfx.json</code> 設定ファイルの <code>canisters</code> キーで指定したプログラムからひとつまたは複数の WebAssembly モジュールをビルドすることができます。
+例えば、<code>dfx.json</code> 設定ファイルに <code>hello_world</code> Canister と <code>hello_world_assets</code> Canister がひとつずつ定義されている場合、 <code>dfx build</code> を実行すると二つの WebAssembly モジュールがコンパイルされます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1327,11 +1327,11 @@ For example, if your <code>dfx.json</code> configuration file defines one <code>
 </div>
 </div>
 <div class="paragraph">
-<p>Note that the file name and path to the programs on your file system must match the information specified in the <code>dfx.json</code> configuration file.</p>
+<p>ファイルシステム上のプログラムのファイル名とパスは、<code>dfx.json</code> 設定ファイルで指定された情報と一致する必要があることに注意してください。</p>
 </div>
 <div class="paragraph">
-<p>In this example, the <code>hello_world</code> canister contains the main program code and the <code>hello_world_assets</code> canister store front-end code and assets.
-If you want to keep the <code>hello_world_assets</code> canister defined in the <code>dfx.json</code> file, but only build the back-end program, you could run the following command:</p>
+<p>この例では、 <code>hello_world</code> Canister にメインプログラムのコードが <code>hello_world_assets</code> Canister にフロントエンドのコードとアセットが格納されています。
+もし、<code>dfx.json</code> ファイルで定義された <code>hello_world_assets</code> Canister はそのままにして、バックエンドのプログラムだけをビルドしたい場合は、以下のコマンドを実行すれば可能です：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1339,10 +1339,10 @@ If you want to keep the <code>hello_world_assets</code> canister defined in the 
 </div>
 </div>
 <div class="paragraph">
-<p>Building a specific canister is useful when you have multiple canisters defined in the dfx.json file, but want to test and debug operations for canisters independently.</p>
+<p>特定の Canister をビルドすることは dfx.json ファイルに複数の Canister が定義されていて、Canister に対する操作を個別にテストおよびデバッグしたい場合に便利です。</p>
 </div>
 <div class="paragraph">
-<p>To test whether a canister compiles without connecting to the Internet Computer プラットフォーム or the local canister execution environment, you would run the following command:</p>
+<p>Internet Computer プラットフォームやローカルの Canister 実行環境に接続せずに Canister がコンパイルされるかどうかをテストするには、以下のコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>dfx cache :: Dfinity 日本語ドキュメント</title>
+    <title>dfx cache（キャッシュ） :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/cli-reference/dfx-cache.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../../_/css/site.css">
@@ -1150,21 +1150,21 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../index.html">Developer Center</a></li>
-    <li><a href="dfx-cache.html">dfx cache</a></li>
+    <li><a href="dfx-cache.html">dfx cache（キャッシュ）</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Japan-DfinityInfoHub/docs/edit/main/modules/developers-guide/pages/cli-reference/dfx-cache.adoc"><svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg></a></div>
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">dfx cache</h1>
+<h1 class="page">dfx cache（キャッシュ）</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx cache</code> command with flags and subcommands to manage the <code>dfx</code> version cache.</p>
+<p><code>dfx cache</code> コマンドとフラグ、サブコマンドを使用して <code>dfx</code> のバージョンのキャッシュを管理することができます。</p>
 </div>
 <div class="paragraph">
-<p>The basic syntax for running <code>dfx cache</code> commands is:</p>
+<p><code>dfx cache</code> コマンドを実行するための基本的な構文は以下のとおりです：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1172,8 +1172,8 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Depending on the <code>dfx cache</code> subcommand you specify, additional arguments, options, and flags might apply.
-For reference information and examples that illustrate using <code>dfx cache</code> commands, select an appropriate command.</p>
+<p>指定する <code>dfx cache</code> のサブコマンドによっては、追加の引数、オプション、およびフラグが適用される場合があります。
+<code>dfx cache</code> コマンドを使用する際の利用情報および例を参考にして、適切なコマンドを選択してください。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1182,36 +1182,36 @@ For reference information and examples that illustrate using <code>dfx cache</co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">コマンド</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#delete"><code>delete</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the specified version of <code>dfx</code> from the local cache.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定されたバージョンの <code>dfx</code> をローカルキャッシュから削除します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information message for a specified subcommand.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定されたサブコマンドの使用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#install"><code>install</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Installs the specified version of <code>dfx</code> from the local cache.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定されたバージョンの <code>dfx</code> をローカルキャッシュからインストールします。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_cache_list"><code>list</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lists the versions of <code>dfx</code> currently installed and used in current projects.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">現在インストールされている <code>dfx</code> のバージョンと、現在のプロジェクトで使用されているバージョンをリストアップします。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_cache_show"><code>show</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Show the path of the cache used by this version of the <code>dfx</code> executable.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dfx</code> 実行ファイルのバージョンが使用しているキャッシュのパスを表示します。</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>To view usage information for a specific subcommand, specify the subcommand and the <code>--help</code> flag.
-For example, to see usage information for <code>dfx cache delete</code>, you can run the following command:</p>
+<p>特定のサブコマンドの使用情報を見るには、そのサブコマンドと <code>--help</code> フラグを指定します。
+例えば、<code>dfx cache delete</code> の使用情報を見るには、以下のコマンドを実行します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1224,10 +1224,10 @@ For example, to see usage information for <code>dfx cache delete</code>, you can
 <h2 id="delete"><a class="anchor" href="#delete"></a>dfx cache delete</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx cache delete</code> command to delete a specified version of <code>dfx</code> from the version cache on the local computer.</p>
+<p>ローカルコンピューター上のバージョンキャッシュから指定したバージョンの <code>dfx</code> を削除するには、<code>dfx cache delete</code> コマンドを使用します。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic usage</h3>
+<h3 id="_基本的な利用法"><a class="anchor" href="#_基本的な利用法"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx cache delete [version] [flag]</code></pre>
@@ -1235,9 +1235,9 @@ For example, to see usage information for <code>dfx cache delete</code>, you can
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags"><a class="anchor" href="#_flags"></a>Flags</h3>
+<h3 id="_フラグ"><a class="anchor" href="#_フラグ"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx cache delete</code> command.</p>
+<p><code>dfx cache delete</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1246,26 +1246,26 @@ For example, to see usage information for <code>dfx cache delete</code>, you can
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments"><a class="anchor" href="#_arguments"></a>Arguments</h3>
+<h3 id="_引数"><a class="anchor" href="#_引数"></a>引数</h3>
 <div class="paragraph">
-<p>You can specify the following argument for the <code>dfx cache delete</code> command.</p>
+<p><code>dfx cache delete</code> コマンドでは、以下の引数を指定できます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1274,23 +1274,23 @@ For example, to see usage information for <code>dfx cache delete</code>, you can
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">コマンド</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the version of <code>dfx</code> you to delete from the local cache.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ローカルキャッシュから削除する <code>dfx</code> のバージョンを指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+<h3 id="_例"><a class="anchor" href="#_例"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx cache delete</code> command to permanently delete versions of <code>dfx</code>  that you no longer want to use.
-For example, you can run the following command to delete <code>dfx</code> version <code>0.6.2</code>:</p>
+<p><code>dfx cache delete</code> コマンドを使用すると、もう使用したくない <code>dfx</code> のバージョンを完全に削除することができます。
+例えば、以下のコマンドを実行すると、<code>dfx</code> のバージョン <code>0.6.2</code> を削除することができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1304,10 +1304,10 @@ For example, you can run the following command to delete <code>dfx</code> versio
 <h2 id="install"><a class="anchor" href="#install"></a>dfx cache install</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx cache install</code> command to install <code>dfx</code> using the version currently found in the <code>dfx</code> cache.</p>
+<p><code>dfx cache install</code> コマンドを使用すると <code>dfx</code> キャッシュにある最新バージョンを <code>dfx</code> にインストールすることができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_2"><a class="anchor" href="#_basic_usage_2"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_2"><a class="anchor" href="#_基本的な利用法_2"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx cache install [flag]</code></pre>
@@ -1315,9 +1315,9 @@ For example, you can run the following command to delete <code>dfx</code> versio
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_2"><a class="anchor" href="#_flags_2"></a>Flags</h3>
+<h3 id="_フラグ_2"><a class="anchor" href="#_フラグ_2"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx cache install</code> command.</p>
+<p><code>dfx cache install</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1326,27 +1326,27 @@ For example, you can run the following command to delete <code>dfx</code> versio
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_2"><a class="anchor" href="#_examples_2"></a>Examples</h3>
+<h3 id="_例_2"><a class="anchor" href="#_例_2"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx cache install</code> command to force the installation of <code>dfx</code> from the version in the cache.
-For example, you can run the following command to install <code>dfx</code>:</p>
+<p><code>dfx cache install</code> コマンドを使用すると、キャッシュのバージョンから（最新の） <code>dfx</code> を強制的にインストールすることができます。
+例えば、以下のコマンドを実行すると <code>dfx</code> がインストールされます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1360,13 +1360,13 @@ For example, you can run the following command to install <code>dfx</code>:</p>
 <h2 id="_dfx_cache_list"><a class="anchor" href="#_dfx_cache_list"></a>dfx cache list</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx cache list</code> command to list the <code>dfx</code> versions you have currently installed and used in projects.</p>
+<p><code>dfx cache list</code> コマンドを使用すると、現在インストールされていて、プロジェクトで使用されている <code>dfx</code> のバージョンをリストアップすることができます。</p>
 </div>
 <div class="paragraph">
-<p>If you have multiple versions of <code>dfx</code> installed, the cache list displays an asterisk (*) to indicate the currently active version.</p>
+<p>複数のバージョンの <code>dfx</code> がインストールされている場合、キャッシュリストには現在有効なバージョンを示すアスタリスク (*) が表示されます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_3"><a class="anchor" href="#_basic_usage_3"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_3"><a class="anchor" href="#_基本的な利用法_3"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx cache list [flag]</code></pre>
@@ -1374,9 +1374,9 @@ For example, you can run the following command to install <code>dfx</code>:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_3"><a class="anchor" href="#_flags_3"></a>Flags</h3>
+<h3 id="_フラグ_3"><a class="anchor" href="#_フラグ_3"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx cache list</code> command.</p>
+<p>以下のオプションフラグは <code>dfx cache list</code> コマンドで使用できます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1385,27 +1385,27 @@ For example, you can run the following command to install <code>dfx</code>:</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_3"><a class="anchor" href="#_examples_3"></a>Examples</h3>
+<h3 id="_例_3"><a class="anchor" href="#_例_3"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx cache list</code> command to list the <code>dfx</code> versions you have currently installed and used in projects.
-For example, you can run the following command to list versions of <code>dfx</code> found in the cache:</p>
+<p><code>dfx cache list</code> コマンドを使用すると、現在インストールされていて、プロジェクトで使用されている <code>dfx</code> のバージョンをリストアップすることができます。
+例えば、以下のコマンドを実行すると、キャッシュにある <code>dfx</code> のバージョンをリストアップします：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1413,7 +1413,7 @@ For example, you can run the following command to list versions of <code>dfx</co
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays the list of <code>dfx</code> versions found similar to the following:</p>
+<p>このコマンドは以下のような <code>dfx</code> バージョンが見つかった場合、一覧を表示します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1429,10 +1429,10 @@ For example, you can run the following command to list versions of <code>dfx</co
 <h2 id="_dfx_cache_show"><a class="anchor" href="#_dfx_cache_show"></a>dfx cache show</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx cache show</code> command to display the full path to the cache used by the <code>dfx</code> version you are currently using.</p>
+<p><code>dfx cache show</code> コマンドを使用すると、現在使用している <code>dfx</code> のバージョンキャッシュのフルパスを表示します。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_4"><a class="anchor" href="#_basic_usage_4"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_4"><a class="anchor" href="#_基本的な利用法_4"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx cache show [flag]</code></pre>
@@ -1440,9 +1440,9 @@ For example, you can run the following command to list versions of <code>dfx</co
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_4"><a class="anchor" href="#_flags_4"></a>Flags</h3>
+<h3 id="_フラグ_4"><a class="anchor" href="#_フラグ_4"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx cache show</code> command.</p>
+<p>以下のオプションフラグは <code>dfx cache show</code> コマンドで使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1451,26 +1451,26 @@ For example, you can run the following command to list versions of <code>dfx</co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_4"><a class="anchor" href="#_examples_4"></a>Examples</h3>
+<h3 id="_例_4"><a class="anchor" href="#_例_4"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx cache show</code> command to display the path to the cache used by the <code>dfx</code> version you are currently using:</p>
+<p><code>dfx cache show</code> コマンドを使用すると、現在使用している <code>dfx</code> のバージョンで使用されているキャッシュのパスを表示することができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1478,7 +1478,7 @@ For example, you can run the following command to list versions of <code>dfx</co
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays the path to the cache used by the <code>dfx</code> version you are currently using:</p>
+<p>このコマンドは現在使用している <code>dfx</code> のバージョンで使用されているキャッシュのパスを表示します：</p>
 </div>
 <div class="listingblock">
 <div class="content">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>dfx deploy :: Dfinity 日本語ドキュメント</title>
+    <title>dfx deploy （デプロイ） :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/cli-reference/dfx-deploy.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../../_/css/site.css">
@@ -1150,22 +1150,22 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../index.html">Developer Center</a></li>
-    <li><a href="dfx-deploy.html">dfx deploy</a></li>
+    <li><a href="dfx-deploy.html">dfx deploy （デプロイ）</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Japan-DfinityInfoHub/docs/edit/main/modules/developers-guide/pages/cli-reference/dfx-deploy.adoc"><svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg></a></div>
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">dfx deploy</h1>
+<h1 class="page">dfx deploy （デプロイ）</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx deploy</code> command to register, build, and deploy a dapp on the local canister execution environment, on the Internet Computer プラットフォーム or on a specified testnet.
-By default, all canisters defined in the project <code>dfx.json</code> configuration file are deployed.</p>
+<p>ローカルの Canister 実行環境、Internet Computer プラットフォーム または指定したテストネットにアプリを登録、ビルド、デプロイするには <code>dfx deploy</code> コマンドを使用します。
+プロジェクトの <code>dfx.json</code> 設定ファイルで定義された全ての Canister がデフォルトでデプロイされます。</p>
 </div>
 <div class="paragraph">
-<p>This command simplifies the developer workflow by enabling you to run one command instead of running the following commands as separate steps:</p>
+<p>以下のコマンドを別々の手順で実行する代わりに、このコマンド1つを実行することで、開発者のワークフローを簡素化します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1175,13 +1175,13 @@ dfx canister install --all</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Note that you can only run this command from within the project directory structure.
-For example, if your project name is <code>hello_world</code>, your current working directory must be the <code>hello_world</code> top-level project directory or one of its subdirectories.</p>
+<p>このコマンドはプロジェクトのディレクトリ構造内からのみ実行できることに注意してください。
+例えば、プロジェクト名が <code>hello_world</code> の場合、現在の作業ディレクトリは <code>hello_world</code> のトップレベルのプロジェクトディレクトリかそのサブディレクトリのいずれかである必要があります。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic usage</h2>
+<h2 id="_基本的な利用法"><a class="anchor" href="#_基本的な利用法"></a>基本的な利用法</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1191,10 +1191,10 @@ For example, if your project name is <code>hello_world</code>, your current work
 </div>
 </div>
 <div class="sect1">
-<h2 id="_flags"><a class="anchor" href="#_flags"></a>Flags</h2>
+<h2 id="_フラグ"><a class="anchor" href="#_フラグ"></a>フラグ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx deploy</code> command.</p>
+<p><code>dfx deploy</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1203,28 +1203,28 @@ For example, if your project name is <code>hello_world</code>, your current work
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_options"><a class="anchor" href="#_options"></a>Options</h2>
+<h2 id="_オプション"><a class="anchor" href="#_オプション"></a>オプション</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the following options with the <code>dfx deploy</code> command.</p>
+<p><code>dfx deploy</code> コマンドでは、以下のオプションを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1233,31 +1233,31 @@ For example, if your project name is <code>hello_world</code>, your current work
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">オプション</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--network &lt;network&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Overrides the environment to connect to.
-By default, the local canister execution environment is used.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">接続先の環境をオーバーライドします。
+ローカル Canister の実行環境がデフォルトで使用されます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--argument &lt;argument&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies an argument using Candid syntax to pass to the canister during deployment.
-Note that this option requires you to define an actor class in the Motoko program.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">デプロイ時に Canister に渡す Candid 構文を使用した引数を指定します。
+このオプションでは Motoko プログラムで Actor クラスを定義する必要があることに注意してください。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--with-cycles &lt;number-of-cycles&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables you to specify the initial number of cycles for a canister in a project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">プロジェクト内の Canister の初期 Cycle 数を指定します。</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="_arguments"><a class="anchor" href="#_arguments"></a>Arguments</h3>
+<h3 id="_引数"><a class="anchor" href="#_引数"></a>引数</h3>
 <div class="paragraph">
-<p>You can specify the following arguments for the <code>dfx deploy</code> command.</p>
+<p><code>dfx deploy</code> コマンドには以下の引数を指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1266,16 +1266,16 @@ Note that this option requires you to define an actor class in the Motoko progra
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>canister_name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the name of the canister you want to register, build, and deploy.
-Note that the canister name you specify must match at least one name in the <code>canisters</code> section of the <code>dfx.json</code> configuration file for the project.
-If you don&#8217;t specify a canister name, <code>dfx deploy</code> will deploy all canisters defined in the <code>dfx.json</code> file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">登録、ビルド、およびデプロイする Canister の名前を指定します。
+指定する Canister 名はプロジェクトの <code>dfx.json</code> 設定ファイルの <code>canisters</code> セクションにある名前と少なくとも1つは一致する必要があることに注意してください。
+もし、Canister 名を指定しなかった場合、<code>dfx deploy</code> は <code>dfx.json</code> ファイルに定義されている全ての Canister をデプロイします。</p></td>
 </tr>
 </tbody>
 </table>
@@ -1283,13 +1283,13 @@ If you don&#8217;t specify a canister name, <code>dfx deploy</code> will deploy 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<h2 id="_例"><a class="anchor" href="#_例"></a>例</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the <code>dfx deploy</code> command to deploy all or specific canisters on the local canister execution environment, on the Internet Computer プラットフォーム or on a specified testnet.</p>
+<p><code>dfx deploy</code> コマンドを使用すると、ローカルな Canister 実行環境、Internet Computer プラットフォーム または指定したテストネット上に、全てまたは特定の Canister をデプロイすることができます。</p>
 </div>
 <div class="paragraph">
-<p>For example, to deploy the <code>hello</code> project on the hypothetical <code>ic-pubs</code> testnet configured in the <code>dfx.json</code> configuration file, you can run the following command:</p>
+<p>例えば、<code>dfx.json</code> 設定ファイルで設定された仮想的な <code>ic-pubs</code> テストネット上に <code>hello</code> プロジェクトをデプロイするには、以下のコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1297,7 +1297,7 @@ If you don&#8217;t specify a canister name, <code>dfx deploy</code> will deploy 
 </div>
 </div>
 <div class="paragraph">
-<p>To deploy a project on the local canister execution environment and pass a single argument to the installation step, you can run a command similar to the following:</p>
+<p>ローカル Canister 実行環境上にプロジェクトをデプロイし、インストールの手順に単一の引数を渡すには、次のようなコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1305,9 +1305,9 @@ If you don&#8217;t specify a canister name, <code>dfx deploy</code> will deploy 
 </div>
 </div>
 <div class="paragraph">
-<p>Note that currently you must use an actor class in your Motoko dapp.
-In this example, the <code>dfx deploy</code> command specifies an argument to pass to the <code>hello_actor_class</code> canister.
-The main program for the <code>hello_actor_class</code> canister looks like this:</p>
+<p>現在、Motoko Dapp で Actor クラスを使用しなければならないことに注意してください。
+この例では、<code>dfx deploy</code> コマンドは <code>hello_actor_class</code> Canister に渡す引数を指定します。
+<code>hello_actor_class</code> Canister のメインプログラムは以下のようなものです：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1319,7 +1319,7 @@ The main program for the <code>hello_actor_class</code> canister looks like this
 </div>
 </div>
 <div class="paragraph">
-<p>You can use the <code>dfx deploy</code> command with the <code>--with-cycles</code> option to specify the initial balance of a canister created by your wallet. If you don&#8217;t specify a canister, the number of cycles you specify will be added to all canisters by default. To avoid this, specify a specific canister by name. For example, to add an initial balance of 8000000000000 cycles to a canister called "hello-assets", run the following command:</p>
+<p><code>dfx deploy</code> コマンドで <code>--with-cycles</code> オプションを指定すると、ウォレットで作成される Canister の初期残高を指定することができます。Canister を指定しない場合、指定した Cycle 数がデフォルトで全ての Canister に追加されます。これを避けるには特定の Canister を名前で指定します。例えば、hello-assets という名前の Canister に8,000,000,000,000 Cycle の初期残高を追加するには、次のコマンドを実行します。</p>
 </div>
 <div class="listingblock">
 <div class="content">

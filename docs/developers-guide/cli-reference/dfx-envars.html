@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Environment variables :: Dfinity 日本語ドキュメント</title>
+    <title>Environment variables （環境変数） :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/cli-reference/dfx-envars.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../../_/css/site.css">
@@ -1160,15 +1160,15 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Environment variables</h1>
+<h1 class="page">Environment variables （環境変数）</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can configure certain properties for your DFINITY Canister SDK execution environment using environment variables.</p>
+<p>環境変数を使って DFINITY Canister SDK の実行環境の特定のプロパティを設定することができます。</p>
 </div>
 <div class="paragraph">
-<p>This section lists the environment variables that are currently supported with examples of how to use them.
-In most cases, you can set environment variables for a session by executing an   command in the terminal or by adding a line similar to the following to your <code>.profile</code> file:</p>
+<p>このセクションでは現在サポートされている環境変数とその使い方の例を挙げています。
+ほとんどの場合、ターミナルでコマンドを実行するか、<code>.profile</code> ファイルに以下のような行を追加することで、セッションの環境変数を設定することができます：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1181,10 +1181,10 @@ In most cases, you can set environment variables for a session by executing an  
 <h2 id="_canister_candid_path_canister_name"><a class="anchor" href="#_canister_candid_path_canister_name"></a>CANISTER_CANDID_PATH_{canister.name}</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use environment variables with the <code>CANISTER_CANDID_PATH</code> prefix to reference the path to the Candid description file for the canisters that are listed as dependencies in the <code>dfx.json</code> file for your project.</p>
+<p><code>CANISTER_CANDID_PATH</code> というプレフィックスの環境変数を使って、プロジェクトの <code>dfx.json</code> ファイルで依存関係にある Canister の Candid 記述ファイルへのパスを参照することができます。</p>
 </div>
 <div class="paragraph">
-<p>For example, if you have a <code>whoami_assets</code> canister that lists <code>whoami</code> under the <code>dependencies</code> key, you could use the <code>CANISTER_CANDID_PATH_whoami_assets</code> environment variable to refer to the location of the <code>whoami.did</code> file, which for local development might be:</p>
+<p>例えば、 <code>whoami_assets</code> Canister があり、 <code>dependencies</code> キーに <code>whoami</code> がリストされている場合、 <code>CANISTER_CANDID_PATH_whoami_assets</code> という 環境変数を使って、ローカル開発で <code>whoami.did</code> と記載されるファイルの場所を参照することができます：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1197,10 +1197,10 @@ In most cases, you can set environment variables for a session by executing an  
 <h2 id="_canister_id_canister_name"><a class="anchor" href="#_canister_id_canister_name"></a>CANISTER_ID_{canister.name}</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use environment variables with the <code>CANISTER_ID</code> prefix to reference the canister identifier for each canister in the <code>dfx.json</code> file for your project.</p>
+<p><code>CANISTER_ID</code> というプレフィックスの環境変数を使って、プロジェクトの <code>dfx.json</code> ファイルにある各 Canister の識別子を参照することができます。</p>
 </div>
 <div class="paragraph">
-<p>For example, if you have a <code>linkedup</code> project that consists of the <code>linkedup</code> and <code>connectd</code> canisters, you could use the <code>CANISTER_ID_linkedup</code> and <code>CANISTER_ID_connectd</code> environment variables to refer to the canister identifiers—for example <code>ryjl3-tyaaa-aaaaa-aaaba-cai</code> and <code>rrkah-fqaaa-aaaaa-aaaaq-cai</code>—created for your project.</p>
+<p>例えば、<code>linkedup</code> と <code>connectd</code> Canister からなる <code>linkedup</code> プロジェクトがある場合、 <code>CANISTER_ID_linkedup</code> と <code>CANISTER_ID_connectd</code> 環境変数を使って、プロジェクトで作成した <code>ryjl3-tyaaaa-aaaaaaa-cai</code> と <code>rrkah-fqaaa-aaaaq-cai</code> など、Canister の識別子を指定することが可能です。</p>
 </div>
 </div>
 </div>
@@ -1208,12 +1208,12 @@ In most cases, you can set environment variables for a session by executing an  
 <h2 id="_dfx_config_root"><a class="anchor" href="#_dfx_config_root"></a>DFX_CONFIG_ROOT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>DFX_CONFIG_ROOT</code> environment variable to specify a different location for storing the <code>.cache</code> and <code>.config</code> subdirectories for <code>dfx</code>.</p>
+<p>環境変数 <code>DFX_CONFIG_ROOT</code> を使用して、<code>dfx</code> の <code>.cache</code> と <code>.config</code> サブディレクトリを格納する場所を指定します。</p>
 </div>
 <div class="paragraph">
-<p>By default, the <code>.cache</code> and <code>.config</code> directories are located in the home directory for your development environment.
-For example, on macOS the default location is in the <code>/Users/&lt;YOUR-USER-NAME&gt;</code> directory.
-Use the <code>DFX_CONFIG_ROOT</code> environment variable to specify a different location for these directories.</p>
+<p>デフォルトでは、<code>.cache</code> と <code>.config</code> ディレクトリは開発環境のホームディレクトリに配置されます。
+例えば、macOS の場合、デフォルトの場所は <code>/Users/&lt;YOUR-USER-NAME&gt;</code> ディレクトリです。
+環境変数 <code>DFX_CONFIG_ROOT</code> を使用して、これらのディレクトリを別の場所に指定します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1226,10 +1226,10 @@ Use the <code>DFX_CONFIG_ROOT</code> environment variable to specify a different
 <h2 id="_dfx_installation_root"><a class="anchor" href="#_dfx_installation_root"></a>DFX_INSTALLATION_ROOT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>DFX_INSTALLATION_ROOT</code> environment variable to specify a different location for the <code>dfx</code> binary if you are not using the default location for your operating system.</p>
+<p>お使いのオペレーティングシステムのデフォルトの場所を使用しない場合、環境変数 <code>DFX_INSTALLATION_ROOT</code> を使用して、<code>dfx</code> バイナリを別の場所に指定します。</p>
 </div>
 <div class="paragraph">
-<p>The <code>.cache/dfinity/uninstall.sh</code> script uses this environment variable to identify the root directory for your DFINITY Canister SDK installation.</p>
+<p><code>.cache/dfinity/uninstall.sh</code> スクリプトはこの環境変数を使用して DFINITY Canister SDK インストールのルートディレクトリを特定します。</p>
 </div>
 </div>
 </div>
@@ -1237,7 +1237,7 @@ Use the <code>DFX_CONFIG_ROOT</code> environment variable to specify a different
 <h2 id="_dfx_version"><a class="anchor" href="#_dfx_version"></a>DFX_VERSION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>DFX_VERSION</code> environment variable to identify a specific version of the DFINITY Canister SDK that you want to install.</p>
+<p>インストールしたい DFINITY Canister SDK の特定バージョンを指定するには、<code>DFX_VERSION</code> 環境変数を使用します。</p>
 </div>
 <div class="literalblock">
 <div class="content">

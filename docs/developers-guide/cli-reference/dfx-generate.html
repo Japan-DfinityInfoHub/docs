@@ -1161,24 +1161,23 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx generate</code> command to generate canister type declarations for supported programming languages.
-Currently, <code>dfx generate</code> supports four languages: Motoko, Candid, JavaScript, and TypeScript.</p>
+<p>サポートされているプログラミング言語用の Canister 型宣言を生成するには、 <code>dfx generate</code> コマンドを使用します。
+<code>dfx generate</code> は、現在、4つの言語（ Motoko、Candid、JavaScript、TypeScript ）をサポートしています。</p>
 </div>
 <div class="paragraph">
-<p>You can use this command to generate type declarations for all canisters
-that are defined for a project in the project&#8217;s <code>dfx.json</code> configuration file or a specific canister.</p>
+<p>このコマンドを使うと、プロジェクトの <code>dfx.json</code> 設定ファイルで定義されているすべての Canister または特定の Canister の型宣言を生成することができます。</p>
 </div>
 <div class="paragraph">
-<p>Note that you can only run this command from within the project directory structure.
-For example, if your project name is <code>hello_world</code>, your current working directory must be the <code>hello_world</code> top-level project directory or one of its subdirectories.</p>
+<p>このコマンドはプロジェクトのディレクトリ構造内からのみ実行出来ることに注意してください。
+例えば、プロジェクト名が <code>hello_world</code> の場合、現在の作業ディレクトリは <code>hello_world</code> のトップレベルのプロジェクトディレクトリかそのサブディレクトリのいずれかである必要があります。</p>
 </div>
 <div class="paragraph">
-<p>The <code>dfx generate</code> command looks for the configuration under the <code>declarations</code> section of a canister in the <code>dfx.json</code> configuration file.</p>
+<p><code>dfx generate</code> コマンドは、<code>dfx.json</code> 設定ファイル内、 Canister の <code>declarations</code> セクション下の設定を探しにいきます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic usage</h2>
+<h2 id="_基本的な利用法"><a class="anchor" href="#_基本的な利用法"></a>基本的な利用法</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1188,10 +1187,10 @@ For example, if your project name is <code>hello_world</code>, your current work
 </div>
 </div>
 <div class="sect1">
-<h2 id="_flags"><a class="anchor" href="#_flags"></a>Flags</h2>
+<h2 id="_フラグ"><a class="anchor" href="#_フラグ"></a>フラグ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx generate</code> command.</p>
+<p><code>dfx generate</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1200,28 +1199,28 @@ For example, if your project name is <code>hello_world</code>, your current work
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_arguments"><a class="anchor" href="#_arguments"></a>Arguments</h2>
+<h2 id="_引数"><a class="anchor" href="#_引数"></a>引数</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can specify the following arguments for the <code>dfx generate</code> command.</p>
+<p><code>dfx generate</code> コマンドには以下の引数を指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1230,28 +1229,28 @@ For example, if your project name is <code>hello_world</code>, your current work
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>canister_name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the name of the canister for which to generate type declarations.
-The canister name must match at least one name that you have configured in the <code>canisters</code> section of the <code>dfx.json</code> configuration file for your project.
-If you don&#8217;t specify this argument, <code>dfx generate</code> will generate type declarations for all canisters declared in <code>dfx.json</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">型宣言を生成するための Canister の名前を指定します。
+この Canister 名はプロジェクトの <code>dfx.json</code> 設定ファイルの <code>canisters</code> セクションで設定した名前と少なくとも1つは一致している必要があります。
+この引数を指定しない場合、<code>dfx generate</code> は <code>dfx.json</code> で宣言されたすべての Canister に対して型宣言を生成します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
+<h2 id="_設定"><a class="anchor" href="#_設定"></a>設定</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The behavior of <code>dfx generate</code> is controlled by the <code>dfx.json</code> configuration file.
-Under <code>dfx.json</code> → <code>canisters</code> → <code>&lt;canister_name&gt;</code>, you can add a <code>declarations</code> section.
-In this section, you can specify the following fields:</p>
+<p><code>dfx generate</code> の動作は <code>dfx.json</code> 設定ファイルによって制御されます。
+<code>dfx.json</code> → <code>canisters</code> → <code>&lt;canister_name&gt;</code> の下に、 <code>declarations</code> セクションを追加することができます。
+このセクションでは、以下のフィールドを指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1260,27 +1259,27 @@ In this section, you can specify the following fields:</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Field</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フィールド</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>output</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Directory to place declarations for the canister. Default is <code>src/declarations/&lt;canister_name&gt;</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Canister の宣言を配置するディレクトリで、デフォルトは <code>src/declarations/&lt;canister_name&gt;</code> です。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>bindings</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of languages to generate type declarations. Options are <code>"js", "ts", "did", "mo"</code>. Default is <code>["js", "ts", "did"]</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">型宣言を生成するための言語のリストで、オプションは <code>"js", "ts", "did", "mo "</code> です。デフォルトは <code>["js", "ts", "did"]</code> です。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>env_override</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String that will replace <code>process.env.{canister_name_uppercase}_CANISTER_ID</code> in the <code>src/dfx/assets/language_bindings/canister.js</code> template.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>src/dfx/assets/language_bindings/canister.js</code> テンプレート内の <code>process.env.{canister_name_uppercase}_CANISTER_ID</code> を置き換えるための文字列です。</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Outputs from <code>dfx generate</code>:</p>
+<p><code>dfx generate</code> からの出力。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1289,14 +1288,14 @@ In this section, you can specify the following fields:</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Language</th>
-<th class="tableblock halign-left valign-top">File</th>
+<th class="tableblock halign-left valign-top">言語</th>
+<th class="tableblock halign-left valign-top">ファイル</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>JavaScript(js)</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>index.js</code> and <code>&lt;canister_name&gt;.did.js</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>index.js</code> と <code>&lt;canister_name&gt;.did.js</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>TypeScript(ts)</code></p></td>
@@ -1315,7 +1314,7 @@ In this section, you can specify the following fields:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<h2 id="_例"><a class="anchor" href="#_例"></a>例</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1348,10 +1347,10 @@ In this section, you can specify the following fields:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Note that the file name and path to the programs on your file system must match the information specified in the <code>dfx.json</code> configuration file.</p>
+<p>ファイルシステム上のプログラムのファイル名とパスは設定ファイル <code>dfx.json</code> で指定された情報と一致している必要があることに注意してください。</p>
 </div>
 <div class="paragraph">
-<p>In this example, the <code>hello_world</code> canister itself is written in Motoko. The <code>declarations</code> section specifies that type declarations for all four languages will be generated and stored at <code>src/declarations/</code>.</p>
+<p>この例では、<code>hello_world</code> Canister そのものは Motoko で書かれています。<code>declarations</code> セクションでは、4つの言語の型宣言が生成、保存される <code>src/declarations/</code> が指定されています。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1359,7 +1358,7 @@ In this section, you can specify the following fields:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Since there is only one canister in <code>dfx.json</code>, calling <code>dfx generate</code> without an argument will have the same effect as the above command.  If there were multiple canisters defined in <code>dfx.json</code>, this would generate type declarations for all defined canisters.</p>
+<p><code>dfx.json</code> には Canister が一つしかないので、引数なしで <code>dfx generate</code> を呼び出すと、上記のコマンドと同じ効果が得られます。 もし、<code>dfx.json</code> に複数の Canister が定義されていた場合、定義されているすべての Canister の型宣言を生成することになります。</p>
 </div>
 <div class="listingblock">
 <div class="content">

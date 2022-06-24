@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Design dapps :: Dfinity 日本語ドキュメント</title>
+    <title>Dapp の設計 :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/design-apps.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1160,12 +1160,12 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Design dapps</h1>
+<h1 class="page">Dapp の設計</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>As you come up with ideas for dapps, you are going to make many design decisions about how to structure and organize your project.
-On the Internet Computer, there are a few design decisions that you should pay particular attention to as you plan the implementation for your app.</p>
+<p>Dapp のアイデアを思いついたら、どのような構成にするか、どのようにプロジェクトをまとめるか、多くの設計上の決定をすることになります。
+Internet Computer では、アプリの実装を計画立案する際に、特に注意すべき設計上の判断がいくつかあります。</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -1174,7 +1174,7 @@ On the Internet Computer, there are a few design decisions that you should pay p
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-This section is work-in-progress and incomplete. As best practices and design patterns evolve for building dapps that run on the Internet Computer, the information included here will also evolve and change accordingly.
+このセクションは進行中であり、未完成です。Internet Computer 上で動作する Dapp を構築するためのベストプラクティスとデザインパターンが進化するにつれ、ここに含まれる情報も進化・変化していくでしょう。
 </td>
 </tr>
 </table>
@@ -1182,72 +1182,72 @@ This section is work-in-progress and incomplete. As best practices and design pa
 </div>
 </div>
 <div class="sect1">
-<h2 id="_single_or_multiple_canister_architecture"><a class="anchor" href="#_single_or_multiple_canister_architecture"></a>Single or multiple canister architecture</h2>
+<h2 id="_シングルまたはマルチ_canister_アーキテクチャ"><a class="anchor" href="#_シングルまたはマルチ_canister_アーキテクチャ"></a>シングルまたはマルチ Canister アーキテクチャ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>One of the first decisions you might want to consider when designing your dapp is whether it should be encapsulated in a single canister smart contract or consist of multiple canister smart contracts.</p>
+<p>Dapp を設計する際に考慮すべき最初の決定の１つは、単一の Canister スマートコントラクトにカプセル化するか、複数の Canister スマートコントラクトで構成するかを決めることです。</p>
 </div>
 <div class="paragraph">
-<p>For example, if you are writing a simple service with no front-end, you might want to use a single canister to simplify project management and maintenance and focus on adding features.
-If your dapp has both front-end assets and back-end business logic, your project is likely to consist of at least two canisters, with one canister for managing user interface components and another canister for the backend services the application provides.</p>
+<p>例えば、フロントエンドのないシンプルなサービスを書いている場合、プロジェクト管理とメンテナンスを簡素化し、機能の追加に集中するために、単一の Canister を使用するとよいでしょう。
+フロントエンドのアセットとバックエンドのビジネスロジックの両方を持つ Dapp の場合、プロジェクトは少なくとも２つの Canister で構成され、ある Canister はユーザーインターフェースコンポーネントを管理し、別の Canister はアプリケーションが提供するバックエンドサービス用になります。</p>
 </div>
 <div class="paragraph">
-<p>In planning, you might also consider placing some common reusable services in their own canister so that they can be imported and called from other more-specialized canisters or made available for other developers to use.
-The <a href="https://github.com/dfinity/linkedup">LinkedUp</a> sample dapp illustrates this approach by splitting the professional service dapp into two canisters.
-In the LinkedUp example, the functions that establish social connections are defined in the <code>connectd</code> canister and separate from the functions used to set up professional profiles that are defined in the <code>linkedup</code> canister.
-It is easy to imagine extending the dapp with a third canister, for example to schedule events based on profile attributes or shared connections.</p>
+<p>計画立案にあたっては、再利用可能な一般的なサービスをサービス自身の Canister に配置することで、より専門的な他の Canister からインポートされて呼び出されたり、他の開発者が使用できるようにすることも検討するとよいでしょう。
+<a href="https://github.com/dfinity/linkedup">LinkedUp</a> のサンプルの Dapp は、専門的なサービスの Dapp を２つの Canister に分けており、このアプローチの良い例となっています。
+LinkedUp の例では、ソーシャルコネクションを確立する機能は <code>connectd</code> Canister で定義され、<code>linkedup</code> Canister で定義されている専門的なプロフィールを設定するための機能とは、別になっています。
+例えば、プロフィールの属性または共有コネクションに基づくイベントをスケジュールするために、３つ目の Canister で Dapp を拡張することは容易に想像がつきます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_segregating_actors_from_types_and_utilities"><a class="anchor" href="#_segregating_actors_from_types_and_utilities"></a>Segregating actors from types and utilities</h2>
+<h2 id="_型とユーティリティから_actor_を分離"><a class="anchor" href="#_型とユーティリティから_actor_を分離"></a>型とユーティリティから Actor を分離</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In planning the architecture for your project, one common practice is to place the code for the main actor in one file with separate additional files for defining the types you program uses and utility functions that don&#8217;t require an actor.</p>
+<p>プロジェクトのアーキテクチャを計画立案する際の一般的な方法の１つは、メイン Actor のコードを、プログラムで使用する型と Actor を必要としないユーティリティ関数を定義するための個別の追加ファイルとともに、１つのファイルに配置することです。</p>
 </div>
 <div class="paragraph">
-<p>For example, you might set up the back-end logic for your dapp to consist of the following files:</p>
+<p>例えば、Dapp のバックエンドロジックを下記ファイルで構成できます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Main.mo</code> or <code>main.rs</code> with the functions that require an actor to send query and update calls.</p>
+<p><code>Main.mo</code> または <code>main.rs</code> には、Actor がクエリコールとアップデートコールを送信する必要がある関数があります。</p>
 </li>
 <li>
-<p><code>Util.mo</code> or <code>util.rs</code> with helper functions that can be imported for the actor to use.</p>
+<p><code>Util.mo</code> または <code>util.rs</code> には、Actor が使用するにあたり、インポートできるヘルパー関数があります。</p>
 </li>
 <li>
-<p><code>Types.mo</code> or <code>types.rs</code> with all of the data type definitions for your dapp.</p>
+<p><code>Types.mo</code> または <code>types.rs</code> には、Dapp のすべてのデータ型定義があります。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_using_query_calls"><a class="anchor" href="#_using_query_calls"></a>Using query calls</h2>
+<h2 id="_クエリコールの使用"><a class="anchor" href="#_クエリコールの使用"></a>クエリコールの使用</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As discussed in <a href="../developers-guide/concepts/canisters-code.html#query-update">Query and update methods</a>, queries return results faster than update calls. Therefore,explicitly marking a function as a <code>query</code> is an effective strategy for improving application performance.
-In the planning and design phase, you should consider how best to use query calls instead of functions that can perform queries or updates.</p>
+<p><a href="../developers-guide/concepts/canisters-code.html#query-update">クエリーとアップデートメソッド</a> で述べたように、クエリコールはアップデートコールよりも速く結果を返します。したがって、関数を明示的に <code>query</code> としてマークすることは、アプリケーションのパフォーマンスを向上させるための効果的な戦略です。
+計画立案・設計段階では、クエリーまたはアップデートを実行できる関数ではなく、どのようにクエリコールを使用するのが最適かを検討する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>That is a good general rule to follow and can be applied broadly to most categories of dapps.
-However, you should also consider the security and performance trade-off that queries don’t go through consensus and do not appear on the blockchain.
-For some dapps, that trade-off might be appropriate. For example, if you are developing a blogging platform, queries that retrieve articles matching a tag probably don’t warrant going through consensus to ensure that a majority of nodes agree on the results.
-However, if your dapp is retrieving sensitive information—like financial data—you might want more assurance about your results than a basic query provides.</p>
+<p>これは従うべき一般的なルールであり、ほとんどのカテゴリーの Dapp に広く適用できます。
+しかし、クエリーがコンセンサスを得られず、ブロックチェーン上で見えないというセキュリティとパフォーマンスのトレードオフも考慮する必要があります。
+Dapp によっては、そのトレードオフが適切な場合もあります。例えば、ブログプラットフォームを開発している場合、タグに一致する記事を取得するクエリーは、おそらく大多数のノードが結果に同意していることを保証するためにコンセンサスを経る必要はないでしょう。
+しかし、金融データのような機密情報を取得する Dapp の場合は、簡易的なクエリーよりも確実な結果を求めるかもしれません。</p>
 </div>
 <div class="paragraph">
-<p>As an alternative to basic queries, the Internet Computer also supports <strong>certified queries</strong>. Certified queries enable you to receive <strong>authenticated responses</strong> that end users can trust. Using certified queries is an advanced technique that is not covered in the tutorials or other developer-focused documentation, but you can learn about how the authentication works and what you need to do to configure your program to return certified data in response to queries in the <a href="../interface-spec/index.html">Interface specification</a>.</p>
+<p>簡易的なクエリーの代わりに、Internet Computer は <strong>certified queries</strong> もサポートしています。certified queries により、エンドユーザが信頼できる <strong>authenticated responses</strong> を受け取ることができます。certified queries の使用は高度なテクニックであり、チュートリアルまたは他の開発者向けのドキュメントでは扱っていませんが、認証 (authentication) の仕組みとクエリーに対するレスポンスとして証明済み (certified) データを返すようにプログラムを設定するために必要なことは、次のリンクで学べます。 <a href="../interface-spec/index.html">Interface specification</a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_data_storage_and_retrieval"><a class="anchor" href="#_data_storage_and_retrieval"></a>Data storage and retrieval</h2>
+<h2 id="_データの保存と検索"><a class="anchor" href="#_データの保存と検索"></a>データの保存と検索</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Internet Computer enables you to use <strong>stable memory</strong> to handle long-term data storage—often referred to as orthogonal persistence—and to use <strong>query calls</strong> to retrieve your data.
-Efficiently retrieving data using one or more keys can typically be achieved by using data structures like hash tables.
-It is also possible to implement a more traditional database inside a canister.</p>
+<p>Internet Computer は、長期的なデータ保存を扱うために（しばしば直交永続性と呼ばれる） <strong>ステーブルメモリ（stable memory）</strong> を使用し、データを取得するために <strong>クエリコール</strong> を使用することを可能にします。
+１つ以上のキーを使って効率的にデータを取り出すには、通常、ハッシュテーブルのようなデータ構造を使用します。
+また、従来のデータベースを Canister 内に実装することも可能です。</p>
 </div>
 </div>
 </div>

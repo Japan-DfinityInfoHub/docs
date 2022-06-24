@@ -1161,11 +1161,11 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx identity</code> command with subcommands and flags to manage the identities used to execute commands and communicate with the Internet Computer プラットフォーム or the local canister execution environment.
-Creating multiple user identities enables you to test user-based access controls.</p>
+<p>コマンドを実行したり、Internet Computer プラットフォーム やローカルの Canister 実行環境と通信するために使用するユーザー ID を管理するには、<code>dfx identity</code> コマンドとサブコマンド、フラグを使用します。
+複数のユーザー ID を作成することで、ユーザーベースのアクセス制御をテストすることができます。</p>
 </div>
 <div class="paragraph">
-<p>The basic syntax for running <code>dfx identity</code> commands is:</p>
+<p><code>dfx identity</code> コマンドの基本的な構文は以下の通りです：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1173,9 +1173,9 @@ Creating multiple user identities enables you to test user-based access controls
 </div>
 </div>
 <div class="paragraph">
-<p>Depending on the <code>dfx identity</code> subcommand you specify, additional arguments, options, and flags might apply or be required.
-To view usage information for a specific <code>dfx identity</code> subcommand, specify the subcommand and the <code>--help</code> flag.
-For example, to see usage information for <code>dfx identity new</code>, you can run the following command:</p>
+<p>指定する <code>dfx identity</code> サブコマンドによっては、追加の引数、オプション、フラグが適用されたり、要求されたりする場合があります。
+特定の <code>dfx identity</code> サブコマンドの使用情報を表示するには、そのサブコマンドと <code>--help</code> フラグを指定します。
+例えば、<code>dfx identity new</code> の使用情報を見るには、以下のコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1183,7 +1183,7 @@ For example, to see usage information for <code>dfx identity new</code>, you can
 </div>
 </div>
 <div class="paragraph">
-<p>For reference information and examples that illustrate using <code>dfx identity</code> commands, select an appropriate command.</p>
+<p><code>dfx identity</code> コマンドの使用方法を説明する参考情報と例については、適切なコマンドを選択してください。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1192,69 +1192,69 @@ For example, to see usage information for <code>dfx identity new</code>, you can
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">コマンド</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_identity_get_principal"><code>get-principal</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Shows the textual representation of the principal associated with the current identity.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">現在の（ユーザー） ID に関連付けられた Principal のテキストタイプ表現を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_identity_get_wallet"><code>get-wallet</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Shows the canister identifier for the wallet associated with your current identity principal.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ユーザー IDに関連付けたウォレットの Canister ID を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays this usage message or the help of the given subcommand(s).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">この使用法のメッセージまたは指定されたサブコマンドのヘルプを表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_identity_import"><code>import</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new identity by importing a PEM file that contains the key information or security certificate for a principal.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Principal (ID) の鍵情報またはセキュリティ証明書を含む PEM ファイルをインポートして、新しいユーザー ID を作成します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_identity_list"><code>list</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lists existing identities.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">既存の（ユーザー）ID リストを表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_identity_new"><code>new</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new identity.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">新しい（ユーザー）ID を作成します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_identity_remove"><code>remove</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Removes an existing identity.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">既存の（ユーザー）ID を削除します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_identity_rename"><code>rename</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renames an existing identity.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">既存の（ユーザー）ID の名前を変更します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_identity_set_wallet"><code>set-wallet</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sets the wallet canister identifier to use for your current identity principal.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">現在の（ユーザー ID に対応する） Principal ID に使用するウォレット Canister ID を設定します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_identity_use"><code>use</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the identity to use.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用する（ユーザー）ID を指定します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_identity_whoami"><code>whoami</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the name of the current identity user context.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">現在のユーザー ID コンテクストの名前を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_creating_a_default_identity"><a class="anchor" href="#_creating_a_default_identity"></a>Creating a default identity</h2>
+<h2 id="_デフォルトの_id_を作成する"><a class="anchor" href="#_デフォルトの_id_を作成する"></a>デフォルトの ID を作成する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The first time you run the <code>dfx canister create</code> command to register an identifier, your public/private key pair credentials are used to create a <code>default</code> user identity.
-The credentials for the <code>default</code> user are migrated from <code>$HOME/.dfinity/identity/creds.pem</code> to <code>$HOME/.config/dfx/identity/default/identity.pem</code>.</p>
+<p>初めて <code>dfx canister create</code> コマンドを実行して（ユーザー）ID を登録するとき、公開鍵と秘密鍵のペアの認証情報が <code>default</code> ユーザー ID として使用されます。
+<code>default</code> ユーザーの認証情報は <code>$HOME/.dfinity/identity/creds.pem</code> から <code>$HOME/.config/dfx/identity/default/identity.pem</code> へ移行されます。</p>
 </div>
 <div class="paragraph">
-<p>You can then use <code>dfx identity new</code> to create new user identities and store credentials for those identities in <code>$HOME/.config/dfx/identity/&lt;identity_name&gt;/identity.pem</code> files.
-For example, you can create an identity named <code>ic_admin</code> by running the following command:</p>
+<p>その後、<code>dfx identity new</code> を使用して新しいユーザー ID を作成し、それらの ID の認証情報を <code>$HOME/.config/dfx/identity/&lt;identity_name&gt;/identity.pem</code> ファイルに保存することができます。
+例えば、以下のコマンドを実行して <code>ic_admin</code> という名前の ID を作成することができます：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1262,7 +1262,7 @@ For example, you can create an identity named <code>ic_admin</code> by running t
 </div>
 </div>
 <div class="paragraph">
-<p>This command adds a private key for the <code>ic_admin</code> user identity in the <code>~/.config/dfx/identity/ic_admin/identity.pem</code> file.</p>
+<p>このコマンドは <code>ic_admin</code> ユーザ ID 用の秘密鍵を <code>~/.config/dfx/identity/ic_admin/identity.pem</code> ファイルに追加します。</p>
 </div>
 </div>
 </div>
@@ -1270,14 +1270,14 @@ For example, you can create an identity named <code>ic_admin</code> by running t
 <h2 id="_dfx_identity_get_principal"><a class="anchor" href="#_dfx_identity_get_principal"></a>dfx identity get-principal</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx identity get-principal</code> command to display the textual representation of a principal associated with the current user identity context.</p>
+<p>現在のユーザー ID コンテクストに関連付けられた Principal のテキストタイプ表現を表示するには、<code>dfx identity get-principal</code> コマンドを使用します。</p>
 </div>
 <div class="paragraph">
-<p>If you haven&#8217;t created any user identities, you can use this command to display the principal for the <code>default</code> user.
-The textual representation of a principal can be useful for establishing and testing role-based authorization scenarios.</p>
+<p>もし、ユーザー ID を作成していない場合は、このコマンドを使用して <code>default</code> ユーザーの Principal を表示することができます。
+Principal のテキスト表現は、ロールベースの認証シナリオを確立してテストするのに便利です。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic usage</h3>
+<h3 id="_基本的な利用法"><a class="anchor" href="#_基本的な利用法"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity get-principal [flag]</code></pre>
@@ -1285,9 +1285,9 @@ The textual representation of a principal can be useful for establishing and tes
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags"><a class="anchor" href="#_flags"></a>Flags</h3>
+<h3 id="_フラグ"><a class="anchor" href="#_フラグ"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx identity get-principal</code> command.</p>
+<p><code>dfx identity get-principal</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1296,26 +1296,26 @@ The textual representation of a principal can be useful for establishing and tes
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example"><a class="anchor" href="#_example"></a>Example</h3>
+<h3 id="_例"><a class="anchor" href="#_例"></a>例</h3>
 <div class="paragraph">
-<p>If you want to display the textual representation of a principal associated with a specific user identity context, you can run commands similar to the following:</p>
+<p>特定のユーザー ID コンテクストに関連付けられた Principal のテキストタイプ表現を表示する場合、次のようなコマンドを実行できます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1324,7 +1324,7 @@ dfx identity get-principal</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In this example, the first command sets the user context to use the <code>ic_admin</code> identity. The second command then returns the principal associated with the <code>ic_admin</code> identity.</p>
+<p>この例では、最初のコマンドでユーザーコンテクストを設定し、 <code>ic_admin</code> という ID を使用するようにしています。そして、2番目のコマンドは <code>ic_admin</code> ID に関連付けられた Principal を返します。</p>
 </div>
 </div>
 </div>
@@ -1333,15 +1333,15 @@ dfx identity get-principal</code></pre>
 <h2 id="_dfx_identity_get_wallet"><a class="anchor" href="#_dfx_identity_get_wallet"></a>dfx identity get-wallet</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx identity get-wallet</code> command to display the canister identifier for the wallet associated with your current identity principal.</p>
+<p>現在のユーザー ID の Principal に関連付けられたウォレットの Canister ID を表示するには、<code>dfx identity get-wallet</code> コマンドを使用します。</p>
 </div>
 <div class="paragraph">
-<p>Note that you must be connected to the Internet Computer プラットフォーム or the local canister execution environment to run this command.
-In addition, you must be in a project directory to run the command.
-For example, if your project name is <code>hello_world</code>, your current working directory must be the <code>hello_world</code> top-level project directory or one of its subdirectories to run the <code>dfx identity get-wallet</code> command.</p>
+<p>このコマンドを実行するには、Internet Computer プラットフォーム またはローカルの Canister 実行環境に接続されている必要があることに注意してください。
+さらに、このコマンドを実行するには、プロジェクト・ディレクトリにいる必要があります。
+例えば、プロジェクト名が <code>hello_world</code> の場合、<code>dfx identity get-wallet</code> コマンドを実行するには、現在の作業ディレクトリが <code>hello_world</code> トップレベルのプロジェクトディレクトリかそのサブディレクトリのいずれかになる必要があります。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_2"><a class="anchor" href="#_basic_usage_2"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_2"><a class="anchor" href="#_基本的な利用法_2"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity get-wallet [flag]</code></pre>
@@ -1349,9 +1349,9 @@ For example, if your project name is <code>hello_world</code>, your current work
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_2"><a class="anchor" href="#_flags_2"></a>Flags</h3>
+<h3 id="_フラグ_2"><a class="anchor" href="#_フラグ_2"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx identity get-wallet</code> command.</p>
+<p><code>dfx identity get-wallet</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1360,26 +1360,26 @@ For example, if your project name is <code>hello_world</code>, your current work
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example_2"><a class="anchor" href="#_example_2"></a>Example</h3>
+<h3 id="_例_2"><a class="anchor" href="#_例_2"></a>例</h3>
 <div class="paragraph">
-<p>If you want to display the canister identifier for the wallet canister associated with your identity, you can run the following command:</p>
+<p>自分の ID に関連付けられたウォレット Canister の Canister ID を表示したい場合は、以下のコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1387,7 +1387,7 @@ For example, if your project name is <code>hello_world</code>, your current work
 </div>
 </div>
 <div class="paragraph">
-<p>To display the canister identifier for the wallet canister associated with your identity on a specific testnet, you might run a command similar to the following:</p>
+<p>特定のテストネットで自分の ID に関連付けられたウォレット Canister の Canister ID を表示するには、次のようなコマンドを実行します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1401,10 +1401,10 @@ For example, if your project name is <code>hello_world</code>, your current work
 <h2 id="_dfx_identity_import"><a class="anchor" href="#_dfx_identity_import"></a>dfx identity import</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx identity import</code> command to create a user identity by importing the user&#8217;s key information or security certificate from a PEM file.</p>
+<p>ユーザーの鍵情報またはセキュリティ証明書を PEM ファイルからインポートしてユーザー ID を作成するには、<code>dfx identity import</code> コマンドを使用します。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_3"><a class="anchor" href="#_basic_usage_3"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_3"><a class="anchor" href="#_基本的な利用法_3"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity import [flag] <em>identity-name</em> <em>pem_file-name</em></code></pre>
@@ -1412,9 +1412,9 @@ For example, if your project name is <code>hello_world</code>, your current work
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_3"><a class="anchor" href="#_flags_3"></a>Flags</h3>
+<h3 id="_フラグ_3"><a class="anchor" href="#_フラグ_3"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx identity import</code> command.</p>
+<p><code>dfx identity import</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1423,27 +1423,27 @@ For example, if your project name is <code>hello_world</code>, your current work
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+<h3 id="_例_3"><a class="anchor" href="#_例_3"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx identity import</code> command to import a PEM file that contains the security certificate to use for an identity.
-For example, you can run the following command to import the <code>generated-id.pem</code> file to create the user identity <code>alice</code>:</p>
+<p><code>dfx identity import</code> コマンドを使用すると、ID に使用するセキュリティ証明書を含む PEM ファイルをインポートすることができます。
+例えば、以下のコマンドを実行して <code>generated-id.pem</code> ファイルをインポートし、ユーザー ID <code>alice</code> を作成することができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1451,7 +1451,7 @@ For example, you can run the following command to import the <code>generated-id.
 </div>
 </div>
 <div class="paragraph">
-<p>The command adds the <code>generated-id.pem</code> file to the <code>~/.config/dfx/identity/alice</code> directory.</p>
+<p>このコマンドは <code>generated-id.pem</code> ファイルを <code>~/.config/dfx/identity/alice</code> ディレクトリに追加します。</p>
 </div>
 </div>
 </div>
@@ -1460,13 +1460,13 @@ For example, you can run the following command to import the <code>generated-id.
 <h2 id="_dfx_identity_list"><a class="anchor" href="#_dfx_identity_list"></a>dfx identity list</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx identity list</code> command to display the list of user identities available.
-When you run this command, the list displays an asterisk (*) to indicate the currently active user context.
-You should note that identities are global. They are not confined to a specific project context.
-Therefore, you can use any identity listed by the <code>dfx identity list</code> command in any project.</p>
+<p>利用可能なユーザー ID のリストを表示するには、<code>dfx identity list</code> コマンドを使用します。
+このコマンドを実行すると、リストには現在アクティブなユーザーコンテクストを示すアスタリスク (*) が表示されます。
+ID はグローバルであることに注意してください。特定のプロジェクト・コンテクストに限定されるものではありません。
+したがって、<code>dfx identity list</code> コマンドでリストアップされた ID はどのプロジェクトでも使用することができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_4"><a class="anchor" href="#_basic_usage_4"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_4"><a class="anchor" href="#_基本的な利用法_4"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity list [flag]</code></pre>
@@ -1474,9 +1474,9 @@ Therefore, you can use any identity listed by the <code>dfx identity list</code>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_4"><a class="anchor" href="#_flags_4"></a>Flags</h3>
+<h3 id="_フラグ_4"><a class="anchor" href="#_フラグ_4"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx identity list</code> command.</p>
+<p><code>dfx identity list</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1485,27 +1485,27 @@ Therefore, you can use any identity listed by the <code>dfx identity list</code>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_2"><a class="anchor" href="#_examples_2"></a>Examples</h3>
+<h3 id="_例_4"><a class="anchor" href="#_例_4"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx identity list</code> command to list all of the identities you have currently available and to determine which identity is being used as the currently-active user context for running <code>dfx</code> commands.
-For example, you can run the following command to list the identities available:</p>
+<p><code>dfx identity list</code> コマンドを使用すると、現在利用可能なすべての ID をリストアップし、どの ID が <code>dfx</code> コマンドを実行する際に現在アクティブなユーザーコンテクストとして使用されているかを判断することができます。
+例えば、以下のコマンドを実行すると、利用可能な ID をリストアップすることができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1513,7 +1513,7 @@ For example, you can run the following command to list the identities available:
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays the list of identities found similar to the following:</p>
+<p>このコマンドは、次のように見つかった ID の一覧を表示します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1525,8 +1525,8 @@ ic_admin</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In this example, the <code>bob_standard</code> identity is the currently-active user context.
-After you run this command to determine the active user, you know that any additional <code>dfx</code> commands you run are executed using the principal associated with the <code>bob_standard</code> identity.</p>
+<p>この例では、<code>bob_standard</code> ID が現在アクティブなユーザーコンテクストとなります。
+このコマンドを実行してアクティブなユーザーを決定した後、追加で実行する <code>dfx</code> コマンドは <code>bob_standard</code> ID に関連付けられた Principal を使用して実行されることになります。</p>
 </div>
 </div>
 </div>
@@ -1535,12 +1535,12 @@ After you run this command to determine the active user, you know that any addit
 <h2 id="_dfx_identity_new"><a class="anchor" href="#_dfx_identity_new"></a>dfx identity new</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx identity new</code> command to add new user identities.
-You should note that the identities you add are global. They are not confined to a specific project context.
-Therefore, you can use any identity you add using the <code>dfx identity new</code> command in any project.</p>
+<p>新しいユーザー ID を追加するには、<code>dfx identity new</code> コマンドを使用します。
+追加した ID はグローバルなものであることに注意する必要があります。これらは特定のプロジェクトのコンテクストに限定されるものではありません。
+したがって、 <code>dfx identity new</code> コマンドで追加した ID はどのプロジェクトでも使用することができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_5"><a class="anchor" href="#_basic_usage_5"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_5"><a class="anchor" href="#_基本的な利用法_5"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity new [flag] _identity-name_</code></pre>
@@ -1548,9 +1548,9 @@ Therefore, you can use any identity you add using the <code>dfx identity new</co
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_5"><a class="anchor" href="#_flags_5"></a>Flags</h3>
+<h3 id="_フラグ_5"><a class="anchor" href="#_フラグ_5"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx identity new</code> command.</p>
+<p><code>dfx identity new</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1559,26 +1559,26 @@ Therefore, you can use any identity you add using the <code>dfx identity new</co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments"><a class="anchor" href="#_arguments"></a>Arguments</h3>
+<h3 id="_引数"><a class="anchor" href="#_引数"></a>引数</h3>
 <div class="paragraph">
-<p>You must specify the following argument for the <code>dfx identity new</code> command.</p>
+<p><code>dfx identity new</code> コマンドには、以下の引数を指定する必要があります。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1587,24 +1587,24 @@ Therefore, you can use any identity you add using the <code>dfx identity new</co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;identity_name&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the name of the identity to create.
-This argument is required.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">作成する ID の名前を指定します。
+この引数は必須です。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_3"><a class="anchor" href="#_examples_3"></a>Examples</h3>
+<h3 id="_例_5"><a class="anchor" href="#_例_5"></a>例</h3>
 <div class="paragraph">
-<p>You can then use <code>dfx identity new</code> to create new user identities and store credentials for those identities in <code>$HOME/.config/dfx/identity/&lt;identity_name&gt;/identity.pem</code> files.
-For example, you can create an identity named <code>ic_admin</code> by running the following command:</p>
+<p>その後、<code>dfx identity new</code> を使用して新しいユーザー ID を作成し、それらの ID の認証情報を <code>$HOME/.config/dfx/identity/&lt;identity_name&gt;/identity.pem</code> ファイルに保存することができます。
+例えば、以下のコマンドを実行して <code>ic_admin</code> という名前の ID を作成することができます：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1612,10 +1612,10 @@ For example, you can create an identity named <code>ic_admin</code> by running t
 </div>
 </div>
 <div class="paragraph">
-<p>This command adds a private key for the <code>ic_admin</code> user identity in the <code>~/.config/dfx/identity/ic_admin/identity.pem</code> file.</p>
+<p>このコマンドは <code>ic_admin</code> ユーザー ID 用の秘密鍵を <code>~/.config/dfx/identity/ic_admin/identity.pem</code> ファイル内に追加します。</p>
 </div>
 <div class="paragraph">
-<p>After adding the private key for the new identity, the command displays confirmation that the identity has been created:</p>
+<p>新しい ID 用の秘密鍵を追加した後、コマンドは ID が作成されたことを確認するメッセージを表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1630,12 +1630,12 @@ Created identity: "ic_admin".</pre>
 <h2 id="_dfx_identity_remove"><a class="anchor" href="#_dfx_identity_remove"></a>dfx identity remove</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx identity remove</code> command to remove an existing user identity.
-You should note that the identities you add are global. They are not confined to a specific project context.
-Therefore, any identity you remove using the <code>dfx identity remove</code> command will no longer be available in any project.</p>
+<p>既存のユーザー ID を削除するには、<code>dfx identity remove</code> コマンドを使用します。
+あなたが追加した ID はグローバルなものであることに注意してください。これらは特定のプロジェクトのコンテクストに限定されるものではありません。
+したがって、<code>dfx identity remove</code> コマンドを使用して削除した ID は、どのプロジェクトでも使用することができなくなります。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_6"><a class="anchor" href="#_basic_usage_6"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_6"><a class="anchor" href="#_基本的な利用法_6"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity remove [flag] _identity-name_</code></pre>
@@ -1643,9 +1643,9 @@ Therefore, any identity you remove using the <code>dfx identity remove</code> co
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_6"><a class="anchor" href="#_flags_6"></a>Flags</h3>
+<h3 id="_フラグ_6"><a class="anchor" href="#_フラグ_6"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx identity remove</code> command.</p>
+<p><code>dfx identity remove</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1654,26 +1654,26 @@ Therefore, any identity you remove using the <code>dfx identity remove</code> co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments_2"><a class="anchor" href="#_arguments_2"></a>Arguments</h3>
+<h3 id="_引数_2"><a class="anchor" href="#_引数_2"></a>引数</h3>
 <div class="paragraph">
-<p>You must specify the following argument for the <code>dfx identity remove</code> command.</p>
+<p><code>dfx identity remove</code> コマンドには、以下の引数を指定する必要があります。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1682,24 +1682,24 @@ Therefore, any identity you remove using the <code>dfx identity remove</code> co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;identity_name&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the name of the identity to remove.
-This argument is required.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">削除する ID の名前を指定します。
+この引数は必須です。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_4"><a class="anchor" href="#_examples_4"></a>Examples</h3>
+<h3 id="_例_6"><a class="anchor" href="#_例_6"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx identity remove</code> command to remove any previously-created identity, including the <code>default</code> user identity.
-For example, if you have added named user identities and want to remove the <code>default</code> user identity, you can run the following command:</p>
+<p><code>dfx identity remove</code> コマンドを使用すると、<code>default</code> ユーザー ID を含む、以前に作成された ID を削除することができます。
+例えば、名前付きユーザー ID を追加していて、<code>default</code> ユーザー ID を削除したい場合、以下のコマンドを実行します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1707,7 +1707,7 @@ For example, if you have added named user identities and want to remove the <cod
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays confirmation that the identity has been removed:</p>
+<p>コマンドは、ID が削除されたことの確認を表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1716,8 +1716,8 @@ Removed identity "default".</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Although you can delete the <code>default</code> identity if you have created other identities to replace it, you must always have at least one identity available.
-If you attempt to remove the last remaining user context, the <code>dfx identity remove</code> command displays an error similar to the following:</p>
+<p><code>Default</code> ID は、置き換えるために他の ID を作成した場合、削除することができますが、常に少なくとも1つの ID が利用可能である必要があります。
+最後に残ったユーザーコンテクストを削除しようとすると、 <code>dfx identity remove</code> コマンドは次のようなエラーを表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1732,12 +1732,12 @@ If you attempt to remove the last remaining user context, the <code>dfx identity
 <h2 id="_dfx_identity_rename"><a class="anchor" href="#_dfx_identity_rename"></a>dfx identity rename</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx identity rename</code> command to rename an existing user identity.
-You should note that the identities you add are global. They are not confined to a specific project context.
-Therefore, any identity you rename using the <code>dfx identity rename</code> command is available using the new name in any project.</p>
+<p>既存のユーザー ID の名前を変更するには、<code>dfx identity rename</code> コマンドを使用します。
+あなたが追加した ID はグローバルなものであることに注意してください。これらは特定のプロジェクトのコンテクストに限定されるものではありません。
+したがって、<code>dfx identity rename</code> コマンドを使用して名前を変更した ID は、どのプロジェクトでも新しい名前で利用することができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_7"><a class="anchor" href="#_basic_usage_7"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_7"><a class="anchor" href="#_基本的な利用法_7"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity rename [flag] _from_identity-name_ _to_identity-name_</code></pre>
@@ -1745,9 +1745,9 @@ Therefore, any identity you rename using the <code>dfx identity rename</code> co
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_7"><a class="anchor" href="#_flags_7"></a>Flags</h3>
+<h3 id="_フラグ_7"><a class="anchor" href="#_フラグ_7"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx identity rename</code> command.</p>
+<p><code>dfx identity rename</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1756,26 +1756,26 @@ Therefore, any identity you rename using the <code>dfx identity rename</code> co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments_3"><a class="anchor" href="#_arguments_3"></a>Arguments</h3>
+<h3 id="_引数_3"><a class="anchor" href="#_引数_3"></a>引数</h3>
 <div class="paragraph">
-<p>You must specify the following arguments for the <code>dfx identity rename</code> command.</p>
+<p><code>dfx identity rename</code> コマンドには、以下の引数を指定する必要があります。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1784,29 +1784,29 @@ Therefore, any identity you rename using the <code>dfx identity rename</code> co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;from_identity_name&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the current name of the identity you want to rename.
-This argument is required.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">名前を変更したい ID の現在の名前を指定します。
+この引数は必須です。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;to_identity_name&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the new name of the identity you want to rename.
-This argument is required.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">名前を変更したい ID の新しい名前を指定します。
+この引数は必須です。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example_3"><a class="anchor" href="#_example_3"></a>Example</h3>
+<h3 id="_例_7"><a class="anchor" href="#_例_7"></a>例</h3>
 <div class="paragraph">
-<p>You can rename the <code>default</code> user or any identity you have previously created using the <code>dfx identity rename</code> command.
-For example, if you want to rename a <code>test_admin</code> identity that you previously created, you would specify the current identity name you want to change <strong>from</strong> and the new name you want to change <strong>to</strong> by running a command similar to the following:</p>
+<p><code>default</code> ユーザー、または以前に作成した ID の名前は <code>dfx identity rename</code> コマンドを使用して変更することができます。
+例えば、以前に作成した <code>test_admin</code> という ID の名前を変更したい場合、以下のようなコマンドを実行して、変更したい現在の ID 名を <strong>from</strong>、変更したい新しい名前を <strong>to</strong> に指定します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1820,10 +1820,10 @@ For example, if you want to rename a <code>test_admin</code> identity that you p
 <h2 id="_dfx_identity_set_wallet"><a class="anchor" href="#_dfx_identity_set_wallet"></a>dfx identity set-wallet</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx identity set-wallet</code> command to specify the wallet canister identifier to use for your identity.</p>
+<p>ユーザー ID に使用するウォレット Canister ID を指定するには、<code>dfx identity set-wallet</code> コマンドを使用します。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_8"><a class="anchor" href="#_basic_usage_8"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_8"><a class="anchor" href="#_基本的な利用法_8"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity set-wallet [flag] [--canister-name canister-name]</code></pre>
@@ -1831,9 +1831,9 @@ For example, if you want to rename a <code>test_admin</code> identity that you p
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_8"><a class="anchor" href="#_flags_8"></a>Flags</h3>
+<h3 id="_フラグ_8"><a class="anchor" href="#_フラグ_8"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx identity set-wallet</code> command.</p>
+<p><code>dfx identity set-wallet</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1842,35 +1842,35 @@ For example, if you want to rename a <code>test_admin</code> identity that you p
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>force</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Skips verification that the canister you specify is a valid wallet canister.
-This option is only useful if you are connecting to the Internet Computer running locally.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定した Canister が有効なウォレット Canister であることの検証をスキップします。
+このオプションは、ローカルで Internet Computer に接続している場合にのみ有効です。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example_4"><a class="anchor" href="#_example_4"></a>Example</h3>
+<h3 id="_例_8"><a class="anchor" href="#_例_8"></a>例</h3>
 <div class="paragraph">
-<p>If you use more than one principal for your identity, you might have access to more than one wallet canister identifier.
-You can use the <code>dfx identity set-wallet</code> command to specify the wallet canister identifier to use for a given identity.</p>
+<p>ユーザー ID に複数の Principal を使用している場合、複数のウォレット Canister ID にアクセスすることができます。
+<code>dfx identity set-wallet</code> コマンドを使用すると、与えられた ID に使用するウォレット Canister の ID を指定することができます。</p>
 </div>
 <div class="paragraph">
-<p>For example, you might store the wallet canister identifier in an environment variable, then invoke the <code>dfx identity set-wallet</code> command to use that wallet canister for additional operations by running the following:</p>
+<p>例えば、ウォレット Canister の ID を環境変数に保存し、次のように実行して <code>dfx identity set-wallet</code> コマンドを呼び出し、追加の操作にそのウォレット Canister を使用することができます：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1885,12 +1885,12 @@ dfx identity --network=https://192.168.74.4 set-wallet --canister-name ${WALLET_
 <h2 id="_dfx_identity_use"><a class="anchor" href="#_dfx_identity_use"></a>dfx identity use</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx identity use</code> command to specify the user identity you want to active.
-You should note that the identities you have available to use are global. They are not confined to a specific project context.
-Therefore, you can use any identity you have previously created in any project.</p>
+<p><code>dfx identity use</code> コマンドを使用して、アクティブにしたいユーザー ID を指定します。
+使用可能な ID はグローバルなものであることに注意してください。特定のプロジェクトのコンテクストに限定されるものではありません。
+したがって、以前に作成した ID はどのプロジェクトでも使用することができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_9"><a class="anchor" href="#_basic_usage_9"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_9"><a class="anchor" href="#_基本的な利用法_9"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity use [flag] _identity-name_</code></pre>
@@ -1898,9 +1898,9 @@ Therefore, you can use any identity you have previously created in any project.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_9"><a class="anchor" href="#_flags_9"></a>Flags</h3>
+<h3 id="_フラグ_9"><a class="anchor" href="#_フラグ_9"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx identity use</code> command.</p>
+<p><code>dfx identity use</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1909,26 +1909,26 @@ Therefore, you can use any identity you have previously created in any project.<
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments_4"><a class="anchor" href="#_arguments_4"></a>Arguments</h3>
+<h3 id="_引数_4"><a class="anchor" href="#_引数_4"></a>引数</h3>
 <div class="paragraph">
-<p>You must specify the following argument for the <code>dfx identity use</code> command.</p>
+<p><code>dfx identity use</code> コマンドには、以下の引数を指定する必要があります。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1937,23 +1937,23 @@ Therefore, you can use any identity you have previously created in any project.<
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;identity_name&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the name of the identity you want to make active for subsequent commands.
-This argument is required.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">後続のコマンドで有効にしたい ID の名前を指定します。
+この引数は必須です。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_5"><a class="anchor" href="#_examples_5"></a>Examples</h3>
+<h3 id="_例_9"><a class="anchor" href="#_例_9"></a>例</h3>
 <div class="paragraph">
-<p>If you want to run multiple commands with the same user identity context, you can run a command similar to the following:</p>
+<p>同じユーザー ID のコンテクストで複数のコマンドを実行したい場合は、次のようなコマンドを実行します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1961,7 +1961,7 @@ This argument is required.</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>After running this command, subsequent commands use the credentials and access controls associated with the <code>ops</code> user.</p>
+<p>このコマンドを実行した後、以降のコマンドは <code>ops</code> ユーザに関連する認証情報およびアクセス制御を使用します。</p>
 </div>
 </div>
 </div>
@@ -1970,10 +1970,10 @@ This argument is required.</p></td>
 <h2 id="_dfx_identity_whoami"><a class="anchor" href="#_dfx_identity_whoami"></a>dfx identity whoami</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx identity whoami</code> command to display the name of the currently-active user identity context.</p>
+<p>現在アクティブなユーザー ID コンテクストの名前を表示するには、<code>dfx identity whoami</code> コマンドを使用します。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_10"><a class="anchor" href="#_basic_usage_10"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_10"><a class="anchor" href="#_基本的な利用法_10"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity whoami [flag]</code></pre>
@@ -1981,9 +1981,9 @@ This argument is required.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_10"><a class="anchor" href="#_flags_10"></a>Flags</h3>
+<h3 id="_フラグ_10"><a class="anchor" href="#_フラグ_10"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx identity whoami</code> command.</p>
+<p><code>dfx identity whoami</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1992,26 +1992,26 @@ This argument is required.</p></td>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example_5"><a class="anchor" href="#_example_5"></a>Example</h3>
+<h3 id="_例_10"><a class="anchor" href="#_例_10"></a>例</h3>
 <div class="paragraph">
-<p>If you want to display the name of the currently-active user identity, you can run the following command:</p>
+<p>現在アクティブなユーザー ID の名前を表示したい場合は、次のコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2019,8 +2019,8 @@ This argument is required.</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays the name of the user identity.
-For example, you had previously run the command <code>dfx identity use bob_standard</code>, the command would display:</p>
+<p>コマンドはユーザー ID の名前を表示します。
+例えば、以前に <code>dfx identity use bob_standard</code> というコマンドを実行していた場合、コマンドは次のように表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">

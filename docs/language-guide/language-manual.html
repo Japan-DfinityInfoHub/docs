@@ -1318,6 +1318,7 @@
 <li><a href="#exp-try">Try</a></li>
 <li><a href="#exp-assert">Assert</a></li>
 <li><a href="#exp-anno">Type annotation</a></li>
+<li><a href="#candid-serialization">Candid Serialization</a></li>
 <li><a href="#exp-decl">Declaration</a></li>
 <li><a href="#exp-ignore">Ignore</a></li>
 <li><a href="#exp-debug">Debug</a></li>
@@ -1420,12 +1421,10 @@ They are only recognized in front of <code>public</code> declarations.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bnf hljs" data-lang="bnf">actor and assert await break case
-catch class continue debug debug_show do else flexible
-false for func if ignore in import not null object or
-label let loop private public query return
-shared stable system switch true try
-type var while</code></pre>
+<pre class="highlightjs highlight"><code class="language-bnf hljs" data-lang="bnf">actor and assert async await break case catch class continue debug
+debug_show do else flexible false for from_candid func if ignore import
+in module not null object or label let loop private public query return
+shared stable switch system throw to_candid true try type var while</code></pre>
 </div>
 </div>
 </div>
@@ -2340,6 +2339,8 @@ An absent stability qualifier defaults to <code>flexible</code>.</p>
   &lt;exp&gt; !                                        null break
   debug &lt;block-or-exp&gt;                           debug expression
   actor &lt;exp&gt;                                    actor reference
+  to_candid ( &lt;exp&gt;,* )                          Candid serialization
+  from_candid &lt;exp&gt;                              Candid deserialization
   ( &lt;exp&gt; )                                      parentheses
 
 &lt;block-or-exp&gt; ::=
@@ -3457,6 +3458,11 @@ Note that stable variables may be removed across upgrades, or may simply be depr
 <td class="tableblock halign-left valign-top"><p class="tableblock">heartbeat action</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>inspect</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{ caller : Principal; msg : &lt;Variant&gt;; arg : Blob } -&gt; Bool</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message predicate</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>preupgrade</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>() -&gt; ()</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pre upgrade action</p></td>
@@ -3478,6 +3484,9 @@ the time the heartbeat body is executed may be later than the time the
 heartbeat was issued by the subnet.</p>
 </li>
 <li>
+<p><code>inspect</code>, when declared, is called as a predicate on every Internet Computer ingress message (with the exception of HTTP query calls). The return value, a <code>Bool</code>, indicates whether to accept or decline the given message. The argument type depends on the interface of the enclosing actor (see <a href="#inspect-message">[inspect-message]</a>).</p>
+</li>
+<li>
 <p><code>preupgrade</code>, when declared, is called during an upgrade, immediately <em>before</em> the (current) values of the (retired) actor&#8217;s stable variables are transferred to the replacement actor.</p>
 </li>
 <li>
@@ -3490,7 +3499,54 @@ heartbeat was issued by the subnet.</p>
 <p>These <code>preupgrade</code> and <code>postupgrade</code> system methods provide the opportunity to save and restore in-flight data structures (e.g. caches) that are better represented using non-stable types.</p>
 </div>
 <div class="paragraph">
-<p>During an upgrade, a trap occuring in the implicit call to <code>preupgrade()</code> or <code>postupgrade()</code> causes the entire upgrade to trap, preserving the pre-upgrade actor.</p>
+<p>During an upgrade, a trap occurring in the implicit call to <code>preupgrade()</code> or <code>postupgrade()</code> causes the entire upgrade to trap, preserving the pre-upgrade actor.</p>
+</div>
+<div class="sect4">
+<h5 id="inspect"><a class="anchor" href="#inspect"></a><code>inspect</code></h5>
+<div class="paragraph">
+<p>Given a record of message attributes, this function produces a <code>Bool</code> that indicates whether to accept or decline the message by returning <code>true</code> or <code>false</code>.
+The function is invoked (by the system) on each ingress message (excluding non-replicated queries).
+Similar to a query, any side-effects of an invocation are transient and discarded.
+A call that traps due to some fault has the same result as returning <code>false</code> (message denial).</p>
+</div>
+<div class="paragraph">
+<p>The argument type of <code>inspect</code> depends on the interface of the enclosing actor.
+In particular, the formal argument of <code>inspect</code> is a record of fields of the following types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>caller : Principal</code>: the principal, possibly anonymous, of the caller of the message;</p>
+</li>
+<li>
+<p><code>arg : Blob</code>: the raw, binary content of the message argument;</p>
+</li>
+<li>
+<p><code>msg : &lt;variant&gt;</code>: a variant of <em>decoding</em> functions,  where <code>&lt;variant&gt; == {&#8230;&#8203;; #&lt;id&gt;: () &#8594; T; &#8230;&#8203;}</code> contains one variant
+per shared function, <code>&lt;id&gt;</code>, of the actor.
+The variant&#8217;s tag identifies the function to be called;
+The variant&#8217;s argument is a function that, when applied, returns the (decoded) argument of the call as a value of type <code>T</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Using a variant, tagged with <code>#&lt;id&gt;</code>, allows the return type, <code>T</code>, of the decoding function to vary with the argument type (also <code>T</code>) of the shared function <code>&lt;id&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>The variant&#8217;s argument is a function so that one can avoid the expense of message decoding (when appropriate).</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+An actor that fails to declare system field <code>inspect</code> will simply accept all ingress messages.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -5245,6 +5301,88 @@ Because the <code>Error</code> type is opaque, the pattern match cannot fail (ty
 </td>
 <td class="content">
 Type annotations have no-runtime cost and cannot be used to perform the (checked or unchecked) <code>down-casts</code> available in other object-oriented languages.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="candid-serialization"><a class="anchor" href="#candid-serialization"></a>Candid Serialization</h3>
+<div class="paragraph">
+<p>The <em>Candid serialization</em> expression <code>to_candid ( &lt;exp&gt;,*)</code> has type <code>Blob</code> provided:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>(&lt;exp&gt;,*)</code> has type <code>(T1,&#8230;&#8203;,TN)</code>, and each <code>Ti</code> is <em>shared</em>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Expression <code>to_candid ( &lt;exp&gt;,* )</code> evaluates the expression sequence <code>( &lt;exp&gt;,* )</code> to a result <code>r</code>.
+If <code>r</code> is <code>trap</code>, evaluation returns <code>trap</code>.
+Otherwise, <code>r</code> is a sequence of Motoko values <code>vs</code>.
+The result of evaluating <code>to_candid ( &lt;exp&gt;,* )</code> is some Candid blob <code>b = encode((T1,...,TN))(vs)</code>, encoding <code>vs</code>.</p>
+</div>
+<div class="paragraph">
+<p>The Candid <em>deserialization</em> expression <code>from_candid &lt;exp&gt;</code> has type <code>?(T1,&#8230;&#8203;,Tn)</code> provided:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>?(T1,&#8230;&#8203;,Tn)</code> is the expected type from the context;</p>
+</li>
+<li>
+<p><code>&lt;exp&gt;</code> has type <code>Blob</code>; and</p>
+</li>
+<li>
+<p><code>?(T1,&#8230;&#8203;TN)</code> is <em>shared</em>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Expression <code>from_candid &lt;exp&gt;</code> evaluates <code>&lt;exp&gt;</code> to a result <code>r</code>. If <code>r</code> is <code>trap</code>, evaluation returns <code>trap</code>. Otherwise <code>r</code> is a binary blob <code>b</code>.
+If <code>b</code> Candid-decodes to Candid value sequence <code>Vs</code> of type <code>ea((T1,...,TN))</code> then the result of <code>from_candid</code> is <code>?v</code> where  <code>v = decode((T1,...,TN))(Vs)</code>.
+If <code>b</code> Candid-decodes to a Candid value sequence <code>Vs</code> that is not of  Candid type <code>ea((T1,...,TN))</code> (but well-formed at some other type) then the result is <code>null</code>.
+If <code>b</code> is not the encoding of any well-typed Candid value, but some arbitrary binary blob, then the result of <code>from_candid</code> is a trap.</p>
+</div>
+<div class="paragraph">
+<p>(Informally, here <code>ea(_)</code> is the Motoko-to-Candid type sequence translation and <code>encode/decode((T1,...,TN))(_)</code> are type-directed Motoko-Candid value translations.)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>from_candid</code> returns <code>null</code> when the argument is a valid Candid encoding of the wrong type. It traps if the blob is not a valid Candid encoding at all.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>to_candid</code> and <code>from_candid</code> are syntactic operators, not first-class functions, and must be fully applied in the syntax.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+the Candid encoding of a value as a blob is not unique and the same value may have many different Candid representations as a blob.
+For this reason, blobs should never be used to, for instance, compute hashes of values or determine equality, whether across compiler
+versions or even just different programs.
 </td>
 </tr>
 </table>

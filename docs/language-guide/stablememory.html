@@ -1254,6 +1254,10 @@ for most of Motoko&#8217;s fixed-size scalar types.</p>
   // Traps on out-of-bounds access.
   storeBlob : (offset : Nat64, value : Blob) -&gt; ()
 
+  // Returns a query that, when called, returns the number of bytes of
+  // (real) IC stable memory that would be occupied by persisting its
+  // current stable variables before an upgrade.
+  stableVarQuery : () -&gt; (shared query () -&gt; async {size : Nat64})
 }</code></pre>
 </div>
 </div>

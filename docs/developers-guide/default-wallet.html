@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Use the default cycles wallet :: Dfinity 日本語ドキュメント</title>
+    <title>デフォルトの Cycle ウォレットを使用する :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/default-wallet.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1160,32 +1160,32 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Use the default cycles wallet</h1>
+<h1 class="page">デフォルトの Cycle ウォレットを使用する</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>As discussed in <a href="concepts/tokens-cycles.html">Tokens and cycles</a>, ICP tokens can be converted into <strong>cycles</strong> to power canister operations.
-Cycles reflect the operational cost of communication, computation, and storage that dapps consume.</p>
+<p><a href="concepts/tokens-cycles.html">トークンと Cycle</a> で説明したように、ICP トークンを <strong>Cycle</strong> へ変換し、Canister の操作の動力にできます。
+Cycle は、Dapp が消費する 通信、計算、ストレージ の運用コストを反映したものです。</p>
 </div>
 <div class="paragraph">
-<p>Unlike ICP tokens, cycles are only associated with canisters and not user or developer principals.
-Because only canisters require and consume cycles—to perform operations and to pay for the resources they use—users and developers manage the distribution and ownership of cycles through a special type of canister called a <strong>cycles wallet</strong>. Because the cycles wallet holds the cycles required to perform operations such as creating new canisters, these operations are executed using the canister principal for the cycles wallet instead of your user principal.</p>
+<p>ICP トークンとは異なり、Cycle は Canister にのみ関連付けられ、ユーザーまたは開発者の Principal には関連付けられません。
+Canister だけが、操作の実行や使用するリソースの支払いに Cycle を必要とし消費するため、ユーザーと開発者は、<strong>Cycle ウォレット</strong> と呼ばれる特別なタイプの Canister を通じて、Cycle の配布と所有権を管理します。Cycle ウォレットは、新しい Canister の作成などの操作に必要な Cycle を保持しているため、これらの操作はユーザー Principal ではなく、Cycle ウォレット の Canister Principal を使用して実行されます。</p>
 </div>
 <div class="paragraph">
-<p>For the purposes of using the local canister execution environment, the DFINITY Canister SDK automatically creates a default cycles wallet for you in every project and most of the operations performed using the cycles wallet happen behind the scenes.
-For example, the cycles wallet acts on your behalf to register canister principals and deploy canisters in the local canister execution environment.</p>
+<p>ローカルの Canister 実行環境を使用する事を目的に、DFINITY Canister SDK はすべてのプロジェクトであなた用にデフォルトの Cycle ウォレットを自動的に作成し、Cycle ウォレットを使用して実行される操作のほとんどは裏で行われます。
+例えば、Cycles ウォレットは、あなたに代わって、Canister Principal の登録とローカルの Canister 実行環境への Canister のデプロイを代行します。</p>
 </div>
 <div class="paragraph">
-<p>In a production environment, however, you need to explicitly register and transfer cycles to new canisters, specify the principals that can act as custodians, and manage the principals with ownership rights.
-You can perform some of these tasks using the default cycles wallet dapp running in a web browser.
-Depending on the specific action you want to take, you can also perform these cycle and canister management tasks by running <code>dfx wallet</code> commands in a terminal or by calling methods in the default cycles wallet canister directly.</p>
+<p>しかし、本番環境では、Cycle を新規 Canister へ明示的に登録・転送し、カストディアンとして機能できる Principal を指定し、所有権を持つ Principal を適切に管理する必要があります。
+これらのタスクの一部は、ウェブブラウザ上で動作するデフォルトの Cycle ウォレット Dapp を使って実行できます。
+特定のアクションに応じて、ターミナルで <code>dfx wallet</code> コマンドを実行したり、デフォルトの Cycle ウォレット Canister のメソッドを直接呼び出すことにより、これらの Cycle と Canister の管理タスクを実行できます。</p>
 </div>
 <div class="paragraph">
-<p>You should keep in mind, however, that calls to the cycles wallet canister are executed using the cycles wallet principal associated with the currently-selected user identity.
-Depending on your currently-selected identity and whether the principal associated with that identity has been added as a controller or a custodian for a wallet, you might see different results or be denied access to a specific method.</p>
+<p>ただし、Cycles ウォレット Canister への呼び出しは、現在選択されているユーザー Identity に関連付けられた Cycles ウォレット Principal を使用して実行されることに留意すべきです。
+現在選択されている Identity と、その Identity に関連する Principal がウォレットのコントローラーまたはカストディアンとして追加されているかどうかによって異なる結果が表示される、または、特定のメソッドへのアクセスが拒否される場合があります。</p>
 </div>
 <div class="paragraph">
-<p>To check the identity you are currently using, run the following command:</p>
+<p>現在使用している Identity を確認するには、下記コマンドを実行します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1195,58 +1195,58 @@ Depending on your currently-selected identity and whether the principal associat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_controller_and_custodian_roles"><a class="anchor" href="#_controller_and_custodian_roles"></a>Controller and custodian roles</h2>
+<h2 id="_コントローラーとカストディアンのロール"><a class="anchor" href="#_コントローラーとカストディアンのロール"></a>コントローラーとカストディアンのロール</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A user principal or canister principal can be assigned to a <strong>controller</strong> or <strong>custodian</strong> role.</p>
+<p>ユーザー Principal または Canister Principal に、<strong>コントローラー</strong> または <strong>カストディアン</strong> ロールを割り当てることができます。</p>
 </div>
 <div class="paragraph">
-<p>A <strong>controller</strong> is the most privileged role and a principal assigned to the controller role can perform privileged tasks including the following:</p>
+<p><strong>コントローラー</strong> は最も特権的なロールであり、コントローラーロールに割り当てられた Principal は、下記のような特権的なタスクを実行できます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Add and remove other principals as controllers.</p>
+<p>他の Principal をコントローラーとして追加・削除できます。</p>
 </li>
 <li>
-<p>Authorize and de-authorize other principals as custodians.</p>
+<p>他の Principal をカストディアンとして承認・承認解除できます。</p>
 </li>
 <li>
-<p>Add entries to the cycles wallet address book.</p>
+<p>Cycle ウォレットのアドレス帳に項目を追加できます。</p>
 </li>
 <li>
-<p>Access the cycles wallet balance and all other wallet-related information.</p>
+<p>Cycle ウォレットの残高と他の全ウォレットの関連情報にアクセスできます。</p>
 </li>
 <li>
-<p>Send cycles to other canisters.</p>
+<p>他の Canister に Cycle を送信できます。</p>
 </li>
 <li>
-<p>Accept receipt of cycles from other canisters.</p>
+<p>他の Canister から Cycle の受信を受け取れます。</p>
 </li>
 <li>
-<p>Rename the cycles wallet.</p>
+<p>Cycle ウォレットの名前を変更できます。</p>
 </li>
 <li>
-<p>Create canisters and additional cycles wallets.</p>
+<p>Canister と追加の Cycle ウォレットを作成できます。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>A principal assigned to the <strong>custodian</strong> role can only perform a subset of cycles wallet management tasks, including the following:</p>
+<p><strong>カストディアン</strong> ロールに割り当てられた Principal は、下記のような Cycle ウォレット管理タスクのサブセットのみを実行できます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Access the cycles wallet balance and all other wallet-related information.</p>
+<p>Cycle ウォレットの残高とその他のウォレット関連情報にアクセスできます。</p>
 </li>
 <li>
-<p>Send cycles to other canisters.</p>
+<p>他の Canister へ Cycle を送信できます。</p>
 </li>
 <li>
-<p>Accept receipt of cycles from other canisters.</p>
+<p>他の Canister からの Cycle の受信を受け取れます。</p>
 </li>
 <li>
-<p>Create canisters.</p>
+<p>Canister を作成できます。</p>
 </li>
 </ul>
 </div>
@@ -1257,7 +1257,7 @@ Depending on your currently-selected identity and whether the principal associat
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Authorizing a principal as a custodian does not automatically grant the principal access to a cycles wallet. The identity assigned to the custodian role must also be assigned a cycles wallet principal. For example, if you authorize the identity <code>alice_custodian</code> as a custodian of a cycles wallet (<code>rwlgt-iiaaa-aaaaa-aaaaa-cai</code>) in a local project, that user would also need to be assigned to use that wallet with the <code>dfx identity set-wallet rwlgt-iiaaa-aaaaa-aaaaa-cai</code> command.
+Principal にカストディアンとしての権限を与えても、Principal に自動的に Cycle ウォレットへのアクセス権が与えられるわけではありません。カストディアンロールを割り当てられた Identity に、Cycle ウォレットの Principal も割り当てなければなりません。例えば、<code>alice_custodian</code> という Identity をローカルプロジェクトの Cycle ウォレット（<code>rwlgt-iiaaa-aaaaa-cai</code>）のカストディアンとして承認する場合、そのユーザーは <code>dfx identity set-wallet rwlgt-iiaaa-aaaaa-cai</code> コマンドでそのウォレットの使用も割り当てられる必要があるでしょう。
 </td>
 </tr>
 </table>
@@ -1265,40 +1265,40 @@ Authorizing a principal as a custodian does not automatically grant the principa
 </div>
 </div>
 <div class="sect1">
-<h2 id="wallet-create"><a class="anchor" href="#wallet-create"></a>Create a cycles wallet</h2>
+<h2 id="wallet-create"><a class="anchor" href="#wallet-create"></a>Cycle ウォレットを作成する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you are doing local development, your cycles wallet is created when you register a new canister principal using <code>dfx canister create</code> or when you register, build, and deploy a canister with <code>dfx deploy</code>.</p>
+<p>ローカルで開発を行っている場合、<code>dfx canister create</code> を使用して新しい Canister Principal を登録したとき、または <code>dfx deploy</code> で Canister を登録・ビルド・デプロイしたときに、Cycle ウォレットが作成されます。</p>
 </div>
 <div class="paragraph">
-<p>If you are deploying on the Internet Computer, you typically create your cycles wallet by converting ICP tokens to cycles, transferring the cycles to a new canister principal, and updating the canister with the default cycles wallet WebAssembly module (WASM).</p>
+<p>Internet Computer にデプロイする場合、通常、ICP トークンを Cycle に変換し、Cycle を新しい Canister Principal に転送し、デフォルトの Cycle ウォレット WebAssembly モジュール（WASM）で Canister を更新することによって、Cycle ウォレットを作成します。</p>
 </div>
 <div class="paragraph">
-<p>There are dapps that can help you convert ICP to cycles and create a new cycles wallet, e.g., <a href="../token-holders/nns-app-quickstart.html#_deploy_a_canister_with_cycles">NNS dapp</a>.</p>
+<p>ICP を Cycle に変換し、新しい Cycle ウォレットを作成するのに役立つ Dapp があります。例えば、<a href="../token-holders/nns-app-quickstart.html#_deploy_a_canister_with_cycles">NNS dapp</a> があります。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="wallet-check-balance"><a class="anchor" href="#wallet-check-balance"></a>Check the cycle balance</h2>
+<h2 id="wallet-check-balance"><a class="anchor" href="#wallet-check-balance"></a>Cycle 残高の確認</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In the local canister execution environment or with a cycles wallet on the Internet Computer, you can use the  <code>dfx wallet balance</code> command or the <code>wallet_balance</code> method to check the current cycle balance.</p>
+<p>ローカルの Canister 実行環境 または Internet Computer 上の Cycle ウォレットでは、<code>dfx wallet balance</code> コマンドまたは <code>wallet_balance</code> メソッドを使用して現在の Cycle 残高を確認できます。</p>
 </div>
 <div class="sect2">
-<h3 id="_check_you_cycles_balance_when_developing_locally"><a class="anchor" href="#_check_you_cycles_balance_when_developing_locally"></a>Check you cycles balance when developing locally</h3>
+<h3 id="_ローカルで開発する際にcycle_残高を確認する"><a class="anchor" href="#_ローカルで開発する際にcycle_残高を確認する"></a>ローカルで開発する際に、Cycle 残高を確認する</h3>
 <div class="paragraph">
-<p>If you are doing local development, you can use the  <code>dfx wallet balance</code> command to check the current cycles balance on a project-by-project basis.</p>
+<p>ローカルで開発を行っている場合、<code>dfx wallet balance</code> コマンドを使用し、プロジェクト単位で現在の Cycle 残高を確認できます。</p>
 </div>
 <div class="paragraph">
-<p>To check the cycles balance in a local project:</p>
+<p>ローカルプロジェクトで Cycle バランスを確認するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal and navigate to the root directory of the project.</p>
+<p>ターミナルを開き、プロジェクトのルートディレクトリに移動します。</p>
 </li>
 <li>
-<p>Start the local canister execution environment by running the following command:</p>
+<p>下記コマンドを実行し、ローカルの Canister 実行環境を起動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx start --background</code></pre>
@@ -1306,14 +1306,14 @@ Authorizing a principal as a custodian does not automatically grant the principa
 </div>
 </li>
 <li>
-<p>Display the cycles balance from the cycles wallet associated with the currently-selected identity by running the following command:</p>
+<p>下記コマンドを実行し、現在選択されている Identity に関連付けられた Cycle ウォレットの Cycle 残高を表示します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet balance</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1325,20 +1325,20 @@ Authorizing a principal as a custodian does not automatically grant the principa
 </div>
 </div>
 <div class="sect2">
-<h3 id="_check_the_cycles_balance_on_the_internet_computer"><a class="anchor" href="#_check_the_cycles_balance_on_the_internet_computer"></a>Check the cycles balance on the Internet Computer</h3>
+<h3 id="_internet_computer_上で_cycle_残高を確認する"><a class="anchor" href="#_internet_computer_上で_cycle_残高を確認する"></a>Internet Computer 上で Cycle 残高を確認する</h3>
 <div class="paragraph">
-<p>If you have deployed a cycles wallet on the Internet Computer, you can use the  <code>dfx wallet balance</code> command to check the current cycles balance on the network.</p>
+<p>Internet Computer 上に Cycle ウォレットをデプロイした場合、<code>dfx wallet balance</code> コマンドを使用して、ネットワーク上の現在の Cycle 残高を確認できます。</p>
 </div>
 <div class="paragraph">
-<p>To check the cycles balance on the Internet Computer:</p>
+<p>Internet Computer の Cycle 残高を確認するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal and navigate to a directory that contains a <code>dfx.json</code> configuration file.</p>
+<p>ターミナルを開き、設定ファイル <code>dfx.json</code> が格納されているディレクトリに移動します。</p>
 </li>
 <li>
-<p>Check your connection to the Internet Computer by running the following command:</p>
+<p>下記コマンドを実行し、Internet Computer との接続を確認します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ping ic</code></pre>
@@ -1346,14 +1346,14 @@ Authorizing a principal as a custodian does not automatically grant the principa
 </div>
 </li>
 <li>
-<p>Display the cycle balance from the cycles wallet associated with the currently-selected identity by running the following command:</p>
+<p>次のコマンドを実行し、現在選択されている Identity に関連する Cycle ウォレットの Cycle 残高を表示します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet --network ic balance</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1365,10 +1365,10 @@ Authorizing a principal as a custodian does not automatically grant the principa
 </div>
 </div>
 <div class="sect2">
-<h3 id="_call_the_cycles_wallet_balance_method"><a class="anchor" href="#_call_the_cycles_wallet_balance_method"></a>Call the cycles wallet_balance method</h3>
+<h3 id="_cycle_の_wallet_balance_メソッドを呼び出す"><a class="anchor" href="#_cycle_の_wallet_balance_メソッドを呼び出す"></a>Cycle の wallet_balance メソッドを呼び出す</h3>
 <div class="paragraph">
-<p>You can also check the cycles balance by calling the <code>wallet_balance</code> method in the cycles wallet canister directly.
-For example, if your principal is a controller for the <code>h5aet-waaaa-aaaab-qaamq-cai</code> cycles wallet, you can check the current cycle balance by running the following command:</p>
+<p>また、Cycle ウォレット Canister の <code>wallet_balance</code> メソッドを直接呼び出すことで、Cycle 残高を確認できます。
+例えば、Principal が Cycle ウォレット <code>h5aet-waaaa-aaaab-qaamq-cai</code> のコントローラーである場合、下記コマンドを実行し、現在の Cycle 残高を確認できます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1376,8 +1376,7 @@ For example, if your principal is a controller for the <code>h5aet-waaaa-aaaab-q
 </div>
 </div>
 <div class="paragraph">
-<p>The command returns the balance using Candid format as a record with an amount field (represented by the hash 3_573_748_184) and a balance of
-6,895,656,625,450 cycles like this:</p>
+<p>このコマンドは、下記のように金額フィールド（ハッシュ 3_573_748_184 で表される）と残高 6,895,656,625,450 Cycle を持つレコードとして Candid 形式を使用して残高を返します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1388,22 +1387,22 @@ For example, if your principal is a controller for the <code>h5aet-waaaa-aaaab-q
 </div>
 </div>
 <div class="sect1">
-<h2 id="wallet-add-controller"><a class="anchor" href="#wallet-add-controller"></a>Add a controller</h2>
+<h2 id="wallet-add-controller"><a class="anchor" href="#wallet-add-controller"></a>コントローラーを追加する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you are the controller of a cycles wallet, you can add other user principals or canister principals to the controller role.
-Adding a principal to the controller role also automatically adds the principal to the custodian role.</p>
+<p>Cycle ウォレットのコントローラーの場合、他のユーザー Principal または Canister Principal をコントローラーロールに追加できます。
+Principal をコントローラーロールに追加すると、Principal は自動的にカストディアンロールに追加されます。</p>
 </div>
 <div class="paragraph">
-<p>To add a controller to a cycles wallet in a the local project:</p>
+<p>ローカルプロジェクトの Cycle ウォレットにコントローラーを追加するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal and navigate to the root directory of the project.</p>
+<p>ターミナルを開き、プロジェクトのルートディレクトリに移動します。</p>
 </li>
 <li>
-<p>Start the local canister execution environment by running the following command:</p>
+<p>下記コマンドを実行し、ローカルの Canister 実行環境を起動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx start --background</code></pre>
@@ -1411,14 +1410,14 @@ Adding a principal to the controller role also automatically adds the principal 
 </div>
 </li>
 <li>
-<p>Display the cycles balance from the cycles wallet associated with the currently-selected identity by running a command similar to the following:</p>
+<p>下記のようなコマンドを実行し、現在選択されている Identity に関連付けられた Cycle ウォレットの Cycle 残高を表示します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet add-controller &lt;controller-principal&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example, you would run the following command to add the user represented by the principal b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe as a controller of the local cycles wallet:</p>
+<p>例えば、Principal b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe で表されるユーザーを、ローカルの Cycle ウォレットのコントローラーとして追加するには、下記コマンドを実行します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1426,7 +1425,7 @@ Adding a principal to the controller role also automatically adds the principal 
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1439,21 +1438,21 @@ Adding a principal to the controller role also automatically adds the principal 
 </div>
 </div>
 <div class="sect1">
-<h2 id="wallet-get-controllers"><a class="anchor" href="#wallet-get-controllers"></a>List the current controllers</h2>
+<h2 id="wallet-get-controllers"><a class="anchor" href="#wallet-get-controllers"></a>現在のコントローラーを一覧表示する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the  <code>dfx wallet controllers</code> command or the <code>get_controllers</code> method to list the principals that have full control over a specified cycles wallet canister.</p>
+<p><code>dfx wallet controllers</code> コマンド または <code>get_controllers</code> メソッドを使用することで、指定した Cycle ウォレット Canister を完全に制御する Principal を一覧表示できます。</p>
 </div>
 <div class="paragraph">
-<p>To list the controllers for a cycles wallet in a local project:</p>
+<p>ローカルプロジェクトで Cycle ウォレットのコントローラーを一覧表示するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal and navigate to the root directory of the project.</p>
+<p>ターミナルを開き、プロジェクトのルートディレクトリに移動します。</p>
 </li>
 <li>
-<p>Start the local canister execution environment by running the following command:</p>
+<p>下記コマンドを実行し、ローカルの Canister 実行環境を起動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx start --background</code></pre>
@@ -1461,14 +1460,14 @@ Adding a principal to the controller role also automatically adds the principal 
 </div>
 </li>
 <li>
-<p>List the principals that have full control over the cycles wallet in the current project by running the following command:</p>
+<p>下記コマンドを実行し、現在のプロジェクトで Cycle ウォレットを完全に制御している Principal を一覧表示します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet controllers</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays the textual representation of the principals that have control over the cycles wallet with output similar to the following:</p>
+<p>このコマンドは、Cycle ウォレットを制御する Principal のテキスト表現を、下記のような出力で表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1482,21 +1481,21 @@ b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="wallet-remove-controller"><a class="anchor" href="#wallet-remove-controller"></a>Remove a controller</h2>
+<h2 id="wallet-remove-controller"><a class="anchor" href="#wallet-remove-controller"></a>コントローラーを削除する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the  <code>dfx wallet remove-controller</code> command or the <code>remove_controller</code> method to remove a principal as a controller.</p>
+<p>コントローラーとしての Principal の削除するには、 <code>dfx wallet remove-controller</code> コマンドまたは <code>remove_controller</code> メソッドを使用します。</p>
 </div>
 <div class="paragraph">
-<p>To remove a controller for a cycles wallet in a local project:</p>
+<p>ローカルプロジェクトの Cycle ウォレットのコントローラーを削除するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal and navigate to the root directory of the project.</p>
+<p>ターミナルを開き、プロジェクトのルートディレクトリに移動します。</p>
 </li>
 <li>
-<p>Start the local canister execution environment by running the following command:</p>
+<p>下記コマンドを実行し、ローカルの Canister 実行環境を起動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx start --background</code></pre>
@@ -1504,14 +1503,14 @@ b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</pre>
 </div>
 </li>
 <li>
-<p>Specify the principal to remove from the controller role in the current project by running a command similar to the following:</p>
+<p>下記のようなコマンドを実行し、現在のプロジェクトのコントローラーロールから削除する Principal を指定します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet remove-controller b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command output similar to the following:</p>
+<p>このコマンドにより下記のように出力されます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1524,21 +1523,21 @@ b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="wallet-authorize"><a class="anchor" href="#wallet-authorize"></a>Authorize a custodian</h2>
+<h2 id="wallet-authorize"><a class="anchor" href="#wallet-authorize"></a>カストディアンを承認する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the  <code>dfx wallet authorize</code> command or the <code>authorize</code> method to authorize a principal as a custodian of a cycles wallet.</p>
+<p><code>dfx wallet authorize</code> コマンド または <code>authorize</code> メソッドを使用すると、Principal を Cycle ウォレットのカストディアンとして承認できます。</p>
 </div>
 <div class="paragraph">
-<p>To authorize a principal as a custodian for the cycles wallet in a local project:</p>
+<p>ローカルプロジェクトにおける Cycle ウォレットのカストディアンとして Principal を承認するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal and navigate to the root directory of the project.</p>
+<p>ターミナルを開き、プロジェクトのルートディレクトリに移動します。</p>
 </li>
 <li>
-<p>Start the local canister execution environment by running the following command:</p>
+<p>下記コマンドを実行し、ローカルの Canister 実行環境を起動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx start --background</code></pre>
@@ -1546,14 +1545,14 @@ b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</pre>
 </div>
 </li>
 <li>
-<p>Specify the principal to authorize as a custodian in the current project and for the current identity by running a command similar to the following:</p>
+<p>下記のようなコマンドを実行し、現在のプロジェクトおよび現在の Identity のカストディアンとして認証する Principal を指定します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet authorize b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command output similar to the following:</p>
+<p>このコマンドにより下記のように出力されます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1566,21 +1565,21 @@ b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="wallet-get-custodian"><a class="anchor" href="#wallet-get-custodian"></a>List current custodians</h2>
+<h2 id="wallet-get-custodian"><a class="anchor" href="#wallet-get-custodian"></a>現在のカストディアンを一覧表示する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the  <code>dfx wallet custodians</code> command or the <code>get_custodians</code> method to return the list of principals that are currently defined as custodians for the cycles wallet.</p>
+<p><code>dfx wallet custodians</code> コマンド または <code>get_custodians</code> メソッドを使用すると、Cycle ウォレットのカストディアンとして現在定義されている Principal の一覧を返せます。</p>
 </div>
 <div class="paragraph">
-<p>To list the custodians for a cycles wallet in a local project:</p>
+<p>ローカルプロジェクトで Cycle ウォレットのカストディアンを一覧表示するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal and navigate to the root directory of the project.</p>
+<p>ターミナルを開き、プロジェクトのルートディレクトリに移動します。</p>
 </li>
 <li>
-<p>Start the local canister execution environment by running the following command:</p>
+<p>下記コマンドを実行し、ローカルの Canister 実行環境を起動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx start --background</code></pre>
@@ -1588,14 +1587,14 @@ b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</pre>
 </div>
 </li>
 <li>
-<p>List the principals that have the custodian role for the cycles wallet in the current project by running the following command:</p>
+<p>下記コマンドを実行し、現在のプロジェクトで Cycle ウォレットのカストディアンロールを持つ Principal を一覧表示してください。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet custodians</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1609,22 +1608,22 @@ b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="wallet-deauthorize"><a class="anchor" href="#wallet-deauthorize"></a>Remove authorization for a custodian</h2>
+<h2 id="wallet-deauthorize"><a class="anchor" href="#wallet-deauthorize"></a>カストディアンの認証を削除する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the <code>dfx wallet deauthorize</code> command or the <code>deauthorize</code> method to remove a principal as a custodian for a cycles wallet.
-De-authorizing a principal that was previously added as a controller also automatically removes the principal from the controller role.</p>
+<p><code>dfx wallet deauthorize</code> コマンド または <code>deauthorize</code> メソッドを使用して、Cycle ウォレットのカストディアンとして Principal を削除できます。
+以前にコントローラーとして追加された Principal の認証を解除すると、Principal も自動的にコントローラーロールからも削除されます。</p>
 </div>
 <div class="paragraph">
-<p>To remove a custodian for a cycles wallet in a local project:</p>
+<p>ローカルプロジェクトにある Cycle ウォレットのカストディアンを削除するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal and navigate to the root directory of the project.</p>
+<p>ターミナルを開き、プロジェクトのルートディレクトリに移動します。</p>
 </li>
 <li>
-<p>Start the local canister execution environment by running the following command:</p>
+<p>下記コマンドを実行し、ローカルの Canister 実行環境を起動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx start --background</code></pre>
@@ -1632,14 +1631,14 @@ De-authorizing a principal that was previously added as a controller also automa
 </div>
 </li>
 <li>
-<p>Specify the principal to remove from the custodian role in the current project by running a command similar to the following:</p>
+<p>下記のようなコマンドを実行し、現在のプロジェクトのカストディアンロールから削除する Principal を指定します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet deauthorize b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command output similar to the following:</p>
+<p>このコマンドにより下記のように出力されます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1652,25 +1651,25 @@ De-authorizing a principal that was previously added as a controller also automa
 </div>
 </div>
 <div class="sect1">
-<h2 id="wallet-send"><a class="anchor" href="#wallet-send"></a>Send cycles to a canister</h2>
+<h2 id="wallet-send"><a class="anchor" href="#wallet-send"></a>Canister へ Cycle を送る</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use <code>dfx wallet send</code> command of the <code>wallet_send</code> method to send a specific number of cycles to a specific canister.
-Keep in mind that the canister you specify must be a cycles wallet or have a <code>wallet_receive</code> method to accept the cycles.</p>
+<p><code>wallet_send</code> メソッドの <code>dfx wallet send</code> コマンドを使用すると、特定の Canister に特定の Cycle 数を送信できます。
+指定する Canister は Cycle ウォレットであるか、Cycle を受け取るための <code>wallet_receive</code> メソッドがなければならないことに注意してください。</p>
 </div>
 <div class="paragraph">
-<p>If you have deployed a cycles wallet on the Internet Computer, you can use the  <code>dfx wallet send</code> command to send cycles between canisters.</p>
+<p>Internet Computer 上に Cycle ウォレットをデプロイした場合、`dfx wallet send`コマンドを使用して Canister 間で Cycle を送信できます。</p>
 </div>
 <div class="paragraph">
-<p>To send cycles to another canister running on the Internet Computer:</p>
+<p>Internet Computer で動作している別の Canister へ Cycle を送信するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal and navigate to a directory that contains a <code>dfx.json</code> configuration file.</p>
+<p>ターミナルを開き、設定ファイル <code>dfx.json</code> が格納されているディレクトリに移動してください。</p>
 </li>
 <li>
-<p>Check your connection to the Internet Computer by running the following command:</p>
+<p>下記コマンドを実行し、Internet Computer との接続を確認してください。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ping ic</code></pre>
@@ -1678,9 +1677,9 @@ Keep in mind that the canister you specify must be a cycles wallet or have a <co
 </div>
 </li>
 <li>
-<p>Get the principal for the canister that you want to receive the cycles.</p>
+<p>Cycle を受け取りたい Canister の Principal を入手します。</p>
 <div class="paragraph">
-<p>For example, run the following command to display the cycles wallet principal associated with the current user identity on the Internet Computer:</p>
+<p>例えば、下記コマンドを実行すると、Internet Computer 上の現在のユーザー Identity に関連付けられた Cycle ウォレット Principal が表示されます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1688,7 +1687,7 @@ Keep in mind that the canister you specify must be a cycles wallet or have a <co
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays the cycles wallet principal with output similar to the following:</p>
+<p>このコマンドは、Cycle ウォレット Principal を下記のような出力で表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1697,14 +1696,14 @@ Keep in mind that the canister you specify must be a cycles wallet or have a <co
 </div>
 </li>
 <li>
-<p>Send cycles to the canister by running a command similar to the following:</p>
+<p>下記のようなコマンドを実行し、Canister へ Cycle を送信します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet --network ic send &lt;destination&gt; &lt;amount&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example:</p>
+<p>例えば、下記です。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1712,7 +1711,7 @@ Keep in mind that the canister you specify must be a cycles wallet or have a <co
 </div>
 </div>
 <div class="paragraph">
-<p>If the transfer is successful, the command does not displays any output.</p>
+<p>転送に成功した場合、このコマンドは何も出力を表示しません。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1721,21 +1720,21 @@ Keep in mind that the canister you specify must be a cycles wallet or have a <co
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The maximum number of cycles that can be stored in a cycles wallet is 2<sup>128</sup>.
+Cycle ウォレットに保存できる Cycle の最大数は、2<sup>128</sup> です。
 </td>
 </tr>
 </table>
 </div>
 </li>
 <li>
-<p>Check the cycles wallet balance to see the updated number of cycles available by running the following command:</p>
+<p>下記コマンドを実行し、Cycle ウォレットの残高を確認し、利用可能な Cycle の最新の数を確認できます。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet --network ic balance</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example:</p>
+<p>例えば、下記です。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1748,21 +1747,21 @@ The maximum number of cycles that can be stored in a cycles wallet is 2<sup>128<
 </div>
 </div>
 <div class="sect1">
-<h2 id="_list_address_book_entries"><a class="anchor" href="#_list_address_book_entries"></a>List address book entries</h2>
+<h2 id="_アドレス帳の項目を一覧表示する"><a class="anchor" href="#_アドレス帳の項目を一覧表示する"></a>アドレス帳の項目を一覧表示する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the <code>dfx wallet addresses</code> command or the <code>list_addresses</code> method to list the principals and roles that have been configured for the cycles wallet.</p>
+<p><code>dfx wallet addresses</code> コマンドまたは <code>list_addresses</code> メソッドを使用し、Cycle ウォレットに設定されている Principal とロールを一覧表示できます。</p>
 </div>
 <div class="paragraph">
-<p>To view address book entries for a cycles wallet running on the Internet Computer:</p>
+<p>Internet Computer 上で動作している Cycle ウォレットのアドレス帳の項目を表示するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal and navigate to a directory that contains a <code>dfx.json</code> configuration file.</p>
+<p>ターミナルを開き、設定ファイル <code>dfx.json</code> が格納されているディレクトリに移動してください。</p>
 </li>
 <li>
-<p>Check your connection to the Internet Computer by running the following command:</p>
+<p>下記コマンドを実行し、Internet Computer との接続を確認してください。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ping ic</code></pre>
@@ -1770,14 +1769,14 @@ The maximum number of cycles that can be stored in a cycles wallet is 2<sup>128<
 </div>
 </li>
 <li>
-<p>Get the address book entries for the cycles wallet by running the following command :</p>
+<p>下記コマンドを実行し、Cycle ウォレットのアドレス帳の項目を取得します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet --network ic addresses</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays the controllers and custodians for the cycles wallet with output similar to the following:</p>
+<p>このコマンドは、Cycle ウォレットのコントローラーとカストディアンを下記のような出力で表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1792,20 +1791,20 @@ Id: b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe, Kind: Unkno
 </div>
 </div>
 <div class="sect1">
-<h2 id="_additional_methods_in_the_default_cycles_wallet"><a class="anchor" href="#_additional_methods_in_the_default_cycles_wallet"></a>Additional methods in the default cycles wallet</h2>
+<h2 id="_デフォルトの_cycle_ウォレットの付加的なメソッド"><a class="anchor" href="#_デフォルトの_cycle_ウォレットの付加的なメソッド"></a>デフォルトの Cycle ウォレットの付加的なメソッド</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The default cycles wallet canister includes additional methods that are not exposed as <code>dfx wallet</code> commands.
-The additional methods support more advanced cycles management tasks such as creating new canisters and managing events.</p>
+<p>デフォルトの Cycle ウォレット Canister には、<code>dfx wallet</code> コマンドとして公開されていない付加的なメソッドが含まれています。
+付加的なメソッドは、新しい Canister の作成やイベントの管理など、より高度な Cycle 管理タスクをサポートします。</p>
 </div>
 <div class="sect2">
-<h3 id="wallet-create-wallets"><a class="anchor" href="#wallet-create-wallets"></a>Create a new cycles wallet</h3>
+<h3 id="wallet-create-wallets"><a class="anchor" href="#wallet-create-wallets"></a>新しい Cycle ウォレットの作成</h3>
 <div class="paragraph">
-<p>Use the <code>wallet_create_wallet</code> method to create a new cycles wallet canister with an initial cycle balance and, optionally, with a specific principal as its controller.
-If you don&#8217;t specify a controlling principal, the cycles wallet you use to create the new wallet will be the new wallet&#8217;s controller.</p>
+<p>初期の Cycle 残高とオプションで特定の Principal をコントローラーとして持つ、新しい Cycle ウォレット Canister を作成するには、<code>wallet_create_wallet</code> メソッドを使用してください。
+コントロールする Principal を指定しない場合、新しいウォレットの作成に使用した Cycle ウォレットが新しいウォレットのコントローラーになるでしょう。</p>
 </div>
 <div class="paragraph">
-<p>For example, you can run a command similar to the following to create a new wallet and assign a principal as a controller:</p>
+<p>例えば、下記のようなコマンドを実行し、新しいウォレットを作成し、Principal をコントローラーとして割り当てることができます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1813,7 +1812,7 @@ If you don&#8217;t specify a controlling principal, the cycles wallet you use to
 </div>
 </div>
 <div class="paragraph">
-<p>The command returns the principal for the new wallet:</p>
+<p>このコマンドは、新しいウォレットの Principal を返します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1822,14 +1821,14 @@ If you don&#8217;t specify a controlling principal, the cycles wallet you use to
 </div>
 </div>
 <div class="sect2">
-<h3 id="wallet-create-canister"><a class="anchor" href="#wallet-create-canister"></a>Register a new canister principal</h3>
+<h3 id="wallet-create-canister"><a class="anchor" href="#wallet-create-canister"></a>新しい Canister Principal の登録</h3>
 <div class="paragraph">
-<p>Use the <code>wallet_create_canister</code> method to register a new canister principal on the Internet Computer.
-This method creates a new "empty" canister placeholder with an initial cycle balance and, optionally, with a specific principal as its controller.
-After you have registered the canister principal, you can install code for your canister as a separate step.</p>
+<p>新しい Canister Principal を Internet Computer に登録するには、<code>wallet_create_canister</code> メソッドを使用します。
+このメソッドは、新しい「空の」Canister プレースホルダーを初期の Cycle 残高で作成し、オプションで特定の Principal をそのコントローラーにします。
+Canister の Principal を登録した後、別の手順で Canister 用のコードをインストールできます。</p>
 </div>
 <div class="paragraph">
-<p>For example, you can run a command similar to the following to create a new canister and assign a principal as a controller:</p>
+<p>例えば、下記のようなコマンドを実行し、新しい Canister を作成し、Principal をコントローラーとして割り当てることができます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1837,7 +1836,7 @@ After you have registered the canister principal, you can install code for your 
 </div>
 </div>
 <div class="paragraph">
-<p>The command returns the principal for the new canister you created:</p>
+<p>このコマンドは、作成した新しい Canister の Principal を返します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1846,21 +1845,21 @@ After you have registered the canister principal, you can install code for your 
 </div>
 </div>
 <div class="sect2">
-<h3 id="wallet-receive"><a class="anchor" href="#wallet-receive"></a>Receive cycles from a canister</h3>
+<h3 id="wallet-receive"><a class="anchor" href="#wallet-receive"></a>Canister から Cycle を受信する</h3>
 <div class="paragraph">
-<p>Use the <code>wallet_receive</code> method as an endpoint to receive cycles.</p>
+<p>Cycle を受け取るためのエンドポイントとして <code>wallet_receive</code> メソッドを使用します。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="wallet-call"><a class="anchor" href="#wallet-call"></a>Forward calls from a wallet</h3>
+<h3 id="wallet-call"><a class="anchor" href="#wallet-call"></a>ウォレットからの呼び出しを転送する</h3>
 <div class="paragraph">
-<p>Use the <code>wallet_call</code> method to forward calls using the cycles wallet principal as caller.</p>
+<p>呼び出し元として Cycle ウォレット Principal を使用して呼び出しを転送するには、 <code>wallet_call</code> メソッドを使用します。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="wallet-addresses"><a class="anchor" href="#wallet-addresses"></a>Manage addresses</h3>
+<h3 id="wallet-addresses"><a class="anchor" href="#wallet-addresses"></a>アドレスを管理する</h3>
 <div class="paragraph">
-<p>Use the following methods to manage address book entries:</p>
+<p>アドレス帳の項目を管理するには、下記のメソッドを使用します。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1874,9 +1873,9 @@ After you have registered the canister principal, you can install code for your 
 </div>
 </div>
 <div class="sect2">
-<h3 id="events"><a class="anchor" href="#events"></a>Manage events</h3>
+<h3 id="events"><a class="anchor" href="#events"></a>イベントを管理する</h3>
 <div class="paragraph">
-<p>Use the following methods to retrieve event and chart information.</p>
+<p>イベントとチャートの情報を取得するには、下記のメソッドを使用します。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1889,7 +1888,7 @@ After you have registered the canister principal, you can install code for your 
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, you can use the <code>get_events</code> method to return <code>canister_create</code> and other events by running a command similar to the following:</p>
+<p>例えば、下記のようなコマンドを実行し、 <code>get_events</code> メソッドを使用して、 <code>canister_create</code> などのイベントを返せます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1897,7 +1896,7 @@ After you have registered the canister principal, you can install code for your 
 </div>
 </div>
 <div class="paragraph">
-<p>If the cycles wallet (<code>gastn-uqaaa-aaaae-aaafq-cai</code>) is deployed on the Internet Computer main network, you could run a command that looks like this to return events:</p>
+<p>Cycle ウォレット（<code>gastn-uqaaa-aaaaafq-cai</code>）が Internet Computer のメインネットワーク上にデプロイされている場合、下記のようなコマンドを実行しイベントを返せます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1905,7 +1904,7 @@ After you have registered the canister principal, you can install code for your 
 </div>
 </div>
 <div class="paragraph">
-<p>The output from the command is in Candid format similar to the following:</p>
+<p>このコマンドの出力は、下記のような Candid 形式です。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1915,7 +1914,7 @@ After you have registered the canister principal, you can install code for your 
 </div>
 </div>
 <div class="paragraph">
-<p>In this example, there are twelve event records. The Role field (represented by the hash <code>1_269_754_742</code>) specifies whether a principal is a controller (represented by the hash <code>4_218_395_836</code>) or a custodian (represented by the hash <code>2_494_206_670</code>). The events in this example also illustrate an amount field (represented by the hash <code>3_573_748_184</code>) with a transfer of 10,000,000,000 cycles.</p>
+<p>この例では、12 個のイベントレコードがあります。ロールフィールド（ハッシュ <code>1_269_754_742</code> で表される）は、 Principal がコントローラー（ハッシュ <code>4_218_395_836</code>）なのかカストディアン（ハッシュ <code>2_494_206_670</code> で表される）なのかを明記しています。また、この例のイベントは、10,000,000,000 Cycle の転送を伴う金額フィールド（ハッシュ <code>3_573_748_184</code> で表される）を例示しています。</p>
 </div>
 </div>
 </div>

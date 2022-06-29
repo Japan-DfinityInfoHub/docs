@@ -1161,13 +1161,13 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx ledger</code> command to interact with the ledger canister.</p>
+<p><code>dfx ledger</code> コマンドを使用して、「 Ledger Canister 」（台帳）と対話を行います。</p>
 </div>
 <div class="paragraph">
-<p>This command can be used to make ICP utility token transactions from one canister to another, or top up canisters with cycles from ICP.</p>
+<p>このコマンドは、ユーティリティトークンである ICP をある Canister から別の Canister に移転するトランザクションや、ICP から（ミントされた） Cycle を Canister に追加したりするために使用されます。</p>
 </div>
 <div class="paragraph">
-<p>The basic syntax for running <code>dfx ledger</code> commands is:</p>
+<p><code>dfx ledger</code> コマンドを実行するための基本的な構文は以下のとおりです：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1175,7 +1175,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Depending on the <code>dfx ledger</code> subcommand you specify, additional arguments, options, and flags might apply. For reference information and examples that illustrate using <code>dfx ledger</code> commands, select an appropriate command.</p>
+<p>指定する <code>dfx ledger</code> サブコマンドによっては、追加の引数、オプション、フラグが適用される場合があります。<code>dfx ledger</code> コマンドの使い方を説明するリファレンス情報と例については適切なコマンドを選択してご覧ください。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1184,44 +1184,44 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">コマンド</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#account-id"><code>account-id</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Prints the selected identity&#8217;s Account Identifier.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択された開発者 Indentity のアカウント ID を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#balance"><code>balance</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Prints the account balance of the user.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ユーザー Identity のアカウント ID の残高を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#create-canister"><code>create-canister</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a canister from ICP.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICP から Canister を作成します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information message for a specified subcommand.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定されたサブコマンドの使用情報メッセージを表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#notify"><code>notify</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Notifies the ledger when there is a send transaction to the cycles minting canister.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cycle をミントする Canister への送信トランザクションがあった場合、台帳に通知します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#top-up"><code>top-up</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tops up a canister with cycles minted from ICP.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICP からミントする Cycle を Canister に追加します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#transfer"><code>transfer</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Transfers ICP from the user to the destination Account Identifier.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ユーザー Identity から転送先のアカウント ID に ICP を転送します。</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>To view usage information for a specific subcommand, specify the subcommand and the <code>--help</code> flag.
-For example, to see usage information for <code>dfx ledger transfer</code>, you can run the following command:</p>
+<p>特定のサブコマンドの使用情報を見るには、そのサブコマンドと <code>--help</code> フラグを指定します。
+例えば、<code>dfx ledger transfer</code> の使用情報を見るには、以下のコマンドを実行します：</p>
 </div>
 <div class="paragraph">
 <p><code>dfx ledger transfer --help</code></p>
@@ -1232,11 +1232,11 @@ For example, to see usage information for <code>dfx ledger transfer</code>, you 
 <h2 id="account-id"><a class="anchor" href="#account-id"></a>dfx ledger account-id</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx ledger account-id</code> command to display the account identifier associated with the currently-active identity.
-Like the textual representation of your developer identity principal, the account identifier is derived from your private key and used to represent your identity in the ledger canister.</p>
+<p>現在、アクティブな Identity に関連付けられたアカウント ID を表示するには、<code>dfx ledger account-id</code> コマンドを使用します。
+開発者 Identity の Principal のテキストタイプ表現と同様、アカウント ID は秘密鍵から派生したもので、Ledger Canister であなたの ID を表現するために使われます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic usage</h3>
+<h3 id="_基本的な利用法"><a class="anchor" href="#_基本的な利用法"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger account-id [flag]</code></pre>
@@ -1244,9 +1244,9 @@ Like the textual representation of your developer identity principal, the accoun
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags"><a class="anchor" href="#_flags"></a>Flags</h3>
+<h3 id="_フラグ"><a class="anchor" href="#_フラグ"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx ledger account-id</code> command.</p>
+<p>以下のオプションフラグは <code>dfx ledger account-id</code> コマンドと一緒に使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1255,26 +1255,26 @@ Like the textual representation of your developer identity principal, the accoun
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+<h3 id="_例"><a class="anchor" href="#_例"></a>例</h3>
 <div class="paragraph">
-<p>If you have created more than one identity, check the identity you are currently using by running the <code>dfx identity whoami</code> command or the <code>dfx identity get-principal</code> command. You can then check the account identifier for your currently-selected developer identity by running the following command:</p>
+<p>複数の Identity を作成した場合、<code>dfx identity whoami</code> コマンドまたは <code>dfx identity get-principal</code> コマンドを実行して、現在使用している Identity を確認します。次に、以下のコマンドを実行して、現在選択されている開発者 Identity のアカウント ID を確認できます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1282,7 +1282,7 @@ Like the textual representation of your developer identity principal, the accoun
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは次のような出力を表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1296,10 +1296,10 @@ Like the textual representation of your developer identity principal, the accoun
 <h2 id="balance"><a class="anchor" href="#balance"></a>dfx ledger balance</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx ledger balance</code> command to print your account balance or that of another user.</p>
+<p><code>dfx ledger balance</code> コマンドは自分のアカウント残高や他のユーザーのアカウント残高を表示します。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_2"><a class="anchor" href="#_basic_usage_2"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_2"><a class="anchor" href="#_基本的な利用法_2"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic balance [of] [flag]</code></pre>
@@ -1307,9 +1307,9 @@ Like the textual representation of your developer identity principal, the accoun
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_2"><a class="anchor" href="#_flags_2"></a>Flags</h3>
+<h3 id="_フラグ_2"><a class="anchor" href="#_フラグ_2"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx ledger balance</code> command.</p>
+<p>以下のオプションフラグは <code>dfx ledger balance</code> コマンドで使用できます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1318,26 +1318,26 @@ Like the textual representation of your developer identity principal, the accoun
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments"><a class="anchor" href="#_arguments"></a>Arguments</h3>
+<h3 id="_引数"><a class="anchor" href="#_引数"></a>引数</h3>
 <div class="paragraph">
-<p>You can specify the following argument for the <code>dfx ledger balance</code> command.</p>
+<p><code>dfx ledger balance</code> コマンドには以下の引数を指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1346,23 +1346,23 @@ Like the textual representation of your developer identity principal, the accoun
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;of&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify an Account Identifier to get the balance. If this command is not specified, the command returns the balance of ICP tokens for the currently-selected user identity.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">残高を取得するアカウント ID を指定します。指定しない場合は、現在選択されているユーザー Identity （に紐づくアカウント）の ICP トークン残高を返します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_2"><a class="anchor" href="#_examples_2"></a>Examples</h3>
+<h3 id="_例_2"><a class="anchor" href="#_例_2"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx ledger balance</code> command to check the balance of another user.
-For example, you can run the following command to see the ICP utlity tokens associated with a known Account Identifier:</p>
+<p>他のユーザーの残高を確認するには、<code>dfx ledger balance</code> コマンドを使用します。
+例えば、以下のコマンドを実行すると、既知のアカウント ID に関連付けられた ICP トークンを確認することができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1370,7 +1370,7 @@ For example, you can run the following command to see the ICP utlity tokens asso
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays an ICP amount similar to the following:</p>
+<p>このコマンドは次のような ICP 数量を表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1384,10 +1384,10 @@ For example, you can run the following command to see the ICP utlity tokens asso
 <h2 id="create-canister"><a class="anchor" href="#create-canister"></a>dfx ledger create-canister</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx ledger create-canister</code> command to convert ICP tokens to cycles and to register a new canister identifier on the Internet Computer.</p>
+<p><code>dfx ledger create-canister</code> コマンドを使用して、ICP トークンを Cycle に変換し、Internet Computer に新しい Canister ID を登録することができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_3"><a class="anchor" href="#_basic_usage_3"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_3"><a class="anchor" href="#_基本的な利用法_3"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic create-canister <em>controller</em> [options]  [flag]</code></pre>
@@ -1395,9 +1395,9 @@ For example, you can run the following command to see the ICP utlity tokens asso
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_3"><a class="anchor" href="#_flags_3"></a>Flags</h3>
+<h3 id="_フラグ_3"><a class="anchor" href="#_フラグ_3"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx ledger create-canister</code> command.</p>
+<p><code>dfx ledger create-canister</code> コマンドには以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1406,26 +1406,26 @@ For example, you can run the following command to see the ICP utlity tokens asso
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments_2"><a class="anchor" href="#_arguments_2"></a>Arguments</h3>
+<h3 id="_引数_2"><a class="anchor" href="#_引数_2"></a>引数</h3>
 <div class="paragraph">
-<p>You can specify the following argument for the <code>dfx ledger create-canister</code> command.</p>
+<p><code>dfx ledger create-canister</code> コマンドには以下の引数を指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1434,22 +1434,22 @@ For example, you can run the following command to see the ICP utlity tokens asso
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;controller&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the principal identifier to set as the controller of the new canister.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">新しい Canister のコントローラーとして設定する Principal ID を指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_options"><a class="anchor" href="#_options"></a>Options</h3>
+<h3 id="_オプション"><a class="anchor" href="#_オプション"></a>オプション</h3>
 <div class="paragraph">
-<p>You can specify the following argument for the <code>dfx ledger create-canister</code> command.</p>
+<p><code>dfx ledger create-canister</code> コマンドには以下の引数を指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1458,38 +1458,38 @@ For example, you can run the following command to see the ICP utlity tokens asso
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">オプション</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--amount &lt;amount&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify the number of ICP tokens to mint into cycles and deposit into destination canister. You can specify an amount as a number with up to eight (8) decimal places.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICP トークンかミントされた Cycle を、送金先 Canister にデポジットする数量を指定します。金額は小数点以下8桁までの数字で指定できます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--e8s &lt;e8s&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify ICP token fractional units—called e8s—as a whole number, where one e8 is smallest partition of an ICP token. For example, 1.05000000 is 1 ICP and 5000000 e8s. You can use this option on its own or in conjunction with the <code>--icp</code> option.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICP トークンの分数単位（e8）を整数で指定します。例えば、1.05000000は1 ICP と5,000,000 e8s です。このオプションは単独で、あるいは <code>--icp</code> オプションと一緒に使用することができます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--fee &lt;fee&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify a transaction fee. The default is 10000 e8s.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">取引手数料を指定します。デフォルトは10,000 e8s です。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--icp &lt;icp&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify ICP tokens as a whole number. You can use this option on its own or in conjunction with <code>--e8s</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICP トークンを整数で指定します。このオプションは単独で、あるいは <code>--e8s</code> と組み合わせて使用することができます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--max-fee &lt;max-fee&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify a maximum transaction fee. The default is 10000 e8s.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">取引手数料の上限を指定します。デフォルトは10,000 e8s です。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_3"><a class="anchor" href="#_examples_3"></a>Examples</h3>
+<h3 id="_例_3"><a class="anchor" href="#_例_3"></a>例</h3>
 <div class="paragraph">
-<p>To create a new canister with cycles, transfer ICP tokens from your ledger account by running a command similar to the following:</p>
+<p>Cycle を扱える新しい Canister を作成するには、以下のようなコマンドを実行して、台帳アカウントから ICP トークンを転送します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1497,13 +1497,13 @@ For example, you can run the following command to see the ICP utlity tokens asso
 </div>
 </div>
 <div class="paragraph">
-<p>This command converts the number of ICP tokens you specify for the <code>--amount</code> argument into cycles, and associates the cycles with a new canister identifier controlled by the principal you specify.</p>
+<p>このコマンドは <code>--amount</code> 引数に指定した ICP トークンの数量を Cycle に変換し、指定した Principal で制御される新しい Canister ID に Cycle を関連付けます。</p>
 </div>
 <div class="paragraph">
-<p>In this example, the command converts 1.25 ICP tokens into cycles and specifies the principal identifier for the default identity as the controller of the new canister.</p>
+<p>この例では、コマンドは 1.25 ICP トークンを Cycle に変換し、新しい Canister のコントローラーとして、デフォルトの Identity の Principal ID を指定しています。</p>
 </div>
 <div class="paragraph">
-<p>If the transaction is successful, the ledger records the event and you should see output similar to the following:</p>
+<p>トランザクションが成功すると、台帳にイベントが記録され、次のような出力が表示されるはずです。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1512,7 +1512,7 @@ Canister created with id: "53zcu-tiaaa-aaaaa-qaaba-cai"</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can create a new canister by specifying separate values for ICP tokens and e8s by running a command similar to the following:</p>
+<p>以下のようなコマンドを実行して、ICP トークンと e8s に別々の値を指定することで、新しい Canister を作成することができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1526,11 +1526,11 @@ Canister created with id: "53zcu-tiaaa-aaaaa-qaaba-cai"</pre>
 <h2 id="notify"><a class="anchor" href="#notify"></a>dfx ledger notify</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx ledger notify</code> command to notify the ledger about a send transaction to the cycles minting canister.
-This command should only be used if <code>dfx ledger create-canister</code> or <code>dfx ledger top-up</code> successfully sent a message to the ledger, and a transaction was recorded at some block height, but for some reason the subsequent notify failed.</p>
+<p><code>dfx ledger notify</code> コマンドを使用すると、Cycle をミントする Canister への送信トランザクションを台帳に通知します。
+このコマンドは <code>dfx ledger create-canister</code> や <code>dfx ledger top-up</code> が台帳へのメッセージ送信に成功し、あるブロック高でトランザクションが記録されたが、何らかの理由でその後の通知に失敗した場合のみ使用されます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_4"><a class="anchor" href="#_basic_usage_4"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_4"><a class="anchor" href="#_基本的な利用法_4"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger notify [options] _block-height_ _destination-principal_</code></pre>
@@ -1538,9 +1538,9 @@ This command should only be used if <code>dfx ledger create-canister</code> or <
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_4"><a class="anchor" href="#_flags_4"></a>Flags</h3>
+<h3 id="_フラグ_4"><a class="anchor" href="#_フラグ_4"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx ledger notify</code> command.</p>
+<p><code>dfx ledger notify</code> コマンドでは以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1549,26 +1549,26 @@ This command should only be used if <code>dfx ledger create-canister</code> or <
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments_3"><a class="anchor" href="#_arguments_3"></a>Arguments</h3>
+<h3 id="_引数_3"><a class="anchor" href="#_引数_3"></a>引数</h3>
 <div class="paragraph">
-<p>You can specify the following argument for the <code>dfx ledger notify</code> command.</p>
+<p><code>dfx ledger notify</code> コマンドでは以下の引数を指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1577,28 +1577,28 @@ This command should only be used if <code>dfx ledger create-canister</code> or <
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;block-height&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the block height at which the send transaction was recorded.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送信トランザクションが記録されたブロック高を指定します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;destination-principal&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the principal of the destination, either a canister identifier or the textual representation of a user principal.
-If the send transaction was for the <code>create-canister</code> command, specify the <code>controller</code> principal.
-If the send transaction was for the <code>top-up</code> command, specify the <code>canister ID</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送信先の Principal を指定します。Canister ID またはユーザー Identity の Principal のテキストタイプ表現のいずれかを指定します。
+送信トランザクションが <code>create-canister</code> コマンドの場合は、<code>controller</code> Principal を指定します。
+送信トランザクションが <code>top-up</code> コマンドの場合、<code>canister ID</code> を指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_4"><a class="anchor" href="#_examples_4"></a>Examples</h3>
+<h3 id="_例_4"><a class="anchor" href="#_例_4"></a>例</h3>
 <div class="paragraph">
-<p>The following example illustrates sending a <code>notify</code> message to the ledger in response to a <code>_send+</code> transaction that was recorded at the block height <code>75948</code>.</p>
+<p>次の例は、ブロック高 <code>75948</code> で記録された <code>_send+</code> トランザクションのレスポンスとして <code>notify</code> メッセージを台帳に送信するものです。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1612,10 +1612,10 @@ If the send transaction was for the <code>top-up</code> command, specify the <co
 <h2 id="top-up"><a class="anchor" href="#top-up"></a>dfx ledger top-up</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx ledger top-up</code> command to top up a canister with cycles minted from ICP tokens.</p>
+<p><code>dfx ledger top-up</code> コマンドでは、ICPトークンからミントされた Cycle を Canister に追加することができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_5"><a class="anchor" href="#_basic_usage_5"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_5"><a class="anchor" href="#_基本的な利用法_5"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic top-up [options] <em>canister</em> [flag]</code></pre>
@@ -1623,9 +1623,9 @@ If the send transaction was for the <code>top-up</code> command, specify the <co
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_5"><a class="anchor" href="#_flags_5"></a>Flags</h3>
+<h3 id="_フラグ_5"><a class="anchor" href="#_フラグ_5"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx ledger top-up</code> command.</p>
+<p><code>dfx ledger top-up</code> コマンドでは以下のオプションフラグが使用できます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1634,26 +1634,26 @@ If the send transaction was for the <code>top-up</code> command, specify the <co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments_4"><a class="anchor" href="#_arguments_4"></a>Arguments</h3>
+<h3 id="_引数_4"><a class="anchor" href="#_引数_4"></a>引数</h3>
 <div class="paragraph">
-<p>You can specify the following argument for the <code>dfx ledger top-up</code> command.</p>
+<p><code>dfx ledger top-up</code> コマンドには以下の引数を指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1662,22 +1662,22 @@ If the send transaction was for the <code>top-up</code> command, specify the <co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>canister</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the canister identifier that you would like to top up.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">追加する Canister ID を指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_options_2"><a class="anchor" href="#_options_2"></a>Options</h3>
+<h3 id="_オプション_2"><a class="anchor" href="#_オプション_2"></a>オプション</h3>
 <div class="paragraph">
-<p>You can specify the following options for the <code>dfx ledger top-up</code> command.</p>
+<p><code>dfx ledger top-up</code> コマンドには以下のオプションを指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1686,43 +1686,42 @@ If the send transaction was for the <code>top-up</code> command, specify the <co
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">オプション</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--amount &lt;amount&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the number of ICP tokens to mint into cycles and deposit into the destination canister.
-You can specify the amount as a number with up to eight (8) decimal places.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICP トークンかミントされた Cycle を、送金先 Canister にデポジットする数量を指定します。金額は小数点以下8桁までの数字で指定できます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--e8s &lt;e8s&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies fractional units of an ICP token—called e8s—as a whole number, where one e8 is the smallest unit of an ICP token. For example, 1.05000000 is 1 ICP and 5000000 e8s. You can use this option on its own or in conjunction with the <code>--icp</code> option.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICP トークンの最小単位を e8 とし，小数点以下の単位を整数で指定します．例えば、1.05000000は1 ICPと5,000,000 e8s です。このオプションは単独で、あるいは <code>--icp</code> オプションと一緒に使用することができます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--fee &lt;fee&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the transaction fee for the operation. The default is 10000 e8s.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">オペレーションの取引手数料を指定します。デフォルトは10,000 e8s です。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--icp &lt;icp&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies ICP tokens as a whole number. You can use this option on its own or  in conjunction with <code>--e8s</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICP トークンを整数で指定します。このオプションは単独で、あるいは <code>--e8s</code> と組み合わせて使用することができます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--max-fee &lt;max-fee&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies a maximum transaction fee. The default is 10000 e8s.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">取引手数料の上限を指定します。デフォルトは10,000 e8s です。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_5"><a class="anchor" href="#_examples_5"></a>Examples</h3>
+<h3 id="_例_5"><a class="anchor" href="#_例_5"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx ledger top-up</code> command to top up the cycles of a specific canister from the balance of ICP tokens you control.
-The canister identifier must be associated with a cycles wallet canister that is able to receive cycles. Alternatively, you can modify a non-cycles wallet canister to implement a method to receive cycles using system APIs described in the <a href="../../interface-spec/index.html">Internet Computer Interface Specification</a>.</p>
+<p><code>dfx ledger top-up</code> コマンドを使用すると、自分が管理している ICP トークンの残高から、特定の Canister の Cycle を追加することができます。
+Canister ID は Cycle を受け取ることができる 「Cycle Wallet Canister 」と関連付けられている必要があります。または、 <a href="../../interface-spec/index.html">Internet Computer Interface Specification</a> に記載されているシステム API を使って Cycle を受け取る方法を実装するために、「Cycle Wallet Canister 」ではない Canister を変更することもできます。</p>
 </div>
 <div class="paragraph">
-<p>For example, you can run the following command to top-up a cycles wallet canister deployed on the Internet Computer with 1 ICP worth of cycles:</p>
+<p>例えば、以下のコマンドを実行すると、Internet Computer に配置された Cycle Wallet Canister に1 ICP 相当の Cycle を追加することができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1730,7 +1729,7 @@ The canister identifier must be associated with a cycles wallet canister that is
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays output similar to the following:</p>
+<p>このコマンドは次のような出力を表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1745,10 +1744,10 @@ Canister was topped up!</pre>
 <h2 id="transfer"><a class="anchor" href="#transfer"></a>dfx ledger transfer</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx ledger transfer</code> command to transfer ICP tokens from your account address in the ledger canister to a destination address.</p>
+<p><code>dfx ledger transfer</code> コマンドを使用すると、ICP トークンを Ledger Canister のアカウントアドレスから送信先アドレスに転送することができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_6"><a class="anchor" href="#_basic_usage_6"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_6"><a class="anchor" href="#_基本的な利用法_6"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger transfer [options] <em>to</em> --memo <em>memo</em></code></pre>
@@ -1756,9 +1755,9 @@ Canister was topped up!</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_6"><a class="anchor" href="#_flags_6"></a>Flags</h3>
+<h3 id="_フラグ_6"><a class="anchor" href="#_フラグ_6"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx ledger transfer</code> command.</p>
+<p><code>dfx ledger transfer</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1767,26 +1766,26 @@ Canister was topped up!</pre>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments_5"><a class="anchor" href="#_arguments_5"></a>Arguments</h3>
+<h3 id="_引数_5"><a class="anchor" href="#_引数_5"></a>引数</h3>
 <div class="paragraph">
-<p>You can specify the following argument for the <code>dfx ledger transfer</code> command.</p>
+<p><code>dfx ledger transfer</code> コマンドには以下の引数を指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1795,22 +1794,22 @@ Canister was topped up!</pre>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;to&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify the Account Identifier or address to which you want to transfer ICP tokens.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICP トークンの送金先であるアカウント ID またはアドレスを指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_options_3"><a class="anchor" href="#_options_3"></a>Options</h3>
+<h3 id="_オプション_3"><a class="anchor" href="#_オプション_3"></a>オプション</h3>
 <div class="paragraph">
-<p>You can specify the following argument for the <code>dfx ledger transfer</code> command.</p>
+<p><code>dfx ledger transfer</code> コマンドには以下の引数を指定することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1819,42 +1818,42 @@ Canister was topped up!</pre>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">オプション</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--amount &lt;amount&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the number of ICP tokens to transfer.
-Can be specified as a number with up to eight (8) decimal places.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">転送する ICP トークンの数量を指定します。
+小数点以下8桁までの数値で指定可能です。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--e8s &lt;e8s&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies e8s as a whole number, where one e8 is smallest partition of an ICP token. For example, 1.05000000 is 1 ICP and 5000000 e8s. You can use this option alone or in conjunction with the <code>--icp</code> option.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e8s を整数で指定し，1 e8 を ICPトークンの最小値とする。例えば、1.05000000は1 ICPと5,000,000 e8s である。このオプションは単独で、あるいは <code>--icp</code> オプションと一緒に使用することができます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--fee &lt;fee&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies a transaction fee. The default is 10000 e8s.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">取引手数料を指定します。デフォルトは10,000 e8s です。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--icp &lt;icp&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies ICP as a whole number. You can use this option alone or in conjunction with <code>--e8s</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICP を整数で指定します。このオプションは単独で、または <code>--e8s</code> と組み合わせて使用することができます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--memo &lt;memo&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies a numeric memo for this transaction.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">このトランザクションの数値メモを指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_6"><a class="anchor" href="#_examples_6"></a>Examples</h3>
+<h3 id="_例_6"><a class="anchor" href="#_例_6"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx ledger transfer</code> command to send ICP to the Account Identifier of the destination.</p>
+<p><code>dfx ledger transfer</code> コマンドを使用すると、転送先のアカウント ID に ICP を送信することができます。</p>
 </div>
 <div class="paragraph">
-<p>For example, you can run the following command to check the account identifier associated with the principal you are currently using:</p>
+<p>例えば、以下のコマンドを実行すると、現在使用している Principal に関連するアカウント ID を確認することができます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1862,7 +1861,7 @@ Can be specified as a number with up to eight (8) decimal places.</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays output similar to the following:</p>
+<p>このコマンドは、次のような出力を表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1870,7 +1869,7 @@ Can be specified as a number with up to eight (8) decimal places.</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>You can check the balance of this account by running the following command:</p>
+<p>このアカウントの残高は以下のコマンドを実行することで確認することができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1878,7 +1877,7 @@ Can be specified as a number with up to eight (8) decimal places.</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays output similar to the following:</p>
+<p>このコマンドは、次のような出力を表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1886,7 +1885,7 @@ Can be specified as a number with up to eight (8) decimal places.</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>Use the <code>dfx ledger transfer</code> command to send some of your ICP balance to another known destination using the following command:</p>
+<p>以下のコマンドを使用して、<code>dfx ledger transfer</code> コマンドで ICP 残高の一部を別の既知の送信先に送信してください。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1894,7 +1893,7 @@ Can be specified as a number with up to eight (8) decimal places.</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays output similar to the following:</p>
+<p>このコマンドは、次のような出力を表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1902,7 +1901,7 @@ Can be specified as a number with up to eight (8) decimal places.</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>You can then use the <code>dfx ledger --network ic balance</code> command to check that your account balance reflects the transaction you just made.</p>
+<p>その後、<code>dfx ledger --network ic balance</code> コマンドを使用して、アカウント残高に今行った取引が反映されているかどうかを確認することができます。</p>
 </div>
 </div>
 </div>

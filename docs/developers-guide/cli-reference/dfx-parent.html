@@ -1161,15 +1161,15 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The DFINITY command-line execution environment (<code>dfx</code>) is the primary tool for creating, deploying, and managing the dapps you develop for the Internet Computer プラットフォーム.</p>
+<p>DFINITY コマンドライン実行環境（ <code>dfx</code> ）は Internet Computer プラットフォーム 用に開発した Dapps を作成、デプロイ、管理するための主要なツールです。</p>
 </div>
 <div class="paragraph">
-<p>Use the <code>dfx</code> parent command with flags and subcommands to specify the operations you want to perform with or without optional arguments.</p>
+<p>親コマンドである <code>dfx</code> とフラグ、サブコマンドを使用し、オプションの引数の有無に関わらず実行したい処理を指定します。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic usage</h2>
+<h2 id="_基本的な利用法"><a class="anchor" href="#_基本的な利用法"></a>基本的な利用法</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1179,10 +1179,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_flags"><a class="anchor" href="#_flags"></a>Flags</h2>
+<h2 id="_フラグ"><a class="anchor" href="#_フラグ"></a>フラグ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx</code> parent command or with any of the <code>dfx</code> subcommands.</p>
+<p>以下のオプションフラグは <code>dfx</code> の親コマンド、または <code>dfx</code> のサブコマンドで使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1191,36 +1191,36 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-q`</code>, <code>--quiet</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Suppresses informational messages.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">情報提供のメッセージを表示しないようにします。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-v</code>, <code>--verbose</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays detailed information about operations.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">操作に関する詳細情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_options"><a class="anchor" href="#_options"></a>Options</h2>
+<h2 id="_オプション"><a class="anchor" href="#_オプション"></a>オプション</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the following options with the <code>dfx</code> command.</p>
+<p><code>dfx</code> コマンドでは、以下のオプションを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1229,41 +1229,40 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">オプション</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--identity &lt;identity&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the user identity to use when running a command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">コマンド実行時に使用するユーザー Identity を指定します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--logfile &lt;logfile&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Writes log file messages to the specified log file name if you use the <code>--log file</code> logging option.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ログオプション <code>--log file</code> を使用している場合、指定されたログファイル名にログファイルのメッセージを書き込みます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--log &lt;logmode&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the logging mode to use.
-+
-You can set the log mode to one of the following:</p>
-<p class="tableblock">- <code>stderr</code> to log messages to the standard error facility.</p>
-<p class="tableblock">- <code>tee</code> to write messages to both standard output and to a specified file name.</p>
-<p class="tableblock">- <code>file</code> to write messages to a specified file name.</p>
-<p class="tableblock">The default logging mode is <code>stderr</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">使用するログモードを指定します。</p>
+<p class="tableblock">+ ログモードは以下のいずれかに設定することができます：</p>
+<p class="tableblock">- <code>stderr</code> は標準エラー機能にメッセージを記録します。</p>
+<p class="tableblock">- <code>tee</code> は標準出力と指定したファイル名の両方にメッセージを書き込むことができます。</p>
+<p class="tableblock">- <code>file</code> は指定されたファイル名にメッセージを書き込みます。</p>
+<p class="tableblock">デフォルトのログモードは <code>stderr</code> です。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_subcommands"><a class="anchor" href="#_subcommands"></a>Subcommands</h2>
+<h2 id="_サブコマンド"><a class="anchor" href="#_サブコマンド"></a>サブコマンド</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the following subcommands to specify the operation you want to perform or to view usage information for a specific command.</p>
+<p>実行したい操作を指定したり、特定のコマンドの使用情報を表示したりするには、次のサブコマンドを使用します。</p>
 </div>
 <div class="paragraph">
-<p>For reference information and examples, select an appropriate subcommand.</p>
+<p>参考情報および例については、適切なサブコマンドを選択してください。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1272,83 +1271,83 @@ You can set the log mode to one of the following:</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">コマンド</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-build.html"><code>build</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Builds canister output from the source code in your project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">プロジェクト内のソースコードから Canister 出力をビルドします。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-cache.html"><code>cache</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Manages the <code>dfx</code> cache on the local computer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ローカルコンピュータの <code>dfx</code> キャッシュを管理します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-canister.html"><code>canister</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Manages deployed canisters .</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">デプロイされた Canister を管理します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-config.html"><code>config</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sets or changes configuration options for your current project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">現在のプロジェクトの設定オプションを設定、または変更します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-deploy.html"><code>deploy</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deploys all or a specific canister from the code in your project.
-By default, all canisters are deployed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">プロジェクト内のコードから、すべてまたは特定の Canister をデプロイします。
+デフォルトでは、すべての Canister がデプロイされます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-help.html"><code>help</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information for a specified subcommand.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定したサブコマンドの使用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-identity.html"><code>identity</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables you to create and manage the identities used to communicate with the Internet Computer プラットフォーム.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internet Computer プラットフォーム との通信に使用する Identity を作成・管理します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-ledger.html"><code>ledger</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables you to interact with accounts in the ledger canister running on the Internet Computer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internet Computer 上で動作している台帳 Canister のアカウントと対話します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-new.html"><code>new</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a new project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">新しいプロジェクトを作成します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-ping.html"><code>ping</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sends a response request to the Internet Computer プラットフォーム or the local canister execution environment to determine network connectivity.
-If the connection is successful, a status reply is returned.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Internet Computer プラットフォーム またはローカルの Canister 実行環境への送信・応答でネットワーク接続を判断します。
+接続に成功した場合は、ステータス・リプライが返されます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-replica.html"><code>replica</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Starts a local canister execution environment.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ローカル Canister の実行環境を起動します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-start.html"><code>start</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Starts the local canister execution environment a web server for the current project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">現在のプロジェクトの Web サーバーであるローカル Canister 実行環境を起動します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-stop.html"><code>stop</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Stops the local canister execution environment.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ローカル Canister の実行環境を停止します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-upgrade.html"><code>upgrade</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Upgrades the version of <code>dfx</code> installed on the local computer to the latest version available.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ローカルコンピューターにインストールされている <code>dfx</code> のバージョンを、利用可能な最新のバージョンにアップグレードします。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="dfx-wallet.html"><code>dfx wallet</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enables you to manage cycles, controllers, custodians, and addresses for the default cycles wallet associated with the currently-selected identity.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">現在選択されている Identity に関連付けられたデフォルトの Cycle ウォレットの Cycle、コントローラー、カストディアン、アドレスを管理できるようにします。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<h2 id="_例"><a class="anchor" href="#_例"></a>例</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the <code>dfx</code> parent command to display usage information or version information.
-For example, to display information about the version of <code>dfx</code> you currently have installed, you can run the following command:</p>
+<p>親コマンドである <code>dfx</code> を使用すると、使用状況やバージョン情報を表示することができます。
+例えば、現在インストールされている <code>dfx</code> のバージョンに関する情報を表示するには、次のコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1356,8 +1355,8 @@ For example, to display information about the version of <code>dfx</code> you cu
 </div>
 </div>
 <div class="paragraph">
-<p>To view usage information for a specific subcommand, specify the subcommand and the <code>--help</code> flag.
-For example, to see usage information for <code>dfx build</code>, you can run the following command:</p>
+<p>特定のサブコマンドの使用情報を見るには、そのサブコマンドと <code>--help</code> フラグを指定します。
+例えば、<code>dfx build</code> の使用情報を見るには、以下のコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1365,16 +1364,16 @@ For example, to see usage information for <code>dfx build</code>, you can run th
 </div>
 </div>
 <div class="sect2">
-<h3 id="_using_logging_options"><a class="anchor" href="#_using_logging_options"></a>Using logging options</h3>
+<h3 id="_ログオプションの使用"><a class="anchor" href="#_ログオプションの使用"></a>ログオプションの使用</h3>
 <div class="paragraph">
-<p>You can use the <code>--verbose</code> and <code>--quiet</code> flags to increment or decrement the logging level.
-If you don&#8217;t specify any logging level, CRITICAL, ERROR, WARNING, and INFO messages are logged by default.
-Specifying one verbose flag (<code>-v</code>) increases the log level to include DEBUG messages.
-Specifying two verbose flags (<code>-vv</code>)increases the logging level to include both DEBUG and TRACE messages.</p>
+<p><code>--verbose</code> および <code>--quiet</code> フラグを使用すると、ログレベルを増減させることができます。
+ログレベルを指定しない場合、デフォルトでは CRITICAL, ERROR, WARNING, INFO メッセージがログに記録されます。
+ verbose フラグ（ <code>-v</code> ）を1つ指定すると、ログレベルが上がり、DEBUG メッセージが含まれるようになります。
+2つの verbose フラグ（ <code>-vv</code> ）を指定すると、DEBUG と TRACE の両方のメッセージを含み、ログレベルが上がります。</p>
 </div>
 <div class="paragraph">
-<p>Adding a <code>--quiet</code> flag decreases the logging level.
-For example, to remove all messages, you can run a command similar the following:</p>
+<p><code>quiet</code> フラグを追加すると、ログのレベルが下がります。
+例えば、すべてのメッセージを削除するには、以下のようなコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1382,10 +1381,10 @@ For example, to remove all messages, you can run a command similar the following
 </div>
 </div>
 <div class="paragraph">
-<p>Keep in mind that using TRACE level logging (<code>--vv</code>) generates a lot of log messages that can affect performance and should only be used when required for troubleshooting or analysis.</p>
+<p>TRACE レベルのログ（ <code>--vv</code> ）を使用すると、パフォーマンスに影響する多くのログメッセージが生成されるので、トラブルシューティングや分析に必要な場合のみ使用することに留意してください。</p>
 </div>
 <div class="paragraph">
-<p>To output log messages to a file named <code>newlog.txt</code> and display the messages on your terminal when creating a new project, you can run a command similar to the following:</p>
+<p>新しいプロジェクトを作成するときに、ログメッセージを <code>newlog.txt</code> という名前のファイルに出力して、ターミナルに表示するには、以下のようなコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1394,15 +1393,15 @@ For example, to remove all messages, you can run a command similar the following
 </div>
 </div>
 <div class="sect2">
-<h3 id="_specifying_a_user_identity"><a class="anchor" href="#_specifying_a_user_identity"></a>Specifying a user identity</h3>
+<h3 id="_ユーザー_identity_の指定"><a class="anchor" href="#_ユーザー_identity_の指定"></a>ユーザー Identity の指定</h3>
 <div class="paragraph">
-<p>If you create user identities with the <code>dfx identity new</code> command, you can then use the <code>--identity</code> comment-line option to change the user context when running other <code>dfx</code> commands.</p>
+<p><code>dfx identity new</code> コマンドでユーザー Identity を作成すると、<code>--identity</code> というコメントラインオプションを使用して、他の <code>dfx</code> コマンドを実行する際にユーザーコンテキストを変更することができるようになります。</p>
 </div>
 <div class="paragraph">
-<p>In the most common use case, you use the <code>--identity</code> option to call specific canister functions to test access controls for specific operations.</p>
+<p>最も一般的な使用例としては、<code>--identity</code> オプションを使用して、特定の Canister 関数を呼び出し、特定の操作に対するアクセス制御をテストすることができます。</p>
 </div>
 <div class="paragraph">
-<p>For example, you might want to test whether the <code>devops</code> user identity can call the <code>modify_profile</code> function for the <code>accounts</code> canister by running the following command:</p>
+<p>例えば、<code>devops</code> ユーザ Identity で <code>accounts</code> Canister の <code>modify_profile</code> 関数を呼び出せるかどうかを、以下のコマンドを実行してテストすることができます：</p>
 </div>
 <div class="literalblock">
 <div class="content">

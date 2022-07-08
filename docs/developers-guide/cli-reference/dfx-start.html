@@ -1161,17 +1161,17 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx start</code> command to start a local canister execution environment and web server processes for the current project.
-This command enables you to deploy canisters to the local canister execution environment to test your dapps during development.</p>
+<p><code>dfx start</code> コマンドを使用すると、現在のプロジェクトのローカル Canister 実行環境とWeb サーバープロセスを起動することができます。
+このコマンドは、開発中のアプリをテストするために、ローカルの Canister 実行環境に Canister をデプロイすることを可能にします。</p>
 </div>
 <div class="paragraph">
-<p>Note that you can only run this command from within the project directory structure.
-For example, if your project name is <code>hello_world</code>, your current working directory must be the <code>hello_world</code> top-level project directory or one of its subdirectories.</p>
+<p>このコマンドは、プロジェクトのディレクトリ構造内からしか実行できないことに注意してください。
+例えば、プロジェクト名が <code>hello_world</code> の場合、現在の作業ディレクトリは <code>hello_world</code> のトップレベルのプロジェクトディレクトリかそのサブディレクトリのいずれかである必要があります。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic usage</h2>
+<h2 id="_基本的な利用法"><a class="anchor" href="#_基本的な利用法"></a>基本的な利用法</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1181,10 +1181,10 @@ For example, if your project name is <code>hello_world</code>, your current work
 </div>
 </div>
 <div class="sect1">
-<h2 id="_flags"><a class="anchor" href="#_flags"></a>Flags</h2>
+<h2 id="_フラグ"><a class="anchor" href="#_フラグ"></a>フラグ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx start</code> command.</p>
+<p><code>dfx start</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1193,37 +1193,37 @@ For example, if your project name is <code>hello_world</code>, your current work
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--background</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Starts the local canister execution environment and web server processes in the background and waits for a reply before returning to the shell.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ローカル Canister の実行環境と Web サーバープロセスをバックグラウンドで起動し、応答を待ってシェルに戻ります。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--clean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Starts the local canister execution environment and web server processes in a clean state by removing checkpoints from your project cache.
-You can use this flag to set your project cache to a new state when troubleshooting or debugging.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">プロジェクト・キャッシュからチェックポイントを削除して、クリーンな状態でローカル Canister 実行環境と Web サーバープロセスを開始します。
+このフラグは、トラブルシューティングやデバッグの際に、プロジェクト・キャッシュを新しい状態に設定するために使用できます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_options"><a class="anchor" href="#_options"></a>Options</h2>
+<h2 id="_オプション"><a class="anchor" href="#_オプション"></a>オプション</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the following option with the <code>dfx start</code> command.</p>
+<p><code>dfx start</code> コマンドで以下のオプションを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1232,24 +1232,24 @@ You can use this flag to set your project cache to a new state when troubleshoot
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">オプション</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--host host</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the host interface IP address and port number to bind the frontend to. The default is <code>127.0.0.1:8000</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">フロントエンドをバインドするホストインターフェイスの IP アドレスとポート番号を指定します。デフォルトは <code>127.0.0.1:8000</code> です。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<h2 id="_例"><a class="anchor" href="#_例"></a>例</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can start the local canister execution environment and web server processes in the current shell by running the following command:</p>
+<p>以下のコマンドを実行することで、現在のシェルでローカル Canister 実行環境とWeb サーバープロセスを起動することができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1257,8 +1257,8 @@ You can use this flag to set your project cache to a new state when troubleshoot
 </div>
 </div>
 <div class="paragraph">
-<p>If you start the local canister execution environment in the current shell, you need to open a new terminal shell to run additional commands.
-Alternatively, you can start the local canister execution environment in the background by running the following command:</p>
+<p>現在のシェルでローカル Canister 実行環境を起動した場合、追加のコマンドを実行するために新しい ターミナルシェルを開く必要があります。
+または、以下のコマンドを実行して、ローカル Canister 実行環境をバックグラウンドで起動することもできます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1266,7 +1266,7 @@ Alternatively, you can start the local canister execution environment in the bac
 </div>
 </div>
 <div class="paragraph">
-<p>If you run the local canister execution environment in the background, however, be sure to stop the local canister execution environment before uninstalling or reinstalling the <code>dfx</code> execution environment by running the following command:</p>
+<p>ただし、ローカル Canister 実行環境をバックグラウンドで実行している場合は、<code>dfx</code> 実行環境をアンインストールまたは再インストールする前に、以下のコマンドを実行してローカル Canister 実行環境を必ず停止してください：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1274,7 +1274,7 @@ Alternatively, you can start the local canister execution environment in the bac
 </div>
 </div>
 <div class="paragraph">
-<p>You can view the current process identifier (<code>pid</code>) for  the local canister execution environment process started by <code>dfx</code>  by running the following command:</p>
+<p>以下のコマンドを実行することで、<code>dfx</code> で起動したローカル Canister 実行環境プロセスの現在のプロセス ID（ <code>pid</code> ）を確認することができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">

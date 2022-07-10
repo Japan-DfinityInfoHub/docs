@@ -1161,18 +1161,18 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx stop</code> command to stop the local canister execution environment processes that you currently have running on your computer.
-In most cases, you run the canister execution environment locally so that you can deploy canisters and test your dapps during development.
-To simulate the connection to the Internet Computer プラットフォーム, these processes run continuously either in a terminal shell where you started them or the in the background until you stop or kill them.</p>
+<p><code>dfx stop</code> コマンドを使用して、現在コンピュータ上で動作しているローカルのCanister 実行環境プロセスを停止することが出来ます。
+多くの場合、開発中に Canister をデプロイしてアプリをテストするために、Canister 実行環境をローカルで実行します。
+Internet Computer プラットフォーム への接続をシミュレートするために、これらのプロセスは起動したターミナルシェル内、もしくはバックグラウンドで、停止または終了するまで継続的に実行されます。</p>
 </div>
 <div class="paragraph">
-<p>Note that you can only run this command from within the project directory structure.
-For example, if your project name is <code>hello_world</code>, your current working directory must be the <code>hello_world</code> top-level project directory or one of its subdirectories.</p>
+<p>このコマンドはプロジェクトのディレクトリ構造内からしか実行できないことに注意してください。
+例えば、プロジェクト名が <code>hello_world</code> の場合、現在の作業ディレクトリは <code>hello_world</code> のトップレベルのプロジェクトディレクトリかそのサブディレクトリのいずれかである必要があります。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic usage</h2>
+<h2 id="_基本的な利用法"><a class="anchor" href="#_基本的な利用法"></a>基本的な利用法</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1182,10 +1182,10 @@ For example, if your project name is <code>hello_world</code>, your current work
 </div>
 </div>
 <div class="sect1">
-<h2 id="_flags"><a class="anchor" href="#_flags"></a>Flags</h2>
+<h2 id="_フラグ"><a class="anchor" href="#_フラグ"></a>フラグ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx stop</code> command.</p>
+<p><code>dfx stop</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1194,28 +1194,28 @@ For example, if your project name is <code>hello_world</code>, your current work
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<h2 id="_例"><a class="anchor" href="#_例"></a>例</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can stop the local canister execution environment processes that are running in the background by changing to a project directory then running the following command:</p>
+<p>プロジェクト・ディレクトリに移動して以下のコマンドを実行すると、バックグラウンドで動作しているローカル Canister 実行環境のプロセスを停止させることができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1223,11 +1223,11 @@ For example, if your project name is <code>hello_world</code>, your current work
 </div>
 </div>
 <div class="paragraph">
-<p>If the local canister execution environment is running in a current shell rather than in the background, open a new terminal shell, change to a project directory, then run the <code>dfx stop</code> command.</p>
+<p>もし、ローカルの Canister 実行環境がバックグラウンドではなく、カレントシェルで動作している場合は、新しいターミナルシェルを開き、プロジェクトディレクトリに移動し、<code>dfx stop</code> コマンドを実行します。</p>
 </div>
 <div class="paragraph">
-<p>The current process identifier (<code>pid</code>) for the canister execution environment process started by <code>dfx</code> is recorded in the <code>.dfx/pid</code> file.
-You can view the process identifier before running the <code>dfx stop</code> command by running the following command:</p>
+<p><code>dfx</code> によって起動された Canister 実行環境プロセスの現在のプロセス ID （ <code>pid</code> ）は <code>.dfx/pid</code> ファイルに記録されています。
+このプロセス ID は <code>dfx stop</code> コマンドを実行する前に、以下のコマンドを実行することで確認することができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1235,7 +1235,7 @@ You can view the process identifier before running the <code>dfx stop</code> com
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays a process identifier similar to the following:</p>
+<p>このコマンドは、次のようなプロセス ID を表示します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1243,7 +1243,7 @@ You can view the process identifier before running the <code>dfx stop</code> com
 </div>
 </div>
 <div class="paragraph">
-<p>If you are still having trouble with a persistent service running after attempting to stop, you can terminate all running jobs with:</p>
+<p>停止を試みても何らかの問題でサービスが継続する場合は、次の方法で実行中のすべてのジョブを終了させることができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">

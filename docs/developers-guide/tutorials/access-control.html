@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Add access control with identities :: Dfinity 日本語ドキュメント</title>
+    <title>Identity によるアクセス制御を追加する :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/tutorials/access-control.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../../_/css/site.css">
@@ -1160,37 +1160,37 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Add access control with identities</h1>
+<h1 class="page">Identity によるアクセス制御を追加する</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Dapps often require role-based permissions to control the operations different users can perform.</p>
+<p>Dapp では、ユーザーごとに操作を制御するために、ロールベースのパーミッションが必要になることがよくあります。</p>
 </div>
 <div class="paragraph">
-<p>To illustrate how to create and switch between user identities, this tutorial creates a simple dapp that displays a different greeting for users who are assigned to different roles.</p>
+<p>このチュートリアルでは、ユーザー identity の作成と切り替え方法を解説するために、異なるロールを割り当てられたユーザーに対して、異なる挨拶を表示する簡単な Dapp を作成します。</p>
 </div>
 <div class="paragraph">
-<p>In this example, there are three named roles—<code>owner</code>, <code>admin</code>, and <code>authorized</code>.</p>
+<p>この例では、<code>owner</code>、<code>admin</code>、<code>authorized</code> という名前の３つのロールが存在します。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Users who are assigned an <code>admin</code> role see a greeting that displays <code>You have a role with administrative privileges</code>.</p>
+<p><code>admin</code> ロールが割り当てられたユーザーには、<code>You have a role with administrative privileges</code>（あなたは管理者権限のあるロールを持っています）という挨拶が表示されます。</p>
 </li>
 <li>
-<p>Users who are assigned an <code>authorized</code> role see a greeting that displays <code>Would you like to play a game?</code>.</p>
+<p><code>authorized</code> ロールが割り当てられたユーザーには、<code>Would you like to play a game?</code>（ゲームをしたいですか？）という挨拶が表示されます。</p>
 </li>
 <li>
-<p>Users who are not assigned one of these roles see a greeting that displays <code>Nice to meet you!</code>.</p>
+<p>これらのロールが割り当てられていないユーザーには、<code>Nice to meet you!</code>（はじめまして！） という挨拶が表示されます。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In addition, only the user identity that initialized the canister smart contract is assigned the <code>owner</code> role and only the <code>owner</code> and <code>admin</code> roles can assign roles to other users.</p>
+<p>さらに、Canister スマートコントラクトを初期化した ユーザー Identity にのみ <code>owner</code> ロールが割り当てられ、<code>owner</code> と <code>admin</code> ロールのみ他のユーザーにロールを割り当てることができます。</p>
 </div>
 <div class="paragraph">
-<p>At a high-level, each user has a public/private key pair. The public key combined with the canister smart contract identifier the user accesses forms a security principal that can then be used as a message caller to authenticate function calls made to the canister smart contract running on the Internet Computer.
-The following diagram provides a simplified view of how user identities authenticate message callers.</p>
+<p>大まかに言えば、各ユーザーは公開鍵/秘密鍵のペアを持ちます。公開鍵と、ユーザーがアクセスする Canister スマートコントラクト識別子を組み合わせて、セキュリティ Principal を形成し、Internet Computer 上で動作する Canister スマートコントラクトへの関数呼び出しを認証するメッセージ呼び出し元として使用できます。
+下図で、ユーザー Identity がメッセージ呼び出し元を認証する方法を簡略化して示します。</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1200,46 +1200,46 @@ The following diagram provides a simplified view of how user identities authenti
 </div>
 </div>
 <div class="sect1">
-<h2 id="_before_you_begin"><a class="anchor" href="#_before_you_begin"></a>Before you begin</h2>
+<h2 id="_始める前に"><a class="anchor" href="#_始める前に"></a>始める前に</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before starting the tutorial, verify the following:</p>
+<p>チュートリアルを始める前に、下記を確認してください。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You have downloaded and installed the DFINITY Canister SDK package as described in <a href="../../quickstart/local-quickstart.html#download-and-install">Download and install</a>.</p>
+<p><a href="../../quickstart/local-quickstart.html#download-and-install">ダウンロードとインストール</a> の説明に従って DFINITY Canister SDK パッケージをダウンロードし、インストールした。</p>
 </li>
 <li>
-<p>You have run at least one command that resulted in your <code>default</code> user identity being created.
-Your default user identity is stored globally for all projects in the <code>$HOME/.config/dfx/identity/</code> directory.</p>
+<p>少なくとも１つのコマンドを実行し、<code>default</code> ユーザーの Identity が作成された。
+デフォルトのユーザー Identity は、すべてのプロジェクトにおいて <code>$HOME/.config/dfx/identity/</code> ディレクトリにグローバルに保存されます。</p>
 </li>
 <li>
-<p>You have installed the Visual Studio Code plugin for Motoko as described in <a href="../../quickstart/local-quickstart.html#install-vscode">Install the language editor plug-in</a> if you are using Visual Studio Code as your IDE.</p>
+<p>IDE としてVisual Studio Code を使用している場合、<a href="../../quickstart/local-quickstart.html#install-vscode">Install the language editor plug-in</a> で説明したように、Motoko 用の Visual Studio Code プラグインをインストールした。</p>
 </li>
 <li>
-<p>You have stopped any local canister execution environment processes running on your computer.</p>
+<p>コンピュータ上で実行されている ローカル Canister 実行環境 プロセスをすべて停止した。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_create_a_new_project"><a class="anchor" href="#_create_a_new_project"></a>Create a new project</h2>
+<h2 id="_新規プロジェクトを作成する"><a class="anchor" href="#_新規プロジェクトを作成する"></a>新規プロジェクトを作成する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To create a new project directory for testing access control and switching user identities:</p>
+<p>アクセス制御とユーザー Identity の切り替えをテストするために、新規プロジェクトディレクトリを作成するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal shell on your local computer, if you don’t already have one open.</p>
+<p>ローカルコンピューターでターミナルシェルを開いてください（まだ開いていない場合）。</p>
 </li>
 <li>
-<p>Change to the folder you are using for your Internet Computer projects, if you are using one.</p>
+<p>Internet Computer プロジェクトで使用しているフォルダがある場合は、そのフォルダに移動します。</p>
 </li>
 <li>
-<p>Create a new project by running the following command:</p>
+<p>下記コマンドを実行することで、新規プロジェクトを作成します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx new access_hello</code></pre>
@@ -1247,7 +1247,7 @@ Your default user identity is stored globally for all projects in the <code>$HOM
 </div>
 </li>
 <li>
-<p>Change to your project directory by running the following command:</p>
+<p>以下のコマンドを実行することで、プロジェクトディレクトリに移動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd access_hello</code></pre>
@@ -1259,31 +1259,31 @@ Your default user identity is stored globally for all projects in the <code>$HOM
 </div>
 </div>
 <div class="sect1">
-<h2 id="_modify_the_default_dapp"><a class="anchor" href="#_modify_the_default_dapp"></a>Modify the default dapp</h2>
+<h2 id="_デフォルトの_dapp_を変更する"><a class="anchor" href="#_デフォルトの_dapp_を変更する"></a>デフォルトの Dapp を変更する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For this tutorial, you are going to replace the template source code file with a dapp that has functions for assigning and retrieving roles.</p>
+<p>このチュートリアルでは、テンプレートのソースコードファイルを、ロールの割り当てと取得のための機能を持つ Dapp に置き換えます。</p>
 </div>
 <div class="paragraph">
-<p>To modify the default dapp:</p>
+<p>デフォルトの Dapp を変更するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open the <code>src/access_hello/main.mo</code> file in a text editor and delete the existing content.</p>
+<p>テキストエディタで <code>src/access_hello/main.mo</code> ファイルを開き、既存の内容を削除します。</p>
 </li>
 <li>
-<p>Copy and paste the following sample code into the file:</p>
+<p>下記のサンプルコードをコピーしてファイルに貼り付けます。</p>
 <div class="listingblock copy">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-motoko hljs" data-lang="motoko">// Import base modules
+<pre class="highlightjs highlight"><code class="language-motoko hljs" data-lang="motoko">// base モジュールをインポート
 import AssocList "mo:base/AssocList";
 import Error "mo:base/Error";
 import List "mo:base/List";
 
 shared({ caller = initializer }) actor class() {
 
-    // Establish role-based greetings to display
+    // ロールに応じた挨拶を決めて、表示する
     public shared({ caller }) func greet(name : Text) : async Text {
         if (has_permission(caller, #assign_role)) {
             return "Hello, " # name # ". You have a role with administrative privileges."
@@ -1294,7 +1294,7 @@ shared({ caller = initializer }) actor class() {
         }
     };
 
-    // Define custom types
+    // カスタム型を定義する
     public type Role = {
         #owner;
         #admin;
@@ -1321,7 +1321,7 @@ shared({ caller = initializer }) actor class() {
         }
     };
 
-    // Determine if a principal has a role with permissions
+    // Principal がパーミッションのあるロールを持っているかどうかを判断する
     func has_permission(pal: Principal, perm : Permission) : Bool {
         let role = get_role(pal);
         switch (role, perm) {
@@ -1331,14 +1331,14 @@ shared({ caller = initializer }) actor class() {
         }
     };
 
-    // Reject unauthorized user identities
+    // 不正なユーザー Identity を拒否する
     func require_permission(pal: Principal, perm: Permission) : async () {
         if ( has_permission(pal, perm) == false ) {
             throw Error.reject( "unauthorized" );
         }
     };
 
-    // Assign a new role to a principal
+    // Princiapl に新しいロールを割り当てる
     public shared({ caller }) func assign_role( assignee: Principal, new_role: ?Role ) : async () {
         await require_permission( caller, #assign_role );
 
@@ -1360,12 +1360,12 @@ shared({ caller = initializer }) actor class() {
         return caller;
     };
 
-    // Return the principal of the message caller/user identity
+    // メッセージの呼び出し元/ユーザ Identity の Principal を返す
     public shared({ caller }) func callerPrincipal() : async Principal {
         return caller;
     };
 
-    // Return the role of the message caller/user identity
+    // メッセージの呼び出し元/ユーザーの Identity のロールを返す
     public shared({ caller }) func my_role() : async ?Role {
         return get_role(caller);
     };
@@ -1387,29 +1387,29 @@ shared({ caller = initializer }) actor class() {
 </div>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s take a look at a few key elements of this dapp:</p>
+<p>この Dapp の主要な要素をいくつか見てみましょう。</p>
 </div>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You might notice that the <code>greet</code> function is a variation on the <code>greet</code> function you have seen in previous tutorials.</p>
+<p><code>greet</code> 関数は、以前のチュートリアルで見た <code>greet</code> 関数のバリエーションであることにお気づきかもしれません。</p>
 <div class="paragraph">
-<p>In this dapp, however, the <code>greet</code> function uses a message caller to determine the permissions that should be applied and, based on the permissions associated with the caller, which greeting to display.</p>
+<p>しかし、この Dapp では、<code>greet</code> 関数がメッセージの呼び出し元を利用して、適用すべきパーミッションを決定し、呼び出し元に関連するパーミッションに基づいて、どの挨拶を表示するかを決めます。</p>
 </div>
 </li>
 <li>
-<p>The dapp defines two custom types—one for <code>Roles</code> and one for <code>Permissions</code>.</p>
+<p>この Dapp では、<code>Roles</code> と <code>Permissions</code> の２つのカスタム型を定義します。</p>
 </li>
 <li>
-<p>The <code>assign_roles</code> function enables the message caller to assign a role to the principal associated with an identity.</p>
+<p><code>assign_roles</code> 関数を使用すると、メッセージの呼び出し元が Identity に関連付けられた Principal にロールを割り当てることができます。</p>
 </li>
 <li>
-<p>The <code>callerPrincipal</code> function enables you to return the principal associated with an identity.</p>
+<p><code>callerPrincipal</code> 関数を使用すると、Identity に関連付けられた Principal を返せます。</p>
 </li>
 <li>
-<p>The <code>my_role</code> function enables you to return the role that is associated with an identity.</p>
+<p><code>my_role</code> 関数を使用すると、Identity に関連付けられたロールを返せます。</p>
 </li>
 </ul>
 </div>
@@ -1417,38 +1417,38 @@ shared({ caller = initializer }) actor class() {
 </div>
 </li>
 <li>
-<p>Save your changes and close the <code>main.mo</code> file to continue.</p>
+<p>変更を保存し、<code>main.mo</code> ファイルを閉じて、続行します。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_start_the_local_canister_execution_environment"><a class="anchor" href="#_start_the_local_canister_execution_environment"></a>Start the local canister execution environment</h2>
+<h2 id="_ローカル_canister_実行環境_を起動する"><a class="anchor" href="#_ローカル_canister_実行環境_を起動する"></a>ローカル Canister 実行環境 を起動する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before you can build the <code>access_hello</code> project, you need to connect to the local canister execution environment running in your development environment or to the Internet Computer mainnet.</p>
+<p><code>access_hello</code> プロジェクトをビルドする前に、開発環境で動作している ローカル Canister 実行環境 または Internet Computer のメインネットに接続する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>To start the local canister execution environment:</p>
+<p>ローカル Canister 実行環境 を起動するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a new terminal window or tab on your local computer.</p>
+<p>ローカルコンピューターで新しいターミナルウィンドウまたはタブを開きます。</p>
 </li>
 <li>
-<p>Navigate to the root directory for your project, if necessary.</p>
+<p>必要であれば、プロジェクトのルートディレクトリに移動します。</p>
 </li>
 <li>
-<p>Start the local canister execution environment on your computer by running the following command:</p>
+<p>下記のコマンドを実行することで、コンピュータ上の ローカル Canister 実行環境 を起動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx start --background</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>After the local canister execution environment completes its startup operations, you can continue to the next step.</p>
+<p>ローカル Canister 実行環境 の起動操作が完了したら、次の手順に進めます。</p>
 </div>
 </li>
 </ol>
@@ -1456,22 +1456,22 @@ shared({ caller = initializer }) actor class() {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_register_build_and_deploy_the_dapp"><a class="anchor" href="#_register_build_and_deploy_the_dapp"></a>Register, build, and deploy the dapp</h2>
+<h2 id="_dapp_を登録ビルドデプロイする"><a class="anchor" href="#_dapp_を登録ビルドデプロイする"></a>Dapp を登録、ビルド、デプロイする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you connect to the local canister execution environment running in your development environment, you can register, build, and deploy your dapp in a single step by running the <a href="../cli-reference/dfx-deploy.html"><code>dfx deploy</code></a> command.
-You can also perform each of these steps independently using separate <a href="../cli-reference/dfx-canister.html#dfx_canister_create"><code>dfx canister create</code></a>, <a href="../cli-reference/dfx-build.html"><code>dfx build</code></a>, and <a href="../cli-reference/dfx-canister.html#dfx_canister_install"><code>dfx canister install</code></a> commands.</p>
+<p>開発環境で動作している ローカル Canister 実行環境 に接続した後、<a href="../cli-reference/dfx-deploy.html"><code>dfx deploy</code></a> コマンドを実行することで、Dapp の登録、構築、デプロイが一度で行えます。
+<a href="../cli-reference/dfx-canister.html#dfx_canister_create"><code>dfx canister create</code></a>、<a href="../cli-reference/dfx-build.html"><code>dfx build</code></a>、および <a href="../cli-reference/dfx-canister.html#dfx_canister_install"><code>dfx canister install</code></a> コマンドを用いてこれらの各ステップを個別に実行することも可能です。</p>
 </div>
 <div class="paragraph">
-<p>To deploy the dapp locally:</p>
+<p>Dapp をローカルにデプロイするには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check that you are still in the root directory for your project, if needed.</p>
+<p>必要に応じて、プロジェクトのルートディレクトリにまだいることを確認します。</p>
 </li>
 <li>
-<p>Register, build, and deploy the <code>access_hello</code> back-end dapp by running the following command:</p>
+<p>下記のコマンドを実行することで、<code>access_hello</code> バックエンド Dapp を登録、ビルド、デプロイします。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx deploy access_hello</code></pre>
@@ -1497,26 +1497,26 @@ Deployed canisters.</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_check_the_current_identity_context"><a class="anchor" href="#_check_the_current_identity_context"></a>Check the current identity context</h2>
+<h2 id="_現在の_identity_コンテキストを確認する"><a class="anchor" href="#_現在の_identity_コンテキストを確認する"></a>現在の Identity コンテキストを確認する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before we create any additional identities, let&#8217;s review the principal identifiers associated with your <code>default</code> identity and the cycles wallet for your <code>default</code> identity.
-On the Internet Computer, a principal is the internal representative for a user, canister smart contract, node, or subnet. The textual representation for a principal is the external identifier you see displayed with working with the principal data type.</p>
+<p>追加の Identity を作成する前に、<code>default</code> Identity と <code>default</code> Identity 用の Cycle ウォレットに関連付けられた Principal 識別子を確認しましょう。
+Internet Computer において、Principal はユーザー、Canister スマートコントラクト、ノード、またはサブネットの内部の代表です。Principal のテキスト表現は、Principal データ型で作業している際に表示される外部識別子です。</p>
 </div>
 <div class="paragraph">
-<p>To review your current identity and principle:</p>
+<p>現在の Identity と Principal を確認するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Verify the currently-active identity by running the following command:</p>
+<p>下記のコマンドを実行することで、現在アクティブな Identity を確認します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity whoami</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1525,14 +1525,14 @@ On the Internet Computer, a principal is the internal representative for a user,
 </div>
 </li>
 <li>
-<p>Check the principal for the <code>default</code> user identity by running the following command:</p>
+<p>下記のコマンドを実行することで、<code>default</code> ユーザー Identity の Principal を確認します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity get-principal</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1541,14 +1541,14 @@ On the Internet Computer, a principal is the internal representative for a user,
 </div>
 </li>
 <li>
-<p>Check the role associated with the <code>default</code> user identity by running the following command:</p>
+<p>下記のコマンドを実行することで、<code>default</code> ユーザー Identity に関連付けられたロールを確認します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister --wallet=$(dfx identity get-wallet) call access_hello my_role</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1561,28 +1561,28 @@ On the Internet Computer, a principal is the internal representative for a user,
 </div>
 </div>
 <div class="sect1">
-<h2 id="_create_a_new_user_identity"><a class="anchor" href="#_create_a_new_user_identity"></a>Create a new user identity</h2>
+<h2 id="_新しいユーザー_identity_を作成する"><a class="anchor" href="#_新しいユーザー_identity_を作成する"></a>新しいユーザー Identity を作成する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To begin testing the access controls in our dapp, let&#8217;s create some new user identities and assign those users to different roles.</p>
+<p>Dapp のアクセス制御のテストを始めるために、いくつかの新しいユーザー Identity を作成し、それらのユーザーに異なるロールを割り当てましょう。</p>
 </div>
 <div class="paragraph">
-<p>To create a new user identity:</p>
+<p>新しいユーザー Identity を作成するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check that you are still in your project directory, if needed.</p>
+<p>必要に応じて、プロジェクトのディレクトリにまだいることを確認します。</p>
 </li>
 <li>
-<p>Create a new administrative user identity by running the following command:</p>
+<p>下記のコマンドを実行することで、新しい管理ユーザー Identity を作成します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity new ic_admin</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1592,14 +1592,14 @@ Created identity: "ic_admin".</pre>
 </div>
 </li>
 <li>
-<p>Call the <code>my_role</code> function to see that your new user identity has not been assigned to any role.</p>
+<p>新しいユーザー Identity がどのロールにも割り当てられていないことを確認するために、<code>my_role</code> 関数を呼び出してください。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity ic_admin canister call access_hello my_role</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1610,14 +1610,14 @@ The wallet canister on the "local" network for user "ic_admin" is "ryjl3-tyaaa-a
 </div>
 </li>
 <li>
-<p>Switch your currently-active identity context to use the new <code>ic_admin</code> user identity and display the principal associated with the <code>ic_admin</code> user by running the following command:</p>
+<p>下記のコマンドを実行することで、新しい <code>ic_admin</code> ユーザー Identity を使用するために現在のアクティブ Identity コンテキストを切り替えて、<code>ic_admin</code> ユーザーに関連付けられている Principal を表示します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity use ic_admin &amp;&amp; dfx identity get-principal</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1627,14 +1627,14 @@ c5wa6-3irl7-tuxuo-4vtyw-xsnhw-rv2a6-vcmdz-bzkca-vejmd-327zo-wae</pre>
 </div>
 </li>
 <li>
-<p>Check the principal used to call the <code>access_hello</code> canister smart contract by running the following command:</p>
+<p>下記のコマンドを実行することで、<code>access_hello</code> Canister スマートコントラクトを呼び出すのに使用される Principal を確認します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call access_hello callerPrincipal</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1642,9 +1642,9 @@ c5wa6-3irl7-tuxuo-4vtyw-xsnhw-rv2a6-vcmdz-bzkca-vejmd-327zo-wae</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>By default, the cycles wallet identifier is the principal used to call the methods in the <code>access_hello</code> canister smart contract.
-To illustrate access control, however, we want to use the principal associated with the user context, not the cycles wallet.
-Before we get to that step, though, let&#8217;s assign a role to the <code>ic_admin</code> user. To do that, we need to switch to the <code>default</code> user identity that has the <code>owner</code> role.</p>
+<p>デフォルトでは、Cycles ウォレットの識別子は、<code>access_hello</code> Canister スマートコントラクトのメソッドを呼び出すのに使用される Principal です。
+しかし、アクセス制御を解説するために、Cycle ウォレットではなく、ユーザーコンテキストに関連付けられた Principal 使用したいと思います。
+しかし、その前に <code>ic_admin</code> ユーザーに対してロールを割り当てましょう。そのためには、<code>owner</code> ロールを持つ <code>default</code> ユーザー Identity に切り替える必要があります。</p>
 </div>
 </li>
 </ol>
@@ -1652,15 +1652,15 @@ Before we get to that step, though, let&#8217;s assign a role to the <code>ic_ad
 </div>
 </div>
 <div class="sect1">
-<h2 id="_assign_a_role_to_an_identity"><a class="anchor" href="#_assign_a_role_to_an_identity"></a>Assign a role to an identity</h2>
+<h2 id="_identity_にロールを割り当てる"><a class="anchor" href="#_identity_にロールを割り当てる"></a>Identity にロールを割り当てる</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To assign the admin role to the ic_admin identity:</p>
+<p>ic_admin Identity に admin ロールを割り当てるには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Switch your currently-active identity context to use the <code>default</code> user identity by running the following command:</p>
+<p>下記のコマンドを実行することで、現在アクティブな Identity コンテキストを切り替えることで、<code>default</code> ユーザー Identity を使用するようにします。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity use default</code></pre>
@@ -1668,7 +1668,7 @@ Before we get to that step, though, let&#8217;s assign a role to the <code>ic_ad
 </div>
 </li>
 <li>
-<p>Assign the <code>ic_admin</code> principal the <code>admin</code> role by running a command similar to the following using Candid syntax:</p>
+<p>コマンドを下記のような Candid 構文で実行することで、<code>ic_admin</code> Principal に <code>admin</code> ロールを割り当てます。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister --wallet=$(dfx identity get-wallet) call access_hello assign_role '((principal "c5wa6-3irl7-tuxuo-4vtyw-xsnhw-rv2a6-vcmdz-bzkca-vejmd-327zo-wae"),opt variant{admin})'</code></pre>
@@ -1684,14 +1684,14 @@ Before we get to that step, though, let&#8217;s assign a role to the <code>ic_ad
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Be sure to replace the <code>principal</code> hash with the one returned by the <code>dfx identity get-principal</code> command for the <code>ic_admin</code> identity.
+必ず <code>principal</code> ハッシュを、<code>ic_admin</code> Identity の <code>dfx identity get-principal</code> コマンドによって返されるハッシュに置き換えてください。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
 <p>+
-Optionally, you can rerun the command to call the <code>my_role</code> function to verify the role assignment.</p>
+オプションとして、コマンドを再実行して <code>my_role</code> 関数を呼び出し、ロールの割り当てを確認できます。</p>
 </div>
 <div class="paragraph">
 <p>+</p>
@@ -1703,7 +1703,7 @@ Optionally, you can rerun the command to call the <code>my_role</code> function 
 </div>
 <div class="paragraph">
 <p>+
-The command displays output similar to the following:</p>
+このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="paragraph">
 <p>+</p>
@@ -1716,14 +1716,14 @@ The command displays output similar to the following:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Call the <code>greet</code> function using the <code>ic_admin</code> user identity that you just assigned the <code>admin</code> role by running the following command:</p>
+<p>先ほど <code>admin</code> ロールを割り当てた <code>ic_admin</code> ユーザー Identity を使用して、下記のコマンドを実行することで、<code>greet</code> 関数を呼び出します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity ic_admin canister call access_hello greet "Internet Computer Admin"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1738,30 +1738,30 @@ The command displays output similar to the following:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_add_an_authorized_user_identity"><a class="anchor" href="#_add_an_authorized_user_identity"></a>Add an authorized user identity</h2>
+<h2 id="_authorized_ユーザー_identity_を追加する"><a class="anchor" href="#_authorized_ユーザー_identity_を追加する"></a>authorized ユーザー Identity を追加する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>At this point, you have a <code>default</code> user identity with the <code>owner</code> role and an <code>ic_admin</code> user identity with the <code>admin</code> role.
-Let&#8217;s add another user identity and assign it to the <code>authorized</code> role.
-For this example, however, we&#8217;ll use an environment variable to store the user&#8217;s principal.</p>
+<p>この時点で、<code>default</code> ユーザー Identity に <code>owner</code> ロール、 <code>ic_admin</code> ユーザー Identity に <code>admin</code> ロールを割り当てました。
+もう１つユーザー Identity を追加して、 <code>authorized</code> ロールを割り当てましょう。
+ただし、この例では、ユーザーの Principal を格納するのに環境変数を使用します。</p>
 </div>
 <div class="paragraph">
-<p>To add a new authorized user identity:</p>
+<p>新しい authorized ユーザー Identity を追加するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check that you are still in your project directory, if needed.</p>
+<p>必要に応じて、プロジェクトディレクトリにまだいることを確認します。</p>
 </li>
 <li>
-<p>Create a new authorized user identity by running the following command:</p>
+<p>下記のコマンドを実行することで、新しい authorized ユーザー Identity を作成します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity new alice_auth</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1771,7 +1771,7 @@ Created identity: "alice_auth".</pre>
 </div>
 </li>
 <li>
-<p>Switch your currently-active identity context to use the new <code>alice_auth</code> user identity by running the following command:</p>
+<p>下記のコマンドを実行することで、現在アクティブな Identity コンテキストを切り替えて、新しい <code>alice_auth</code> ユーザー Identity を使用するようにします。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity use alice_auth</code></pre>
@@ -1779,14 +1779,14 @@ Created identity: "alice_auth".</pre>
 </div>
 </li>
 <li>
-<p>Store the principal for the <code>alice_auth</code> user in an environment variable by running the following command:</p>
+<p>下記のコマンドを実行することで、<code>alice_auth</code> ユーザーの Principal を環境変数に格納します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ALICE_ID=$(dfx identity get-principal)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can verify the principal stored by running the following command:</p>
+<p>下記のコマンドを実行することで、保存されている Principal を確認できます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1794,7 +1794,7 @@ Created identity: "alice_auth".</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1803,7 +1803,7 @@ Created identity: "alice_auth".</pre>
 </div>
 </li>
 <li>
-<p>Use the <code>ic_admin</code> identity to assign the <code>authorized</code> role to <code>alice_auth</code> by running the following command:</p>
+<p><code>ic_admin</code> の Identity を使用して、下記のコマンドを実行することで <code>alice_auth</code> に <code>authorized</code> ロールを割り当てます。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity ic_admin canister call access_hello assign_role "(principal \"$ALICE_ID\", opt variant{authorized})"</code></pre>
@@ -1811,14 +1811,14 @@ Created identity: "alice_auth".</pre>
 </div>
 </li>
 <li>
-<p>Call the <code>my_role</code> function to verify the role assignment.</p>
+<p>ロールの割り当てを確認するために <code>my_role</code> 関数を呼び出します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity alice_auth canister call access_hello my_role</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1827,14 +1827,14 @@ Created identity: "alice_auth".</pre>
 </div>
 </li>
 <li>
-<p>Call the <code>greet</code> function using the <code>alice_auth</code> user identity that you just assigned the <code>authorized</code> role by running the following command:</p>
+<p>先ほど <code>authorized</code> ロールを割り当てた <code>alice_auth</code> ユーザー Identity を使用して、下記のコマンドを実行することで <code>greet</code> 関数を呼び出してください。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call access_hello greet "Alice"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1849,22 +1849,22 @@ Created identity: "alice_auth".</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_add_an_unauthorized_user_identity"><a class="anchor" href="#_add_an_unauthorized_user_identity"></a>Add an unauthorized user identity</h2>
+<h2 id="_unauthorized_なユーザー_identity_を追加する"><a class="anchor" href="#_unauthorized_なユーザー_identity_を追加する"></a>unauthorized なユーザー Identity を追加する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You have now seen a simple example of creating users with specific roles and permissions.
-The next step is to create a user identity that is not assigned to a role or given any special permissions.</p>
+<p>ここまで、特定のロールとパーミッションのあるユーザーを作成する簡単な例を見ました。
+次のステップでは、ロールが割り当てられていない、または特別なパーミッションが与えられていないユーザー Identity を作成します。</p>
 </div>
 <div class="paragraph">
-<p>To add an unauthorized user identity:</p>
+<p>unauthorized なユーザー Identity を追加するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check that you are still in your project directory, if needed.</p>
+<p>必要に応じて、プロジェクトディレクトリにまだいることを確認します。</p>
 </li>
 <li>
-<p>Check your currently-active identity, if needed, by running the following command:</p>
+<p>必要に応じて、下記のコマンドを実行することで、現在アクティブな Identity を確認します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity whoami</code></pre>
@@ -1872,14 +1872,14 @@ The next step is to create a user identity that is not assigned to a role or giv
 </div>
 </li>
 <li>
-<p>Create a new user identity by running the following command:</p>
+<p>下記のコマンドを実行することで、新しいユーザー Identity を作成します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity new bob_standard</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1889,7 +1889,7 @@ Created identity: "bob_standard".</pre>
 </div>
 </li>
 <li>
-<p>Store the principal for the <code>bob_standard</code> user in an environment variable by running the following command:</p>
+<p>以下のコマンドを実行することで、<code>bob_standard</code> ユーザーの Principal を環境変数に格納します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">BOB_ID=$(dfx --identity bob_standard identity get-principal)</code></pre>
@@ -1897,36 +1897,36 @@ Created identity: "bob_standard".</pre>
 </div>
 </li>
 <li>
-<p>Attempt to use the <code>bob_standard</code> identity to assign a role.</p>
+<p>ロールを割り当てるために <code>bob_standard</code> Identity を使用してみます。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity bob_standard canister call access_hello assign_role "(principal \"$BOB_ID\", opt variant{authorized})"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command returns an <code>unauthorized</code> error.</p>
+<p>このコマンドは <code>Unauthorized</code> エラーを返します。</p>
 </div>
 </li>
 <li>
-<p>Attempt to use the <code>default</code> user identity to assign <code>bob_standard</code> the <code>owner</code> role by running the following command:</p>
+<p>下記のコマンドを実行することで、<code>default</code> ユーザー Identity を使用して <code>bob_standard</code> に <code>owner</code> ロールを割り当ててみます。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity default canister --wallet=$(dfx --identity default identity get-wallet) call access_hello assign_role "(principal \"$BOB_ID\", opt variant{owner})"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command fails because users cannot be assigned the <code>owner</code> role.</p>
+<p>このコマンドは、ユーザーに <code>owner</code> ロールを割り当てることができないため、失敗します。</p>
 </div>
 </li>
 <li>
-<p>Call the <code>greet</code> function using the <code>bob_standard</code> user identity by running the following command:</p>
+<p>下記のコマンドを実行することで、<code>bob_standard</code> ユーザー Identity を使用して <code>greet</code> 関数を呼び出します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity bob_standard canister call access_hello greet "Bob"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1939,29 +1939,29 @@ Created identity: "bob_standard".</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_set_the_user_identity_for_multiple_commands"><a class="anchor" href="#_set_the_user_identity_for_multiple_commands"></a>Set the user identity for multiple commands</h2>
+<h2 id="_複数のコマンドでユーザー_identity_を設定する"><a class="anchor" href="#_複数のコマンドでユーザー_identity_を設定する"></a>複数のコマンドでユーザー Identity を設定する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>So far, you have seen how to create and switch between user identities for individual commands.
-You can also specify a user identity you want to use, then run multiple commands in the context of that user identity.</p>
+<p>ここまで、個々のコマンドでユーザー Identity を作成し、切り替える方法について見てきました。
+使用したいユーザー Identity を指定し、そのユーザー Identity のコンテキストで複数のコマンドを実行することも可能です。</p>
 </div>
 <div class="paragraph">
-<p>To run multiple commands under one user identity:</p>
+<p>１つのユーザー Identity で複数のコマンドを実行するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check that you are still in your project directory, if needed.</p>
+<p>必要であれば、プロジェクトディレクトリにまだいることを確認します。</p>
 </li>
 <li>
-<p>List the user identities currently available by running the following command:</p>
+<p>下記のコマンドを実行することで、現在利用可能なユーザー Identity を一覧表示します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity list</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command displays output similar to the following with an asterisk indicating the currently-active user identity.</p>
+<p>このコマンドは、現在アクティブなユーザー Identity を示すアスタリスクと共に、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1972,18 +1972,18 @@ ic_admin</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In this example, the <code>default</code> user identity is used unless you explicitly select a different identity.</p>
+<p>この例では、明示的に別の Identity を選択しない限り、<code>default</code> ユーザー Identity が使用されます。</p>
 </div>
 </li>
 <li>
-<p>Select a new user identity from the list and make it the active user context by running a command similar to the following:</p>
+<p>下記のようなコマンドを実行することで、一覧から新しいユーザー Identity を選択し、それをアクティブなユーザーコンテキストにします。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity use ic_admin</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>+ The command displays output similar to the following:</p>
+<p>このコマンドは、下記のような出力を表示します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1991,10 +1991,10 @@ ic_admin</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you rerun the <code>dfx identity list</code> command, the <code>ic_admin</code> user identity displays an asterisk to indicate it is the currently active user context.</p>
+<p><code>dfx identity list</code> コマンドを再実行すると、<code>ic_admin</code> ユーザー Identity が現在アクティブなユーザーコンテキストであることを示すアスタリスクが表示されます。</p>
 </div>
 <div class="paragraph">
-<p>You can now run commands using the selected user identity without specifying <code>--identity</code> on the command-line.</p>
+<p>コマンドラインで <code>--identity</code> を指定しなくても、選択したユーザー Identity を使用してコマンドを実行できるようになります。</p>
 </div>
 </li>
 </ol>
@@ -2002,21 +2002,21 @@ ic_admin</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_stop_the_local_canister_execution_environment"><a class="anchor" href="#_stop_the_local_canister_execution_environment"></a>Stop the local canister execution environment</h2>
+<h2 id="_ローカル_canister_実行環境_を停止する"><a class="anchor" href="#_ローカル_canister_実行環境_を停止する"></a>ローカル Canister 実行環境 を停止する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you finish experimenting with the dapp and using identities, you can stop the local canister execution environment so that it doesn’t continue running in the background.</p>
+<p>Dapp の実体験と Identity の使用が終わったら、バックグラウンドで動作し続けないように ローカル Canister 実行環境 を停止できます。</p>
 </div>
 <div class="paragraph">
-<p>To stop the local canister execution environment:</p>
+<p>ローカル Canister 実行環境 を停止するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In the terminal that displays network operations, press Control-C to interrupt the local network process.</p>
+<p>ネットワーク操作を表示するターミナルで、Control-C を押して、ローカルネットワークの処理を中断します。</p>
 </li>
 <li>
-<p>Stop the local canister execution environment by running the following command:</p>
+<p>下記のコマンドを実行することで、ローカル Canister 実行環境 を停止します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx stop</code></pre>
@@ -2028,18 +2028,18 @@ ic_admin</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_want_to_learn_more"><a class="anchor" href="#_want_to_learn_more"></a>Want to learn more?</h2>
+<h2 id="_もっと詳しく知りたいですか"><a class="anchor" href="#_もっと詳しく知りたいですか"></a>もっと詳しく知りたいですか？</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you are looking for more information about identity and authentication, check out the following related resources:</p>
+<p>Identity と認証についてより詳しい情報をお探しの場合は、下記の関連資料をご覧ください。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="../cli-reference/dfx-identity.html">dfx identity (command reference)</a></p>
+<p><a href="../cli-reference/dfx-identity.html">dfx identity（コマンドリファレンス）</a></p>
 </li>
 <li>
-<p><a href="../working-with-canisters.html#set-owner">Set an identity to own a canister smart contract (how-to)</a></p>
+<p><a href="../working-with-canisters.html#set-owner">Canister スマートコントラクトを所有するための Identity を設定する（ハウツー）</a></p>
 </li>
 </ul>
 </div>

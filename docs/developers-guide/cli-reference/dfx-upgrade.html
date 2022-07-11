@@ -1161,14 +1161,14 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx upgrade</code> command to upgrade the DFINITY Canister SDK components running on your local computer.
-This command checks the version of the DFINITY Canister SDK that you have currently installed against the latest publicly-available version specified in the <code>manifest.json</code> file.
-If an older version of the DFINITY Canister SDK is detected locally, the <code>dfx upgrade</code> command automatically fetches the latest version from the CDN.</p>
+<p><code>dfx upgrade</code> コマンドを使用すると、ローカルコンピュータで動作している DFINITY Canister SDK コンポーネントをアップグレードすることができます。
+このコマンドは、現在インストールされている DFINITY Canister SDK のバージョンと <code>manifest.json</code> ファイルで指定された一般公開されている最新バージョンをチェックします。
+ローカルで古いバージョンの DFINITY Canister SDK が検出された場合、<code>dfx upgrade</code> コマンドは自動的に CDN から最新バージョンをフェッチします。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic usage</h2>
+<h2 id="_基本的な利用法"><a class="anchor" href="#_基本的な利用法"></a>基本的な利用法</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -1178,10 +1178,10 @@ If an older version of the DFINITY Canister SDK is detected locally, the <code>d
 </div>
 </div>
 <div class="sect1">
-<h2 id="_flags"><a class="anchor" href="#_flags"></a>Flags</h2>
+<h2 id="_フラグ"><a class="anchor" href="#_フラグ"></a>フラグ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx upgrade</code> command.</p>
+<p><code>dfx upgrade</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1190,28 +1190,28 @@ If an older version of the DFINITY Canister SDK is detected locally, the <code>d
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_options"><a class="anchor" href="#_options"></a>Options</h2>
+<h2 id="_オプション"><a class="anchor" href="#_オプション"></a>オプション</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the following option with the <code>dfx upgrade</code> command.</p>
+<p><code>dfx upgrade</code> コマンドでは、以下のオプションを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1220,25 +1220,25 @@ If an older version of the DFINITY Canister SDK is detected locally, the <code>d
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">オプション</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--current-version &lt;version&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the version you want to identify as the current version.
-This option enables you to override the version of the software currently identified as the latest version with the version you pass on the command-line.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">現在のバージョンとして認識させたいバージョンを指定します。
+このオプションにより、現在最新版として認識されているバージョンを、コマンドラインで渡したバージョンで上書きすることができます。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<h2 id="_例"><a class="anchor" href="#_例"></a>例</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can upgrade the version of the DFINITY Canister SDK that you have currently installed by running the following command:</p>
+<p>現在インストールされている DFINITY Canister SDK のバージョンは、以下のコマンドを実行することでアップグレードが可能です：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1246,8 +1246,8 @@ This option enables you to override the version of the software currently identi
 </div>
 </div>
 <div class="paragraph">
-<p>This command checks the version of <code>dfx</code> you have currently installed and the latest version available published on the DFINITY Canister SDK website in a manifest file.
-If a newer version of <code>dfx</code> is available, the command automatically downloads and installs the latest version.</p>
+<p>このコマンドは、現在インストールされている <code>dfx</code> のバージョンと、マニフェストファイルで DFINITY Canister SDK の Web サイトに公開されている最新版をチェックします。
+もし、より新しいバージョンの <code>dfx</code> が利用可能であれば、コマンドは自動的に最新バージョンをダウンロードしインストールします。</p>
 </div>
 <div class="listingblock">
 <div class="content">

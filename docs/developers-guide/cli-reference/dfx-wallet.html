@@ -1161,10 +1161,10 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet</code> command with subcommands and flags to manage the cycles wallets of your identities and to send cycles to the wallets of other account cycles wallet canisters.</p>
+<p><code>dfx wallet</code> コマンドとサブコマンド、フラグを使用すると、自分の Identity の Cycle ウォレット（以下、 Cycle Wallet ）を管理したり、他のアカウントの Cycle ウォレット Canister（以下、 Cycle Wallet Canister）のウォレットに Cycle を送ることができます：</p>
 </div>
 <div class="paragraph">
-<p>The basic syntax for running the <code>dfx wallet</code> commands is:</p>
+<p><code>dfx wallet</code> コマンドを実行するための基本的なシンタックスは以下の通りです。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1172,9 +1172,9 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Depending on the <code>dfx wallet</code> subcommand you specify, additional arguments, options, and flags might apply or be required.
-To view usage information for a specific <code>dfx wallet</code> subcommand, specify the subcommand and the <code>--help</code> flag.
-For example, to see usage information for <code>dfx wallet send</code>, you can run the following command:</p>
+<p>指定する <code>dfx wallet</code> サブコマンドによっては、追加の引数、オプション、フラグが適用され要求されます。
+特定の <code>dfx wallet</code> サブコマンドの使用情報を見るには、そのサブコマンドと <code>--help</code> フラグを指定してください。
+例えば、<code>dfx wallet send</code> の使用情報を見るには、以下のコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1182,7 +1182,7 @@ For example, to see usage information for <code>dfx wallet send</code>, you can 
 </div>
 </div>
 <div class="paragraph">
-<p>For reference information and examples that illustrate using <code>dfx wallet</code> commands, select an appropriate command.</p>
+<p><code>dfx wallet</code> コマンドの使用方法を説明した参考情報とサンプルは、適切なコマンドを選択してください。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1191,72 +1191,72 @@ For example, to see usage information for <code>dfx wallet send</code>, you can 
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">コマンド</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_add_controller"><code>add-controller</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add a controller using the selected identity&#8217;s principal.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択した Identity の Principal を使用するコントローラーを追加します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_addresses"><code>addresses</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the address book of the cycles wallet.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cycle Wallet のアドレス帳を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_authorize"><code>authorize</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Authorize a custodian by principal for the selected identity&#8217;s cycles wallet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択された Identity の Cycle Wallet のカストディアンを Principal で承認します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_balance"><code>balance</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the cycles wallet balance of the selected identity.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択した Identity の Cycle Wallet 残高が表示されます。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_controllers"><code>controllers</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays a list of the selected identity&#8217;s cycles wallet controllers.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択した Identity の Cycle Wallet コントローラーの一覧を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_custodians"><code>custodians</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays a list of the selected identity&#8217;s cycles wallet custodians.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択した Identity の Cycle Wallet カストディアンの一覧を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_deauthorize"><code>deauthorize</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deauthorize a cycles wallet custodian using the custodian&#8217;s principal.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">カストディアンの Principal を使用して、Cycle Wallet のカストディアンを承認解除します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays a usage message and the help of the given subcommand(s).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">使用法のメッセージと指定されたサブコマンドのヘルプを表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_name"><code>name</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the name of the cycles wallet if you&#8217;ve used the <code>dfx wallet set-name</code> command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dfx wallet set-name</code> コマンドを使用した場合、Cycle Wallet の名前を返します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_remove_controller"><code>remove-controller</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Removes a specified controller from the selected identity&#8217;s cycles wallet.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択した Identity の Cycle Wallet から指定したコントローラーを削除します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_send"><code>send</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sends a specified amount of cycles from the selected identity&#8217;s cycles wallet to another cycles wallet using the destination wallet canister ID.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択した Identity の Cycle Wallet から、送信先ウォレットの Canister ID を使用して指定された Cycle 数量を別の Cycle Wallet に送信します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_set_name"><code>set-name</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify a name for your cycles wallet.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cycle Wallet の名前を指定します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_wallet_upgrade"><code>upgrade</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Upgrade the cycles wallet&#8217;s Wasm module to the current Wasm bundled with DFX.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cycle Wallet の Wasm モジュールを、DFX にバンドルされている最新のWasm にアップグレードします。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_using_your_wallet"><a class="anchor" href="#_using_your_wallet"></a>Using your wallet</h2>
+<h2 id="_ウォレットの利用"><a class="anchor" href="#_ウォレットの利用"></a>ウォレットの利用</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you have used the <code>dfx identity deploy-wallet</code> command to create a cycles wallet canister tied to an identity, you can use <code>dfx wallet</code> commands to modify your cycles wallet settings, send cycles to other cycles wallets, and add or remove controllers and custodians.</p>
+<p><code>dfx identity deploy-wallet</code> コマンドを使用して、Identity に結びついた Cycle Wallet Canister を作成した後、 <code>dfx wallet</code> コマンドを使用して、Cycle Wallet の設定を変更したり、他の Cycle Wallet に Cycle を送信したり、コントローラーやカストディアンを追加・削除したりすることができます。</p>
 </div>
 </div>
 </div>
@@ -1264,45 +1264,45 @@ For example, to see usage information for <code>dfx wallet send</code>, you can 
 <h2 id="_dfx_wallet_add_controller"><a class="anchor" href="#_dfx_wallet_add_controller"></a>dfx wallet add-controller</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet add-controller</code> to add a controller to the wallet. An identity assigned the role of Controller has the most privileges and can perform the following actions on the selected identity&#8217;s cycles wallet:</p>
+<p>ウォレットにコントローラーを追加するには、<code>dfx wallet add-controller</code> を使用します。コントローラーの役割を割り当てられた Identity は最も多くの権限を持ち、選択した Identity の Cycle Wallet に対して以下のアクションを実行することができます：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Rename the cycles wallet.</p>
+<p>Cycle Wallet の名前の変更</p>
 </li>
 <li>
-<p>Add entries to the address book.</p>
+<p>アドレス帳に項目を追加</p>
 </li>
 <li>
-<p>Add and remove controllers.</p>
+<p>コントローラーの追加と削除</p>
 </li>
 <li>
-<p>Authorize and deauthorize custodians.</p>
+<p>カストディアンの権限付与および権限解除</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>A controller is also a custodian and can perform the following actions associated with that role:</p>
+<p>コントローラーはカストディアンでもあって、その役割に関連する以下のアクションを実行することができます：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Access wallet information.</p>
+<p>Wallet 情報へのアクセス</p>
 </li>
 <li>
-<p>Send cycles.</p>
+<p>Cycle の送金</p>
 </li>
 <li>
-<p>Forward calls.</p>
+<p>コールの転送</p>
 </li>
 <li>
-<p>Create canisters.</p>
+<p>Canister の作成</p>
 </li>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage"><a class="anchor" href="#_basic_usage"></a>Basic usage</h3>
+<h3 id="_基本的な利用法"><a class="anchor" href="#_基本的な利用法"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet add-controller [option] <controller> [flag]</code></pre>
@@ -1310,9 +1310,9 @@ For example, to see usage information for <code>dfx wallet send</code>, you can 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags"><a class="anchor" href="#_flags"></a>Flags</h3>
+<h3 id="_フラグ"><a class="anchor" href="#_フラグ"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet add-controller</code> command.</p>
+<p>以下のオプションフラグを <code>dfx wallet add-controller</code> コマンドで使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1321,26 +1321,26 @@ For example, to see usage information for <code>dfx wallet send</code>, you can 
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_options"><a class="anchor" href="#_options"></a>Options</h3>
+<h3 id="_オプション"><a class="anchor" href="#_オプション"></a>オプション</h3>
 <div class="paragraph">
-<p>You can use the following options with the <code>dfx canister call</code> command.</p>
+<p>以下のオプションは <code>dfx canister call</code> コマンドと一緒に使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1349,22 +1349,22 @@ For example, to see usage information for <code>dfx wallet send</code>, you can 
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">オプション</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--network &lt;network&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the environment (e.g., Internet Computer プラットフォーム or testnet) of the controller you want to add.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">追加したいコントローラーの環境（例： Internet Computer プラットフォーム やテストネット）を指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments"><a class="anchor" href="#_arguments"></a>Arguments</h3>
+<h3 id="_引数"><a class="anchor" href="#_引数"></a>引数</h3>
 <div class="paragraph">
-<p>You can specify the following arguments for the <code>dfx wallet add-controller</code> command.</p>
+<p><code>dfx wallet add-controller</code> コマンドには、以下の引数を指定できます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1373,22 +1373,22 @@ For example, to see usage information for <code>dfx wallet send</code>, you can 
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>controller</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the principal of the controller to add to the wallet.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ウォレットに追加するコントローラーの Principal を指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+<h3 id="_例"><a class="anchor" href="#_例"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx wallet add-controller</code> command to add a controller to your wallet. If the controller you want to add is on a different environment, specify it using the <code>--network</code> option. For example:</p>
+<p>コントローラーをウォレットに追加するには、<code>dfx wallet add-controller</code> コマンドを使用します。追加したいコントローラーが別の環境にある場合は、<code>--network</code> オプションを使用して指定します。例：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1402,10 +1402,10 @@ For example, to see usage information for <code>dfx wallet send</code>, you can 
 <h2 id="_dfx_wallet_addresses"><a class="anchor" href="#_dfx_wallet_addresses"></a>dfx wallet addresses</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet addresses</code> command to display the wallet&#8217;s address book.The address entries contain the principal and <code>role</code> (<code>Contact</code>, <code>Custodian</code>, or <code>Controller</code>), and might contain a <code>name</code>, and <code>kind</code> (<code>Unknown</code>, <code>User</code>, or <code>Canister</code>) associated with the address.</p>
+<p><code>dfx wallet addresses</code> コマンドを使用して、ウォレットのアドレス帳を表示します。アドレスのエントリには、Principal と <code>role</code>（ <code>Contact</code>, <code>Custodian</code>, または <code>Controller</code> ）が含まれ、アドレスと関連付けられた <code>name</code> と <code>kind</code>（ <code>Unknown</code>, <code>User</code>, または <code>Canister</code> ）も含まれる場合があります。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_2"><a class="anchor" href="#_basic_usage_2"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_2"><a class="anchor" href="#_基本的な利用法_2"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet addresses</code></pre>
@@ -1413,9 +1413,9 @@ For example, to see usage information for <code>dfx wallet send</code>, you can 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_2"><a class="anchor" href="#_flags_2"></a>Flags</h3>
+<h3 id="_フラグ_2"><a class="anchor" href="#_フラグ_2"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet add-controller</code> command.</p>
+<p>以下のオプションフラグは <code>dfx wallet add-controller</code> コマンドで使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1424,26 +1424,26 @@ For example, to see usage information for <code>dfx wallet send</code>, you can 
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_2"><a class="anchor" href="#_examples_2"></a>Examples</h3>
+<h3 id="_例_2"><a class="anchor" href="#_例_2"></a>例</h3>
 <div class="paragraph">
-<p>You can use the <code>dfx wallet addresses</code> command to retrieve information on the addresses in your wallet&#8217;s address book. For example:</p>
+<p>ウォレットのアドレス帳に登録されている情報を取得するには、<code>dfx wallet addresses</code> コマンドを使用します。例：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1459,26 +1459,26 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 <h2 id="_dfx_wallet_authorize"><a class="anchor" href="#_dfx_wallet_authorize"></a>dfx wallet authorize</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet authorize</code> command to authorize a custodian for the wallet. An identity assigned the role of custodian can perform the following actions on the cycles wallet:</p>
+<p>ウォレットのカストディアンを承認するには、<code>dfx wallet authorize</code> コマンドを使用します。カストディアンの役割を割り当てられた Identity は、Cycle Wallet 上で次のアクションを実行できます：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Access wallet information.</p>
+<p>Wallet 情報へのアクセス</p>
 </li>
 <li>
-<p>Send cycles.</p>
+<p>Cycle の送金</p>
 </li>
 <li>
-<p>Forward calls.</p>
+<p>コールの転送</p>
 </li>
 <li>
-<p>Create canisters.</p>
+<p>Canister の作成</p>
 </li>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_3"><a class="anchor" href="#_basic_usage_3"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_3"><a class="anchor" href="#_基本的な利用法_3"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet authorize &lt;custodian&gt; [flag]</code></pre>
@@ -1486,9 +1486,9 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_3"><a class="anchor" href="#_flags_3"></a>Flags</h3>
+<h3 id="_フラグ_3"><a class="anchor" href="#_フラグ_3"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet authorize</code> command.</p>
+<p><code>dfx wallet authorize</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1497,26 +1497,26 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments_2"><a class="anchor" href="#_arguments_2"></a>Arguments</h3>
+<h3 id="_引数_2"><a class="anchor" href="#_引数_2"></a>引数</h3>
 <div class="paragraph">
-<p>Use the following necessary argument with the <code>dfx wallet authorize</code> command.</p>
+<p><code>dfx wallet authorize</code> コマンドでは、以下の必要な引数を使用します。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1525,22 +1525,22 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;custodian&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify the principal of the identity you would like to add as a custodian to the selected identity&#8217;s cycles wallet.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">選択した Identity の Cycle Wallet のカストディアンとして追加したい Identity の Principal を指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example"><a class="anchor" href="#_example"></a>Example</h3>
+<h3 id="_例_3"><a class="anchor" href="#_例_3"></a>例</h3>
 <div class="paragraph">
-<p>For example, to add alice_auth as a custodian, specify her principal in the following command:</p>
+<p>例えば、alice_auth をカストディアンとして追加するには、次のコマンドで彼女の Principal を指定します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1554,10 +1554,10 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 <h2 id="_dfx_wallet_balance"><a class="anchor" href="#_dfx_wallet_balance"></a>dfx wallet balance</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet balance</code> command to display the balance of the cycles wallet of the selected identity.</p>
+<p><code>dfx wallet balance</code> コマンドを使用すると、選択した Identity の Cycle Wallet の残高を表示することができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_4"><a class="anchor" href="#_basic_usage_4"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_4"><a class="anchor" href="#_基本的な利用法_4"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet balance</code></pre>
@@ -1565,9 +1565,9 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_4"><a class="anchor" href="#_flags_4"></a>Flags</h3>
+<h3 id="_フラグ_4"><a class="anchor" href="#_フラグ_4"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet balance</code> command.</p>
+<p><code>dfx wallet balance</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1576,26 +1576,26 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_3"><a class="anchor" href="#_examples_3"></a>Examples</h3>
+<h3 id="_例_4"><a class="anchor" href="#_例_4"></a>例</h3>
 <div class="paragraph">
-<p>Check the balance of the selected identity&#8217;s cycles wallet.</p>
+<p>選択した Identity の Cycle Wallet の残高を確認します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1603,7 +1603,7 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays the number of cycles in your cycles wallet. For example:</p>
+<p>このコマンドは、Cycle Wallet 内の Cycle 数量を表示します。例：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1617,10 +1617,10 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 <h2 id="_dfx_wallet_controllers"><a class="anchor" href="#_dfx_wallet_controllers"></a>dfx wallet controllers</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet controllers</code> command to list the principals of the identities that are controllers of the selected identity&#8217;s cycles wallet.</p>
+<p><code>dfx wallet controllers</code> コマンドを使用すると、選択した identity の Cycle Wallet のコントローラーである Identity の Principal をリストアップすることができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_5"><a class="anchor" href="#_basic_usage_5"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_5"><a class="anchor" href="#_基本的な利用法_5"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet controllers</code></pre>
@@ -1628,9 +1628,9 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_5"><a class="anchor" href="#_flags_5"></a>Flags</h3>
+<h3 id="_フラグ_5"><a class="anchor" href="#_フラグ_5"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet controllers</code> command.</p>
+<p>以下のオプションフラグは <code>dfx wallet controllers</code> コマンドで使用できます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1639,26 +1639,26 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_4"><a class="anchor" href="#_examples_4"></a>Examples</h3>
+<h3 id="_例_5"><a class="anchor" href="#_例_5"></a>例</h3>
 <div class="paragraph">
-<p>List the controllers of your selected identity&#8217;s cycles wallet.</p>
+<p>選択した Identity の Cycle Wallet のコントローラーをリストアップします。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1666,7 +1666,7 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 </div>
 </div>
 <div class="paragraph">
-<p>The information returned should look similar to the following if there are two controllers:</p>
+<p>コントローラーが2つある場合は、以下のような情報が返されるはずです：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1681,10 +1681,10 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 <h2 id="_dfx_wallet_custodians"><a class="anchor" href="#_dfx_wallet_custodians"></a>dfx wallet custodians</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet custodians</code> command to list the principals of the identities that are custodians of the selected identity&#8217;s cycles wallet. Identities that are added as controllers are also listed as custodians.</p>
+<p><code>dfx wallet custodians</code> コマンドを使用すると、選択した Identity の Cycle Wallet のカストディアンである Identity の Principal をリストアップすることができます。コントローラーとして追加された Identity はカストディアンとしてもリストアップされます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_6"><a class="anchor" href="#_basic_usage_6"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_6"><a class="anchor" href="#_基本的な利用法_6"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet custodians</code></pre>
@@ -1692,9 +1692,9 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_6"><a class="anchor" href="#_flags_6"></a>Flags</h3>
+<h3 id="_フラグ_6"><a class="anchor" href="#_フラグ_6"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet custodians</code> command.</p>
+<p><code>dfx wallet custodians</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1703,26 +1703,26 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_5"><a class="anchor" href="#_examples_5"></a>Examples</h3>
+<h3 id="_例_6"><a class="anchor" href="#_例_6"></a>例</h3>
 <div class="paragraph">
-<p>List the custodians of your selected identity&#8217;s cycles wallet.</p>
+<p>選択した Identity の Cycle Wallet のカストディアンをリストアップします。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1730,7 +1730,7 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The information returned should look similar to the following if there are two custodians:</p>
+<p>カストディアンが2つある場合、返される情報は以下のようになるはずです：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1745,22 +1745,13 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 <h2 id="_dfx_wallet_deauthorize"><a class="anchor" href="#_dfx_wallet_deauthorize"></a>dfx wallet deauthorize</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet deauthorize</code> command to remove a custodian from the cycles wallet.</p>
+<p><code>dfx wallet deauthorize</code> コマンドを使用すると、Cycle Wallet からカストディアンを削除することができます。</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-that this will also remove the role of controller if the custodian is also a controller.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>NOTE：カストディアンがコントローラーでもある場合、これはコントローラーの役割も取り除くことになります。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_7"><a class="anchor" href="#_basic_usage_7"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_7"><a class="anchor" href="#_基本的な利用法_7"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet deauthorize &lt;custodian&gt; [flag]</code></pre>
@@ -1768,9 +1759,9 @@ that this will also remove the role of controller if the custodian is also a con
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_7"><a class="anchor" href="#_flags_7"></a>Flags</h3>
+<h3 id="_フラグ_7"><a class="anchor" href="#_フラグ_7"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet deauthorize</code> command.</p>
+<p>以下のオプションフラグは、 <code>dfx wallet deauthorize</code> コマンドで使用できます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1779,26 +1770,26 @@ that this will also remove the role of controller if the custodian is also a con
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments_3"><a class="anchor" href="#_arguments_3"></a>Arguments</h3>
+<h3 id="_引数_3"><a class="anchor" href="#_引数_3"></a>引数</h3>
 <div class="paragraph">
-<p>Use the following necessary argument with the <code>dfx wallet deauthorize</code> command.</p>
+<p><code>dfx wallet deauthorize</code> コマンドでは、以下の必要な引数を使用します。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1807,22 +1798,22 @@ that this will also remove the role of controller if the custodian is also a con
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;custodian&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify the principal of the custodian you want to remove.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">削除したいカストディアンの Principal を指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example_2"><a class="anchor" href="#_example_2"></a>Example</h3>
+<h3 id="_例_7"><a class="anchor" href="#_例_7"></a>例</h3>
 <div class="paragraph">
-<p>For example, to remove "alice_auth" as a custodian, specify her principal in the following command:</p>
+<p>例えば、alice_auth をカストディアンから削除するには、次のコマンドで Principal を指定します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1836,10 +1827,10 @@ that this will also remove the role of controller if the custodian is also a con
 <h2 id="_dfx_wallet_name"><a class="anchor" href="#_dfx_wallet_name"></a>dfx wallet name</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet name</code> command to display the name of the selected identity&#8217;s cycles wallet if it has been set using the <code>dfx wallet set-name</code> command.</p>
+<p>選択した Identity の Cycle Wallet の名前が <code>dfx wallet set-name</code> コマンドを使用して設定されている場合、<code>dfx wallet name</code> コマンドを使用すると、その名前が表示されます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_8"><a class="anchor" href="#_basic_usage_8"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_8"><a class="anchor" href="#_基本的な利用法_8"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet name [flag]</code></pre>
@@ -1847,9 +1838,9 @@ that this will also remove the role of controller if the custodian is also a con
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_8"><a class="anchor" href="#_flags_8"></a>Flags</h3>
+<h3 id="_フラグ_8"><a class="anchor" href="#_フラグ_8"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet name</code> command.</p>
+<p><code>dfx wallet name</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1858,26 +1849,26 @@ that this will also remove the role of controller if the custodian is also a con
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example_3"><a class="anchor" href="#_example_3"></a>Example</h3>
+<h3 id="_例_8"><a class="anchor" href="#_例_8"></a>例</h3>
 <div class="paragraph">
-<p>If you have named your cycles wallet "Terrances_wallet", then the command would return the following:</p>
+<p>Cycle Wallet の名前を Terrances_wallet とした場合、コマンドは次のように返されます：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1891,10 +1882,10 @@ that this will also remove the role of controller if the custodian is also a con
 <h2 id="_dfx_wallet_remove_controller"><a class="anchor" href="#_dfx_wallet_remove_controller"></a>dfx wallet remove-controller</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet remove-controller</code> command to remove a controller of your selected identity&#8217;s cycles wallet.</p>
+<p><code>dfx wallet remove-controller</code> コマンドを使用すると、選択した Identity の Cycle Wallet のコントローラーを削除することができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_9"><a class="anchor" href="#_basic_usage_9"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_9"><a class="anchor" href="#_基本的な利用法_9"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet remove-controller &lt;controller&gt; [flag]</code></pre>
@@ -1902,9 +1893,9 @@ that this will also remove the role of controller if the custodian is also a con
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_9"><a class="anchor" href="#_flags_9"></a>Flags</h3>
+<h3 id="_フラグ_9"><a class="anchor" href="#_フラグ_9"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet remove-controller</code> command.</p>
+<p>以下のオプションフラグは、 <code>dfx wallet remove-controller</code> コマンドで使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1913,26 +1904,26 @@ that this will also remove the role of controller if the custodian is also a con
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments_4"><a class="anchor" href="#_arguments_4"></a>Arguments</h3>
+<h3 id="_引数_4"><a class="anchor" href="#_引数_4"></a>引数</h3>
 <div class="paragraph">
-<p>Use the following necessary argument with the <code>dfx wallet remove-controller</code> command.</p>
+<p><code>dfx wallet remove-controller</code> コマンドでは、以下の必要な引数を使用します。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1941,22 +1932,22 @@ that this will also remove the role of controller if the custodian is also a con
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;controller&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify the principal of the controller you want to remove.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">削除するコントローラーの Principal を指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example_4"><a class="anchor" href="#_example_4"></a>Example</h3>
+<h3 id="_例_9"><a class="anchor" href="#_例_9"></a>例</h3>
 <div class="paragraph">
-<p>For example, to remove alice_auth as a controller, specify her principal in the following command:</p>
+<p>例えば、alice_auth をコントローラーとして削除するには、以下のコマンドで Principal を指定します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1970,10 +1961,10 @@ that this will also remove the role of controller if the custodian is also a con
 <h2 id="_dfx_wallet_send"><a class="anchor" href="#_dfx_wallet_send"></a>dfx wallet send</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet send</code> command to send cycles from the selected identity&#8217;s cycles wallet to another cycles wallet using the destination cycle wallet&#8217;s Canister ID.</p>
+<p><code>dfx wallet send</code> コマンドを使用すると、送信先 Cycle Wallet の Canister ID を利用して、選択した Identity の Cycle Wallet から別の Cycle Wallet に Cycle を送信することができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_10"><a class="anchor" href="#_basic_usage_10"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_10"><a class="anchor" href="#_基本的な利用法_10"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx wallet [network] send [flag] &lt;destination&gt; &lt;amount&gt;</code></pre>
@@ -1981,9 +1972,9 @@ that this will also remove the role of controller if the custodian is also a con
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_10"><a class="anchor" href="#_flags_10"></a>Flags</h3>
+<h3 id="_フラグ_10"><a class="anchor" href="#_フラグ_10"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet send</code> command.</p>
+<p><code>dfx wallet send</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1992,26 +1983,26 @@ that this will also remove the role of controller if the custodian is also a con
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_options_2"><a class="anchor" href="#_options_2"></a>Options</h3>
+<h3 id="_オプション_2"><a class="anchor" href="#_オプション_2"></a>オプション</h3>
 <div class="paragraph">
-<p>You can use the following option with the <code>dfx wallet send</code> command.</p>
+<p>以下のオプションは、 <code>dfx wallet send</code> コマンドで使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2020,22 +2011,22 @@ that this will also remove the role of controller if the custodian is also a con
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Option</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">オプション</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>--network</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Override the environment to connect to. By default, the local canister execution environment is used. A valid URL (starting with <code>http:</code> or <code>https:</code>) can be specified here. E.g. "http://localhost:12345/" is a valid network name.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">接続先の環境をオーバーライドします。デフォルトでは、ローカルの Canister 実行環境が使用されます。ここには有効な URL（ <code>http:</code> または <code>https:</code> ）を指定することができます。例： <a href="http://localhost:12345/" class="bare">http://localhost:12345/</a> は有効なネットワーク名です。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_arguments_5"><a class="anchor" href="#_arguments_5"></a>Arguments</h3>
+<h3 id="_引数_5"><a class="anchor" href="#_引数_5"></a>引数</h3>
 <div class="paragraph">
-<p>You must specify the following arguments for the <code>dfx wallet send</code> command.</p>
+<p><code>dfx wallet send</code> コマンドには、以下の引数を指定する必要があります。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2044,29 +2035,29 @@ that this will also remove the role of controller if the custodian is also a con
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;destination&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify the destination cycle wallet using its Canister ID.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Canister ID を使用して、送信先の Cycle Wallet を指定します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;amount&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify the number of cycles to send.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">送金する Cycle 数量を指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_examples_6"><a class="anchor" href="#_examples_6"></a>Examples</h3>
+<h3 id="_例_10"><a class="anchor" href="#_例_10"></a>例</h3>
 <div class="paragraph">
-<p>Send cycles from the selected identity&#8217;s cycles wallet to another cycles wallet.</p>
+<p>選択した Identity の Cycle Wallet から他の Cycle Wallet に Cycle  を送信します。</p>
 </div>
 <div class="paragraph">
-<p>For example, to send 2,000,000,000 cycles from the cycles wallet of the selected identity, <code>&lt;ic_admin&gt;</code>, to the cycles wallet of the destination identity, <code>&lt;buffy_standard&gt;</code> with a wallet address <code>r7inp-6aaaa-aaaaa-aaabq-cai</code>, run the following command:</p>
+<p>例えば、選択した Identity の Cycle Wallet  <code>&lt;ic_admin&gt;</code> から、ウォレットアドレス <code>r7inp-6aaaa-aaabq-cai</code> を指定して、送信先の Identity の Cycle Wallet  <code>&lt;buffy_standard&gt;</code> に 2,000,000,000 Cycle を送信するには、次のコマンドを実行します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2080,10 +2071,10 @@ that this will also remove the role of controller if the custodian is also a con
 <h2 id="_dfx_wallet_set_name"><a class="anchor" href="#_dfx_wallet_set_name"></a>dfx wallet set-name</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet set-name</code> command to assign a name to the selected identity&#8217;s cycles wallet.</p>
+<p><code>dfx wallet set-name</code> コマンドを使用すると、選択した Identity の Cycle Wallet に名前を割り当てることができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_11"><a class="anchor" href="#_basic_usage_11"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_11"><a class="anchor" href="#_基本的な利用法_11"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">    dfx wallet set-name [flag] &lt;name&gt;</code></pre>
@@ -2091,9 +2082,9 @@ that this will also remove the role of controller if the custodian is also a con
 </div>
 </div>
 <div class="sect2">
-<h3 id="_arguments_6"><a class="anchor" href="#_arguments_6"></a>Arguments</h3>
+<h3 id="_引数_6"><a class="anchor" href="#_引数_6"></a>引数</h3>
 <div class="paragraph">
-<p>You must specify the following arguments for the <code>dfx wallet set-name</code> command.</p>
+<p><code>dfx wallet set-name</code> コマンドには、以下の引数を指定する必要があります。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2102,22 +2093,22 @@ that this will also remove the role of controller if the custodian is also a con
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Argument</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">引数</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;name&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specify a name for the cycles wallet.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cycle Wallet の名前を指定します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_flags_11"><a class="anchor" href="#_flags_11"></a>Flags</h3>
+<h3 id="_フラグ_11"><a class="anchor" href="#_フラグ_11"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet set-name</code> command.</p>
+<p><code>dfx wallet set-name</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2126,26 +2117,26 @@ that this will also remove the role of controller if the custodian is also a con
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example_5"><a class="anchor" href="#_example_5"></a>Example</h3>
+<h3 id="_例_11"><a class="anchor" href="#_例_11"></a>例</h3>
 <div class="paragraph">
-<p>If you want to set the name of the current identity&#8217;s cycles wallet to "Terrances_wallet" you can run the following command:</p>
+<p>現在の Identity の Cycle Wallet の名前を「 Terrances_wallet 」にしたい場合は、以下のコマンドを実行します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2159,10 +2150,10 @@ that this will also remove the role of controller if the custodian is also a con
 <h2 id="_dfx_wallet_upgrade"><a class="anchor" href="#_dfx_wallet_upgrade"></a>dfx wallet upgrade</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Use the <code>dfx wallet upgrade</code> command to upgrade the cycle wallet&#8217;s Wasm module to the current Wasm bundled with DFX.</p>
+<p><code>dfx wallet upgrade</code> コマンドを使用すると、Cycle Wallet のWasm モジュールを DFX にバンドルされている最新の Wasm にアップグレードすることができます。</p>
 </div>
 <div class="sect2">
-<h3 id="_basic_usage_12"><a class="anchor" href="#_basic_usage_12"></a>Basic usage</h3>
+<h3 id="_基本的な利用法_12"><a class="anchor" href="#_基本的な利用法_12"></a>基本的な利用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">    dfx wallet upgrade [flag]</code></pre>
@@ -2170,9 +2161,9 @@ that this will also remove the role of controller if the custodian is also a con
 </div>
 </div>
 <div class="sect2">
-<h3 id="_flags_12"><a class="anchor" href="#_flags_12"></a>Flags</h3>
+<h3 id="_フラグ_12"><a class="anchor" href="#_フラグ_12"></a>フラグ</h3>
 <div class="paragraph">
-<p>You can use the following optional flags with the <code>dfx wallet upgrade</code> command.</p>
+<p><code>dfx wallet upgrade</code> コマンドでは、以下のオプションフラグを使用することができます。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -2181,26 +2172,26 @@ that this will also remove the role of controller if the custodian is also a con
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Flag</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">フラグ</th>
+<th class="tableblock halign-left valign-top">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays usage information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">利用情報を表示します。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays version information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">バージョン情報を表示します。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example_6"><a class="anchor" href="#_example_6"></a>Example</h3>
+<h3 id="_例_12"><a class="anchor" href="#_例_12"></a>例</h3>
 <div class="paragraph">
-<p>To upgrade the Wasm module to the latest version, run the following command:</p>
+<p>Wasm モジュールを最新バージョンにアップグレードするには、次のコマンドを実行します。</p>
 </div>
 <div class="listingblock">
 <div class="content">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>General Best Practices :: Dfinity 日本語ドキュメント</title>
+    <title>一般的なベストプラクティス :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/security-best-practices/general-security-best-practices.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1160,28 +1160,28 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">General Best Practices</h1>
+<h1 class="page">一般的なベストプラクティス</h1>
 <div class="sect1">
-<h2 id="_certify_query_responses_if_they_are_relevant_for_security"><a class="anchor" href="#_certify_query_responses_if_they_are_relevant_for_security"></a>Certify query responses if they are relevant for security</h2>
+<h2 id="_セキュリティが妥当であればクエリレスポンスを認証します"><a class="anchor" href="#_セキュリティが妥当であればクエリレスポンスを認証します"></a>セキュリティが妥当であればクエリレスポンスを認証します</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_security_concern"><a class="anchor" href="#_security_concern"></a>Security Concern</h3>
+<h3 id="_セキュリティ上の懸念事項"><a class="anchor" href="#_セキュリティ上の懸念事項"></a>セキュリティ上の懸念事項</h3>
 <div class="paragraph">
-<p>The responses to <a href="https://smartcontracts.org/docs/interface-spec/index.html#http-interface">query calls</a> (as opposed to update calls) are not threshold-signed by the canister/subnet. Thus, a single malicious replica or boundary node may change the data, violating its authenticity. This is especially risky if update calls depend on the response to query calls.</p>
+<p><a href="https://smartcontracts.org/docs/interface-spec/index.html#http-interface">クエリコール</a> へのレスポンスは（アップデートコールとは対照的に）、Canister / Subnet（サブネット）によって閾値署名されません。したがって、悪意のある単一のレプリカまたはバウンダリノードがデータを変更し、その真正性を侵害する可能性があります。これは、アップデートコールがクエリコールへのレスポンスに依存している場合、特に危険なことです。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_recommendation"><a class="anchor" href="#_recommendation"></a>Recommendation</h3>
+<h3 id="_推奨"><a class="anchor" href="#_推奨"></a>推奨</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>All security-relevant query response data that needs authenticity guarantees (this needs to be assessed for each dApp) should be certified by the IC using certified variables. Consider using existing data structures such as <a href="https://github.com/dfinity/cdk-rs/tree/main/src/ic-certified-map">certified-map</a>. The data certification must be validated in the front-end.</p>
+<p>真正性の保証が必要なセキュリティ関連のクエリレスポンスデータ（これは各 Dapp について評価する必要があります）は、すべて認証変数（certified variable）を使用して IC によって認証されるべきです。<a href="https://github.com/dfinity/cdk-rs/tree/main/src/ic-certified-map">certified-map</a> などの既存のデータ構造の利用を検討してください。データの認証は、フロントエンドで検証する必要があります。</p>
 </li>
 <li>
-<p>Alternatively, these calls have to be issued as update calls by the caller (e.g. in agent-js), but that impacts performance: it takes a few seconds. Note that every query can also be issued as an update by the caller.</p>
+<p>あるいは、これらの呼び出しは呼び出し側でアップデートコールとして発行されなければなりませんが（例えば agent-js で）、これはパフォーマンスに影響を与えます（具体的には、数秒かかります）。すべてのクエリは呼び出し側でアップデート（コール）として発行できることに注意してください。</p>
 </li>
 <li>
-<p>Examples are asset certification in <a href="https://github.com/dfinity/internet-identity/blob/b29a6f68bbe5a49d048e12bc7a3263a9f43d080b/src/internet_identity/src/main.rs#L775-L808">Internet Identity</a>, <a href="https://github.com/dfinity/nns-dapp/blob/372c3562127d70c2fde059bc9c268e8ae858583e/rs/src/assets.rs#L121-L145">NNS dApp</a>, or the <a href="https://github.com/dfinity/internet-identity/blob/main/src/internet_identity/src/signature_map.rs">canister signature implementation in Internet Identity</a>.</p>
+<p>サンプルは <a href="https://github.com/dfinity/internet-identity/blob/b29a6f68bbe5a49d048e12bc7a3263a9f43d080b/src/internet_identity/src/main.rs#L775-L808">Internet Identity</a> 、<a href="https://github.com/dfinity/nns-dapp/blob/372c3562127d70c2fde059bc9c268e8ae858583e/rs/src/assets.rs#L121-L145">NNS dApp</a> や <a href="https://github.com/dfinity/internet-identity/blob/main/src/internet_identity/src/signature_map.rs">Internet Identityの Canister 署名実装</a> などのアセット認証です。</p>
 </li>
 </ul>
 </div>
@@ -1189,144 +1189,144 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_nonspecific_to_the_internet_computer"><a class="anchor" href="#_nonspecific_to_the_internet_computer"></a>Nonspecific to the Internet Computer</h2>
+<h2 id="_internet_computer_に特有ではないもの"><a class="anchor" href="#_internet_computer_に特有ではないもの"></a>Internet Computer に特有ではないもの</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The best practices in this section are very general and not specific to the Internet Computer. This list is by no means complete and only lists a few very specific concerns that have led to issues in the past.</p>
+<p>このセクションのベストプラクティスは、非常に一般的なものであり、Internet Computer に特化したものではありません。このリストは決して完全なものではなく、過去に問題になった非常に具体的な懸念事項をいくつか挙げているに過ぎません。</p>
 </div>
 <div class="sect2">
-<h3 id="_dont_use_third_party_components_with_known_vulnerabilities"><a class="anchor" href="#_dont_use_third_party_components_with_known_vulnerabilities"></a>Don’t use third-party components with known vulnerabilities</h3>
+<h3 id="_脆弱性が知られているサードパーティ製コンポーネントを使用しない"><a class="anchor" href="#_脆弱性が知られているサードパーティ製コンポーネントを使用しない"></a>脆弱性が知られているサードパーティ製コンポーネントを使用しない</h3>
 <div class="sect3">
-<h4 id="_security_concern_2"><a class="anchor" href="#_security_concern_2"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_2"><a class="anchor" href="#_セキュリティ上の懸念事項_2"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Using vulnerable and outdated components is a <a href="https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/">big security risk</a>.</p>
+<p>脆弱で古いコンポーネントを使用することは、<a href="https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/">大きなセキュリティリスク</a> です。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_2"><a class="anchor" href="#_recommendation_2"></a>Recommendation</h4>
+<h4 id="_推奨_2"><a class="anchor" href="#_推奨_2"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Regularly check your third party components against databases of known vulnerabilities:</p>
+<p>サードパーティ製コンポーネントは既知の脆弱性のデータベースと定期的に照合します。</p>
 </li>
 <li>
-<p>Rust: use <a href="https://crates.io/crates/cargo-audit">cargo audit</a>.</p>
+<p>Rust： <a href="https://crates.io/crates/cargo-audit">cargo audit</a> を使用します。</p>
 </li>
 <li>
-<p>JavaScript / NPM: use <a href="https://docs.npmjs.com/cli/v8/commands/npm-audit">npm audit</a></p>
+<p>JavaScript / NPM： <a href="https://docs.npmjs.com/cli/v8/commands/npm-audit">npm audit</a> を使用します。</p>
 </li>
 <li>
-<p>This should be integrated into the build process, the build should fail if there are known vulnerabilities.</p>
+<p>これはビルドプロセスに統合されるべき話ですが、既知の脆弱性がある場合、ビルドは失敗させるべきです。</p>
 </li>
 <li>
-<p>Don’t use forked versions of repositories that are not maintained and may not be trustworthy.</p>
+<p>メンテナンスされておらず、信頼できない可能性のあるリポジトリのフォーク版を使わないでください。</p>
 </li>
 <li>
-<p>Avoid using third party components that are not widely used and may not have had sufficient (ideally third party) review.</p>
+<p>広く使われておらず、十分な（理想的には第三者による）レビューを受けていない可能性のあるサードパーティコンポーネントの使用は避けてください。</p>
 </li>
 <li>
-<p>Pin the versions of the components you are using to avoid switching to corrupt updates automatically.</p>
+<p>使用しているコンポーネントのバージョンを固定し、自動的に破損したアップデートに切り替わらないようにします。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dont_implement_crypto_yourself"><a class="anchor" href="#_dont_implement_crypto_yourself"></a>Don’t implement crypto yourself</h3>
+<h3 id="_暗号を自分で実装しない"><a class="anchor" href="#_暗号を自分で実装しない"></a>暗号を自分で実装しない</h3>
 <div class="sect3">
-<h4 id="_security_concern_3"><a class="anchor" href="#_security_concern_3"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_3"><a class="anchor" href="#_セキュリティ上の懸念事項_3"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>It is easy to make mistakes when implementing cryptographic algorithms, leading to security bugs.</p>
+<p>暗号アルゴリズムの実装ではミスが発生しやすく、セキュリティバグが発生しやすいです。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_3"><a class="anchor" href="#_recommendation_3"></a>Recommendation</h4>
+<h4 id="_推奨_3"><a class="anchor" href="#_推奨_3"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Use well known libraries that may be open source and have been reviewed by many people. For example, use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a> in JavaScript, use crates such as <a href="https://crates.io/crates/sha256">sha256</a> in Rust</p>
+<p>オープンソースで、多くの人がレビューしているよく知られたライブラリを使用します。例えば、JavaScript では <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a> 、Rust では <a href="https://crates.io/crates/sha256">sha256</a> などの crate を使用しましょう。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_use_secure_cryptographic_schemes"><a class="anchor" href="#_use_secure_cryptographic_schemes"></a>Use secure cryptographic schemes</h3>
+<h3 id="_安全な暗号化スキームを使用する"><a class="anchor" href="#_安全な暗号化スキームを使用する"></a>安全な暗号化スキームを使用する</h3>
 <div class="sect3">
-<h4 id="_security_concern_4"><a class="anchor" href="#_security_concern_4"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_4"><a class="anchor" href="#_セキュリティ上の懸念事項_4"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Some cryptographic schemes have been broken (old TLS versions, MD5, SHA1, DES, &#8230;&#8203;), or they could be so new that they have not yet been appropriately researched. Using these introduces security issues.</p>
+<p>暗号スキームには、解読されて利用不可なもの（古い TLS バージョン、MD5、SHA1、DES など）や、新しすぎてまだ適切に研究されていないものがあります。これらを使用すると、セキュリティ上の問題が発生します。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_4"><a class="anchor" href="#_recommendation_4"></a>Recommendation</h4>
+<h4 id="_推奨_4"><a class="anchor" href="#_推奨_4"></a>推奨</h4>
 <div class="paragraph">
-<p>If you need to use crypto, only use cryptographic schemes that have not been broken and do not have known issues. Ideally use algorithms that have been standardized by e.g. NIST or IETF.</p>
+<p>暗号を使用する必要がある場合は、解読されておらず、既知の問題がない暗号スキームのみを使用することです。NIST や IETF などで標準化されたアルゴリズムを使用するのが理想的です。</p>
 </div>
 <div class="paragraph">
-<p>References:</p>
+<p>参照：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://owasp.org/Top10/A02_2021-Cryptographic_Failures/">OWASP Cryptographic Failures</a></p>
+<p><a href="https://owasp.org/Top10/A02_2021-Cryptographic_Failures/">OWASP Cryptographic Failures（暗号の不具合）</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_test_your_code"><a class="anchor" href="#_test_your_code"></a>Test your code</h3>
+<h3 id="_コードをテストする"><a class="anchor" href="#_コードをテストする"></a>コードをテストする</h3>
 <div class="sect3">
-<h4 id="_security_concern_5"><a class="anchor" href="#_security_concern_5"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_5"><a class="anchor" href="#_セキュリティ上の懸念事項_5"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Having small test coverage is risky, as code changes become difficult and may violate correctness and security properties, leading to bugs. It is hard to verify correctness and security properties in reviews (and security reviews) if there are no corresponding tests.</p>
+<p>テストのカバー範囲が小さいと、コードの変更が難しくなり、正しさやセキュリティの特性に違反し、バグが発生する可能性があるためリスクが高いです。レビュー（およびセキュリティレビュー）において、対応するテストがない場合、正しさやセキュリティ特性を検証することは困難です。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_5"><a class="anchor" href="#_recommendation_5"></a>Recommendation</h4>
+<h4 id="_推奨_5"><a class="anchor" href="#_推奨_5"></a>推奨</h4>
 <div class="paragraph">
-<p>Write tests for canister implementations and front-end code, especially for security relevant properties and invariants.</p>
+<p>Cainister の実装とフロントエンドのコードに対して、特にセキュリティ関連のプロパティと不変条件に対するテストを書きましょう。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>In <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>: <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#test-upgrades">test upgrades</a>, <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent">make code target-independent</a></p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> の中で特に： <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#test-upgrades">test upgrades（テストアップグレード）</a> 、<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent">make code target-independent（コードをターゲット非依存にする）</a></p>
 </li>
 <li>
-<p>See also <a href="rust-canister-development-security-best-practices#test-your-canister-code">Test your canister code even in presence of System API calls</a></p>
+<p><a href="rust-canister-development-security-best-practices#test-your-canister-code"> Test your canister code even in presence of System API calls（System API コールがある場合でも Canister コードをテストする）</a> も参照してください。</p>
 </li>
 <li>
-<p>Consider the <a href="https://docs.dfinity.systems/dfinity/spec/meta/rust.html#_tests">DFINITY Rust guidelines on testing</a></p>
+<p><a href="https://docs.dfinity.systems/dfinity/spec/meta/rust.html#_tests">DFINITY Rust guidelines on testing（テストに関する DFINITY Rust のガイドライン）</a> を検討してください。</p>
 </li>
 <li>
-<p>For wasm-level unit testing, consider using <a href="https://github.com/kritzcreek/motoko-matchers">Motoko Matchers</a></p>
+<p>wasm レベルのユニットテストには、<a href="https://github.com/kritzcreek/motoko-matchers">Motoko Matchers</a> の利用を検討してください。</p>
 </li>
 <li>
-<p>For Motoko-level unit testing, consider <a href="https://kritzcreek.github.io/motoko-matchers/Canister.html">the Canister module</a>. There are also some example tests <a href="https://github.com/dfinity/motoko-base/blob/master/test/resultTest.mo">here</a> and <a href="https://github.com/dfinity/motoko-base/blob/master/test/textTest.mo">here</a>. As an example see also the end-to-end tests and unit tests for the <a href="https://github.com/dfinity/invoice-canister">invoice canister</a>.</p>
+<p>Motoko レベルのユニットテストには、<a href="https://kritzcreek.github.io/motoko-matchers/Canister.html">the Canister Module</a> を検討してみてください。<a href="https://github.com/dfinity/motoko-base/blob/master/test/resultTest.mo">ここ</a> と <a href="https://github.com/dfinity/motoko-base/blob/master/test/textTest.mo">ここ</a> にはテスト例もあります。例として、<a href="https://github.com/dfinity/invoice-canister">invoice canister</a> のエンドツーエンドテストとユニットテストもご覧ください。</p>
 </li>
 <li>
-<p>For long-running test scenarios, consider <a href="https://github.com/matthewhammer/motoko-bigtest">Motoko BigTest</a></p>
+<p>長期的なテストシナリオについては、<a href="https://github.com/matthewhammer/motoko-bigtest">Motoko BigTest</a> を検討してください。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_avoid_test_and_dev_code_in_production"><a class="anchor" href="#_avoid_test_and_dev_code_in_production"></a>Avoid test and dev code in production</h3>
+<h3 id="_本番環境でのテストコードや開発コードの使用を避ける"><a class="anchor" href="#_本番環境でのテストコードや開発コードの使用を避ける"></a>本番環境でのテストコードや開発コードの使用を避ける</h3>
 <div class="sect3">
-<h4 id="_security_concern_6"><a class="anchor" href="#_security_concern_6"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_6"><a class="anchor" href="#_セキュリティ上の懸念事項_6"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>It is risky to include code paths in production code that are only used for development or testing setups. If something goes wrong (and it sometimes does!), this may introduce security bugs in production.</p>
+<p>開発用やテスト用のセットアップにしか使われていないコードパスを本番用のコードに含めるのは危険です。何か問題が発生した場合（時に発生します！）、本番環境にセキュリティバグを持ち込む可能性があるからです。</p>
 </div>
 <div class="paragraph">
-<p>For example, we have seen issues where the public key to verify certification was fetched from an untrusted source, since this is what is done on test networks.</p>
+<p>例えば、認証を確認するための公開鍵が信頼されていないソースから取得された問題の報告があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_6"><a class="anchor" href="#_recommendation_6"></a>Recommendation</h4>
+<h4 id="_推奨_6"><a class="anchor" href="#_推奨_6"></a>推奨</h4>
 <div class="paragraph">
-<p>Avoid test and dev code in production code whenever possible.</p>
+<p>可能な限り、プロダクションコードにテストコードや開発コードが含まれないようにしましょう。</p>
 </div>
 </div>
 </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Use integers in calculator functions :: Dfinity 日本語ドキュメント</title>
+    <title>電卓の関数で整数を使用する :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/tutorials/calculator.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../../_/css/site.css">
@@ -1160,82 +1160,80 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Use integers in calculator functions</h1>
+<h1 class="page">電卓の関数で整数を使用する</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this tutorial, you are going to write a simple calculator program that creates a single actor with several public entry-point functions to perform basic arithmetic operations.</p>
+<p>このチュートリアルでは、基本的な算術演算を実行するためのいくつかのパブリックエントリーポイント関数を持つ単一の Actor を作成するシンプルな電卓プログラムを作成します。</p>
 </div>
 <div class="paragraph">
-<p>For this tutorial, the actor is named <code>Calc</code>.
-The program uses the <code>cell</code> variable to contain an integer number that represents the current result of a calculator operation.</p>
+<p>このチュートリアルでは、Actor は <code>Calc</code> という名前にしました。
+このプログラムは、電卓操作の現在の結果を表す整数を格納する <code>cell</code> 変数を使用します。</p>
 </div>
 <div class="paragraph">
-<p>This program supports the following function calls:</p>
+<p>このプログラムは、下記の関数呼び出しをサポートします。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>add</code> function call accepts input and performs addition.</p>
+<p><code>add</code> 関数呼び出しは、入力を受け取り、加算を行います。</p>
 </li>
 <li>
-<p>The <code>sub</code> function call accepts input and performs subtraction.</p>
+<p><code>sub</code> 関数呼び出しは、入力を受け取り、減算を行います。</p>
 </li>
 <li>
-<p>The <code>mul</code> function call accepts input and performs multiplication.</p>
+<p><code>mul</code> 関数呼び出しは、入力を受け取り、乗算を行います。</p>
 </li>
 <li>
-<p>The <code>div</code> function call accepts input and performs division.</p>
+<p><code>div</code> 関数呼び出しは、入力を受け取り、除算を行います。</p>
 </li>
 <li>
-<p>The <code>clearall</code> function clears the <code>cell</code> value stored as the result of previous operations, resetting the <code>cell</code> value to zero.</p>
+<p><code>clearall</code> 関数呼び出しは、以前の操作の結果として保存された <code>cell</code> の値をクリアし、 <code>cell</code> の値をゼロにリセットします。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The <code>div</code> function also includes code to prevent the program from attempting to divide by zero.</p>
+<p><code>div</code> 関数には、プログラムがゼロで割ろうとするのを防ぐためのコードも含まれます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_before_you_begin"><a class="anchor" href="#_before_you_begin"></a>Before you begin</h2>
+<h2 id="_始める前に"><a class="anchor" href="#_始める前に"></a>始める前に</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before starting the tutorial, verify the following:</p>
+<p>このチュートリアルを始める前に、以下のことを確認してください。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You have downloaded and installed the DFINITY Canister SDK package as described in <a href="../../quickstart/local-quickstart.html#download-and-install">Download and install</a>.</p>
+<p><a href="../../quickstart/local-quickstart.html#download-and-install">ダウンロードとインストール</a> に記載されている DFINITY Canister SDK パッケージをダウンロードしてインストールしていること</p>
 </li>
 <li>
-<p>You have stopped any canister execution environment running on the local
-computer.</p>
+<p>ローカルコンピュータ上のすべての Canister 実行環境を止めていること</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This tutorial takes approximately 20 minutes to complete.</p>
+<p>このチュートリアルの所要時間は 20 分程度です。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_create_a_new_project"><a class="anchor" href="#_create_a_new_project"></a>Create a new project</h2>
+<h2 id="_新しいプロジェクトを作成する"><a class="anchor" href="#_新しいプロジェクトを作成する"></a>新しいプロジェクトを作成する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To create a new project for this tutorial:</p>
+<p>このチュートリアル用に新しいプロジェクトを作成するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal shell on your local computer, if you don’t already
-have one open.</p>
+<p>ローカルコンピュータ上でターミナルシェルを、まだ開いていなければ開きます。</p>
 </li>
 <li>
-<p>Change to the folder you are using for your Internet Computer projects, if you are using one.</p>
+<p>別のフォルダを利用しているなら、Internet Computer プロジェクトで使うフォルダに移動します。</p>
 </li>
 <li>
-<p>Create a new project by running the following command:</p>
+<p>以下のコマンドを実行して、新しいプロジェクトを作成します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx new calc</code></pre>
@@ -1243,7 +1241,7 @@ have one open.</p>
 </div>
 </li>
 <li>
-<p>Change to your project directory by running the following command:</p>
+<p>以下のコマンドを実行して、プロジェクトディレクトリに移動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd calc</code></pre>
@@ -1255,23 +1253,23 @@ have one open.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_modify_the_default_configuration"><a class="anchor" href="#_modify_the_default_configuration"></a>Modify the default configuration</h2>
+<h2 id="_デフォルト設定を変更する"><a class="anchor" href="#_デフォルト設定を変更する"></a>デフォルト設定を変更する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For this tutorial, let&#8217;s modify the default <code>dfx.json</code> configuration file to use a more specific name for its main program.</p>
+<p>このチュートリアルでは、デフォルトの <code>dfx.json</code> 設定ファイルを変更して、そのメインプログラムにもっと具体的な名前を使いましょう。</p>
 </div>
 <div class="paragraph">
-<p>To modify the default <code>dfx.json</code> configuration file:</p>
+<p>デフォルトの設定ファイル <code>dfx.json</code> を変更するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open the <code>dfx.json</code> configuration file in a text editor.</p>
+<p>設定ファイル <code>dfx.json</code> をテキストエディターで開きます。</p>
 </li>
 <li>
-<p>Change the <code>main</code> key setting from the default <code>main.mo</code> program name to <code>calc_main.mo</code>.</p>
+<p>キー設定の <code>main</code> をデフォルトのプログラム名 <code>main.mo</code> から <code>calc_main.mo</code> に変更します。</p>
 <div class="paragraph">
-<p>For example:</p>
+<p>例えば、下記です。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1279,38 +1277,38 @@ have one open.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For this tutorial, changing the name of the source file from <code>main.mo</code> to <code>calc_main.mo</code> simply illustrates how the setting in the <code>dfx.json</code> configuration file determines the source file to be compiled.</p>
+<p>このチュートリアルでは、ソースファイルの名前を <code>main.mo</code> から <code>calc_main.mo</code> に変更し、設定ファイル <code>dfx.json</code> の設定でコンパイルされるソースファイルを決める方法を簡単に説明します。</p>
 </div>
 <div class="paragraph">
-<p>In a more complex dapp, you might have multiple source files instead of a single <code>main</code> program file.
-More complex applications might also have specific dependencies between multiple source files that you need to manage using settings in the <code>dfx.json</code> configuration file.
-In a scenario like that—with multiple canisters and programs defined in your <code>dfx.json</code> file—having multiple files all named <code>main.mo</code> might make navigating your workspace more difficult.
-The name you choose for each program isn&#8217;t significant, but it is important that the name you set in the <code>dfx.json</code> file matches the name of your program in the file system.</p>
+<p>より複雑な Dapp では、単一のプログラムファイル <code>main</code> ではなく、複数のソースファイルがあるかもしれません。
+より複雑なアプリケーションでは、複数のソースファイル間で特定の依存関係が発生することがあり、その場合は設定ファイル <code>dfx.json</code> 内の設定を使って管理する必要があります。
+複数の Canister とプログラムが <code>dfx.json</code> ファイルに定義されているようなシナリオでは、複数のファイルに <code>main.mo</code> という名前を付けると、ワークスペースをナビゲートするのがより難しくなるかもしれません。
+各プログラムの名前は重要ではありませんが、<code>dfx.json</code> ファイルに設定した名前が、ファイルシステム内のプログラム名と一致することは重要です。</p>
 </div>
 </li>
 <li>
-<p>Save your changes and close the file to continue.</p>
+<p>変更内容を保存し、ファイルを閉じて、続行します。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_modify_the_default_program"><a class="anchor" href="#_modify_the_default_program"></a>Modify the default program</h2>
+<h2 id="_デフォルトのプログラムを変更する"><a class="anchor" href="#_デフォルトのプログラムを変更する"></a>デフォルトのプログラムを変更する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For this tutorial, you need to replace the default program with a program that performs basic arithmetic operations.</p>
+<p>このチュートリアルでは、デフォルトのプログラムを、基本的な算術演算を行うプログラムに置き換える必要があります。</p>
 </div>
 <div class="paragraph">
-<p>To replace the default program:</p>
+<p>デフォルトのプログラムを置き換えるには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check that you are still in your project directory, if needed.</p>
+<p>もし必要であれば、まだプロジェクトディレクトリにいることを確認します。</p>
 </li>
 <li>
-<p>Copy the template <code>main.mo</code> file to create a new file named <code>calc_main.mo</code> by running the following command:</p>
+<p>以下のコマンドを実行することで、テンプレートの <code>main.mo</code> ファイルをコピーし、<code>calc_main.mo</code> という名前の新しいファイルを作成します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cp src/calc/main.mo src/calc/calc_main.mo</code></pre>
@@ -1318,32 +1316,32 @@ The name you choose for each program isn&#8217;t significant, but it is importan
 </div>
 </li>
 <li>
-<p>Open the <code>src/calc/calc_main.mo</code> file in a text editor and delete the existing content.</p>
+<p>テキストエディタで <code>src/calc/calc_main.mo</code> ファイルを開き、既存の内容を削除します。</p>
 </li>
 <li>
-<p>Copy and paste the following sample code into the <code>calc_main.mo</code> file:</p>
+<p>下記のサンプルコードをコピーして <code>calc_main.mo</code> ファイルに貼り付けてください。</p>
 <div class="listingblock copy">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-motoko hljs" data-lang="motoko">// This single-cell calculator defines one calculator instruction per
-// public entry point (add, sub, mul, div).
+<pre class="highlightjs highlight"><code class="language-motoko hljs" data-lang="motoko">// このシングルセル電卓は、各パブリックエントリポイント（add, sub, mul, div）ごとに
+// １つの電卓命令を定義する。
 
-// Create a simple Calc actor.
+// シンプルな Calc Actor 作成する。
 actor Calc {
   var cell : Int = 0;
 
-  // Define functions to add, subtract, multiply, and divide
+  // 足し算、引き算、掛け算、割り算 を行う関数を定義する
   public func add(n:Int) : async Int { cell += n; cell };
   public func sub(n:Int) : async Int { cell -= n; cell };
   public func mul(n:Int) : async Int { cell *= n; cell };
   public func div(n:Int) : async ?Int {
     if ( n == 0 ) {
-      return null // null indicates div-by-zero error
+      return null // null はゼロ除算エラーを意味する
     } else {
       cell /= n; ?cell
     }
   };
 
-  // Clear the calculator and reset to zero
+  // 電卓をクリアしてゼロにリセット
   public func clearall() : async Int {
     if (cell : Int != 0)
       cell -= cell;
@@ -1353,46 +1351,46 @@ actor Calc {
 </div>
 </div>
 <div class="paragraph">
-<p>You might notice that this sample code uses integer (<code>Int</code>) data types, enabling you to use positive or negative numbers.
-If you wanted to restrict the functions in this calculator code to only use positive numbers, you could change the data type to only allow natural (<code>Nat</code>) data.</p>
+<p>このサンプルコードでは、整数 (<code>Int</code>) のデータ型を使用しており、正または負の数を使用できることに気づくかもしれません。
+もし、この電卓のコードで正の数しか使えないように関数を制限したい場合は、データ型を変更して自然数 (<code>Nat</code>) のデータしか使えないようにすることも可能です。</p>
 </div>
 </li>
 <li>
-<p>Save your changes and close the file to continue.</p>
+<p>変更内容を保存し、ファイルを閉じて続行します。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_start_the_local_canister_execution_environment"><a class="anchor" href="#_start_the_local_canister_execution_environment"></a>Start the local canister execution environment</h2>
+<h2 id="_ローカル_canister_実行環境を起動する"><a class="anchor" href="#_ローカル_canister_実行環境を起動する"></a>ローカル Canister 実行環境を起動する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before you can build the <code>calc</code> project, you need to connect to the canister execution environment running locally in your development environment, or you need to connect toa subnet that you can access.</p>
+<p><code>calc</code> プロジェクトをビルドする前に、開発環境のローカルで動作している Canister 実行環境に接続するか、アクセス可能なサブネットに接続する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>Starting the network locally requires a <code>dfx.json</code> file, so you should be sure you are in your project&#8217;s root directory.
-For this tutorial, you should have two separate terminal shells, so that you can start and see network operations in one terminal and manage your project in another.</p>
+<p>ローカルでネットワークを起動するには <code>dfx.json</code> ファイルが必要なので、プロジェクトのルートディレクトリにいることを確認する必要があります。
+このチュートリアルでは、２つの別々のターミナルシェルを用意し、片方のターミナルでネットワーク操作を開始して確認し、もう片方のターミナルでプロジェクトを管理できるようにする必要があります。</p>
 </div>
 <div class="paragraph">
-<p>To start the local canister execution environment:</p>
+<p>ローカル Canister 実行環境を起動するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a new terminal window or tab on your local computer.</p>
+<p>ローカルコンピュータで新しいターミナルウィンドウまたはタブを開きます。</p>
 </li>
 <li>
-<p>Navigate to the root directory for your project, if necessary.</p>
+<p>もし必要であれば、プロジェクトのルートディレクトリに移動します。</p>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You should now have <strong>two terminals</strong> open.</p>
+<p>これで、<strong>２つのターミナル</strong> が開いた状態になります。</p>
 </li>
 <li>
-<p>You should have the <strong>project directory</strong> as your <strong>current working directory</strong>.</p>
+<p><strong>プロジェクトディレクトリ</strong> が <strong>現在の作業ディレクトリ</strong> になっている必要があります。</p>
 </li>
 </ul>
 </div>
@@ -1400,46 +1398,46 @@ For this tutorial, you should have two separate terminal shells, so that you can
 </div>
 </li>
 <li>
-<p>Start the local canister execution environment on your machine by running the following command:</p>
+<p>下記のコマンドを実行することで、あなたのマシンのローカル Canister 実行環境を起動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx start</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>After you start the local network, the terminal displays messages about network operations.</p>
+<p>ローカルネットワークを起動すると、ターミナルにネットワーク操作に関するメッセージが表示されます。</p>
 </div>
 </li>
 <li>
-<p>Leave the terminal that displays network operations open and switch your focus to your original terminal where you created your new project.</p>
+<p>ネットワーク操作を表示しているターミナルは開いたままにして、新しいプロジェクトを作成した元のターミナルにフォーカスを切り替えます。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_register_build_and_deploy_the_dapp"><a class="anchor" href="#_register_build_and_deploy_the_dapp"></a>Register, build, and deploy the dapp</h2>
+<h2 id="_dapp_を登録ビルドデプロイする"><a class="anchor" href="#_dapp_を登録ビルドデプロイする"></a>Dapp を登録、ビルド、デプロイする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you connect to the local canister execution environment, you can register, build, and deploy your dapp locally.</p>
+<p>ローカルの Canister 実行環境に接続した後、ローカルで Dapp の登録、ビルド、デプロイを行えます。</p>
 </div>
 <div class="paragraph">
-<p>To deploy the dapp locally:</p>
+<p>Dapp をローカルにデプロイするには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check that you are still in the root directory for your project, if needed.</p>
+<p>もし必要であれば、まだプロジェクトのルートディレクトリにいることを確認します。</p>
 </li>
 <li>
-<p>Register, build, and deploy your dapp by running the following command:</p>
+<p>下記のコマンドを実行することで、Dapp を登録、ビルド、デプロイします。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx deploy</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>dfx deploy</code> command output displays information about the operations it performs.</p>
+<p><code>dfx deploy</code> コマンドの出力は、実行した操作に関する情報を表示します。</p>
 </div>
 </li>
 </ol>
@@ -1447,30 +1445,30 @@ For this tutorial, you should have two separate terminal shells, so that you can
 </div>
 </div>
 <div class="sect1">
-<h2 id="_verify_calculator_functions_on_the_canister"><a class="anchor" href="#_verify_calculator_functions_on_the_canister"></a>Verify calculator functions on the canister</h2>
+<h2 id="_キャニスターで電卓の関数を確認する"><a class="anchor" href="#_キャニスターで電卓の関数を確認する"></a>キャニスターで電卓の関数を確認する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You now have a program deployed as a <strong>canister smart contract</strong> on your local canister execution environment.
-You can test the program by using <code>dfx canister call</code> commands.</p>
+<p>これで、ローカルの Canister 実行環境に <strong>Canister スマートコントラクト</strong> としてプログラムがデプロイされました。
+<code>dfx canister call</code> コマンドを使用することで、プログラムをテストできます。</p>
 </div>
 <div class="paragraph">
-<p>To test the program you have deployed:</p>
+<p>デプロイしたプログラムをテストするには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Use the <code>dfx canister call</code> command to call the <code>calc</code> canister <code>add</code> function and pass it the input argument <code>10</code> by running the following command:</p>
+<p><code>dfx canister call</code> コマンドを使用し、下記のコマンドを実行することで、 <code>calc</code> Canister <code>add</code> 関数を呼び出し、入力引数 <code>10</code> を渡します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call calc add '(10)'</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When you pass an argument enclosed by the single quotation marks and parentheses,the interface description language (IDL) parses the argument type, so you don&#8217;t need to specify the argument type manually.</p>
+<p>シングルクォーテーションと括弧で囲まれた引数を渡すと、インターフェース記述言語（IDL）がその引数の型をパースするので、引数の型を手動で指定する必要はありません。</p>
 </div>
 <div class="paragraph">
-<p>Verify that the command returns the value expected for the <code>add</code> function.
-For example, the program displays output similar to the following:</p>
+<p>このコマンドが、<code>add</code> 関数により、期待される値が返されることを確認します。
+例えば、このプログラムでは、下記のような出力が表示されます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1479,15 +1477,15 @@ For example, the program displays output similar to the following:</p>
 </div>
 </li>
 <li>
-<p>Call the <code>mul</code> function and pass it the input argument <code>3</code> by running the following command:</p>
+<p>下記のコマンドを実行することで、<code>mul</code> 関数を呼び出し、入力引数 <code>3</code> を渡します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call calc mul '(3)'</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Verify that the command returns the value expected for the <code>mul</code> function.
-For example, the program displays output similar to the following:</p>
+<p>このコマンドが、<code>mul</code> 関数により、期待される値が返されることを確認します。
+例えば、このプログラムでは、下記のような出力が表示されます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1496,15 +1494,15 @@ For example, the program displays output similar to the following:</p>
 </div>
 </li>
 <li>
-<p>Call the <code>sub</code> function and pass it the input argument <code>5</code> of type <code>number</code> by running the following command:</p>
+<p>下記のコマンドを実行することで、 <code>sub</code> 関数を呼び出し、 <code>number</code> 型の入力引数 <code>5</code> を渡します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call calc sub '(5)'</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Verify that the command returns the value expected for the <code>sub</code> function.
-For example, the program displays output similar to the following:</p>
+<p>このコマンドが、<code>sub</code> 関数により、期待される値が返されることを確認します。
+例えば、このプログラムでは、下記のような出力が表示されます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1513,15 +1511,15 @@ For example, the program displays output similar to the following:</p>
 </div>
 </li>
 <li>
-<p>Call the <code>div</code> function and pass it the input argument <code>5</code> by running the following command:</p>
+<p>下記のコマンドを実行することで、<code>div</code> 関数を呼び出し、入力引数 <code>5</code> を渡します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call calc div '(5)'</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Verify that the command returns the value expected for the <code>div</code> function.
-For example, the program displays output similar to the following:</p>
+<p>このコマンドが、<code>div</code> 関数により、期待される値を返すことを確認します。
+例えば、このプログラムでは、下記のような出力が表示されます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1529,12 +1527,12 @@ For example, the program displays output similar to the following:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You might notice that the <code>div</code> function returns an optional result.
-The program makes the result optional to enable the <code>div</code> function to return <code>null</code> in the case of a division-by-zero error.</p>
+<p><code>div+</code> 関数がオプション（opt）の結果を返していることに気付くかもしれません。
+このプログラムでは、<code>div</code> 関数がゼロ除算のエラーの場合に <code>null</code> を返せるようにするために、結果をオプション（opt）にしています。</p>
 </div>
 <div class="paragraph">
-<p>Because the cell variable in this program is an integer, you can also call its functions and specify negative input values.
-For example, you might run the following command:</p>
+<p>このプログラムでは cell 変数が整数なので、負の入力値を指定してその関数を呼び出すこともできます。
+例えば、あなたは下記のようなコマンドを実行してもよいです。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1542,7 +1540,7 @@ For example, you might run the following command:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>which returns:</p>
+<p>下記を返します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1551,14 +1549,14 @@ For example, you might run the following command:</p>
 </div>
 </li>
 <li>
-<p>Call the <code>clearall</code> function and verify it resets the <code>cell</code> value to zero:</p>
+<p><code>clearall</code> 関数を呼び出し、<code>cell</code> の値がゼロにリセットされることを確認します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call calc clearall</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example, the program displays output similar to the following:</p>
+<p>例えば、このプログラムでは、下記のような出力が表示されます。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1676,21 +1674,21 @@ For example, you might run the following command:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_stop_the_local_canister_execution_environment"><a class="anchor" href="#_stop_the_local_canister_execution_environment"></a>Stop the local canister execution environment</h2>
+<h2 id="_ローカルの_canister_実行環境を停止する"><a class="anchor" href="#_ローカルの_canister_実行環境を停止する"></a>ローカルの Canister 実行環境を停止する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you finish experimenting with the dapp, you can stop the local canister execution environment  so that it does not continue running in the background.</p>
+<p>Dapp の実体験が終わったら、バックグラウンドで実行し続けないように、ローカルの Canister 実行環境を停止できます。</p>
 </div>
 <div class="paragraph">
-<p>To stop the local canister execution environment:</p>
+<p>ローカルの Canister 実行環境を停止するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In the terminal that displays the operations, press Control-C to interrupt the process.</p>
+<p>操作が表示されているターミナルで、Control-C を押して処理を中断します。</p>
 </li>
 <li>
-<p>Stop the local canister execution environment by running the following command:</p>
+<p>下記のコマンドを実行することで、ローカルの Canister 実行環境を停止します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx stop</code></pre>

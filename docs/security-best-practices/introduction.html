@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Introduction :: Dfinity 日本語ドキュメント</title>
+    <title>はじめに :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/security-best-practices/introduction.html">
     <meta name="keywords" content="Internet Computer,blockchain,protocol,replica,subnet,data center,canister,developer, security, security best practices">
     <meta name="generator" content="Antora 2.3.4">
@@ -1161,57 +1161,57 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Introduction</h1>
+<h1 class="page">はじめに</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document provides security best practices for developing Rust canisters and web apps served by canisters on the Internet Computer. These best practices are mostly inspired by issues found in security reviews.</p>
+<p>このドキュメントは、Web アプリケーションを開発する際のセキュリティのベストプラクティスを Internet Computer 上で Rust Canister や Canister から提供されるものに基づいて提供します。これらのベストプラクティスは、主にセキュリティレビューで発見された問題からヒントを得ています。</p>
 </div>
 <div class="paragraph">
-<p>We would like to advertise these best practices to developers so that potential issues can be addressed early during the development of new dApps, and not only in the end when (if at all) a security review is done. Ideally, this will make the development of secure dApps more efficient.</p>
+<p>これらのベストプラクティスを開発者に宣伝し、潜在的な問題を新しい Dapp の開発中に早期に対処できるようにしたいのです。理想を言えば、これによって安全な Dapp の開発がより効率的になることでしょう。</p>
 </div>
 <div class="paragraph">
-<p>Some excellent canister best practices linked here are from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> and <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a>. The relevant sections are linked in the individual best practices.</p>
+<p>ここでリンクされている Canister の優れたベストプラクティスは、 <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> と <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a> にあります。関連するベストプラクティスには、関連する個別部分がリンクされています。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_best_practices_overview"><a class="anchor" href="#_best_practices_overview"></a>Best Practices Overview</h2>
+<h2 id="_ベストプラクティスの概況"><a class="anchor" href="#_ベストプラクティスの概況"></a>ベストプラクティスの概況</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We provide the following security best practices in the subsequent pages:</p>
+<p>以下のページで、セキュリティのベストプラクティスを提供しています：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="general-security-best-practices">General Security Best Practices</a></p>
+<p><a href="general-security-best-practices">General Security Best Practices（一般的なセキュリティのベストプラクティス）</a></p>
 </li>
 <li>
-<p><a href="web-app-development-security-best-practices">Web App Specific Security Best Practices</a>,</p>
+<p><a href="web-app-development-security-best-practices">Web App Specific Security Best Practices（Web アプリ固有のセキュリティベストプラクティス）</a></p>
 </li>
 <li>
-<p><a href="rust-canister-development-security-best-practices">Rust Canister Development Security Best Practices</a></p>
+<p><a href="rust-canister-development-security-best-practices">Rust Canister Development Security Best Practices（Rust Canister 開発のセキュリティベストプラクティス）</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_target_audience"><a class="anchor" href="#_target_audience"></a>Target Audience</h2>
+<h2 id="_対象読者"><a class="anchor" href="#_対象読者"></a>対象読者</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document was initially intended for internal use at DFINITY. However, we now publish this to the community so every developer can benefit. The target audience are any developers working on canisters or web apps for the Internet Computer. This is also of interest anyone doing reviews of such code.</p>
+<p>このドキュメントは当初、DFINITY の内部で使用することを目的としていました。しかし、すべての開発者が恩恵を受けることができるようにコミュニティに公開しています。対象者は、Internet Computer の Canister や Web アプリケーションを開発しているすべての開発者です。また、このようなコードのレビューを行っている方にも興味を持っていただけると思います。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_disclaimers_and_limitations"><a class="anchor" href="#_disclaimers_and_limitations"></a>Disclaimers and Limitations</h2>
+<h2 id="_免責事項および制限事項"><a class="anchor" href="#_免責事項および制限事項"></a>免責事項および制限事項</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We provide a collection of best practices that may grow over time. While we think this is useful to improve security of dApps on the Internet Computer, we’d like to point out that such a list will never be complete and will never cover all potential security concerns. For example, there will always be attack vectors very specific to a dApps use cases that cannot be covered by general best practices. Thus, following the best practices can complement, but not replace security reviews. Especially for security critical dApps we recommend performing security reviews/audits. Furthermore, please not that the best practices are currently not ordered according to risk or priority.</p>
+<p>時間とともに成長する可能性のあるベストプラクティスのコレクションを提供します。私たちは、これが Internet Computer 上のDapp のセキュリティを向上させるために有用であると考えていますが、このようなリストは決して完全ではなく、すべての潜在的なセキュリティ上の懸念をカバーできないことを指摘しておきたいと思います。例えば、一般的なベストプラクティスではカバーできない、Dapp のユースケースに非常に特化した攻撃ベクトルが常に存在することになります。そのため、ベストプラクティスに従うことはセキュリティレビューを補完することはできても、それに代わるものではありません。特にセキュリティ上重要な Dapp については、セキュリティレビューや監査を実施することをお勧めします。さらに、ベストプラクティスは現在、リスクや優先順位に従って並べられているわけではないことにご注意ください。</p>
 </div>
 <div class="paragraph">
-<p>Currently, the canister best practices focus on Rust. We will work towards including best practices specific to Motoko as well.</p>
+<p>現在、Canister のベストプラクティスは、Rust に焦点を当てています。今後、Motoko に特化したベストプラクティスを含めるように努力する予定です。</p>
 </div>
 </div>
 </div>

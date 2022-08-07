@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Rust Canister Development Security Best Practices :: Dfinity 日本語ドキュメント</title>
+    <title>Rust Canister 開発セキュリティ・ベストプラクティス :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/security-best-practices/rust-canister-development-security-best-practices.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1160,124 +1160,123 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Rust Canister Development Security Best Practices</h1>
+<h1 class="page">Rust Canister 開発セキュリティ・ベストプラクティス</h1>
 <div class="sect1">
-<h2 id="_smart_contracts_canister_control"><a class="anchor" href="#_smart_contracts_canister_control"></a>Smart Contracts Canister Control</h2>
+<h2 id="_スマートコントラクトの_canister_コントロール"><a class="anchor" href="#_スマートコントラクトの_canister_コントロール"></a>スマートコントラクトの Canister コントロール</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_use_a_decentralized_governance_system_like_sns_to_make_a_canister_have_a_decentralized_controller"><a class="anchor" href="#_use_a_decentralized_governance_system_like_sns_to_make_a_canister_have_a_decentralized_controller"></a>Use a decentralized governance system like SNS to make a canister have a decentralized controller</h3>
+<h3 id="_sns_のような分散型ガバナンスシステムを使いcanister_に分散型コントローラーを持たせる"><a class="anchor" href="#_sns_のような分散型ガバナンスシステムを使いcanister_に分散型コントローラーを持たせる"></a>SNS のような分散型ガバナンスシステムを使い、Canister に分散型コントローラーを持たせる</h3>
 <div class="sect3">
-<h4 id="_security_concern"><a class="anchor" href="#_security_concern"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項"><a class="anchor" href="#_セキュリティ上の懸念事項"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>The controller of a canister can change / update the canister whenever they like. If a canister e.g. stores assets such as ICP, this effectively means that the controller can steal these by updating the canister and transfer the cycles to their account.</p>
+<p>Canister のコントローラーは、好きなときに Canister を変更・更新することができます。Canister が ICP などのアセットを保存している場合、コントローラーが Canister を更新することでアセットを盗み、Cycle を自分のアカウントに転送できることを意味します。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation"><a class="anchor" href="#_recommendation"></a>Recommendation</h4>
+<h4 id="_推奨"><a class="anchor" href="#_推奨"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Consider passing canister control to a decentralized governance system such as the Internet Computer&#8217;s Service Nervous System (SNS), so that changes to the canister are only executed if the SNS community approves them collectively through voting. If an SNS is used, use an SNS on the SNS subnet as this guarantees that the SNS is running an NNS-blessed version and maintained as part of the IC. These SNSs will be available soon. See the <a href="https://dfinity.org/roadmap/">roadmap</a> and the <a href="https://forum.dfinity.org/t/open-governance-canister-for-sns-design-proposal/10224">design proposal</a></p>
+<p>SNS コミュニティが投票によって集団的に承認した場合のみ Canister への変更が実行されるように、Canister のコントロールを Internet Computer の Service Nervous System（SNS）のような分散型ガバナンスシステムに渡すことを検討しましょう。SNS を使用する場合、SNS サブネット上の SNS を使用することで、その SNS が NNS の恩恵にあずかり、IC の一部として維持されていることが保証されます。これらの SNS は近日中に公開される予定です。<a href="https://dfinity.org/roadmap/">ロードマップ</a> と <a href="https://forum.dfinity.org/t/open-governance-canister-for-sns-design-proposal/10224">設計提案</a> を参照してください。</p>
 </li>
 <li>
-<p>Another option would be to create an immutable canister smart contract by removing the canister controller completely. However, note that this implies that the canister cannot be upgraded, which may have severe implications in case e.g. a bug were found. The option to use a decentralized governance system and thus being able to upgrade smart contracts is a big advantage of the Internet Computer ecosystem compared to other blockchains.</p>
+<p>もう一つの選択肢は、Canister コントローラーを完全に削除して、イミュータブル Canister スマートコントラクトを作成することです。しかし、これは Canister のアップグレードができないことを意味し、例えばバグが見つかった場合に、深刻な影響を与える可能性があることに注意してください。分散型ガバナンスシステムを使用し、スマートコントラクトをアップグレードできるオプションは、他のブロックチェーンと比較して、Internet Computer のエコシステムの大きな利点です。</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Note that, contrary to some other blockchains, also immutable smart contracts need cycles to run, and they can receive cycles.</p>
+<p>他のブロックチェーンとは異なり、（IC の）イミュータブルなスマートコントラクトは実行に Cycle を必要とし、また Cycle を受け取ることができることに留意してください。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>It is also possible to implement a DAO (<a href="https://en.wikipedia.org/wiki/Decentralized_autonomous_organization">Decentralized Autonomous Organization</a>) on the IC from scratch. If you decide to do this (e.g. along the lines of the <a href="https://smartcontracts.org/docs/samples/dao.html">basic DAO example</a>), be aware that this is security critical and must be security reviewed carefully. Furthermore, users will need to verify that the DAO is controlled by itself.</p>
+<p>IC 上に DAO（<a href="https://en.wikipedia.org/wiki/Decentralized_autonomous_organization">分散型自律組織</a> ）をゼロから実装することも可能です。これを行う場合（例えば<a href="https://smartcontracts.org/docs/samples/dao.html">基本的なDAOの例</a> のような形で）、セキュリティ的に危険性があり、慎重にセキュリティレビューする必要があることに注意してください。さらに、ユーザーは DAO が DAO 自身によって制御されていることを確認する必要があります。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_verify_the_ownership_of_smart_contracts_you_depend_on"><a class="anchor" href="#_verify_the_ownership_of_smart_contracts_you_depend_on"></a>Verify the ownership of smart contracts you depend on</h3>
+<h3 id="_依存するスマートコントラクトの所有権を検証する"><a class="anchor" href="#_依存するスマートコントラクトの所有権を検証する"></a>依存するスマートコントラクトの所有権を検証する</h3>
 <div class="sect3">
-<h4 id="_security_concern_2"><a class="anchor" href="#_security_concern_2"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_2"><a class="anchor" href="#_セキュリティ上の懸念事項_2"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>If a canister depends on another canister smart contract (i.e. makes inter-canister calls to it), it is essential that the canister smart contract that one depends on is owned by a decentralized governance system. Otherwise, i.e. if it has a controller, they could modify the smart contract without others noticing, e.g. to steal assets held by the canister.</p>
+<p>Canister が他の Canister のスマートコントラクトに依存する（つまり、Canister 間コールを行う）場合、依存する Canister のスマートコントラクトが分散型ガバナンスシステムによって所有されていることが不可欠です。そうでなければ、つまりコントローラーがいれば、他の人に気づかれることなくスマートコントラクトを変更し、例えば Canister が保有するアセットを盗むことができます。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_2"><a class="anchor" href="#_recommendation_2"></a>Recommendation</h4>
+<h4 id="_推奨_2"><a class="anchor" href="#_推奨_2"></a>推奨</h4>
 <div class="paragraph">
-<p>If you interact with a canister that you require to be decentralized, make sure it is controlled by the NNS, a service nervous system (SNS) or a decentralized governance system, and review under what conditions and by whom the smart contract can be changed.</p>
+<p>分散型であることを求める Canister とやり取りする場合は、NNS、Service Nervous System（SNS）、分散型ガバナンスシステムによってコントロールされていることを確認し、どのような条件で、誰によってスマートコントラクトが変更できるかを確認しましょう。</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h2>
+<h2 id="_認証"><a class="anchor" href="#_認証"></a>認証</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_make_sure_any_action_that_only_a_specific_user_should_be_able_to_do_requires_authentication"><a class="anchor" href="#_make_sure_any_action_that_only_a_specific_user_should_be_able_to_do_requires_authentication"></a>Make sure any action that only a specific user should be able to do requires  authentication</h3>
+<h3 id="_特定のユーザーにとって認証が必要であるアクションを確認する"><a class="anchor" href="#_特定のユーザーにとって認証が必要であるアクションを確認する"></a>特定のユーザーにとって認証が必要であるアクションを確認する</h3>
 <div class="sect3">
-<h4 id="_security_concern_3"><a class="anchor" href="#_security_concern_3"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_3"><a class="anchor" href="#_セキュリティ上の懸念事項_3"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>If this is not the case, an attacker may be able to perform sensitive actions on behalf of a user, compromising their account.</p>
+<p>アクションに関する認証を行わない場合、攻撃者はユーザーの代わりに機密性の高い操作を行うことができ、ユーザーのアカウントを危険にさらす可能性があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_3"><a class="anchor" href="#_recommendation_3"></a>Recommendation</h4>
+<h4 id="_推奨_3"><a class="anchor" href="#_推奨_3"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>By design, for every canister call the caller can be identified. The calling <a href="https://smartcontracts.org/docs/interface-spec/index.html#principal">principal</a> can be accessed using the system API’s methods <code>ic0.msg_caller_size</code> and <code>ic0.msg_caller_copy</code> (see <a href="https://docs.dfinity.systems/spec/public/#system-api-imports">here</a>). If e.g. Internet Identity is used, the principal is the user identity for this specific origin, see <a href="https://github.com/dfinity/internet-identity/blob/main/docs/internet-identity-spec.adoc#identity-design-and-data-model">here</a>. If some actions (e.g. access to user’s account data or account specific operations) should be restricted to a principal or a set of principals, then this must be explicitly checked in the canister call, for example as follows in Rust:</p>
+<p>デザイン上、すべての Canister のコールに対して、コール元を特定することができます。コール元の <a href="https://smartcontracts.org/docs/interface-spec/index.html#principal">Principal</a> には、システム API のメソッド <code>ic0.msg_caller_size</code> と <code>ic0.msg_caller_copy</code> （<a href="https://docs.dfinity.systems/spec/public/#system-api-imports">ここ</a> を参照）を使ってアクセスすることができます。Internet Identity などを使用する場合、Principal はこの特定のオリジン、ユーザー Identity になります。<a href="https://github.com/dfinity/internet-identity/blob/main/docs/internet-identity-spec.adoc#identity-design-and-data-model">ここ</a> を参照してください。一部のアクション（ユーザーのアカウントデータへのアクセスやアカウント固有の操作など）を Principal または Principal のセットに制限する必要がある場合、Rust で以下のように、Canister のコールで明示的に確認する必要があります。</p>
 </li>
 </ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">    // Let pk be the public key of a principal that is allowed to perform
-    // this operation. This pk could be stored in the canister's state.
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">    // この操作の実行を許可された Principal の公開鍵を pk とします。
+    // この pk は Canister のステートに格納される可能性があります。
     if caller() != Principal::self_authenticating(pk) {  ic_cdk::trap(...) }
 
-    // Alternatively, if the canister keeps data for different principals
-    // in e.g. a map such as BTreeMap&lt;Principal, UserData&gt;, then the canister
-    // must ensure that each caller can only access and perform operations
-    // on their own data:
+    // あるいは、Canister が異なる Principal のデータを BTreeMap&lt;Principal, UserData&gt;
+    // のようなマップに保持する場合、Canister は各呼び出し元が自分のデータにのみアクセスし操作を
+    // 実行できるようにする必要があります：
     if let Some(user_data) = user_data_store.get_mut(&amp;caller()) {
-    	// perform operations on the user's data
+    	// ユーザーのデータに対して操作を行う
     }</code></pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>In Rust, the <code>ic_cdk</code> crate can be used to authenticate the caller using <code>ic_cdk::api::caller</code>. Make sure the returned principal is of type <code>Principal::self_authenticating</code>  and identify the user’s account using the public key of that principal, see the example code above.</p>
+<p>Rust では、<code>ic_cdk</code> クレートを使用して、<code>ic_cdk::api::caller</code> による呼び出し元の認証が可能です。返される Principal が <code>Principal::self_authenticating</code> 型であることを確認し、その Principal の公開鍵を用いてユーザのアカウントを特定します （上記のサンプルコードを参照してください）。</p>
 </li>
 <li>
-<p>Do authentication as early as possible in the call to avoid unauthenticated actions and potentially expensive operations before authentication. It is also a good idea to <a href="rust-canister-development-security-best-practices#disallow-the-anonymous-principal">deny service to anonymous users</a>.</p>
+<p>認証されないアクションや認証前の潜在的に高価であろう操作を避けるために、できるだけ呼び出しの早い段階で認証を行います。<a href="rust-canister-development-security-best-practices#disallow-the-anonymous-principal">匿名ユーザーを拒否する</a> のもよいアイデアです。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="disallow-the-anonymous-principal"><a class="anchor" href="#disallow-the-anonymous-principal"></a>Disallow the anonymous principal in authenticated calls</h3>
+<h3 id="disallow-the-anonymous-principal"><a class="anchor" href="#disallow-the-anonymous-principal"></a>認証されたコールで匿名 Principal を許可しない</h3>
 <div class="sect3">
-<h4 id="_security_concern_4"><a class="anchor" href="#_security_concern_4"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_4"><a class="anchor" href="#_セキュリティ上の懸念事項_4"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p><code>ic0::api::caller</code> may also return <code>Principal::anonymous()</code>. In authenticated calls, this is probably undesired (and could have security implications) since this would behave like a shared account for anyone that does unauthenticated calls.</p>
+<p><code>ic0::api::caller</code> は <code>Principal::anonymous()</code> も返すかもしれません。認証されたコールにおいて、これはおそらく望ましくないでしょう（そしてセキュリティに影響を与える可能性があります）。なぜなら、認証されていないコールをする人にとって、これは共有アカウントのように振る舞うからです。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_4"><a class="anchor" href="#_recommendation_4"></a>Recommendation</h4>
+<h4 id="_推奨_4"><a class="anchor" href="#_推奨_4"></a>推奨</h4>
 <div class="paragraph">
-<p>In authenticated calls, make sure the caller is not anonymous and return an error or trap if it is. This could e.g. be done centrally by using a helper method such as:</p>
+<p>認証された呼び出しでは、コール元が匿名でないことを確認し、匿名である場合はエラーまたはトラップを返します。これは、例えば以下のようなヘルパーメソッドを使用することで一元的に行うことができます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">fn caller() -&gt; Result&lt;Principal, String&gt; {
     let caller = ic0::api::caller();
-    // The anonymous principal is not allowed to interact with canister.
+    // 匿名 Principal は Canister と対話することを許可されていません。
     if caller == Principal::anonymous() {
         Err(String::from(
             "Anonymous principal not allowed to make calls.",
@@ -1293,31 +1292,31 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_asset_certification"><a class="anchor" href="#_asset_certification"></a>Asset Certification</h2>
+<h2 id="_アセット認証"><a class="anchor" href="#_アセット認証"></a>アセット認証</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_use_http_asset_certification_and_avoid_serving_your_dapp_through_raw_ic0_app"><a class="anchor" href="#_use_http_asset_certification_and_avoid_serving_your_dapp_through_raw_ic0_app"></a>Use HTTP asset certification and avoid serving your dApp through <code>raw.ic0.app</code></h3>
+<h3 id="_http_アセット認証を使用しraw_ic0_app_を通して_dapp_を提供しないようにします"><a class="anchor" href="#_http_アセット認証を使用しraw_ic0_app_を通して_dapp_を提供しないようにします"></a>HTTP アセット認証を使用し、<code>raw.ic0.app</code> を通して Dapp を提供しないようにします</h3>
 <div class="sect3">
-<h4 id="_security_concern_5"><a class="anchor" href="#_security_concern_5"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_5"><a class="anchor" href="#_セキュリティ上の懸念事項_5"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>dApps on the IC can use <a href="https://wiki.internetcomputer.org/wiki/HTTP_asset_certification">asset certification</a> to make sure the HTTP assets delivered to the browser are authentic (i.e. threshold-signed by the subnet). If an app does not do asset certification, it can only be served insecurely through <code>raw.ic0.app</code> , where no asset certification is checked. This is insecure since a single malicious node or boundary node can freely modify the assets delivered to the browser.</p>
+<p>IC 上の Dapps は、<a href="https://wiki.internetcomputer.org/wiki/HTTP_asset_certification">asset certification</a> を使って、ブラウザに配信される HTTP アセットが本物である（つまり、サブネットによって閾値署名されている）ことを確認することができます。アプリがアセット認証を行わない場合、アセット認証がチェックされない <code>raw.ic0.app</code>  を通して安全ではない方法で提供されます。これは、単一の悪意のあるノードまたはバウンダリノードが、ブラウザに配信されるアセットを自由に変更できるため、安全ではありません。</p>
 </div>
 <div class="paragraph">
-<p>If an app is served through <code>raw.ic0.app</code> in addition to <code>ic0.app</code>, an adversary may trick users (phishing) into using the insecure raw.ic0.app.</p>
+<p>アプリが <code>ic0.app</code> に加えて <code>raw.ic0.app</code> を通して提供される場合、攻撃者は安全でない raw.ic0.app を使用させて（フィッシングのような）ユーザーを騙す攻撃の可能性があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_5"><a class="anchor" href="#_recommendation_5"></a>Recommendation</h4>
+<h4 id="_推奨_5"><a class="anchor" href="#_推奨_5"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Only serve assets through <code>&lt;canister-id&gt;.ic0.app</code> where the service worker verifies asset certification. Do not serve through <code>&lt;canister-id&gt;.raw.ic0.app</code>.</p>
+<p>サービスワーカーがアセット認証を確認する <code>&lt;canister-id&gt;.ic0.app</code> を通してのみ、アセットを提供します。<code>&lt;canister-id&gt;.raw.ic0.app</code> を通してアセットを提供しないでください。</p>
 </li>
 <li>
-<p>Serve assets using the asset canister (which creates asset certification automatically), or add the <code>ic-certificate</code> header including the asset certification as e.g. done in the <a href="https://github.com/dfinity/nns-dapp">NNS dApp</a> or <a href="https://github.com/dfinity/internet-identity">Internet Identity</a>.</p>
+<p>アセット Canister を使用してアセットを配信するか（アセット証明書を自動的に作成する）、または例えば、 <a href="https://github.com/dfinity/nns-dapp">NNS Dapp</a> や <a href="https://github.com/dfinity/internet-identity">Internet Identity</a> で行われているように、アセット証明書を含む <code>ic-certificate</code> ヘッダを追加してください。</p>
 </li>
 <li>
-<p>Check in the canister’s <code>http_request</code> method if the request came through raw. If so, return an error and do not serve any assets.</p>
+<p>Canister の <code>http_request</code> メソッドで、リクエストが raw で送られてきたかどうかを確認します。もしそうなら、エラーを返して、アセットを提供しないようにします。</p>
 </li>
 </ul>
 </div>
@@ -1326,77 +1325,77 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_canister_storage"><a class="anchor" href="#_canister_storage"></a>Canister Storage</h2>
+<h2 id="_canister_ストレージ"><a class="anchor" href="#_canister_ストレージ"></a>Canister ストレージ</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_use_thread_local_with_cellrefcell_for_state_variables_and_put_all_your_globals_in_one_basket"><a class="anchor" href="#_use_thread_local_with_cellrefcell_for_state_variables_and_put_all_your_globals_in_one_basket"></a>Use <code>thread_local!</code> with <code>Cell/RefCell</code> for state variables and put all your globals in one basket.</h3>
+<h3 id="_ステート変数のために_cellrefcell_で_thread_local_を使用しすべてのグローバルを1つのバスケットに入れる"><a class="anchor" href="#_ステート変数のために_cellrefcell_で_thread_local_を使用しすべてのグローバルを1つのバスケットに入れる"></a>ステート変数のために <code>Cell/RefCell</code> で <code>thread_local!</code> を使用し、すべてのグローバルを1つのバスケットに入れる</h3>
 <div class="sect3">
-<h4 id="_security_concern_6"><a class="anchor" href="#_security_concern_6"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_6"><a class="anchor" href="#_セキュリティ上の懸念事項_6"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Canisters need global mutable state. In Rust, there are several ways to achieve this. However, some options can lead e.g. to memory corruption.</p>
+<p>Canister には、グローバルなミュータブルステートが必要です。Rust では、これを実現するためにいくつかの方法があります。しかし、いくつかのオプションでは、例えばメモリ破壊を引き起こすような危険性を伴います。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_6"><a class="anchor" href="#_recommendation_6"></a>Recommendation</h4>
+<h4 id="_推奨_6"><a class="anchor" href="#_推奨_6"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#use-threadlocal">Use <code>thread_local!</code> with <code>Cell/RefCell</code> for state variables.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#use-threadlocal">Use <code>thread_local!</code> with <code>Cell/RefCell</code> for state variables.</a>  （<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から）</p>
 </li>
 <li>
-<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#clear-state">Put all your globals in one basket.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#clear-state">Put all your globals in one basket.</a> （<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から）</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_limit_the_amount_of_data_that_can_be_stored_in_a_canister_per_user"><a class="anchor" href="#_limit_the_amount_of_data_that_can_be_stored_in_a_canister_per_user"></a>Limit the amount of data that can be stored in a canister per user</h3>
+<h3 id="_ユーザーごとに_canister_に保存できるデータ量を制限する"><a class="anchor" href="#_ユーザーごとに_canister_に保存できるデータ量を制限する"></a>ユーザーごとに Canister に保存できるデータ量を制限する</h3>
 <div class="sect3">
-<h4 id="_security_concern_7"><a class="anchor" href="#_security_concern_7"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_7"><a class="anchor" href="#_セキュリティ上の懸念事項_7"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>If a user is able to store a big amount of data on a canister, this may be abused to fill up the canister storage and make the canister unusable.</p>
+<p>ユーザーが大量のデータを Canister に保存できる場合、これを悪用し Canister のストレージを満杯にし使用できなくする可能性があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_7"><a class="anchor" href="#_recommendation_7"></a>Recommendation</h4>
+<h4 id="_推奨_7"><a class="anchor" href="#_推奨_7"></a>推奨</h4>
 <div class="paragraph">
-<p>Limit the amount of data that can be stored in a canister per user. This limit has to be checked whenever data is stored for a user in an update call.</p>
+<p>ユーザー毎に Canister に保存できるデータ量を制限します。アップデートコールでユーザーのデータが保存されるたびに、この制限を確認する必要があります。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_consider_using_stable_memory_version_it_test_it"><a class="anchor" href="#_consider_using_stable_memory_version_it_test_it"></a>Consider using stable memory, version it, test it</h3>
+<h3 id="_ステーブルメモリの使用を考慮しバージョンアップしテストする"><a class="anchor" href="#_ステーブルメモリの使用を考慮しバージョンアップしテストする"></a>ステーブルメモリの使用を考慮し、バージョンアップし、テストする</h3>
 <div class="sect3">
-<h4 id="_security_concern_8"><a class="anchor" href="#_security_concern_8"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_8"><a class="anchor" href="#_セキュリティ上の懸念事項_8"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Canister memory is not persisted across upgrades. If data needs to be kept across upgrades, a natural thing to do is to serialize the canister memory in <code>pre_upgrade</code>, and deserialize it in <code>post_upgrade</code>. However, the available number of instructions for these methods is limited. If the memory grows too big, the canister can no longer be updated.</p>
+<p>Canister メモリは、アップグレードをまたいで保持されることはありません。アップグレードをまたいでデータを保持する必要がある場合、<code>pre_upgrade</code> で　Canister メモリをシリアライズし、<code>post_upgrade</code> でそれをデシリアライズするのが自然な方法でしょう。しかし、これらの方法で利用できる命令数には限りがあります。メモリが大きくなりすぎると、Canister を更新することができなくなります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_8"><a class="anchor" href="#_recommendation_8"></a>Recommendation</h4>
+<h4 id="_推奨_8"><a class="anchor" href="#_推奨_8"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Stable memory is persisted across upgrades and can be used to address this issue.</p>
+<p>ステーブルメモリは、アップグレードしても持続するので、この問題に対処するために使用することができます。</p>
 </li>
 <li>
-<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#stable-memory-main">Consider using stable memory.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>). See also the disadvantages discussed there.</p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#stable-memory-main">Consider using stable memory.</a> （<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から） そこで語られているデメリットも参照してください。</p>
 </li>
 <li>
-<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#version-stable-memory">Version stable memory.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#version-stable-memory">Version stable memory.</a> （<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から）</p>
 </li>
 <li>
-<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#test-upgrades">Test the upgrade hooks.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#test-upgrades">Test the upgrade hooks.</a> （<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から）</p>
 </li>
 <li>
-<p>See also the section on upgrades in <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a> (though focused on Motoko)</p>
+<p><a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister（Internet Computer Canister の監査方法）</a> の upgrade のセクションも参照してください（ただし、Mokoto が対象）。</p>
 </li>
 <li>
-<p>Write tests for stable memory to avoid bugs.</p>
+<p>バグを回避するためにステーブルメモリのためのテストを書きましょう。</p>
 </li>
 <li>
-<p>Some libraries (mostly work in progress / partly unfinished) that people work on:</p>
+<p>開発者が作業しているいくつかのライブラリ（ほとんどが作業中か一部未完成）：</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1404,7 +1403,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>HashMap: <a href="https://github.com/dfinity/stable-structures/pull/1">https://github.com/dfinity/stable-structures/pull/1</a> (currently not prod ready)</p>
+<p>HashMap: <a href="https://github.com/dfinity/stable-structures/pull/1">https://github.com/dfinity/stable-structures/pull/1</a> （現在、プロダクションレディではありません）</p>
 </li>
 </ul>
 </div>
@@ -1416,67 +1415,67 @@
 </div>
 </li>
 <li>
-<p>See <a href="https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer">Current limitations of the Internet Computer</a>, sections "Long running upgrades" and "[de]serialiser requiring additional wasm memory"</p>
+<p><a href="https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer">Current limitations of the Internet Computer（インターネット・コンピュータの現在の制限）</a> のセクション "Long running upgrades" と "[de]serialiser requiring additional wasm memory" を御覧ください。</p>
 </li>
 <li>
-<p>For example, <a href="https://github.com/dfinity/internet-identity">internet identity</a> uses stable memory directly to store user data.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_consider_encrypting_sensitive_data_on_canisters"><a class="anchor" href="#_consider_encrypting_sensitive_data_on_canisters"></a>Consider encrypting sensitive data on canisters</h3>
-<div class="sect3">
-<h4 id="_security_concern_9"><a class="anchor" href="#_security_concern_9"></a>Security Concern</h4>
-<div class="paragraph">
-<p>By default, canisters provide integrity but not confidentiality. Data stored on canisters can be read by nodes / replicas.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_recommendation_9"><a class="anchor" href="#_recommendation_9"></a>Recommendation</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Consider end-to-end encrypting any private or personal data (e.g. user’s personal or private information) on canisters.</p>
-</li>
-<li>
-<p>The example dApp <a href="https://github.com/dfinity/examples/tree/master/motoko/encrypted-notes-dapp">Encrypted Notes</a> illustrates how end-to-end encryption can be done.</p>
+<p>例えば、<a href="https://github.com/dfinity/internet-identity">internet identity</a> は、ユーザーデータを保存するためにステーブルメモリを直接使用します。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_backups"><a class="anchor" href="#_create_backups"></a>Create backups</h3>
+<h3 id="_canister_の機密データ暗号化を検討する"><a class="anchor" href="#_canister_の機密データ暗号化を検討する"></a>Canister の機密データ暗号化を検討する</h3>
 <div class="sect3">
-<h4 id="_security_concern_10"><a class="anchor" href="#_security_concern_10"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_9"><a class="anchor" href="#_セキュリティ上の懸念事項_9"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>A canister could be rendered unusable so it could never be upgraded again e.g. due to the following reasons:</p>
+<p>デフォルトでは、Canister は整合性を提供しますが、機密性は提供しません。Canister に保存されたデータはノード／レプリカが読み取ることができます。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推奨_9"><a class="anchor" href="#_推奨_9"></a>推奨</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Canister 上のあらゆる個人情報（ユーザーの個人情報やプライベートな情報など）をエンドツーエンドで暗号化することを検討しましょう。</p>
+</li>
+<li>
+<p>例として Dapp <a href="https://github.com/dfinity/examples/tree/master/motoko/encrypted-notes-dapp">Encrypted Notes（暗号化ノート）</a> ではエンドツーエンドの暗号化が可能であることを説明しています。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_バックアップを作成する"><a class="anchor" href="#_バックアップを作成する"></a>バックアップを作成する</h3>
+<div class="sect3">
+<h4 id="_セキュリティ上の懸念事項_10"><a class="anchor" href="#_セキュリティ上の懸念事項_10"></a>セキュリティ上の懸念事項</h4>
+<div class="paragraph">
+<p>以下の理由により、Canister が使用不能になり二度とアップグレードできなくなる可能性があります：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>It has a faulty upgrade process (due to some bug from the dapp developer).</p>
+<p>アップグレードプロセスに不具合がある（アプリ開発者のバグによる）。</p>
 </li>
 <li>
-<p>The state becomes inconsistent / corrupt because of a bug in the code that persists data.</p>
+<p>データを永続化するコードのバグにより、状態が不整合、若しくは破損する。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_10"><a class="anchor" href="#_recommendation_10"></a>Recommendation</h4>
+<h4 id="_推奨_10"><a class="anchor" href="#_推奨_10"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Make sure methods used in upgrading are tested or the canister becomes immutable.</p>
+<p>アップグレードに使用される方法がテストされていることを確認、または Canister をイミュータブルにしましょう。</p>
 </li>
 <li>
-<p>It may be useful to have a disaster recovery strategy that makes it possible to reinstall the canister.</p>
+<p>Canister を再インストールできるように、ディザスタリカバリ戦略を立てておくとよいでしょう。</p>
 </li>
 <li>
-<p>See the "Backup and recovery" section in <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a></p>
+<p><a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister（Internet Computer Canister の監査方法）</a> の "Backup and recovery" のセクションを参照してください。</p>
 </li>
 </ul>
 </div>
@@ -1485,136 +1484,136 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_inter_canister_calls_and_rollbacks"><a class="anchor" href="#_inter_canister_calls_and_rollbacks"></a>Inter-Canister Calls and Rollbacks</h2>
+<h2 id="_canister_間コールとロールバック"><a class="anchor" href="#_canister_間コールとロールバック"></a>Canister 間コールとロールバック</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_dont_panic_after_await_and_dont_lock_shared_resources_across_await_boundaries"><a class="anchor" href="#_dont_panic_after_await_and_dont_lock_shared_resources_across_await_boundaries"></a>Don’t panic after await and don’t lock shared resources across await boundaries</h3>
+<h3 id="_await_の後にパニックを起こさないawait_のバウンダリを越えて共有リソースをロックしない"><a class="anchor" href="#_await_の後にパニックを起こさないawait_のバウンダリを越えて共有リソースをロックしない"></a>await の後にパニックを起こさない、await のバウンダリを越えて共有リソースをロックしない</h3>
 <div class="sect3">
-<h4 id="_security_concern_11"><a class="anchor" href="#_security_concern_11"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_11"><a class="anchor" href="#_セキュリティ上の懸念事項_11"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Panics and traps roll back the canister state. So any state change followed by a trap or panic is of concern. This is also an important concern when inter-canister calls are made. If a panic/trap occurs after an <code>await</code> to an inter-canister call, then the state is reverted to the snapshot before the inter-canister call callback invocation (and not before the entire call!).</p>
+<p>パニックやトラップは、Canister のステートをロールバックします。そのため、トラップやパニックが発生した後のステートの変化には注意が必要です。これは Canister 間のコールが行われる場合にも重要な懸念事項となります。Canister 間コールの <code>await</code> の後にパニックやトラップが発生すると、Canister 間コールのコールバック呼び出しの前のスナップショットにステートが戻されます （コール全体の前ではありません！）。</p>
 </div>
 <div class="paragraph">
-<p>This may e.g. lead to the following issues:</p>
+<p>これは例えば、次のような問題を引き起こす可能性があります：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>If state changes before an inter-canister call leave the state inconsistent and there is a panic after the inter-canister call, this results in inconsistent canister state.</p>
+<p>Canister 間コール前のステート変更でステートが一貫せず、Canister 間コール後にパニックが発生すると、Canister のステートが一貫しないことになります。</p>
 </li>
 <li>
-<p>In particular, if allocated resources (e.g. locks or memory) from before an inter-canister call are not released this can e.g. lead to a canister being locked forever.</p>
+<p>特に、Canister 間コール前に割り当てられたリソース （ロックやメモリなど） が解放されないと、Canister が永遠にロックされるなどの問題が発生する可能性があります。</p>
 </li>
 <li>
-<p>Generally, there can be bugs when data is not persisted when the developer expected it to be.</p>
+<p>一般に、開発者が期待したときにデータが永続化されないとバグが発生することがあります。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_11"><a class="anchor" href="#_recommendation_11"></a>Recommendation</h4>
+<h4 id="_推奨_11"><a class="anchor" href="#_推奨_11"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#panic-await">Don’t panic after <code>await</code></a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#panic-await">Don’t panic after <code>await</code></a> （<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から）</p>
 </li>
 <li>
-<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#dont-lock">Don&#8217;t lock shared resources across await boundaries</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#dont-lock">Don&#8217;t lock shared resources across await boundaries</a> （<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から）</p>
 </li>
 <li>
-<p>See also: "Inter-canister calls" section in <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a></p>
+<p><a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister（Internet Computer Canister の監査方法）</a> の ”Inter-canister calls" のセクションを参照してください。</p>
 </li>
 <li>
-<p>For context: <a href="https://docs.dfinity.systems/spec/public/#rule-message-execution">IC interface spec on message execution</a></p>
+<p>コンテキストについては、<a href="https://docs.dfinity.systems/spec/public/#rule-message-execution">IC interface spec on message execution</a> を参照してください。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_be_aware_that_state_may_change_during_inter_canister_calls"><a class="anchor" href="#_be_aware_that_state_may_change_during_inter_canister_calls"></a>Be aware that state may change during inter-canister calls</h3>
+<h3 id="_canister_間コール中にステートが変化する可能性に注意する"><a class="anchor" href="#_canister_間コール中にステートが変化する可能性に注意する"></a>Canister 間コール中にステートが変化する可能性に注意する</h3>
 <div class="sect3">
-<h4 id="_security_concern_12"><a class="anchor" href="#_security_concern_12"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_12"><a class="anchor" href="#_セキュリティ上の懸念事項_12"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Messages (but not entire calls) are processed atomically. This can lead to security issues, such as:</p>
+<p>メッセージはアトミックに処理されます（コール全体はそうではありません）。これは、以下のようなセキュリティ問題を引き起こす可能性があります：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Time-of-check time-of-use: checking some condition on global state before an inter-canister call and wrongly assuming it to still hold when the call returned.</p>
+<p>Time-of-check time-of-use：Canister 間コールの前にグローバルなステートに関するある条件をチェックし、コールが戻ったときにそれがまだ保持されていると誤って仮定してしまうこと。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_12"><a class="anchor" href="#_recommendation_12"></a>Recommendation</h4>
+<h4 id="_推奨_12"><a class="anchor" href="#_推奨_12"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Be aware that state may change during an inter-canister call. Carefully review your code so that this kind of bugs do not occur.</p>
+<p>Canister 間のコール中にステートが変化する可能性があることに注意してください。このようなバグが発生しないように、慎重にコードを見直してください。</p>
 </li>
 <li>
-<p>See also: "Inter-canister calls" section in <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a></p>
+<p><a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister（Internet Computer Canister の監査方法）</a> の "Inter-canister calls” セクションを参照してください。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_only_make_inter_canister_calls_to_trustworthy_canisters"><a class="anchor" href="#_only_make_inter_canister_calls_to_trustworthy_canisters"></a>Only make inter-canister calls to trustworthy canisters</h3>
+<h3 id="_信頼できる_canister_に対してのみcanister_間コールを行う"><a class="anchor" href="#_信頼できる_canister_に対してのみcanister_間コールを行う"></a>信頼できる Canister に対してのみ、Canister 間コールを行う</h3>
 <div class="sect3">
-<h4 id="_security_concern_13"><a class="anchor" href="#_security_concern_13"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_13"><a class="anchor" href="#_セキュリティ上の懸念事項_13"></a>セキュリティ上の懸念事項</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>If inter-canister calls are made to potentially malicious canisters, this can lead to DoS issues or there could be issues related to candid decoding. Also, the data returned from a canister call could be assumed to be trustworthy when it is not.</p>
+<p>悪意のある可能性のある Canister に Canister 間コールが行われた場合、DoS 問題につながる可能性があり、また、Candid のデコードに関連する問題がある可能性があります。また、Canister コールから返されたデータが信頼できないにもかかわらず、信頼できると見なされる可能性があります。</p>
 </li>
 <li>
-<p>If a canister is called with a callback, the receiver can stall indefinitely if the peer does not respond, resulting in DoS. A canister can no longer be upgraded if it is in that state. Recovery would involve reinstalling, wiping the state of the canister.</p>
+<p>Canister がコールバックで呼び出された場合、Peer がレスポンスしないとレシーバーが無制限にストールし DoS が発生する可能性があります。Canister がそのようなステートになると、もはやアップグレードすることはできません。回復には、再インストール、Canister のステート消去が必要です。</p>
 </li>
 <li>
-<p>In summary, this can DoS a canister, consume an excessive amount of resources, or lead to logic bugs if the behavior of the canister depends on the inter-canister call response.</p>
+<p>要約すると、Canister の動作が Canister 間コールレスポンスに依存する場合、Canister の DoS、過剰なリソースの消費、またはロジックバグの原因となる可能性があるということです。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_13"><a class="anchor" href="#_recommendation_13"></a>Recommendation</h4>
+<h4 id="_推奨_13"><a class="anchor" href="#_推奨_13"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Only make inter-canister calls to trustworthy canisters.</p>
+<p>信頼できる Canister への Canister 間コールのみを行いましょう。</p>
 </li>
 <li>
-<p>Sanitize data returned from inter-canister calls.</p>
+<p>Canister 間コールから返されたデータを消去しましょう。</p>
 </li>
 <li>
-<p>See "Talking to malicious canisters" section in <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a></p>
+<p><a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister（Internet Computer Canister の監査方法）</a> の "Talking to malicious canisters” セクションを参照してください。</p>
 </li>
 <li>
-<p>See <a href="https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer">Current limitations of the Internet Computer</a>, section "Calling potentially malicious or buggy canisters can prevent canisters from upgrading"</p>
+<p><a href="https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer">Current limitations of the Internet Computer（インターネット・コンピュータの現在の制限）</a> のセクション "Calling potentially malicious or buggy canisters can prevent canisters from upgrading" を参照してください。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_make_sure_there_are_no_loops_in_call_graphs"><a class="anchor" href="#_make_sure_there_are_no_loops_in_call_graphs"></a>Make sure there are no loops in call graphs</h3>
+<h3 id="_コールグラフにループがないことを確認する"><a class="anchor" href="#_コールグラフにループがないことを確認する"></a>コールグラフにループがないことを確認する</h3>
 <div class="sect3">
-<h4 id="_security_concern_14"><a class="anchor" href="#_security_concern_14"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_14"><a class="anchor" href="#_セキュリティ上の懸念事項_14"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Loops in the call graph (e.g. canister A calling B, B calling C, C calling A) may lead to canister deadlocks.</p>
+<p>コールグラフのループ（例：Canister A が B を呼び出し、B が C を呼び出し、C が A を呼び出す）により、Canister のデッドロックが発生する場合があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_14"><a class="anchor" href="#_recommendation_14"></a>Recommendation</h4>
+<h4 id="_推奨_14"><a class="anchor" href="#_推奨_14"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Avoid such loops!</p>
+<p>このようなループは避けましょう!</p>
 </li>
 <li>
-<p>For more information, see <a href="https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer">Current limitations of the Internet Computer</a>, section "Loops in call graphs"</p>
+<p>詳しくは、<a href="https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer">Current limitations of the Internet Computer（インターネットコンピュータの現在の制限）</a> セクション "Loops in call graphs" を参照してください。</p>
 </li>
 </ul>
 </div>
@@ -1623,34 +1622,34 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_canister_upgrades"><a class="anchor" href="#_canister_upgrades"></a>Canister Upgrades</h2>
+<h2 id="_canister_アップグレード"><a class="anchor" href="#_canister_アップグレード"></a>Canister アップグレード</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_be_careful_with_panics_during_upgrades"><a class="anchor" href="#_be_careful_with_panics_during_upgrades"></a>Be careful with panics during upgrades</h3>
+<h3 id="_アップグレード中のパニックに注意する"><a class="anchor" href="#_アップグレード中のパニックに注意する"></a>アップグレード中のパニックに注意する</h3>
 <div class="sect3">
-<h4 id="_security_concern_15"><a class="anchor" href="#_security_concern_15"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_15"><a class="anchor" href="#_セキュリティ上の懸念事項_15"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>If a canister traps or panics in <code>pre_upgrade</code>, this can lead to permanently blocking the canister, resulting in a situation where upgrades fail or are no longer possible at all.</p>
+<p>もし Canister が <code>pre_upgrade</code> でトラップやパニックを起こすと、Canister を恒久的にブロックすることになり、結果としてアップグレードが失敗したり、まったくできなくなったりすることがあります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_15"><a class="anchor" href="#_recommendation_15"></a>Recommendation</h4>
+<h4 id="_推奨_15"><a class="anchor" href="#_推奨_15"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Avoid panics / traps in <code>pre_upgrade</code> hooks, unless it is truly unrecoverable, so that any invalid state can fixed by upgrading. Panics in the pre-upgrade hook prevent upgrade, and since the pre-upgrade hook is controlled by the old code, it can permanently block upgrading.</p>
+<p>本当に回復不可能な場合を除き、<code>pre_upgrade</code> フックでのパニックやトラップは避け、無効な状態をアップグレードで修正できるようにしましょう。pre-upgrade フックでのパニックはアップグレードを妨げますし、pre-upgrade フックは古いコードによって制御されているので、アップグレードを永久にブロックすることができます。</p>
 </li>
 <li>
-<p>Panic in the <code>post_upgrade</code> hook if state is invalid, so that one can retry the upgrade and try to fix the invalid state. Panics in the the post-upgrade hook abort the upgrade, but one can retry with new code.</p>
+<p><code>post_upgrade</code> フックでは、ステートが無効な場合にパニックを発生させ、アップグレードを再試行して無効な状態の修正を試みることができるようにします。post_upgrade フックでのパニックはアップグレードを中断させますが、新しいコードで再試行することができます。</p>
 </li>
 <li>
-<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#test-upgrades">Test the upgrade hooks.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#test-upgrades">Test the upgrade hooks.</a> （<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から）</p>
 </li>
 <li>
-<p>See also the section on upgrades in <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a> (though focused on Motoko)</p>
+<p><a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister（Internet Computer Canister の監査方法）</a> の upgrade のセクションも参照してください（ただし、Mokoto が対象）。</p>
 </li>
 <li>
-<p>See <a href="https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer">Current limitations of the Internet Computer</a>, section "Bugs in <code>pre_upgrade</code> hooks"</p>
+<p><a href="https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer">Current limitations of the Internet Computer（インターネットコンピュータの現在の制限）</a> のセクション "Bugs in <code>pre_upgrade</code> hooks" を参照してください。</p>
 </li>
 </ul>
 </div>
@@ -1659,25 +1658,25 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_miscellaneous"><a class="anchor" href="#_miscellaneous"></a>Miscellaneous</h2>
+<h2 id="_その他"><a class="anchor" href="#_その他"></a>その他</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="test-your-canister-code"><a class="anchor" href="#test-your-canister-code"></a>Test your canister code even in presence of System API calls</h3>
+<h3 id="test-your-canister-code"><a class="anchor" href="#test-your-canister-code"></a>システム API コールが存在する場合でも、Canister コードをテストする</h3>
 <div class="sect3">
-<h4 id="_security_concern_16"><a class="anchor" href="#_security_concern_16"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_16"><a class="anchor" href="#_セキュリティ上の懸念事項_16"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Since canisters interact with the system API, it is harder to test the code because unit tests cannot call the system API. This may lead to lack of unit tests.</p>
+<p>Canister はシステム API と相互作用するため、ユニットテストではシステム API を呼び出すことができないためコードのテストが難しくなります。このため、ユニットテストが不足する可能性があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_16"><a class="anchor" href="#_recommendation_16"></a>Recommendation</h4>
+<h4 id="_推奨_16"><a class="anchor" href="#_推奨_16"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Create loosely coupled modules that do not depend on the system API and unit test those. See this <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent">recommendation</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>).</p>
+<p>システム API に依存しない疎結合のモジュールを作成し、それらをユニットテストする。この <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent">recommendation</a> （<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から）を参照してください。</p>
 </li>
 <li>
-<p>For the parts that still interact with the system API: create a thin abstraction of the System API that is faked in unit tests. See the <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent">recommendation</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>). For example, one can implement a ‘Runtime’ as follows and then use the ‘MockRuntime’ in tests (code by Dimitris Sarlis):</p>
+<p>システム API とまだ相互作用する部分については、システム API の薄い抽象化を作成し、ユニットテストでフェイクを行います。<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent">recommendation</a> （<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から）を参照してください。例えば、以下のように ”Runtime” を実装し、テストでは ”MockRuntime” を使用することができます（コード：Dimitris Sarlis）。</p>
 </li>
 </ul>
 </div>
@@ -1702,7 +1701,7 @@
     impl Runtime for RuntimeImpl {
         fn caller(&amp;self) -&gt; Result&lt;Principal, String&gt; {
             let caller = caller();
-            // The anonymous principal is not allowed to interact with the canister.
+            // 匿名 Principal は Canister と対話することはできません
             if caller == Principal::anonymous() {
                 Err(String::from(
                     "Anonymous principal not allowed to make calls.",
@@ -1753,173 +1752,173 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_make_canister_builds_reproducible"><a class="anchor" href="#_make_canister_builds_reproducible"></a>Make canister builds reproducible</h3>
+<h3 id="_canister_ビルドの再現性を高める"><a class="anchor" href="#_canister_ビルドの再現性を高める"></a>Canister ビルドの再現性を高める</h3>
 <div class="sect3">
-<h4 id="_security_concern_17"><a class="anchor" href="#_security_concern_17"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_17"><a class="anchor" href="#_セキュリティ上の懸念事項_17"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>It should be possible to verify that a canister does what it claims to do. The IC provides a SHA256 hash of the deployed WASM module. In order for this to be useful, the canister build has to be reproducible.</p>
+<p>Canister が主張することを実行するかどうかを検証することができるはずです。IC はデプロイされた WASM モジュールの SHA 256 ハッシュを提供します。これが有用であるためには Canister のビルドが再現可能である必要があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_17"><a class="anchor" href="#_recommendation_17"></a>Recommendation</h4>
+<h4 id="_推奨_17"><a class="anchor" href="#_推奨_17"></a>推奨</h4>
 <div class="paragraph">
-<p>Make canister builds reproducible. See this <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#reproducible-builds">recommendation</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>). See also <a href="https://smartcontracts.org/docs/developers-guide/tutorials/reproducible-builds.html">Developer docs on this</a>.</p>
+<p>Canister のビルドを再現できるようにする。この <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#reproducible-builds">recommendation</a> を見てください（<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から）。<a href="https://smartcontracts.org/docs/developers-guide/tutorials/reproducible-builds.html">Developer docs on this</a> も参照してください。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_expose_metrics_from_your_canister"><a class="anchor" href="#_expose_metrics_from_your_canister"></a>Expose metrics from your canister</h3>
+<h3 id="_canister_からメトリクスを公開する"><a class="anchor" href="#_canister_からメトリクスを公開する"></a>Canister からメトリクスを公開する</h3>
 <div class="sect3">
-<h4 id="_security_concern_18"><a class="anchor" href="#_security_concern_18"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_18"><a class="anchor" href="#_セキュリティ上の懸念事項_18"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>In case of attacks, it is great to be able to obtain relevant metrics from canisters, such as number of accounts, size of internal data structures, stable memory, etc.</p>
+<p>攻撃された場合、アカウント数、内部データ構造のサイズ、ステーブルメモリなど、Canister から関連するメトリクスを取得できるのは素晴らしいことです。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_18"><a class="anchor" href="#_recommendation_18"></a>Recommendation</h4>
+<h4 id="_推奨_18"><a class="anchor" href="#_推奨_18"></a>推奨</h4>
 <div class="paragraph">
-<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#expose-metrics">Expose metrics from your canister.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#expose-metrics">Expose metrics from your canister.</a> （<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a> から）</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dont_rely_on_time_being_strictly_monotonic"><a class="anchor" href="#_dont_rely_on_time_being_strictly_monotonic"></a>Don’t rely on time being strictly monotonic</h3>
+<h3 id="_時間が厳密に単調であるとしてはいけません"><a class="anchor" href="#_時間が厳密に単調であるとしてはいけません"></a>時間が厳密に単調であるとしてはいけません</h3>
 <div class="sect3">
-<h4 id="_security_concern_19"><a class="anchor" href="#_security_concern_19"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_19"><a class="anchor" href="#_セキュリティ上の懸念事項_19"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>The time read from the System API is monotonic, but not strictly monotonic. Thus, two subsequent calls can return the same time, which could lead to security bugs when the time API is used.</p>
+<p>System API から読み込まれる時刻は単調ですが、厳密には単調ではありません。そのため後続の2回の呼び出しで同じ時刻を返すことがあり、time API を使用した場合にセキュリティバグが発生する可能性があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_19"><a class="anchor" href="#_recommendation_19"></a>Recommendation</h4>
+<h4 id="_推奨_19"><a class="anchor" href="#_推奨_19"></a>推奨</h4>
 <div class="paragraph">
-<p>See the "Time is not strictly monotonic" section in <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a></p>
+<p><a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister（Internet Computer Canister の監査方法）</a> の セクション "Time is not strictly monotonic” を参照してください。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="protect-against-draining-the-cycles-balance"><a class="anchor" href="#protect-against-draining-the-cycles-balance"></a>Protect against draining the cycles balance</h3>
+<h3 id="protect-against-draining-the-cycles-balance"><a class="anchor" href="#protect-against-draining-the-cycles-balance"></a>Cycle バランスのドレインを防ぎます</h3>
 <div class="sect3">
-<h4 id="_security_concern_20"><a class="anchor" href="#_security_concern_20"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_20"><a class="anchor" href="#_セキュリティ上の懸念事項_20"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Canisters pay for their cycles which makes them inherently vulnerable to attacks that consume all their cycles.</p>
+<p>Canister は Cycle を消費するため、Cycle を消費する攻撃には本質的に脆弱です。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_20"><a class="anchor" href="#_recommendation_20"></a>Recommendation</h4>
+<h4 id="_推奨_20"><a class="anchor" href="#_推奨_20"></a>推奨</h4>
 <div class="paragraph">
-<p>Consider monitoring, early authentication, rate limiting on canister level to mitigate this. Also, be aware that an attacker will aim for the call consuming most cycles. See the "Cycle balance drain attacks section" in <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a> .</p>
+<p>これを軽減するために、Canister レベルでの監視、早期認証、レート制限を検討してください。また、攻撃者は最も多くの Cycle を消費しているコールを狙っていることに注意してください。<a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister（Internet Computer Canister の監査方法）</a> の "Cycle balance drain attacks section” を参照してください。</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_nonspecific_to_the_internet_computer"><a class="anchor" href="#_nonspecific_to_the_internet_computer"></a>Nonspecific to the Internet Computer</h2>
+<h2 id="_internet_computer_に特有でなく一般的なベストプラクティス"><a class="anchor" href="#_internet_computer_に特有でなく一般的なベストプラクティス"></a>Internet Computer に特有でなく一般的なベストプラクティス</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The best practices in this section are very general and not specific to the Internet Computer. This list is by no means complete and only lists a few very specific concerns that have led to issues in the past.</p>
+<p>このセクションのベストプラクティスは非常に一般的なものであり、Internet Computer に特化したものではありません。このリストは決して完全なものではなく、過去に問題になった非常に具体的な懸念事項をいくつか挙げているに過ぎません。</p>
 </div>
 <div class="sect2">
-<h3 id="_validate_inputs"><a class="anchor" href="#_validate_inputs"></a>Validate inputs</h3>
+<h3 id="_インプットの検証"><a class="anchor" href="#_インプットの検証"></a>インプットの検証</h3>
 <div class="sect3">
-<h4 id="_security_concern_21"><a class="anchor" href="#_security_concern_21"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_21"><a class="anchor" href="#_セキュリティ上の懸念事項_21"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>The data sent in <a href="https://smartcontracts.org/docs/interface-spec/index.html#http-interface">query and update calls</a> is generally untrusted. The message size limit is a few MB. This can e.g. lead the following issues:</p>
+<p><a href="https://smartcontracts.org/docs/interface-spec/index.html#http-interface">query and update calls</a> で送信されるデータは一般的に信頼できません。メッセージサイズの上限は数 MB です。これは、例えば以下のような問題を引き起こす可能性があります。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>If unvalidated data is rendered in web UIs or displayed in other systems, this can lead to injection attacks (e.g. XSS).</p>
+<p>検証されていないデータが Web UI でレンダリングされたり、他のシステムで表示された場合、インジェクション攻撃（XSS など）につながる可能性があります。</p>
 </li>
 <li>
-<p>Messages of big size could be sent and potentially stored in the canister, consuming an excessive amount of storage.</p>
+<p>大きなサイズのメッセージが送信され、Canister に保存される可能性があり、ストレージを過剰に消費します。</p>
 </li>
 <li>
-<p>Big inputs (e.g. big lists or strings) could trigger an excessive amount of computation, resulting in DoS and consuming many cycles. See also <a href="rust-canister-development-security-best-practices#protect-against-draining-the-cycles-balance">Protect against draining the cycles balance</a></p>
+<p>大きなインプット（大きなリストや文字列など）は過剰な計算を引き起こし、DoS の原因となり、多くの Cycle を消費する可能性があります。<a href="rust-canister-development-security-best-practices#protect-against-draining-the-cycles-balance">Protect against draining the cycles balance</a> も参照してください。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_21"><a class="anchor" href="#_recommendation_21"></a>Recommendation</h4>
+<h4 id="_推奨_21"><a class="anchor" href="#_推奨_21"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Perform input validation, see e.g. the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html">OWASP cheat sheet</a>.</p>
+<p>入力チェックを行いましょう。例えば、<a href="https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html">OWASP cheat sheet</a> を参照してください。</p>
 </li>
 <li>
-<p>"Large data attacks" section in <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a> (be aware of Candid space bombs)</p>
+<p><a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister（Internet Computer Canister の監査方法）</a> のセクション "Large data attacks" （Candid space bombs に注意してください）を御覧ください。</p>
 </li>
 <li>
-<p><a href="https://owasp.org/www-project-application-security-verification-standard/">ASVS</a> 5.1.4: Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match).</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_rust_dont_use_unsafe_rust_code"><a class="anchor" href="#_rust_dont_use_unsafe_rust_code"></a>Rust: Don’t use unsafe Rust code</h3>
-<div class="sect3">
-<h4 id="_security_concern_22"><a class="anchor" href="#_security_concern_22"></a>Security Concern</h4>
-<div class="paragraph">
-<p>Unsafe Rust code is risky because it may introduce memory corruption issues.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_recommendation_22"><a class="anchor" href="#_recommendation_22"></a>Recommendation</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Avoid unsafe code whenever possible.</p>
-</li>
-<li>
-<p>See the <a href="https://anssi-fr.github.io/rust-guide/04_language.html#unsafe-code">Rust security guidelines</a></p>
-</li>
-<li>
-<p>Consider the <a href="https://docs.dfinity.systems/dfinity/spec/meta/rust.html#_avoid_unsafe_code">Dfinity Rust Guidelines</a>.</p>
+<p><a href="https://owasp.org/www-project-application-security-verification-standard/">ASVS</a> の 5.1.4：構造化されたデータに対して強く型付けされており、許容される文字、長さ、パターンを含む定義されたスキーマに照らして検証されること （例：クレジットカード番号、電話、または郵便番号が一致するかどうかなど、関連する二つのフィールドが妥当かどうか検証すること）。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_rust_avoid_integer_overflows"><a class="anchor" href="#_rust_avoid_integer_overflows"></a>Rust: Avoid integer overflows</h3>
+<h3 id="_rust安全でない_rust_コードを使ってはいけません"><a class="anchor" href="#_rust安全でない_rust_コードを使ってはいけません"></a>Rust：安全でない Rust コードを使ってはいけません</h3>
 <div class="sect3">
-<h4 id="_security_concern_23"><a class="anchor" href="#_security_concern_23"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_22"><a class="anchor" href="#_セキュリティ上の懸念事項_22"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Integers in Rust may overflow. While such overflows lead to panics in the debug configuration, the values are just wrapped around silently in release compilation. This can cause major security issues e.g. when the integers are used as indices, unique IDs, or if cycles or ICP amounts are computed.</p>
+<p>安全でない Rust コードはメモリ破壊の問題を引き起こす可能性があるため危険です</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_23"><a class="anchor" href="#_recommendation_23"></a>Recommendation</h4>
+<h4 id="_推奨_22"><a class="anchor" href="#_推奨_22"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Review your code carefully for any integer operations that may wrap around.</p>
+<p>安全でないコードは可能な限り避けてください。</p>
 </li>
 <li>
-<p>Use the <code>saturated</code> or <code>checked</code> variants of these operations, such as <code>saturated_add</code>, <code>saturated_sub</code>, <code>checked_add</code> , <code>checked_sub</code>, etc. See e.g. the <a href="https://doc.rust-lang.org/std/primitive.u32.html#method.saturating_add">Rust docs</a> for <code>u32</code>.</p>
+<p><a href="https://anssi-fr.github.io/rust-guide/04_language.html#unsafe-code">Rust security guidelines</a> を参照してください。</p>
 </li>
 <li>
-<p>See also the <a href="https://anssi-fr.github.io/rust-guide/04_language.html#integer-overflows">Rust security guidelines on integer overflows</a>.</p>
+<p><a href="https://docs.dfinity.systems/dfinity/spec/meta/rust.html#_avoid_unsafe_code">Dfinity Rust Guidelines</a> を検討してください。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_for_expensive_calls_consider_using_captchas_or_proof_of_work"><a class="anchor" href="#_for_expensive_calls_consider_using_captchas_or_proof_of_work"></a>For expensive calls, consider using captchas or proof of work</h3>
+<h3 id="_rust_integerのオーバーフローを回避します"><a class="anchor" href="#_rust_integerのオーバーフローを回避します"></a>Rust： integerのオーバーフローを回避します</h3>
 <div class="sect3">
-<h4 id="_security_concern_24"><a class="anchor" href="#_security_concern_24"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_23"><a class="anchor" href="#_セキュリティ上の懸念事項_23"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>If an update or query call is expensive e.g. in terms of memory used or cycles consumed, this may make it easy for bots to render the canister unusable (e.g. by filling up it’s storage).</p>
+<p>Rust の integer はオーバーフローすることがあります。このようなオーバーフローはデバッグ環境ではパニックになりますが、リリースコンパイルでは値はただ黙ってラップされるだけです。これは、例えば integer をインデックスやユニーク ID として使用する場合や、Cycle や ICP 数量を計算する場合などに、セキュリティ上の大きな問題を引き起こす可能性があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_24"><a class="anchor" href="#_recommendation_24"></a>Recommendation</h4>
+<h4 id="_推奨_23"><a class="anchor" href="#_推奨_23"></a>推奨</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>ラップする可能性のある整数演算がないか、コードを注意深く見直してください。</p>
+</li>
+<li>
+<p>これらの演算には、 <code>saturated_add</code> や <code>saturated_sub</code> 、 <code>checked_add</code> 、 <code>checked_sub</code> などの <code>saturated</code> や <code>checked</code> のバリアントを使用する。例えば、 <code>u32</code> については <a href="https://doc.rust-lang.org/std/primitive.u32.html#method.saturating_add">Rust docs</a> を参照してください。</p>
+</li>
+<li>
+<p><a href="https://anssi-fr.github.io/rust-guide/04_language.html#integer-overflows">Rust security guidelines on integer overflows</a> も参照してください。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_高額なコール料についてはcaptcha_や_proof_of_work_の利用を検討する"><a class="anchor" href="#_高額なコール料についてはcaptcha_や_proof_of_work_の利用を検討する"></a>高額なコール料については、Captcha や Proof-of-work の利用を検討する</h3>
+<div class="sect3">
+<h4 id="_セキュリティ上の懸念事項_24"><a class="anchor" href="#_セキュリティ上の懸念事項_24"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>If the dApp offers such operations, consider bot prevention techniques such as adding Captchas or proof of work. There is e.g. a captcha implementation in <a href="https://github.com/dfinity/internet-identity">internet identity</a>.</p>
+<p>使用するメモリや消費する Cycle などの点でアップデートやクエリのコールが高額な場合、ボットが Canister を使用不能にすることが容易になります（例えば、ストレージを一杯にすることなどによって）。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推奨_24"><a class="anchor" href="#_推奨_24"></a>推奨</h4>
+<div class="paragraph">
+<p>Dapp がそのような操作を提供する場合、Captcha や proof of work を追加するなどのボット対策テクニックを検討します。例えば、<a href="https://github.com/dfinity/internet-identity">internet identity</a> に Captcha の実装があります。</p>
 </div>
 </div>
 </div>

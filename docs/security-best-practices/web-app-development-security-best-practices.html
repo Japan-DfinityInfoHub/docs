@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Web App Development Security Best Practices :: Dfinity 日本語ドキュメント</title>
+    <title>Web アプリ開発セキュリティ・ベストプラクティス :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/security-best-practices/web-app-development-security-best-practices.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1160,233 +1160,233 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Web App Development Security Best Practices</h1>
+<h1 class="page">Web アプリ開発セキュリティ・ベストプラクティス</h1>
 <div class="sect1">
-<h2 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h2>
+<h2 id="_認証"><a class="anchor" href="#_認証"></a>認証</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_use_a_well_audited_authentication_service_and_client_side_ic_libraries"><a class="anchor" href="#_use_a_well_audited_authentication_service_and_client_side_ic_libraries"></a>Use a well-audited authentication service and client side IC libraries</h3>
+<h3 id="_監査済みの認証サービスとクライアントサイド_ic_ライブラリを使用する"><a class="anchor" href="#_監査済みの認証サービスとクライアントサイド_ic_ライブラリを使用する"></a>監査済みの認証サービスとクライアントサイド  IC ライブラリを使用する</h3>
 <div class="sect3">
-<h4 id="_security_concern"><a class="anchor" href="#_security_concern"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項"><a class="anchor" href="#_セキュリティ上の懸念事項"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Implementing user authentication and canister calls yourself in your web app is error prone and risky. For example, if canister calls are implemented from scratch, there may be bugs around signature creation or verification.</p>
+<p>Web アプリでユーザー認証や Canister コールを自分で実装するのは、エラーが起こりやすくリスクが高いです。例えば、Canister コールをゼロから実装した場合、署名の作成や検証に関するバグが発生する可能性があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation"><a class="anchor" href="#_recommendation"></a>Recommendation</h4>
+<h4 id="_推奨"><a class="anchor" href="#_推奨"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Consider using e.g. <a href="https://github.com/dfinity/internet-identity">Internet Identity</a> for authentication, use <a href="https://github.com/dfinity/agent-js">agent-js</a> for making canister calls, and the <a href="https://github.com/dfinity/agent-js/tree/main/packages/auth-client">auth-client</a> for interacting with internet identity from your dApp.</p>
+<p>認証には <a href="https://github.com/dfinity/internet-identity">Internet Identity</a> などを使用し、Canister コールには <a href="https://github.com/dfinity/agent-js">agent-js</a>、Dapp から Internet Identity と対話するには <a href="https://github.com/dfinity/agent-js/tree/main/packages/auth-client">auth-client</a> を使用することを考えてみてください。</p>
 </li>
 <li>
-<p>It is of course also an option to consider alternative authentication frameworks on the IC for authentication.</p>
+<p>もちろん、認証のために IC 上の代替認証フレームワークを検討することもオプションの一つです。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_set_an_appropriate_session_timeout"><a class="anchor" href="#_set_an_appropriate_session_timeout"></a>Set an appropriate session timeout</h3>
+<h3 id="_適切なセッションタイムアウトを設定する"><a class="anchor" href="#_適切なセッションタイムアウトを設定する"></a>適切なセッションタイムアウトを設定する</h3>
 <div class="sect3">
-<h4 id="_security_concern_2"><a class="anchor" href="#_security_concern_2"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_2"><a class="anchor" href="#_セキュリティ上の懸念事項_2"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Currently, Internet Identity issues delegations with an expiry time. This expiry time can be set in the <a href="https://github.com/dfinity/agent-js/tree/main/packages/auth-client">auth-client</a>. After a delegation expires, the user has to re-authenticate. Setting a good value is a trade-off between security and usability.</p>
+<p>現在、Internet Identity は有効期限付きの委任を発行しています。この有効期限は、 <a href="https://github.com/dfinity/agent-js/tree/main/packages/auth-client">auth-client</a> で設定することができます。委任の有効期限が切れると、ユーザーは再認証する必要があります。適切な値を設定することは、セキュリティとユーザビリティのトレードオフです。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_2"><a class="anchor" href="#_recommendation_2"></a>Recommendation</h4>
+<h4 id="_推奨_2"><a class="anchor" href="#_推奨_2"></a>推奨</h4>
 <div class="paragraph">
-<p>See the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#session-expiration">OWASP Recommendations</a>. A timeout of 30min should be set for security sensitive applications.</p>
+<p><a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#session-expiration">OWASP Recommendations</a> を参照してください。セキュリティに敏感なアプリケーションでは、30分のタイムアウトを設定する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>Note: Idle timeouts might be introduced soon, see <a href="https://forum.dfinity.org/t/authclient-update-idle-timeouts/10464">this</a>.</p>
+<p>Note：アイドルタイムアウトは近々導入されるかもしれません。<a href="https://forum.dfinity.org/t/authclient-update-idle-timeouts/10464">ここ</a> を参照してください。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dont_use_fetchrootkey_in_agent_js_in_production"><a class="anchor" href="#_dont_use_fetchrootkey_in_agent_js_in_production"></a>Don’t use fetchRootKey in agent-js in production</h3>
+<h3 id="_運用中の_agent_js_で_fetchrootkey_を使用しない"><a class="anchor" href="#_運用中の_agent_js_で_fetchrootkey_を使用しない"></a>運用中の agent-js で fetchRootKey を使用しない</h3>
 <div class="sect3">
-<h4 id="_security_concern_3"><a class="anchor" href="#_security_concern_3"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_3"><a class="anchor" href="#_セキュリティ上の懸念事項_3"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p><code>agent.fetchRootKey()</code> can be used in <a href="https://github.com/dfinity/agent-js">agent-js</a> to fetch the root subnet threshold public key from a status call in test environments. This key is used to verify threshold signatures on certified data received through canister update calls. Using this method in a production web app gives an attacker the option to supply their own public key, invalidating all authenticity guarantees of update responses.</p>
+<p><a href="https://github.com/dfinity/agent-js">agent-js</a> で <code>agent.fetchRootKey()</code> を使用すると、テスト環境において、ステータスコールからルートサブネット閾値公開鍵を取得することが可能です。この鍵は Canister のアップデートコールで受信した認証データの閾値署名を検証するために使用されます。この方法をプロダクション環境の Web アプリで使用すると、攻撃者は自分の公開鍵を提供することができ、アップデートレスポンスのすべての信頼性保証を無効にすることができます。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_3"><a class="anchor" href="#_recommendation_3"></a>Recommendation</h4>
+<h4 id="_推奨_3"><a class="anchor" href="#_推奨_3"></a>推奨</h4>
 <div class="paragraph">
-<p>Never use <code>agent.fetchRootKey()</code> in production builds, only in test builds. Not calling this method will result in the hard coded root subnet public key of mainnet being used for signature verification, which is the desired behavior in production.</p>
+<p>実運用環境では決して <code>agent.fetchRootKey()</code> を使用せず、テストビルドのときだけ使用します。このメソッドを呼び出さない場合、ハードコーディングされたメインネットのルートサブネット公開鍵が署名検証に使用されることになります。</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_nonspecific_to_the_internet_computer"><a class="anchor" href="#_nonspecific_to_the_internet_computer"></a>Nonspecific to the Internet Computer</h2>
+<h2 id="_internet_computer_に特有でなく一般的なベストプラクティス"><a class="anchor" href="#_internet_computer_に特有でなく一般的なベストプラクティス"></a>Internet Computer に特有でなく一般的なベストプラクティス</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The best practices in this section are very general and not specific to the Internet Computer. This list is by no means complete and only lists a few very specific concerns that have led to issues in the past.</p>
+<p>このセクションのベストプラクティスは一般的なものであり、Internet Computer に特化したものではありません。このリストは決して完全なものではなく、過去に問題になった非常に具体的な懸念事項をいくつか挙げているに過ぎません。</p>
 </div>
 <div class="sect2">
-<h3 id="_validate_input_in_the_front_end"><a class="anchor" href="#_validate_input_in_the_front_end"></a>Validate input in the front-end</h3>
+<h3 id="_フロントエンドで入力を検証する"><a class="anchor" href="#_フロントエンドで入力を検証する"></a>フロントエンドで入力を検証する</h3>
 <div class="sect3">
-<h4 id="_security_concern_4"><a class="anchor" href="#_security_concern_4"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_4"><a class="anchor" href="#_セキュリティ上の懸念事項_4"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Missing input validation of data from untrusted sources (e.g. users) can lead to malformed data being persisted and delivered back to users. This may lead to DoS, injection attacks, phishing, etc.</p>
+<p>信頼できない情報源（ユーザーなど）からのデータの入力検証を怠ると、不正なデータが保存され、ユーザーに配信される可能性があります。これは、DoS、インジェクション攻撃、フィッシングなどにつながる可能性があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_4"><a class="anchor" href="#_recommendation_4"></a>Recommendation</h4>
+<h4 id="_推奨_4"><a class="anchor" href="#_推奨_4"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Perform data validation already in the front end, in addition to data validation in the canister. Data validation should happen as early as possible.</p>
+<p>Canister でのデータ検証に加え、フロントエンドでデータ検証を実施しましょう。データ検証はできるだけ早く行うべきです。</p>
 </li>
 <li>
-<p>See the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html#goals-of-input-validation">OWASP Input Validation Cheat Sheet</a></p>
+<p><a href="https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html#goals-of-input-validation">OWASP Input Validation Cheat Sheet</a> を御覧ください。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="dont-load-untrusted-content"><a class="anchor" href="#dont-load-untrusted-content"></a>Don’t load JavaScript (and other assets) from untrusted domains</h3>
+<h3 id="dont-load-untrusted-content"><a class="anchor" href="#dont-load-untrusted-content"></a>信頼できないドメインから JavaScript（およびその他のアセット）を読み込まない</h3>
 <div class="sect3">
-<h4 id="_security_concern_5"><a class="anchor" href="#_security_concern_5"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_5"><a class="anchor" href="#_セキュリティ上の懸念事項_5"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Loading untrusted JavaScript from domains other than <code>&lt;canister-id&gt;.ic0.app</code> means you completely trust that domain. Also, assets loaded from these domains (incl. <code>&lt;canister-id&gt;.raw.ic0.app</code>) will not use asset certification.</p>
+<p><code>&lt;canister-id&gt;.ic0.app</code> 以外のドメインから信頼されていない JavaScript を読み込むことは、そのドメインを完全に信頼することを意味します。また、これらのドメイン（<code>&lt;canister-id&gt;.raw.ic0.app</code> を含む）から読み込まれたアセットはアセット認証を使用しません。</p>
 </div>
 <div class="paragraph">
-<p>If they deliver malicious JavaScript they can take over the web app/account by e.g. reading the private key managed by agent-js from LocalStorage.</p>
+<p>もし、悪意のある JavaScript を配信した場合、LocalStorage から agent-js が管理する秘密鍵を読み取るなどして、Web アプリまたはアカウントを乗っ取ることができます。</p>
 </div>
 <div class="paragraph">
-<p>Note that also loading other assets such as CSS from untrusted domains is a security risk, see e.g. <a href="https://xsleaks.dev/docs/attacks/css-injection/">here</a>.</p>
+<p>信頼できないドメインから CSS などの他のアセットを読み込むことは、セキュリティリスクであることに注意してください。例えば、<a href="https://xsleaks.dev/docs/attacks/css-injection/">ここ</a> を参照してください。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_5"><a class="anchor" href="#_recommendation_5"></a>Recommendation</h4>
+<h4 id="_推奨_5"><a class="anchor" href="#_推奨_5"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Loading JavaScript and other assets from other origins should be avoided. Especially for security critical applications, we can&#8217;t assume other domains to be trustworthy.</p>
+<p>JavaScript やその他のアセットを他のオリジンから読み込むことは避けるべきです。特にセキュリティ上重要なアプリケーションでは、他のドメインが信頼できるものであると仮定することはできません。</p>
 </li>
 <li>
-<p>Make sure all the content delivered to the browser is served and certified by the canister using asset certification. This holds in particular for any JavaScript, but also for fonts, CSS, etc.</p>
+<p>ブラウザに配信されるすべてのコンテンツが、Canister によって提供され、アセット証明書を使用して証明されていることを確認します。これは、特に JavaScript、フォント、CSS などに対して当てはまります。</p>
 </li>
 <li>
-<p>Use a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy</a> to prevent scripts and other content from other origins to be loaded at all. See also <a href="web-app-development-security-best-practices#define-security-headers">Define security headers including a Content Security Policy (CSP)</a>.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">コンテンツセキュリティポリシー</a> を使用して、他のオリジンからのスクリプトやその他のコンテンツがまったく読み込まれないようにします。<a href="web-app-development-security-best-practices#define-security-headers">コンテンツセキュリティポリシー（CSP）を含むセキュリティヘッダを定義する</a> も参照してください。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="define-security-headers"><a class="anchor" href="#define-security-headers"></a>Define security headers including a Content Security Policy (CSP)</h3>
+<h3 id="define-security-headers"><a class="anchor" href="#define-security-headers"></a>コンテンツセキュリティポリシー（CSP）を含むセキュリティヘッダを定義する</h3>
 <div class="sect3">
-<h4 id="_security_concern_6"><a class="anchor" href="#_security_concern_6"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_6"><a class="anchor" href="#_セキュリティ上の懸念事項_6"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Security headers can be used to cover many security concerns, e.g. disallow <a href="https://owasp.org/www-community/attacks/Clickjacking">clickjacking</a>, <a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html">harden TLS</a>, make sure <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src">JavaScript or other content from untrusted domains cannot be executed in the browser</a>, etc. Not configuring these headers appropriately can lead to concrete security issues and missing defense-in-depth.</p>
+<p>セキュリティヘッダは多くのセキュリティに関する問題の対応に使用されます。例えば、<a href="https://owasp.org/www-community/attacks/Clickjacking">クリックジャッキング</a>からの防御、<a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html">TLS</a>の強制、<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src">信頼できないドメインからの JavaScript または他のコンテンツがブラウザで実行しない</a>ようにするなどです。これらのヘッダーを適切に設定しないと、明確なセキュリティ上の問題が発生し、多層防御が失われます。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_6"><a class="anchor" href="#_recommendation_6"></a>Recommendation</h4>
+<h4 id="_推奨_6"><a class="anchor" href="#_推奨_6"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Check your site using <a href="https://securityheaders.com/">https://securityheaders.com/</a></p>
+<p><a href="https://securityheaders.com/">https://securityheaders.com/</a> を使用してサイトをチェックします。</p>
 </li>
 <li>
-<p>Use <a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html">HSTS</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">CSP</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a>, Permissions-Policy (<a href="https://www.permissionspolicy.com/">generator</a>)</p>
+<p><a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html">HSTS</a>、<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">CSP</a>、<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a>、<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a>、Permissions-Policy (<a href="https://www.permissionspolicy.com/">generator</a>) を使用します。</p>
 </li>
 <li>
-<p>These headers (including CSP) have been successfully integrated e.g. in <a href="https://github.com/dfinity/internet-identity">internet identity</a>.</p>
+<p>これらのヘッダ（CSP を含む）は、例えば <a href="https://github.com/dfinity/internet-identity">internet identity</a> で正常に統合されています。</p>
 </li>
 <li>
-<p>Check your CSP against <a href="https://csp-evaluator.withgoogle.com/">CSP evaluator</a></p>
+<p>CSPを <a href="https://csp-evaluator.withgoogle.com/">CSP evaluator</a> に照らしてチェックしてください。</p>
 </li>
 <li>
-<p>See also the <a href="https://owasp.org/www-project-secure-headers/">OWASP secure headers project</a></p>
+<p><a href="https://owasp.org/www-project-secure-headers/">OWASP secure headers project</a> も参照してください。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_crypto_protect_key_material_against_xss_using_web_crypto_api"><a class="anchor" href="#_crypto_protect_key_material_against_xss_using_web_crypto_api"></a>Crypto: Protect key material against XSS using Web Crypto API</h3>
+<h3 id="_暗号化web_crypto_api_を使って_xss_からキーマテリアルを保護する"><a class="anchor" href="#_暗号化web_crypto_api_を使って_xss_からキーマテリアルを保護する"></a>暗号化：Web Crypto API を使って XSS からキーマテリアルを保護する</h3>
 <div class="sect3">
-<h4 id="_security_concern_7"><a class="anchor" href="#_security_concern_7"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_7"><a class="anchor" href="#_セキュリティ上の懸念事項_7"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Storing key material in browser storage (such as <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">sessionStorage</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">localStorage</a>) is considered unsafe because these keys can be accessed by JavaScript code. This could happen through an XSS attack or when loading untrusted scripts from other domains (see also <a href="web-app-development-security-best-practices#dont-load-untrusted-content">Don’t load JavaScript from untrusted domains</a>.</p>
+<p>ブラウザのストレージ （<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">sessionStorage</a> や <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">localStorage</a> など）に鍵を保存することは、これらの鍵に JavaScript コードがアクセスできるため、安全でないと考えられています。これは、XSS 攻撃や、他のドメインから信頼できないスクリプトを読み込むときに起こる可能性があります（ <a href="web-app-development-security-best-practices#dont-load-untrusted-content">信頼できないドメインから JavaScript（およびその他のアセット）を読み込まない</a> も参照して下さい）。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_7"><a class="anchor" href="#_recommendation_7"></a>Recommendation</h4>
+<h4 id="_推奨_7"><a class="anchor" href="#_推奨_7"></a>推奨</h4>
 <div class="paragraph">
-<p>Use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">WebCrypto API</a> to hide key material from JavaScript, by using <code>extractable=false</code> in <code>generateKey</code> , see <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/generateKey">this</a>. An example for this can be found in the people parties project, see <a href="https://github.com/dfinity/people-parties/blob/06208183a2679189d02bc5e64dcbd71c5f5dfbed/frontend/src/services/auth.ts#L111-L120">here</a>. This makes it impossible to access the private key from JavaScript.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">WebCrypto API</a> を使用して、JavaScript からキーマテリアルを隠します。<code>generateKey</code> で <code>extractable=false</code> を使用します。<a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/generateKey">これ</a> を参照してください。この例は、People Parties プロジェクトで見ることができます。<a href="https://github.com/dfinity/people-parties/blob/06208183a2679189d02bc5e64dcbd71c5f5dfbed/frontend/src/services/auth.ts#L111-L120">ここ</a> を参照してください。これにより、JavaScript から秘密鍵にアクセスすることは不可能になります。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_use_a_secure_web_framework"><a class="anchor" href="#_use_a_secure_web_framework"></a>Use a secure web framework</h3>
+<h3 id="_安全な_web_フレームワークを使用する"><a class="anchor" href="#_安全な_web_フレームワークを使用する"></a>安全な Web フレームワークを使用する</h3>
 <div class="sect3">
-<h4 id="_security_concern_8"><a class="anchor" href="#_security_concern_8"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_8"><a class="anchor" href="#_セキュリティ上の懸念事項_8"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>Modern web frameworks make attacks such as XSS very difficult since they safely escape / sanitize any potentially user-provided data that is rendered on a web page. Not using such a framework is risky as it is hard to avoid attacks like XSS.</p>
+<p>最近の Web フレームワークは、Web ページに表示される潜在的なユーザー提供のデータを安全にエスケープ／サニタイズするため、XSS のような攻撃を非常に難しくしています。このようなフレームワークを使用しないことは、XSS のような攻撃を回避することが困難であるため危険です。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_8"><a class="anchor" href="#_recommendation_8"></a>Recommendation</h4>
+<h4 id="_推奨_8"><a class="anchor" href="#_推奨_8"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Use a web framework that has a secure templating mechanism such as <a href="https://github.com/dfinity/nns-dapplink:https://svelte.dev/">Svelte</a> to avoid XSS. This is used e.g. in the [NNS dApp] projects.</p>
+<p>XSS を回避するために、<a href="https://github.com/dfinity/nns-dapplink:https://svelte.dev/">Svelte</a> のような安全なテンプレート機構を持つ Web フレームワークを使用してください。これは、例えば、[NNS Dapp] プロジェクトで使用されています。</p>
 </li>
 <li>
-<p>Don’t use insecure features of the framework, such as e.g. <a href="https://svelte.dev/docs#template-syntax-html">@html in Svelte</a>.</p>
+<p><a href="https://svelte.dev/docs#template-syntax-html">@html in Svelte</a> のような安全でない機能のフレームワークは使わないでください。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_make_sure_the_logout_is_effective"><a class="anchor" href="#_make_sure_the_logout_is_effective"></a>Make sure the logout is effective</h3>
+<h3 id="_ログアウトが有効であることを確認する"><a class="anchor" href="#_ログアウトが有効であることを確認する"></a>ログアウトが有効であることを確認する</h3>
 <div class="sect3">
-<h4 id="_security_concern_9"><a class="anchor" href="#_security_concern_9"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_9"><a class="anchor" href="#_セキュリティ上の懸念事項_9"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>If a logout action by a user is not effective, this may lead to account takeover e.g. if a shared or public device is used.</p>
+<p>ユーザーによるログアウト操作が有効でない場合、例えば、共有または公共のデバイスが使用されている場合、アカウントの乗っ取りにつながる可能性があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_9"><a class="anchor" href="#_recommendation_9"></a>Recommendation</h4>
+<h4 id="_推奨_9"><a class="anchor" href="#_推奨_9"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Clear all session data (especially <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">sessionStorage</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage</a>), clear <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB</a>, etc. on logout.</p>
+<p>ログアウト時にすべてのセッションデータ（特に <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">sessionStorage</a> と <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage</a> ）、<a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB</a> などをクリアしてください。</p>
 </li>
 <li>
-<p>Make sure also other browser tabs showing the same origin are logged out if the logout is triggered in one tab. This does not happen automatically when agent-js is used, since agent-js keeps the private key in memory once initialized.</p>
+<p>あるタブでログアウトが発生した場合、同じオリジンを表示している他のブラウザタブもログアウトされることを確認してください。これは、agent-js が初期化されると秘密鍵をメモリに保持するため、agent-js を使用する場合は自動的に起こりません。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_use_prompts_to_warn_the_user_on_any_security_critical_actions_let_the_user_explicitly_confirm"><a class="anchor" href="#_use_prompts_to_warn_the_user_on_any_security_critical_actions_let_the_user_explicitly_confirm"></a>Use prompts to warn the user on any security critical actions, let the user explicitly confirm</h3>
+<h3 id="_プロンプトを使用してセキュリティ上重要な操作についてユーザーに警告しユーザーに明示的に確認させる"><a class="anchor" href="#_プロンプトを使用してセキュリティ上重要な操作についてユーザーに警告しユーザーに明示的に確認させる"></a>プロンプトを使用してセキュリティ上重要な操作についてユーザーに警告しユーザーに明示的に確認させる</h3>
 <div class="sect3">
-<h4 id="_security_concern_10"><a class="anchor" href="#_security_concern_10"></a>Security Concern</h4>
+<h4 id="_セキュリティ上の懸念事項_10"><a class="anchor" href="#_セキュリティ上の懸念事項_10"></a>セキュリティ上の懸念事項</h4>
 <div class="paragraph">
-<p>If this is not the case, a user may by accident execute some sensitive actions.</p>
+<p>そうでない場合、ユーザーは誤って機密性の高いアクションを実行する可能性があります。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recommendation_10"><a class="anchor" href="#_recommendation_10"></a>Recommendation</h4>
+<h4 id="_推奨_10"><a class="anchor" href="#_推奨_10"></a>推奨</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Show the user a prompt with a security warning describing the exact consequences of the action and let them confirm explicitly.</p>
+<p>アクションの正確な結果を説明するセキュリティ警告を含むプロンプトをユーザーに表示し、明示的に確認させます。</p>
 </li>
 <li>
-<p>For applications with high security requirements, consider the use of transaction approval, i.e. using e.g. a WebAuthn device to let the user confirm certain critical actions or transactions. This is recommended e.g. when token or cycle transfers is involved. For example, using a hardware wallet in the <a href="https://github.com/dfinity/nns-dapp">NNS dApp</a> achieves this.</p>
+<p>例えば、WebAuthn デバイスを使用して、ユーザーに特定の重要なアクションやトランザクションを確認させることです。これは例えば、トークンや Cycle の転送が含まれる場合に推奨されます。例えば、<a href="https://github.com/dfinity/nns-dapp">NNS Dapp</a> でハードウェアウォレットを使用すると、これが実現されます。</p>
 </li>
 </ul>
 </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Increment a natural number :: Dfinity 日本語ドキュメント</title>
+    <title>自然数のインクリメント :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/developers-guide/tutorials/counter-tutorial.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../../_/css/site.css">
@@ -1160,84 +1160,84 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Increment a natural number</h1>
+<h1 class="page">自然数のインクリメント</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this tutorial, you are going to write a program that creates a single actor and provides a few basic functions to increment a counter and illustrate persistence of a value.</p>
+<p>このチュートリアルでは、単一の Actor を作成し、カウンターをインクリメントし値の永続性を説明するための、いくつかの基本的な関数を提供するプログラムを書くことになります。</p>
 </div>
 <div class="paragraph">
-<p>For this tutorial, the actor is named <code>Counter</code>.
-The program uses the <code>currentValue</code> variable to contain a natural number that represents the current value of the counter.
-This program supports the following function calls:</p>
+<p>このチュートリアルでは、Actor は <code>Counter</code> と名付けます。
+このプログラムは <code>currentValue</code> 変数を使用して、カウンタの現在値を表す自然数を格納します。
+このプログラムは下記の関数呼び出しをサポートします。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>increment</code> function call updates the current value, incrementing it by 1 (no return value).</p>
+<p><code>increment</code> 関数呼び出しは、現在の値を更新し、1 だけ増加させます（戻り値はありません）。</p>
 </li>
 <li>
-<p>The <code>get</code> function call queries and returns the current value of the counter.</p>
+<p><code>get</code> 関数呼び出しは、カウンターの現在値を問い合わせ、返します。</p>
 </li>
 <li>
-<p>The <code>set</code> function call updates the current value to an arbitrary numeric value you specify as an argument.</p>
+<p><code>set</code> 関数呼び出しは、引数で指定した任意の数値に現在の値を更新します。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This tutorial provides a simple example of how you can increment a counter by calling functions on a deployed canister smart contract.
-By calling the functions to increment and query the counter value multiple times, you can verify that the variable state—that is, the value of the variable between calls—persists.</p>
+<p>このチュートリアルでは、デプロイされた Canister スマートコントラクトの関数を呼び出すことで、カウンターをインクリメントする方法を簡単に説明します。
+カウンターの値をインクリメントして照会する関数を複数回呼び出すことで、変数のステートつまり変数の値が、呼び出している間、永続化されることを確認できます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_before_you_begin"><a class="anchor" href="#_before_you_begin"></a>Before you begin</h2>
+<h2 id="_始める前に"><a class="anchor" href="#_始める前に"></a>始める前に</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before starting the tutorial, verify the following:</p>
+<p>チュートリアルを始める前に、下記を確認してください。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You have downloaded and installed the DFINITY Canister SDK package as described in <a href="../../quickstart/local-quickstart.html#download-and-install">Download and install</a>.</p>
+<p><a href="../../quickstart/local-quickstart.html#download-and-install">Download and install</a> で説明されているように、DFINITY Canister SDK パッケージをダウンロードしインストール済み。</p>
 </li>
 <li>
-<p>You have stopped any local canister execution environments running on the computer.</p>
+<p>コンピュータ上で動作しているローカルの Canister 実行環境をすべて停止済み。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This tutorial takes approximately 20 minutes to complete.</p>
+<p>このチュートリアルの所要時間は約 20 分です。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_create_a_new_project"><a class="anchor" href="#_create_a_new_project"></a>Create a new project</h2>
+<h2 id="_新規プロジェクトを作成する"><a class="anchor" href="#_新規プロジェクトを作成する"></a>新規プロジェクトを作成する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To create a new project directory for this tutorial:</p>
+<p>このチュートリアル用に新しいプロジェクトディレクトリを作成するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal shell on your local computer, if you don’t already have one open.</p>
+<p>ローカルのコンピューターでターミナルシェルをまだ開いていない場合、開きます。</p>
 </li>
 <li>
-<p>Change to the folder you are using for your Internet Computer projects, if you are using one.</p>
+<p>Internet Computer プロジェクトで使用しているフォルダがある場合は、そこに移動します。</p>
 </li>
 <li>
-<p>Create a new project by running the following command:</p>
+<p>下記のコマンドを実行することで、新規プロジェクトを作成します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx new my_counter</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command creates a new <code>my_counter</code> project for your project.</p>
+<p>このコマンドは、あなたのプロジェクトに新しい <code>my_counter</code> プロジェクトを作成します。</p>
 </div>
 </li>
 <li>
-<p>Change to your project directory by running the following command:</p>
+<p>下記のコマンドを実行することで、プロジェクトディレクトリに移動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd my_counter</code></pre>
@@ -1249,21 +1249,21 @@ By calling the functions to increment and query the counter value multiple times
 </div>
 </div>
 <div class="sect1">
-<h2 id="_modify_the_default_configuration"><a class="anchor" href="#_modify_the_default_configuration"></a>Modify the default configuration</h2>
+<h2 id="_デフォルトの設定を変更する"><a class="anchor" href="#_デフォルトの設定を変更する"></a>デフォルトの設定を変更する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You have already seen that creating a new project adds a default <code>dfx.json</code> configuration file to your project directory.
-In this tutorial, you will modify the default settings to use a different name for the main program in your project.</p>
+<p>新規プロジェクトを作成すると、デフォルトの <code>dfx.json</code> 設定ファイルがプロジェクトディレクトリに追加されることは、すでにお分かりでしょう。
+このチュートリアルでは、デフォルトの設定を変更することで、プロジェクトのメインプログラムに別の名前を使用します。</p>
 </div>
 <div class="paragraph">
-<p>To modify the <code>dfx.json</code> configuration file:</p>
+<p>設定ファイル <code>dfx.json</code> を変更するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open the <code>dfx.json</code> configuration file in a text editor and change the default <code>main</code> setting from <code>main.mo</code> to <code>increment_counter.mo</code>.</p>
+<p>テキストエディタで <code>dfx.json</code> 設定ファイルを開き、デフォルトの <code>main</code> 設定を <code>main.mo</code> から <code>increment_counter.mo</code> へ変更します。</p>
 <div class="paragraph">
-<p>For example:</p>
+<p>例えば、下記です。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1271,21 +1271,21 @@ In this tutorial, you will modify the default settings to use a different name f
 </div>
 </div>
 <div class="paragraph">
-<p>For this tutorial, changing the name of the source file from <code>main.mo</code> to <code>increment_counter.mo</code> simply illustrates how the setting in the <code>dfx.json</code> configuration file determines the source file to be compiled.</p>
+<p>このチュートリアルでは、ソースファイルの名前を <code>main.mo</code> から <code>increment_counter.mo</code> に変更し、設定ファイル <code>dfx.json</code> の設定でコンパイルされるソースファイルを決める方法を簡単に説明します。</p>
 </div>
 <div class="paragraph">
-<p>In a more complex dapp, you might have multiple source files with dependencies that you need to manage using settings in the <code>dfx.json</code> configuration file.
-In a scenario like that—with multiple canister smart contracts and programs defined in your <code>dfx.json</code> file—having multiple files all named <code>main.mo</code> might be confusing.</p>
+<p>より複雑な Dapp では、依存関係を持つ複数のソースファイルがあり、 <code>dfx.json</code> 設定ファイルの設定を使用して管理する必要があるかもしれません。
+このようなシナリオでは、複数の Canister スマートコントラクトとプログラムが <code>dfx.json</code> ファイルに定義されているので、複数のファイルがすべて <code>main.mo</code> という名前になっていると混乱するかもしれません。</p>
 </div>
 <div class="paragraph">
-<p>You can leave the rest of the default settings as they are.</p>
+<p>それ以外のデフォルトの設定はそのままで大丈夫です。</p>
 </div>
 </li>
 <li>
-<p>Save your change and close the <code>dfx.json</code> file to continue.</p>
+<p>変更を保存して <code>dfx.json</code> ファイルを閉じて続行します。</p>
 </li>
 <li>
-<p>Change the name of the main program file in the source code directory <code>src</code> to match the name specified in the <code>dfx.json</code> configuration file by running the following command</p>
+<p>ソースコードディレクトリ <code>src</code> にあるメインプログラムのファイル名を、設定ファイル <code>dfx.json</code> で指定した名前に合わせ、下記のコマンドを実行することで変更します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mv src/my_counter/main.mo src/my_counter/increment_counter.mo</code></pre>
@@ -1297,42 +1297,42 @@ In a scenario like that—with multiple canister smart contracts and programs de
 </div>
 </div>
 <div class="sect1">
-<h2 id="_modify_the_default_program"><a class="anchor" href="#_modify_the_default_program"></a>Modify the default program</h2>
+<h2 id="_デフォルトのプログラムを変更する"><a class="anchor" href="#_デフォルトのプログラムを変更する"></a>デフォルトのプログラムを変更する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>So far, you have only changed the name of the main program for your project.
-The next step is to modify the code in the <code>src/my_counter/increment_counter.mo</code> file to define an actor named <code>Counter</code> and implement the <code>increment</code>, <code>get</code>, and <code>set</code> functions.</p>
+<p>ここまでのところ、プロジェクトのメインプログラムの名前を変更しただけです。
+次のステップは <code>src/my_counter/increment_counter.mo</code> ファイルのコードを修正して、 <code>Counter</code> という名前の Actor を定義し、 <code>increment</code>、<code>get</code>、<code>set</code> 関数を実装することです。</p>
 </div>
 <div class="paragraph">
-<p>To modify the default template source code:</p>
+<p>デフォルトのテンプレートのソースコードを変更するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check that you are still in your project directory, if needed.</p>
+<p>必要であれば、まだプロジェクトディレクトリにいることを確認します。</p>
 </li>
 <li>
-<p>Open the <code>src/my_counter/increment_counter.mo</code> file in a text editor and delete the existing content.</p>
+<p>テキストエディタで <code>src/my_counter/increment_counter.mo</code> ファイルを開き、既存の中身を削除します。</p>
 </li>
 <li>
-<p>Copy and paste the following sample code into the <code>increment_counter.mo</code> file:</p>
+<p>下記のサンプルコードをコピーして、 <code>increment_counter.mo</code> ファイルに貼り付けます。</p>
 <div class="listingblock copy">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-motoko hljs" data-lang="motoko">// Create a simple Counter actor.
+<pre class="highlightjs highlight"><code class="language-motoko hljs" data-lang="motoko">// シンプルな Counter Actor を作成する。
 actor Counter {
   stable var currentValue : Nat = 0;
 
-  // Increment the counter with the increment function.
+  // increment 関数でカウンターをインクリメントする。
   public func increment() : async () {
     currentValue += 1;
   };
 
-  // Read the counter value with a get function.
+  // get 関数でカウンター値を読み取る。
   public query func get() : async Nat {
     currentValue
   };
 
-  // Write an arbitrary value with a set function.
+  // set 関数で任意の値を書き込む。
   public func set(n: Nat) : async () {
     currentValue := n;
   };
@@ -1340,71 +1340,71 @@ actor Counter {
 </div>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s take a closer look at this sample program:</p>
+<p>下記で、このサンプルプログラムを詳しく見てみましょう。</p>
 </div>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can see that the <code>currentValue</code> variable declaration in this example includes the <code>stable</code> keyword to indicate the state—the value that can be set, incremented, and retrieved—persists.</p>
+<p>この例では、変数 <code>currentValue</code> の宣言に <code>stable</code> キーワードが含まれており、ステート（設定、増加、取得が可能な値）を永続化していることがわかります。</p>
 <div class="paragraph">
-<p>This keyword ensures that the value for the variable is unchanged when the program is upgraded.</p>
+<p>このキーワードは、プログラムがアップグレードされたときに、変数の値が変更されないことを保証します。</p>
 </div>
 </li>
 <li>
-<p>The declaration for the <code>currentValue</code> variable also specifies that its type is a natural number (<code>Nat</code>).</p>
+<p>変数 <code>currentValue</code> の宣言は、その型が自然数 (<code>Nat</code>) であることも指定しています。</p>
 </li>
 <li>
-<p>The program includes two public update methods—the <code>increment</code> and <code>set</code> functions—and one a query method-the <code>get</code> function.</p>
+<p>このプログラムには、2 つのパブリックな更新メソッド <code>increment</code> 関数と <code>set</code> 関数、1 つの照会メソッド <code>get</code> 関数が含まれています。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>For more information about stable and flexible variables, see <a href="../../language-guide/upgrades.html">Stable variables and upgrade methods</a> in the <a href="../../language-guide/motoko.html"><em>Motoko Programming Language Guide</em></a>.</p>
+<p>stable 変数と flexible 変数の詳細は、 <a href="../../language-guide/motoko.html"><em>Motoko Programming Language Guide</em></a> の <a href="../../language-guide/upgrades.html">Stable variables and upgrade methods</a> をご覧ください。</p>
 </div>
 <div class="paragraph">
-<p>For more information about the differences between a query and an update, see <a href="../concepts/canisters-code.html#query-update">Query and update methods</a> in <a href="../concepts/canisters-code.html#canister-state">Canisters include both program and state</a>.</p>
+<p>照会と更新の違いについての詳細は、<a href="../concepts/canisters-code.html#canister-state">Canisters include both program and state</a> の <a href="../concepts/canisters-code.html#query-update">Query and update methods</a> をご覧ください。</p>
 </div>
 </li>
 <li>
-<p>Save your changes and close the file to continue.</p>
+<p>変更を保存し、ファイルを閉じて続行します。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_start_the_local_canister_execution_environment"><a class="anchor" href="#_start_the_local_canister_execution_environment"></a>Start the local canister execution environment</h2>
+<h2 id="_ローカルの_canister_実行環境を起動する"><a class="anchor" href="#_ローカルの_canister_実行環境を起動する"></a>ローカルの Canister 実行環境を起動する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before you can build the <code>my_counter</code> project, you need to either connect to a local canister execution environment simulating the Internet Computer blockchain or to the Internet Computer blockchain mainnet.</p>
+<p><code>my_counter</code> プロジェクトをビルドする前に、Internet Computer ブロックチェーンをシミュレートするローカルの Canister 実行環境 または Internet Computer ブロックチェーンメインネットに接続する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>Starting the local canister execution environment requires a <code>dfx.json</code> file, so you should be sure you are in your project&#8217;s root directory.
-For this tutorial, you should have two separate terminal shells, so that you can start and see network operations in one terminal and manage your project in another.</p>
+<p>ローカルの Canister 実行環境を起動するには <code>dfx.json</code> ファイルが必要なので、プロジェクトのルートディレクトリにいることを確認する必要があります。
+このチュートリアルでは、１つのターミナルでネットワーク操作を開始・確認し、もう１つのターミナルでプロジェクトを管理できるように、別々のターミナルシェルを２つ用意する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>To start the local canister execution environment:</p>
+<p>ローカルの Canister 実行環境を起動するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a new terminal window or tab on your local computer.</p>
+<p>ローカルのコンピューターで新しいターミナルウィンドウまたはタブを開きます。</p>
 </li>
 <li>
-<p>Navigate to the root directory for your project, if necessary.</p>
+<p>必要であれば、プロジェクトのルートディレクトリに移動します。</p>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You should now have <strong>two terminals</strong> open.</p>
+<p><strong>２つのターミナル</strong> を開く必要があります。</p>
 </li>
 <li>
-<p>You should have the <strong>project directory</strong> as your <strong>current working directory</strong>.</p>
+<p><strong>現在の作業ディレクトリ</strong> は、<strong>project ディレクトリ</strong> である必要があります。</p>
 </li>
 </ul>
 </div>
@@ -1412,46 +1412,46 @@ For this tutorial, you should have two separate terminal shells, so that you can
 </div>
 </li>
 <li>
-<p>Start the local canister execution environment on your computer by running the following command:</p>
+<p>下記のコマンドを実行することで、コンピュータのローカルの Canister 実行環境を起動します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx start</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>After you start the local canister execution environment, the terminal displays messages about network operations.</p>
+<p>ローカルの Canister 実行環境を起動すると、ターミナルにネットワーク操作に関するメッセージが表示されます。</p>
 </div>
 </li>
 <li>
-<p>Leave the terminal that displays network operations open and switch your focus to your original terminal where you created your new project.</p>
+<p>ネットワーク操作を表示しているターミナルを開いたままにして、フォーカスを新規プロジェクトを作成した元のターミナルに切り替えてください。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_register_build_and_deploy_the_dapp"><a class="anchor" href="#_register_build_and_deploy_the_dapp"></a>Register, build, and deploy the dapp</h2>
+<h2 id="_dapp_の登録ビルドデプロイを行う"><a class="anchor" href="#_dapp_の登録ビルドデプロイを行う"></a>Dapp の登録、ビルド、デプロイを行う</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you connect to the local canister execution environment running in your development environment, you can register, build, and deploy your dapp locally.</p>
+<p>開発環境で動作しているローカルの Canister 実行環境に接続すると、ローカルで Dapp の登録、ビルド、デプロイを行うことができます。</p>
 </div>
 <div class="paragraph">
-<p>To deploy the dapp locally:</p>
+<p>Dapp をローカルにデプロイするには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check that you are still in the root directory for your project, if needed.</p>
+<p>必要であれば、まだプロジェクトのルートディレクトリにいることを確認します。</p>
 </li>
 <li>
-<p>Register, build, and deploy your dapp by running the following command:</p>
+<p>下記のコマンドを実行することで、アプリを登録、ビルド、デプロイします。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx deploy</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>dfx deploy</code> command output displays information about the operations it performs.</p>
+<p><code>dfx deploy</code> コマンドの出力は、実行した操作に関する情報を表示します。</p>
 </div>
 </li>
 </ol>
@@ -1459,26 +1459,26 @@ For this tutorial, you should have two separate terminal shells, so that you can
 </div>
 </div>
 <div class="sect1">
-<h2 id="_invoke_methods_on_the_deployed_canister_smart_contract"><a class="anchor" href="#_invoke_methods_on_the_deployed_canister_smart_contract"></a>Invoke methods on the deployed canister smart contract</h2>
+<h2 id="_デプロイされた_canister_スマートコントラクトのメソッドを呼び出す"><a class="anchor" href="#_デプロイされた_canister_スマートコントラクトのメソッドを呼び出す"></a>デプロイされた Canister スマートコントラクトのメソッドを呼び出す</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After successfully deploying the canister smart contract, you can simulate an end-user invoking the methods provided by the canister.
-For this tutorial, you invoke the <code>get</code> method to query the value of a counter, the <code>increment</code> method that increments the counter each time it is called, and the <code>set</code> method to pass an argument to update the counter to an arbitrary value you specify.</p>
+<p>Canister スマートコントラクトを正常にデプロイしたら、Canister が提供するメソッドを呼び出すエンドユーザーをシミュレートできます。
+このチュートリアルでは、カウンターの値を照会する <code>get</code> メソッド、呼び出されるたびにカウンターを増加させる <code>increment</code> メソッド、そしてカウンターを指定した任意の値に更新するための引数を渡す <code>set</code> メソッドを呼び出します。</p>
 </div>
 <div class="paragraph">
-<p>To test invoking methods on the deployed canister smart contract:</p>
+<p>デプロイされた Canister スマートコントラクトのメソッドを呼び出すテストをするには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Run the following command to invoke the <code>get</code> function, which reads the current value of the <code>currentValue</code> variable on the deployed canister:</p>
+<p>下記のコマンドを実行して <code>get</code> 関数を呼び出し、デプロイされた Canister の <code>currentValue</code> 変数の現在の値を読み取ります。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call my_counter get</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command returns the current value of the <code>currentValue</code> variable as zero:</p>
+<p>このコマンドは <code>currentValue</code> 変数の現在の値 0 を返します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1487,25 +1487,25 @@ For this tutorial, you invoke the <code>get</code> method to query the value of 
 </div>
 </li>
 <li>
-<p>Run the following command to invoke the <code>increment</code> function to increment the value of the <code>currentValue</code> variable on the deployed canister by one:</p>
+<p>下記のコマンドを実行して <code>increment</code> 関数を呼び出し、デプロイされた Canister の <code>currentValue</code> 変数の値を１つインクリメントします。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call my_counter increment</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command increments the value of the variable—changing its state—but does not return the result.</p>
+<p>このコマンドは変数の値を増加させ、そのステートを変化させますが、結果は返しません。</p>
 </div>
 </li>
 <li>
-<p>Rerun the following command to get the current value of the <code>currentValue</code> variable on the deployed canister:</p>
+<p>下記のコマンドを再実行して、デプロイされた Canister の <code>currentValue</code> 変数の現在値を取得します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call my_counter get</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command returns the updated value of the <code>currentValue</code> variable as one:</p>
+<p>このコマンドは、下記の通り、<code>currentValue</code> 変数の更新された値 1 を返します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1514,9 +1514,9 @@ For this tutorial, you invoke the <code>get</code> method to query the value of 
 </div>
 </li>
 <li>
-<p>Run additional commands to experiment with invoking other methods and using different values.</p>
+<p>追加のコマンドを実行して、他のメソッドを呼び出したり異なる値を使ったりして、実体験します。</p>
 <div class="paragraph">
-<p>For example, try commands similar to the following to set and return the counter value:</p>
+<p>例えば、下記のようなコマンドで、カウンターの値を設定したり、返したりしてみてください。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1525,8 +1525,8 @@ dfx canister call my_counter get</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This returns the updated value of the <code>currentValue</code> to be 987.
-Running the additional commands</p>
+<p>これにより、<code>currentValue</code> の更新された値 987 を返します。
+追加のコマンドを実行します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1535,7 +1535,7 @@ dfx canister call my_counter get</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>returns the incremented <code>currentValue</code> of 988.</p>
+<p>インクリメントされた <code>currentValue</code> 988 を返します。</p>
 </div>
 </li>
 </ol>
@@ -1648,21 +1648,21 @@ dfx canister call my_counter get</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_stop_the_local_canister_execution_environment"><a class="anchor" href="#_stop_the_local_canister_execution_environment"></a>Stop the local canister execution environment</h2>
+<h2 id="_ローカルの_canister_実行環境を停止する"><a class="anchor" href="#_ローカルの_canister_実行環境を停止する"></a>ローカルの Canister 実行環境を停止する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you finish experimenting with your dapp, you can stop the local canister execution environment so that it doesn’t continue running in the background.</p>
+<p>Dapp の実体験が終わったら、バックグラウンドで実行し続けないように、ローカルの Canister 実行環境を停止できます。</p>
 </div>
 <div class="paragraph">
-<p>To stop the local canister execution environment:</p>
+<p>ローカルの Canister 実行環境を停止するには</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In the terminal that displays network operations, press Control-C to interrupt the local canister execution environment.</p>
+<p>ネットワーク操作を表示するターミナルで、Control-C を押して、ローカルの Canister 実行環境を中断します。</p>
 </li>
 <li>
-<p>Stop the local canister execution environment by running the following command:</p>
+<p>下記のコマンドを実行して、ローカルの Canister 実行環境を停止します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx stop</code></pre>

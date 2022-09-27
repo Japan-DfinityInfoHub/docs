@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Network nervous system dapp quick start :: Dfinity 日本語ドキュメント</title>
+    <title>Network Nervous System Dapp クイックスタート :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/token-holders/nns-app-quickstart.html">
     <meta name="description" content="How to create and manage staked ICP utility tokens.">
     <meta name="keywords" content="Internet Computer,neurons,blockchain,governance,cryptocurrency,ICP tokens,smart contracts,cycles,wallet,software,smart contract,canister,developer onboarding">
@@ -1161,105 +1161,104 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Network nervous system dapp quick start</h1>
+<h1 class="page">Network Nervous System Dapp クイックスタート</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>All changes to the configuration and behavior of the Internet Computer are controlled by an algorithmic governance system called the Network Nervous System (NNS).
-The NNS controls all aspects of the Internet Computer blockchain configuration and is responsible for performing many network management operations. For example, the Network Nervous System (NNS) is responsible for:</p>
+<p>Internet Computer の構成と動作に対するすべての変更は、Network Nervous System（NNS）と呼ばれる、アルゴリズムによるガバナンス・システムによって制御されています。
+NNSは Internet Computer ブロックチェーンの構成のすべての側面を制御し、多くのネットワーク管理操作を実行する責任を負っています。例えば、Network Nervous System（NNS）は次のような役割を担っています：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Upgrading the protocol and guest operating system software used by the nodes that provide computing capacity to the network.</p>
+<p>ネットワークに計算能力を提供するノードが使用するプロトコルやゲストオペレーティングシステムのソフトウェアのアップグレード。</p>
 </li>
 <li>
-<p>Inducting new node operators and machines into the network.</p>
+<p>ネットワークに新しいノードオペレーターとマシンを導入。</p>
 </li>
 <li>
-<p>Creating new subnets to increase network capacity.</p>
+<p>ネットワーク容量を増加させるための新しいサブネットの作成。</p>
 </li>
 <li>
-<p>Splitting subnets to balance network load.</p>
+<p>ネットワーク負荷のバランスをとるためのサブネットの分割。</p>
 </li>
 <li>
-<p>Configuring parameters that control how much must be paid by users for compute capacity.</p>
+<p>計算能力に対してユーザーが支払わなければならない金額を制御するパラメーターの設定。</p>
 </li>
 <li>
-<p>Monitoring canister activity and node performance for
-malicious behavior and statistical deviations.</p>
+<p>Canister のアクティビティとノードのパフォーマンスを監視し、悪意のある行動や統計的な逸脱を監視。</p>
 </li>
 <li>
-<p>De-activating malicious software or under-performing nodes to protect the network.</p>
+<p>ネットワークを保護するために悪意のあるソフトウェアやパフォーマンスの低いノードの停止。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The requests for changes and updates to the network are submitted to the NNS in the form of <strong>proposals</strong>.
-The NNS decides to adopt or reject proposals based on voting activity by neuron holders.</p>
+<p>ネットワークに対する変更や更新の要望は、<strong>プロポーザル</strong> という形で NNS に提出されます。
+NNS は Neuron ホルダーによる投票活動に基づいて、プロポーザルの採用・不採用を決定します。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_what_are_neurons"><a class="anchor" href="#_what_are_neurons"></a>What are neurons?</h2>
+<h2 id="_neuron_とは"><a class="anchor" href="#_neuron_とは"></a>Neuron とは？</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For network participants to be able to vote on proposals, they need to lock up a stake of ICP utility tokens for a given period of time to create a representative called a <strong>neuron</strong>.</p>
+<p>ネットワーク参加者がプロポーザルに投票できるようにするには、ICP ユーティリティトークンのステークを一定期間ロックして、<strong>Neuron</strong> と呼ばれるエンティティを作成する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>Because neurons represent a stake of ICP utility tokens, they also represent an identity with a <strong>ledger canister account</strong> and a principal that controls the ledger account.</p>
+<p>Neuron は ICP ユーティリティトークンのステークを表すため、<strong>台帳 Canister アカウント</strong> と台帳アカウントを制御する Principal ID も表します。</p>
 </div>
 <div class="paragraph">
-<p>Neurons provide the stability required for responsible governance of the Internet Computer by ensuring that the ICP utility tokens they represent cannot be exchanged for a specific period of time referred to as the <strong>lock-up</strong> period.</p>
+<p>Neuron は、<strong>ロックアップ</strong> 期間と呼ばれる特定の期間、それらが表す ICP ユーティリティトークンを交換できないようにすることで、Internet Computer の責任あるガバナンスに必要な安定性を提供します。</p>
 </div>
 <div class="paragraph">
-<p>The following diagram provides a simplified view of the workflow for creating a neuron and the relationship between the neuron and ledger canisters.</p>
+<p>次の図は、Neuron を作成するためのワークフローと、Neuron と台帳 Canister の関係を簡略化したものです。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/create-dissolve-neuron-api.svg" alt="create dissolve neuron api"></span></p>
 </div>
 <div class="sect2">
-<h3 id="_governance_and_voting_rewards"><a class="anchor" href="#_governance_and_voting_rewards"></a>Governance and voting rewards</h3>
+<h3 id="_ガバナンスと投票報酬"><a class="anchor" href="#_ガバナンスと投票報酬"></a>ガバナンスと投票報酬</h3>
 <div class="paragraph">
-<p>When a person or organization has ICP utility tokens locked up in a neuron, the neuron holder can propose and vote on governance issues.
-To encourage participation, neuron holders are also rewarded for voting in proportion to the number of ICP utility tokens they have locked up and the length of the lock-up period up to a maximum of eight years.</p>
+<p>個人または組織が ICP ユーティリティトークンを Neuron にロックアップすると、Neuron ホルダーはガバナンスの問題をプロポーザルにし、投票することができます。
+また、参加を促すために、Neuron ホルダーは、ロックアップした ICP ユーティリティトークンの数量とロックアップ期間の長さ（最大8年間）に比例して、投票に対して報酬を得ます。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_unlocking_the_stake_held_by_a_neuron"><a class="anchor" href="#_unlocking_the_stake_held_by_a_neuron"></a>Unlocking the stake held by a neuron</h3>
+<h3 id="_neuron_のステーキングをアンロックする"><a class="anchor" href="#_neuron_のステーキングをアンロックする"></a>Neuron のステーキングをアンロックする</h3>
 <div class="paragraph">
-<p>After network participants create a neuron, the locked balance of ICP utility tokens can only be unlocked by fully <strong>dissolving</strong> the neuron.
-In its <strong>locked</strong> state, the neuron has a fixed non-zero <strong>dissolve delay</strong> equivalent to the lock-up period.
-For example, assume you have a stake of 100 ICP utility tokens locked up for a period of five years.
-After successfully created the neuron with these settings, your dissolve delay is five years.</p>
+<p>ネットワーク参加者が Neuron を作成した後、ロックされた ICP ユーティリティトークンの残高は Neuron を完全に <strong>溶解</strong> (dissolving)することによってのみ解除することができます。
+<strong>ロック状態</strong> では、Neuron はロックアップ期間に相当するゼロ以外の固定 <strong>溶解遅延</strong> (dissolve delay)を有します。
+たとえば、100 ICP ユーティリティトークンのステークを5年間ロックアップしているとします。
+この設定で Neuron を正常に作成した後、あなたの溶解遅延は5年です。</p>
 </div>
 <div class="paragraph">
-<p>Based on the dissolve delay that decreases as time progresses, a <strong>dissolve timer</strong> determines how long it will take to completely dissolve a neuron.</p>
+<p>時間が経つにつれて減少する溶解遅延をもとに、Neuron を完全に溶解するのにかかる時間を <strong>溶解タイマー</strong> (dissolve timer)で決定します。</p>
 </div>
 <div class="paragraph">
-<p>When the dissolve timer reaches zero, the neuron owner—the ICP utility token holder who created the neuron, or an authenticated custodian, can dissolve the neuron and unlock the balance of ICP utility tokens.</p>
+<p>溶解タイマーがゼロになると、Neuron を作成した ICP ユーティリティトークンホルダーの Neuron のオーナーまたは、認証されたカストディアンが、Neuron を溶解して ICP ユーティリティトークン残高のロックを解除することができます。</p>
 </div>
 <div class="paragraph">
-<p>The dissolved neuron ceases to exist and the stake of ICP utility tokens that the neuron represented is released to the appropriate ledger canister account.</p>
+<p>溶解した Neuron は存在しなくなり、その Neuron が表現していた ICP ユーティリティトークンのステークが適切な台帳 Canister アカウントに戻されます。</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_connect_to_the_internet_computer"><a class="anchor" href="#_connect_to_the_internet_computer"></a>Connect to the Internet Computer</h2>
+<h2 id="_internet_computer_に接続する"><a class="anchor" href="#_internet_computer_に接続する"></a>Internet Computer に接続する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To connect to the Internet Computer using the Network Nervous System (NNS) dapp:</p>
+<p>Network Nervous System (NNS) Dapp を使って Internet Computer に接続する場合：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a browser and navigate to the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp.</p>
+<p>ブラウザを開き、<a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dappに移動します。</p>
 </li>
 <li>
-<p>Click <strong>Login</strong> to connect to <a href="https://identity.ic0.app">Internet Identity</a>.</p>
+<p><a href="https://identity.ic0.app">Internet Identity</a> に接続するために <strong>Login</strong> をクリックします。</p>
 <div class="paragraph">
-<p>If you haven&#8217;t previously registered, you can click <strong>Register with Internet Identity</strong> to register.</p>
+<p>まだ登録していない場合は、<strong>Register with Internet Identity</strong> をクリックして登録します。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1268,78 +1267,78 @@ After successfully created the neuron with these settings, your dissolve delay i
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-We strongly recommend you add multiple devices and authentication methods to your Internet Identity. For example, register multiple physical devices like your computer and phone with a security key and using the authentication options that those devices—and browsers running on them—support.
+Internet Identity には、複数のデバイスと認証方法を追加することを強くお勧めします。例えば、パソコンや携帯電話などの複数の物理デバイスをセキュリティキーで登録し、それらのデバイスやデバイス上で動作するブラウザがサポートする認証オプションを使用します。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>For more information about creating an Internet Identity, see <a href="../ic-identity-guide/auth-how-to.html">How to use Internet Identity</a>.</p>
+<p>Internet Identity の作成について詳しくは、<a href="&#8230;&#8203;/ic-identity-guide/auth-how-to.html">Internet Identity の使用方法</a> を参照してください。</p>
 </div>
 <div class="paragraph">
-<p>After you have registered, you can click <strong>Login</strong> to authenticate using your anchor and the authentication method—for example, a security key or fingerprint—you have registered.</p>
+<p>登録後、<strong>Login</strong> をクリックすると、Anchor と登録した認証方法（セキュリティキーや指紋など）を使用して認証することができます。</p>
 </div>
 </li>
 <li>
-<p>Click <strong>Proceed</strong> to access to the Network Nervous System (NNS) dapp.</p>
+<p><strong>Proceed</strong> をクリックすると、Network Nervous System (NNS) Dapp にアクセスできます。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_add_an_account"><a class="anchor" href="#_add_an_account"></a>Add an account</h2>
+<h2 id="_アカウントを追加する"><a class="anchor" href="#_アカウントを追加する"></a>アカウントを追加する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Logging on using an Internet Identity creates a Main account for you in the Internet Computer ledger.
-If your ICP utility tokens are associated with your developer identity; that is, the identity created by the DFINITY Canister SDK <code>dfx</code> command-line interface. Your Main account displays 0.00 for your ICP utility token balance.
-For example:</p>
+<p>Internet Identity を使用してログオンすると、Internet Computer 台帳にあなたのための メインアカウントが作成されます。
+ICP ユーティリティトークンが開発者 Identity、つまり DFINITY Canister SDK <code>dfx</code> コマンドラインインターフェースによって作成された Identity に関連付けられている場合、メインアカウントには、ICP ユーティリティトークンの残高として0.00が表示されます。
+たとえば、以下のようになります：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/nns-app-main.png" alt="nns app main"></span></p>
 </div>
 <div class="paragraph">
-<p>Before transferring any tokens, you can create one or more linked subaccounts or attach a hardware wallet to your account.</p>
+<p>トークンを転送する前に、1つ以上のリンクされたサブアカウントを作成するか、アカウントにハードウェアウォレットをアタッチすることができます。</p>
 </div>
 <div class="paragraph">
-<p>To add an account for managing ICP utility tokens:</p>
+<p>ICP ユーティリティトークンを管理するためのアカウントを追加するには：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a browser and navigate to the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp.</p>
+<p>ブラウザを開き、<a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dappに移動してください。</p>
 </li>
 <li>
-<p>Click <strong>Login</strong> to connect using your Internet Identity.</p>
+<p><strong>Login</strong> をクリックし、Internet Identity を使用して接続します。</p>
 </li>
 <li>
-<p>Verify your identification number, then click <strong>Login</strong> to authenticate using the device and authentication method you have registered.</p>
+<p>ID番号（Anchor）を確認し、<strong>Login</strong> をクリックして、登録したデバイスと認証方法を使用して認証します。</p>
 </li>
 <li>
-<p>Click <strong>Proceed</strong> to access to the Network Nervous System (NNS) dapp.</p>
+<p>Network Nervous System (NNS) Dapp にアクセスするには、<strong>Proceed</strong> をクリックします。</p>
 </li>
 <li>
-<p>On the default ICP tab, click <strong>Add Account</strong>.</p>
+<p>デフォルトの ICP タブで、<strong>Add Account</strong> をクリックします。</p>
 </li>
 <li>
-<p>Select the type of account to add.</p>
+<p>追加するアカウントの種類を選択します。</p>
 <div class="openblock">
 <div class="content">
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><strong>New Linked Account</strong> creates a new subaccount linked to your Main account address in the ledger.</p>
+<p><strong>New Linked Account</strong> は、元帳のメインアカウントのアドレスにリンクされた新しいサブアカウントを作成します。</p>
 </li>
 <li>
-<p><strong>Attach Hardware Wallet</strong> adds a hardware wallet to your main account address in the ledger.</p>
+<p><strong>Attach Hardware Wallet</strong> は、台帳上のメイン口座のアドレスにハードウェアウォレットを追加します。</p>
 </li>
-</ul>
+</ol>
 </div>
 </div>
 </div>
 </li>
 <li>
-<p>Click <strong>New Linked Account</strong>, type an Account Name, then click <strong>Create</strong>.</p>
+<p><strong>New Linked Account</strong> をクリックし、Account Nameを入力し、<strong>Create</strong> をクリックします。</p>
 <div class="paragraph">
 <p><span class="image"><img src="_images/new-linked-account.png" alt="new linked account"></span></p>
 </div>
@@ -1349,29 +1348,29 @@ For example:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_transfer_icp_utility_tokens_between_accounts"><a class="anchor" href="#_transfer_icp_utility_tokens_between_accounts"></a>Transfer ICP utility tokens between accounts</h2>
+<h2 id="_icp_ユーティリティトークンのアカウント間送金をする"><a class="anchor" href="#_icp_ユーティリティトークンのアカウント間送金をする"></a>ICP ユーティリティトークンのアカウント間送金をする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you have selected self-custody for holding your ICP utility tokens and the tokens are associated with your developer identity instead of your registered Internet Identity, you need to transfer ICP utility tokens to your accounts if you want to manage them using the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp.</p>
+<p>ICP ユーティリティトークンの保持にセルフカストディを選択し、トークンが登録した Internet Identity ではなく、開発者 Identity に関連付けられている場合で <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp を使って管理したい場合は、ICP ユーティリティトークンを自分のアカウントに転送する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>To transfer ICP utility tokens controlled by your developer identity:</p>
+<p>開発者 Identity で管理された ICP ユーティリティトークンを転送するには：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal shell on your local computer.</p>
+<p>ローカルコンピュータでターミナルシェルを開きます。</p>
 </li>
 <li>
-<p>Check that you are using an identity with control over the ledger account by running the following command:</p>
+<p>以下のコマンドを実行して、台帳アカウントを制御する Identity を使用していることを確認します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity whoami</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In most cases, you should see that you are currently using your <code>default</code> developer identity.
-For example:</p>
+<p>ほとんどの場合、現在 <code>default</code> の開発者 Identity を使用していることが確認できるはずです。
+たとえば、以下のように表示されます：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1380,14 +1379,14 @@ For example:</p>
 </div>
 </li>
 <li>
-<p>View the textual representation of the principal for your current identity by running the following command:</p>
+<p>次のコマンドを実行して、現在の Identity の Principal IDのテキスト表現を表示します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity get-principal</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays output similar to the following:</p>
+<p>このコマンドは、次のような出力を表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1396,7 +1395,7 @@ For example:</p>
 </div>
 </li>
 <li>
-<p>Check the current balance in the ledger account associated with your identity by running the following command:</p>
+<p>以下のコマンドを実行して、自分の Identity に関連する台帳アカウントの現在の残高を確認します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic balance</code></pre>
@@ -1404,20 +1403,20 @@ For example:</p>
 </div>
 </li>
 <li>
-<p>Transfer ICP utility tokens to your Main account or a linked subaccount you create by running a command similar to the following:</p>
+<p>以下のようなコマンドを実行して、ICP ユーティリティトークンを自分のメインアカウントまたは作成したリンク先のサブアカウントに転送します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic transfer &lt;destination-account-id&gt; --icp &lt;ICP-amount&gt; --memo &lt;numeric-memo&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example, assume you have the following accounts:</p>
+<p>例えば、以下のようなアカウントがあるとします：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/accounts.png" alt="accounts"></span></p>
 </div>
 <div class="paragraph">
-<p>If you want to transfer one ICP utility token to the <code>Main</code> account, you can run the following command:</p>
+<p>ICP ユーティリティトークンを1つだけ <code>Main</code> アカウントに転送したい場合は、以下のコマンドを実行します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1425,7 +1424,7 @@ For example:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>If you also want to transfer one ICP utility token to the <code>pubs</code> account, you can run the following command:</p>
+<p>また、ICP ユーティリティトークンを1つだけ <code>pubs</code> アカウントに転送したい場合は、以下のコマンドを実行します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1433,30 +1432,30 @@ For example:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This example illustrates how to transfer ICP utility tokens to using a whole number with the <code>--icp</code> command-line option.</p>
+<p>この例では、<code>--icp</code> コマンドラインオプションを使用して、ICP ユーティリティトークンを整数で転送する方法を説明します。</p>
 </div>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can also specify fractional units of ICP utility tokens—called <strong>e8s</strong>—using the <code>--e8s</code> option, either on its own or in conjunction with the <code>--icp</code> option.</p>
+<p>また、<code>--e8s</code> オプションを単独で、あるいは <code>--icp</code> オプションと組み合わせて使用すると、ICP ユーティリティトークンの端数を <strong>e8s</strong> と呼ぶ単位で指定することができます。</p>
 </li>
 <li>
-<p>Alternatively, you can use the <code>--amount</code> to  specify the number of ICP utility tokens to transfer with fractional units up to 8 decimal places, for example, as <code>5.00000025</code>.</p>
+<p>また、<code>--amount</code> オプションを使用すると、転送する ICP ユーティリティトークンの数を小数点以下8桁まで、例えば <code>5.00000025</code> のように指定することができます。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>The destination address can be an address in the ledger canister running on the Internet Computer network, an account you have added using the <a href="https://nns.ic0.app">Network Nervous System dapp</a>, or the address for a wallet you have on an exchange.</p>
+<p>宛先アドレスは、Internet Computer ネットワーク上で動作する台帳 Canister のアドレス、<a href="https://nns.ic0.app">Network Nervous System Dapp</a> を使って追加したアカウント、取引所にあるウォレットのアドレスのいずれかにすることができます。</p>
 </div>
 <div class="paragraph">
-<p>If you transfer the ICP utility tokens to an account in the <a href="https://nns.ic0.app">Network Nervous System dapp</a>, you might need to refresh the browser to see the transaction reflected.</p>
+<p>ICP ユーティリティトークンを <a href="https://nns.ic0.app">Network Nervous System Dapp</a> のアカウントに転送した場合、取引の反映を確認するためにブラウザを更新する必要がある場合があります。</p>
 </div>
 <div class="paragraph">
-<p>For more information about using the <code>dfx ledger</code> command-line options, see <a href="../developers-guide/cli-reference/dfx-ledger.html">dfx ledger</a>.</p>
+<p><code>dfx ledger</code> のコマンドラインオプションの使い方については、<a href="../developers-guide/cli-reference/dfx-ledger.html">dfx ledger</a> を参照してください。</p>
 </div>
 </li>
 </ol>
@@ -1464,50 +1463,50 @@ For example:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="stake-icp"><a class="anchor" href="#stake-icp"></a>Stake ICP utility tokens in a neuron</h2>
+<h2 id="stake-icp"><a class="anchor" href="#stake-icp"></a>Neuron で ICP ユーティリティトークンをステーキングする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After you transfer ICP utility tokens to the Network Nervous System dapp, you can use the Network Nervous System dapp to create and manage neurons, vote on proposals, and create canisters on the Internet Computer.</p>
+<p>ICP ユーティリティトークンを Network Nervous System Dapp に転送すると、Network Nervous System Dapp を使用して、Internet Computer 上で Neuron の作成と管理、プロポーザルへの投票、Canister の作成ができるようになります。</p>
 </div>
 <div class="paragraph">
-<p>Neurons are required to participate in governance and earn rewards.
-To create a neuron, you must lock up some number of ICP utility tokens for a period of time. The minimum stake required to create a neuron is one ICP utility token.
-You can configure the period of time the stake is locked from six months up to a maximum of eight years.</p>
+<p>Neuron はガバナンスに参加し報酬を得るために必要です。
+Neuron を作成するには、ある程度の数の ICP ユーティリティトークンを一定期間ロックする必要があります。Neuron を作成するために必要な最小の出資金は、1 ICP ユーティリティトークンです。
+ステークをロックする期間は、6ヵ月から最長8年まで設定できます。</p>
 </div>
 <div class="paragraph">
-<p>To stake ICP utility tokens:</p>
+<p>ICPユーティリティトークンをステークするには：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a browser and navigate to the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp.</p>
+<p>ブラウザを開き、<a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp に移動してください。</p>
 </li>
 <li>
-<p>Click <strong>Login</strong> to connect using your Internet Identity.</p>
+<p><strong>Login</strong> をクリックし、Internet Identity を使用して接続します。</p>
 </li>
 <li>
-<p>Verify your identification number, then click <strong>Login</strong> to authenticate using the device and authentication method you have registered.</p>
+<p>ID番号（Anchor）を確認し、<strong>Login</strong> をクリックして、登録したデバイスと認証方法を使用して認証します。</p>
 </li>
 <li>
-<p>Click <strong>Proceed</strong> to access to the Network Nervous System (NNS) dapp.</p>
+<p>Network Nervous System (NNS) Dapp にアクセスするには、<strong>Proceed</strong> をクリックします。</p>
 </li>
 <li>
-<p>Click <strong>Neurons</strong>, then click <strong>Stake Neuron</strong>.</p>
+<p><strong>Neurons</strong> をクリックし、<strong>Stake Neuron</strong> をクリックします。</p>
 </li>
 <li>
-<p>Type the number of ICP utility tokens to stake, then click <strong>Create</strong>.</p>
+<p>ステークする ICP ユーティリティトークンの数を入力し、<strong>Create</strong> をクリックします。</p>
 </li>
 <li>
-<p>Set the dissolve delay for the neuron to control the length of time the stake is locked, then click <strong>Update Delay</strong>.</p>
+<p>ステークがロックされている時間の長さを制御するために、Neuron の溶解遅延を設定し、<strong>Update Delay</strong> とクリックします。</p>
 <div class="paragraph">
-<p>For example:</p>
+<p>例：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/dissolve-delay.png" alt="dissolve delay"></span></p>
 </div>
 </li>
 <li>
-<p>Click <strong>Yes, I&#8217;m sure</strong> to confirm the lock up period, then close the window to review the newly-created neuron properties.</p>
+<p><strong>Yes, I&#8217;m sure</strong> をクリックしてロックアップ期間を確認し、ウィンドウを閉じて新しく作成された Neuron のプロパティを確認します。</p>
 <div class="paragraph">
 <p><span class="image"><img src="_images/neuron-properties.png" alt="neuron properties"></span></p>
 </div>
@@ -1515,80 +1514,80 @@ You can configure the period of time the stake is locked from six months up to a
 </ol>
 </div>
 <div class="sect2">
-<h3 id="_what_you_can_do_after_creating_a_neuron"><a class="anchor" href="#_what_you_can_do_after_creating_a_neuron"></a>What you can do after creating a neuron</h3>
+<h3 id="_neuron_作成後にできること"><a class="anchor" href="#_neuron_作成後にできること"></a>Neuron 作成後にできること</h3>
 <div class="paragraph">
-<p>After you have locked the stake and created a neuron, you can:</p>
+<p>ステーキングロックし、Neuron を作成した後、次のことができます。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Start the dissolve delay timer by clicking <strong>Start Unlock</strong>.</p>
+<p>溶解遅延タイマー(dissolve delay timer)を開始するには、<strong>Start Unlock</strong> をクリックします。</p>
 </li>
 <li>
-<p>Increase the dissolve delay period by clicking <strong>Increase Dissolve Delay</strong>.</p>
+<p><strong>Increase Dissolve Delay</strong> をクリックして、溶解遅延タイマーを増やします。</p>
 </li>
 <li>
-<p>Stop the dissolve delay after starting the unlock countdown by clicking <strong>Lockup</strong>.</p>
+<p><strong>Lockup</strong> をクリックすると、ロック解除のカウントダウンを開始した後、溶解遅延を停止します。</p>
 </li>
 <li>
-<p>Increase the number of ICP utility tokens you have staked.</p>
+<p>ステークしている ICP ユーティリティートークンの数を増やします。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_starting_and_stopping_the_dissolve_delay"><a class="anchor" href="#_starting_and_stopping_the_dissolve_delay"></a>Starting and stopping the dissolve delay</h3>
+<h3 id="_溶解遅延の開始と停止"><a class="anchor" href="#_溶解遅延の開始と停止"></a>溶解遅延の開始と停止</h3>
 <div class="paragraph">
-<p>Creating a new neuron does not automatically start the dissolve delay timer.
-You must explicitly start the timer countdown by clicking <strong>Start Unlock</strong>.</p>
+<p>新しい Neuron を作成しても、溶解遅延タイマーは自動的に開始されません。
+タイマーのカウントダウンを開始するには、<strong>Start Unlock</strong> をクリックして明示的に開始する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>For example, if you set a dissolve delay of one year and want to immediately begin the countdown, you should click <strong>Start Unlock</strong> as part of the process of creating the neuron.
-If you change your mind and want to stop a current countdown in progress, you can click <strong>Lockup</strong>,
-After you click <strong>Lockup</strong> to stop the dissolve delay, you can click <strong>Start Unlock</strong> to resume the countdown without changing the existing dissolve delay period.
-If you want to continue a countdown already in progress but extend the lock up period, you can click <strong>Increase Dissolve Delay</strong> then select a longer dissolve delay.</p>
+<p>例えば、溶解遅延を1年に設定し、すぐにカウントダウンを開始したい場合は、Neuron を作成する過程で <strong>Start Unlock</strong> をクリックします。
+気が変わって、現在進行中のカウントダウンを停止したい場合は、<strong>Lockup</strong> をクリックします。
+<strong>Lockup</strong> をクリックして溶解遅延を停止した後、<strong>Start Unlock</strong> をクリックすると、既存の溶解遅延期間(dissolve delay period)を変更せずにカウントダウンを再開することができます。
+既に進行中のカウントダウンを継続し、ロックアップ期間を延長したい場合は、<strong>Increase Dissolve Delay</strong> をクリックし、より長い溶解遅延を選択することができます。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_adding_icp_utility_tokens_to_an_existing_neuron"><a class="anchor" href="#_adding_icp_utility_tokens_to_an_existing_neuron"></a>Adding ICP utility tokens to an existing neuron</h3>
+<h3 id="_既存の_neuron_への_icp_ユーティリティトークンを追加する"><a class="anchor" href="#_既存の_neuron_への_icp_ユーティリティトークンを追加する"></a>既存の Neuron への ICP ユーティリティトークンを追加する</h3>
 <div class="paragraph">
-<p>After you create a neuron, you can increase the number of ICP utility tokens you have staked in that neuron to increase your voting power and rewards.
-For example, if you initially stake a small number of ICP utility tokens, then decide to purchase additional tokens, you have the option to create a new neuron or "top-up" your existing neuron.</p>
+<p>Neuron を作成した後、その Neuron に賭けた ICP ユーティリティトークンの数を増やして、投票権と報酬を増やすことができます。
+たとえば、最初に少数の ICP ユーティリティトークンを賭け、その後追加でトークンを購入することにした場合、新しい Neuron を作成するか、既存の Neuron を追加(top-up)するオプションがあります。</p>
 </div>
 <div class="paragraph">
-<p>To increase the stake in an existing neuron:</p>
+<p>既存の Neuorn のステークを増やすには：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Follow the steps in <a href="#stake-icp">Stake ICP utility tokens in a neuron</a> to stake the original neuron using the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp.</p>
+<p><a href="#stake-icp">Neuron で ICP ユーティリティトークンをステーキングする</a> の手順で、<a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp を使って元の Neuron をステークします。</p>
 </li>
 <li>
-<p>Look up the transaction in the Internet Computer Association <a href="https://dashboard.internetcomputer.org/transactions">transaction dashboard</a> to get the neuron address.</p>
+<p>Internet Computer Association でトランザクションを検索します。<a href="https://dashboard.internetcomputer.org/transactions">取引ダッシュボード</a> で取引を検索し、Neuron アドレスを取得します。</p>
 <div class="paragraph">
-<p>You can use the account identifier for your main ICP ledger account to search for your transactions.</p>
+<p>ICP のメイン台帳アカウント ID を使って、トランザクションを検索することができます。</p>
 </div>
 </li>
 <li>
-<p>Return to the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp, then click <strong>New Transaction</strong>.</p>
+<p><a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp に戻り、<strong>New Transaction</strong> をクリックします。</p>
 </li>
 <li>
-<p>Paste the neuron address from the transaction dashboard into the <strong>Destination</strong> address field, then click <strong>Continue</strong>.</p>
+<p>トランザクションダッシュボードから Neuron アドレスを <strong>Destination</strong> アドレスフィールドに貼り付け、<strong>Continue</strong> をクリックします。</p>
 </li>
 <li>
-<p>Type the amount of ICP utility tokens you want to add to the specified neuron, then click <strong>Continue</strong>.</p>
+<p>指定した Neuron に追加したい ICP ユーティリティトークンの量を入力し、<strong>Continue</strong> をクリックします。</p>
 </li>
 <li>
-<p>Verify the transaction details, then click <strong>Confirm and Send</strong>.</p>
+<p>取引内容を確認し、<strong>Confirm and Send</strong> をクリックします。</p>
 <div class="paragraph">
 <p><span class="image"><img src="_images/confirm-top-up.png" alt="confirm top up"></span></p>
 </div>
 </li>
 <li>
-<p>Verify the completed transaction, then click <strong>Close</strong>.</p>
+<p>完了した取引を確認し、<strong>Close</strong> をクリックします。</p>
 </li>
 <li>
-<p>Click the <strong>Neurons</strong> tab to see the increased stake.</p>
+<p>増加したステークを確認するには、<strong>Neurons</strong> タブをクリックします。</p>
 </li>
 </ol>
 </div>
@@ -1596,136 +1595,136 @@ For example, if you initially stake a small number of ICP utility tokens, then d
 </div>
 </div>
 <div class="sect1">
-<h2 id="_configure_following_rules"><a class="anchor" href="#_configure_following_rules"></a>Configure following rules</h2>
+<h2 id="_以下のルールを設定する"><a class="anchor" href="#_以下のルールを設定する"></a>以下のルールを設定する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Active participation in governance is an important factor in the long-term health of the Internet Computer.
-Voting on proposals is also an important factor in calculating the rewards you receive in return for locking up ICP utility tokens in neurons.</p>
+<p>ガバナンスへの積極的な参加は、Internet Computer の長期的な健全性を保つための重要な要素です。
+またプロポーザルに対する投票も、ICP ユーティリティトークンを Neuron に固定する見返りとして受け取る報酬を計算する上で重要な要素になります。</p>
 </div>
 <div class="paragraph">
-<p>However, voting directly on every proposal submitted to the NNS presents several challenges.
-For example, proposals might be submitted and require a vote when you are unavailable or propose changes that you lack the expertise to evaluate.
-To address these challenges, you can configure neurons to vote automatically to adopt or reject proposals by following the votes of a group of neurons.</p>
+<p>しかし、NNS に提出されたすべてのプロポーザルに直接投票することは、いくつかの課題をもたらします。
+たとえば、あなたが不在のときにプロポーザルが提出されて投票が必要になったり、評価するための専門知識が不足している変更がプロポーザルされたりする可能性があります。
+これらの課題に対処するために、Neuron のグループの投票に従うことによって、プロポーザルを採用または拒否するために自動的に投票するように Neuron を構成することができます。</p>
 </div>
 <div class="paragraph">
-<p>To maximize your rewards, you should vote on as many proposals as possible by following the active neuron holders who have interests aligned with your own. For example, you might follow the Internet Computer Association (ICA) on some topics such <strong>SubnetManagement</strong> and other neuron holders on topics such as <strong>Governance</strong>.</p>
+<p>報酬を最大化するためには、自分と利害が一致するアクティブな Neuron ホルダーをフォローして、できるだけ多くのプロポーザルに投票する必要があります。例えば、<strong>SubnetManagement</strong> などのトピックでは Internet Computer Association (ICA) を、<strong>Governance</strong> などのトピックでは他の Neuron ホルダーをフォローすることができます。</p>
 </div>
 <div class="paragraph">
-<p>To configure how you follow other neuron holders:</p>
+<p>他の Neuron ホルダーをどのようにフォローするかを設定するには：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a browser and navigate to the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp.</p>
+<p>ブラウザを開き、<a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp に移動してください。</p>
 </li>
 <li>
-<p>Click <strong>Login</strong> to connect using your Internet Identity.</p>
+<p><strong>Login</strong> をクリックし、Internet Identity を使用して接続します。</p>
 </li>
 <li>
-<p>Verify your identification number, then click <strong>Login</strong> to authenticate using the device and authentication method you have registered.</p>
+<p>ID番号（Anchor）を確認し、<strong>Login</strong> をクリックして、登録したデバイスと認証方法を使用して認証します。</p>
 </li>
 <li>
-<p>Click <strong>Proceed</strong> to access to the Network Nervous System (NNS) dapp.</p>
+<p>Network Nervous System (NNS) Dapp にアクセスするには、<strong>Proceed</strong> をクリックします。</p>
 </li>
 <li>
-<p>Click <strong>Neurons</strong>, then click the link for a specific neuron identifier to display its properties.</p>
+<p><strong>Neurons</strong> をクリックし、特定の Neuron 識別子のリンクをクリックして、プロパティを表示します。</p>
 </li>
 <li>
-<p>Click <strong>Edit Followees</strong>.</p>
+<p>Followees の <strong>Edit Followees</strong> をクリックします。</p>
 </li>
 <li>
-<p>Choose a proposal topic.</p>
+<p>プロポーザルトピックを選択します。</p>
 <div class="paragraph">
-<p>For example, expand the Governance topic, then click <strong>Enter Followee</strong>.</p>
+<p>例えば、「ガバナンス」トピックを展開し、<strong>Enter Followee</strong> をクリックします。</p>
 </div>
 </li>
 <li>
-<p>Select a neuron holder to follow, then click <strong>Follow</strong>.</p>
+<p>フォローする Neuron ホルダーを選択し、<strong>Follow</strong> をクリックします。</p>
 <div class="paragraph">
-<p>For example, click <strong>Follow</strong> for the Internet Computer Association.</p>
+<p>例えば、Internet Computer Associationの場合は、<strong>Follow</strong> をクリックします。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/follow-ica.png" alt="follow ica"></span></p>
 </div>
 <div class="paragraph">
-<p>The neuron holder is added to you Currently Following list.</p>
+<p>Neuron ホルダーが現在のフォローリストに追加されました。</p>
 </div>
 </li>
 <li>
-<p>Repeat for each topic where you want your neuron&#8217;s votes to automatically follow the votes of one or more other neuron holders.</p>
+<p>自分の Neuron の投票を、他の Neuron ホルダーの投票に自動的に従わせたいトピック毎にこれを繰り返します。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_disburse_dissolved_neurons_into_an_account"><a class="anchor" href="#_disburse_dissolved_neurons_into_an_account"></a>Disburse dissolved neurons into an account</h2>
+<h2 id="_溶解後_neurondissolved_neuronをアカウントに払い出す"><a class="anchor" href="#_溶解後_neurondissolved_neuronをアカウントに払い出す"></a>溶解後 Neuron(dissolved neuron)をアカウントに払い出す</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When the dissolve delay timer for a neuron reaches zero, you can disburse the neuron’s stake and transfer its locked ICP utility token balance to the ledger account you specify.
-After you take this step, the neuron identifier and its ledger history are permanently removed from the governance canister.</p>
+<p>Neuron の溶解遅延タイマーが 0 になると、その Neuron のステークを払い出し、ロックされた ICP ユーティリティトークン残高を指定した台帳アカウントに転送することができます。
+この手順を実行すると、Neuron の識別子とその台帳の履歴はガバナンス Canister から永久に削除されます。</p>
 </div>
 <div class="paragraph">
-<p>To disburse a neuron and return its ICP utility tokens:</p>
+<p>Neuron を払い戻し、その ICP ユーティリティトークンを払い戻すには：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a browser and navigate to the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp.</p>
+<p>ブラウザを開き、<a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp に移動してください。</p>
 </li>
 <li>
-<p>Click <strong>Login</strong> to connect using your Internet Identity.</p>
+<p><strong>Login</strong> をクリックし、Internet Identity を使用して接続します。</p>
 </li>
 <li>
-<p>Verify your identification number, then click <strong>Login</strong> to authenticate using the device and authentication method you have registered.</p>
+<p>ID番号（Anchor）を確認し、<strong>Login</strong> をクリックして、登録したデバイスと認証方法を使用して認証します。</p>
 </li>
 <li>
-<p>Click <strong>Proceed</strong> to access to the Network Nervous System (NNS) dapp.</p>
+<p>Network Nervous System (NNS) Dapp にアクセスするには、<strong>Proceed</strong> をクリックします。</p>
 </li>
 <li>
-<p>Click <strong>Neurons</strong>, then click Unlocked neuron that has reach the ended of its dissolve delay period.</p>
+<p><strong>Neurons</strong> をクリックし、溶解遅延期間が終了した Unlocked neuron をクリックします。</p>
 <div class="paragraph">
-<p>For example:</p>
+<p>例：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/unlocked-neuron.png" alt="unlocked neuron"></span></p>
 </div>
 </li>
 <li>
-<p>Click <strong>Disburse</strong>.</p>
+<p><strong>Disburse</strong> をクリックする。</p>
 <div class="paragraph">
-<p>For example:</p>
+<p>例：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/disburse.png" alt="disburse"></span></p>
 </div>
 </li>
 <li>
-<p>Type an address or select an account to receive the ICP utility tokens.</p>
+<p>ICP ユーティリティトークンを受け取るためのアドレスを入力するか、アカウントを選択します。</p>
 <div class="paragraph">
-<p>For example, you might select the <code>dev-projects</code> linked account:</p>
+<p>例えば、<code>dev-projects</code> のリンクアカウントを選択することができます。</p>
 </div>
 </li>
 <li>
-<p>Verify the transaction information, then click <strong>Confirm and Send</strong>.</p>
+<p>トランザクション情報を確認し、<strong>Confirm and Send</strong> をクリックします。</p>
 <div class="paragraph">
-<p>For example, check that the Destination address matches the intended address of the <code>dev-projects</code> linked account:</p>
+<p>例えば、リンク先アカウント <code>dev-projects</code> の意図したアドレスと一致する宛先アドレスをクリックします。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/confirm-send.png" alt="confirm send"></span></p>
 </div>
 </li>
 <li>
-<p>Verify the completed transaction, then click <strong>Close</strong>.</p>
+<p>完了した取引を確認し、<strong>Close</strong> をクリックします。</p>
 <div class="paragraph">
-<p>For example:</p>
+<p>例：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/confirmation.png" alt="confirmation"></span></p>
 </div>
 <div class="paragraph">
-<p>If you transferred the ICP utility tokens to one of your accounts in the Internet Computer ledger canister, you can click the ICP tab and see your new balance reflected.
-For example:</p>
+<p>ICP ユーティリティトークンを Internet Computer 台帳 Canister のいずれかのアカウントに転送した場合、ICP タブをクリックすると、新しい残高が反映されていることを確認できます。
+例えば、以下のようになります。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/updated-icp.png" alt="updated icp"></span></p>
@@ -1736,46 +1735,47 @@ For example:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_spawn_new_neurons"><a class="anchor" href="#_spawn_new_neurons"></a>Spawn new neurons</h2>
+<h2 id="_新しい_neuron_を産出するspawn"><a class="anchor" href="#_新しい_neuron_を産出するspawn"></a>新しい Neuron を産出する(spawn)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As you vote on proposals—either directly or by following the votes of other neurons—the maturity associated with your neuron increases, which in turn increases the rewards you earn for participating in governance.
-When the maturity for a locked stake reaches a minimum threshold of one ICP, you can spawn a new neuron.
-The spawn operation creates a new neuron that locks a new balance of ICP on the ledger.</p>
+<p>プロポーザルに直接、または他の Neuron の投票に従って投票すると、あなたの Neuron に関する成熟度が上がり、ガバナンスに参加することで得られる報酬が増加します。
+ロックされたステークに対する成熟度が最低閾値の1 ICP に達すると、新しい Neuron を産出(spawn)することができます。
+産出操作により、台帳に新たな残高の ICP をロックした Neuron を作成します。</p>
 </div>
 <div class="paragraph">
-<p>For example, if you have a neuron that contains 100 ICP utility tokens and it has a maturity of 10 percent, you can spawn a new neuron that contains approximately 10 new ICP tokens. For the neuron with 100 ICP tokens to reach the minimum threshold for spawning, its maturity would need to be greater than one percent.</p>
+<p>たとえば、100 ICP ユーティリティ トークンを含む Neuron があり、それが 10 パーセントの満期である場合、約 10 ICP トークンを新たに含む Neuron を産出することができます。100個の ICPトークンを含む Neuron が産出のための最低閾値に達するには、その成熟度が1%より大きくなる必要があります。</p>
 </div>
 <div class="paragraph">
-<p>After you spawn a new neuron from an existing neuron, the maturity for the existing neuron falls to zero.</p>
+<p>既存の Neuron から新しい Neuron を生成した後、既存の Neuron の成熟度はゼロになります。</p>
 </div>
 <div class="paragraph">
-<p>To spawn new neurons from an existing neuron:</p>
+<p>既存の Neuron から新しい Neuron を生成するには：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a browser and navigate to the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp.</p>
+<p>ブラウザを開き、<a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp に移動してください。</p>
 </li>
 <li>
-<p>Click <strong>Login</strong> to connect using your Internet Identity.</p>
+<p><strong>Login</strong> をクリックし、Internet Identity を使用して接続します。</p>
 </li>
 <li>
-<p>Verify your identification number, then click <strong>Login</strong> to authenticate using the device and authentication method you have registered.</p>
+<p>ID番号（Anchor）を確認し、<strong>Login</strong> をクリックして、登録したデバイスと認証方法を使用して認証します。</p>
 </li>
 <li>
-<p>Click <strong>Proceed</strong> to access to the Network Nervous System (NNS) dapp.</p>
+<p>Network Nervous System (NNS) Dapp にアクセスするには、<strong>Proceed</strong> をクリックします。</p>
 </li>
 <li>
-<p>Click <strong>Neurons</strong>, then click the neuron that has reached the minimum maturity required to spawn a new neuron.</p>
+<p><strong>Neurons</strong> をクリックし、新しい Neuron を生成するために必要な最小成熟度に達した Neuron をクリックします。</p>
 </li>
 <li>
-<p>Click <strong>Spawn Neuron</strong>.</p>
+<p><strong>Spawn Neuron</strong> をクリックします。</p>
 <div class="paragraph">
-<p>Keep in mind that the dissolve delay for a newly-spawned neurons is one day, giving you the option to collect value from the ICP utility tokens by unlocking them or to increase the dissolve delay to collect additional rewards.</p>
+<p>新しく生成された Neuron の溶解遅延は1日であることに留意してください。
+ICP ユーティリティトークンをアンロックして価値を集めるか、溶解遅延を長くして追加報酬を集めるかの選択肢を与えてくれます。</p>
 </div>
 <div class="paragraph">
-<p>For more information about maturity and spawning new neurons, see the following articles:</p>
+<p>成熟と新しい Neuron の産出についてより詳しい情報は以下の記事を参照してください。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1796,51 +1796,51 @@ The spawn operation creates a new neuron that locks a new balance of ICP on the 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_vote_on_proposals"><a class="anchor" href="#_vote_on_proposals"></a>Vote on proposals</h2>
+<h2 id="_プロポーザルに対する投票"><a class="anchor" href="#_プロポーザルに対する投票"></a>プロポーザルに対する投票</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can choose the proposal types and proposal topics that you see and vote on—either directly or by following other neuron stakeholders—using filters in the Network Nervous System dapp.
-For example, if you want to review and vote on all proposals that involve network participants such as data center identities and node operators, but aren&#8217;t interested in viewing proposals related to the current market value of ICP, as measured by an International Monetary Fund (IMF) Special Drawing Right (SDR), you can select the <strong>ParticipantManagement</strong> topic filter and deselect the <strong>ExchangeRate</strong> topic filter.</p>
+<p>Network Nervous System(NNS) Dapp でフィルターを使用することで、直接または他の Neuron 関係者をフォローし、表示および投票するプロポーザルタイプとプロポーザルトピックを選択することができます。
+たとえば、データセンターのアイデンティティやノードオペレータなどのネットワーク参加者に関わるすべてのプロポーザルをレビューして投票したいが、国際通貨基金（IMF）の特別引出権（SDR）で測定される ICP の現在の市場価値に関連するプロポーザルは表示したくない場合は、<strong>ParticipantManagement</strong> トピックフィルターを選択し、<strong>ExchangeRate</strong> トピックフィルターの選択を解除することで可能です。</p>
 </div>
 <div class="paragraph">
-<p>To manually vote on proposals:</p>
+<p>手動でプロポーザルに投票するためには：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a browser and navigate to the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp.</p>
+<p>ブラウザを開き、<a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp に移動してください。</p>
 </li>
 <li>
-<p>Click <strong>Login</strong> to connect using your Internet Identity.</p>
+<p><strong>Login</strong> をクリックし、Internet Identity を使用して接続します。</p>
 </li>
 <li>
-<p>Verify your identification number, then click <strong>Login</strong> to authenticate using the device and authentication method you have registered.</p>
+<p>ID番号（Anchor）を確認し、<strong>Login</strong> をクリックして、登録したデバイスと認証方法を使用して認証します。</p>
 </li>
 <li>
-<p>Click <strong>Proceed</strong> to access to the Network Nervous System (NNS) dapp.</p>
+<p>Network Nervous System(NNS) Dapp にアクセスするには、<strong>Proceed</strong> をクリックします。</p>
 </li>
 <li>
-<p>Click <strong>Voting</strong>.</p>
+<p><strong>Voting</strong> をクリックします。</p>
 <div class="paragraph">
-<p>You can click any of the proposals listed to view information about the proposal, including a brief description of the proposal, a link for viewing additional information about the proposal, the number of votes that were cast to adopt or reject the proposal, and the votes cast by your neurons.</p>
+<p>掲載されていプロポーザルをクリックすると、プロポーザルの簡単な説明、プロポーザルに関する追加情報を閲覧するためのリンク、プロポーザルの採択または否決のための投票数、あなたの Neuron による投票数などの情報を表示することができます。</p>
 </div>
 </li>
 <li>
-<p>Use the Topics, Reward Status, and Proposal Status filters to control the list of proposals displayed.</p>
+<p>トピック、報酬の状況、およびプロポーザルの状況のフィルターを使用して、表示されるプロポーザルのリストを制御します。</p>
 <div class="paragraph">
-<p>For example, open the Topics list to see if there are any proposal topics that you want to include in the proposal list that are not currently displayed and open the Proposal Status to verify that you are viewing all open proposals.</p>
+<p>例えば、Topics リストを開いて、現在表示されていないプロポーザルリストに含めたいプロポーザルトピックがないか確認したり、Proposal Status を開いて、開いているすべてのプロポーザルが表示されているかどうかを確認したりすることができます。</p>
 </div>
 </li>
 <li>
-<p>Click any Open proposal to see its details and the voting power for the neurons associated with your identity.</p>
+<p>公開中のプロポーザルをクリックすると、そのプロポーザルの詳細と、自分の Identity に関連付けられた Neuron の投票権が表示されます。</p>
 </li>
 <li>
-<p>Select the neuron identifiers with voting power that you want to use to cast your vote.</p>
+<p>投票に使用する投票権のある Neuron 識別子を選択します。</p>
 </li>
 <li>
-<p>Click <strong>Adopt</strong> or <strong>Reject</strong> to cast your vote.</p>
+<p><strong>Adopt</strong> または <strong>Reject</strong> をクリックして、投票します。</p>
 <div class="paragraph">
-<p>For more information about voting and voting rewards, see the following articles:</p>
+<p>投票と投票報酬の詳細については、以下の記事を参照してください：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1861,89 +1861,89 @@ For example, if you want to review and vote on all proposals that involve networ
 </div>
 </div>
 <div class="sect1">
-<h2 id="_submit_a_proposal"><a class="anchor" href="#_submit_a_proposal"></a>Submit a proposal</h2>
+<h2 id="_プロポーザルを提出する"><a class="anchor" href="#_プロポーザルを提出する"></a>プロポーザルを提出する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Currently, you can only submit proposals to the network nervous system by using the DFINITY Canister SDK command-line interface (<code>dfx</code>) using calls to the <code>governance</code> canister.</p>
+<p>現在、Network Nervous System へのプロポーザルの提出は DFINITY Canister SDK コマンドラインインターフェース (<code>dfx</code>) を使って <code>governance</code> Canister への呼び出しを行う方法でのみ行うことができます。</p>
 </div>
 <div class="paragraph">
-<p>A separate command-line tool (<code>icx-nns</code>) for working with the <code>governance</code> canister is in development and this functionality will also be available in the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp soon.</p>
+<p><code>gvernance</code> Canister を使用するための独立したコマンドラインツール (<code>icx-nns</code>) は現在開発中で、この機能は <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp でもすぐに利用できるようになる予定です。</p>
 </div>
 <div class="paragraph">
-<p>If you want to start submitting proposals right away, however, you can access a preliminary version of the <code>icx-nns</code> command-line tool by downloading a release from the <a href="https://github.com/dfinity/icx-nns/releases">icx-nns</a> repository.</p>
+<p>しかし、すぐにでもプロポーザルを提出したい場合は、<a href="https://github.com/dfinity/icx-nns/releases">icx-nns</a> リポジトリからリリースをダウンロードすれば、 <code>icx-nns</code> コマンドラインツールの予備バージョンにアクセスすることができます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_deploy_a_canister_with_cycles"><a class="anchor" href="#_deploy_a_canister_with_cycles"></a>Deploy a canister with cycles</h2>
+<h2 id="_cycle_とともに_canister_をデプロイする"><a class="anchor" href="#_cycle_とともに_canister_をデプロイする"></a>Cycle とともに Canister をデプロイする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You must have <strong>cycles</strong> available to create and manage <a href="../developers-guide/glossary.html#g-canister">canisters</a>, which are similar to smart contracts.
-The <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp provides a convenient way for you to create and manage canisters by enabling you to convert ICP utility tokens into cycles and attach cycles to specific canister identifiers.</p>
+<p>スマートコントラクトに似た <a href="../developers-guide/glossary.html#g-canister">Canisters</a> を作成し管理するには、<strong>Cycle</strong> を利用できるようにする必要があります。
+<a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp は、ICP ユーティリティトークンを Cycle に変換し、Cycle を特定の Canister 識別子に添付できるようにして、Canister を作成および管理するための便利な方法を提供します。</p>
 </div>
 <div class="paragraph">
-<p>To create a new canister:</p>
+<p>新しい Canister を作成するには：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a browser and navigate to the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp.</p>
+<p>ブラウザを開き、<a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp に移動してください。</p>
 </li>
 <li>
-<p>Click <strong>Login</strong> to connect using your Internet Identity.</p>
+<p><strong>Login</strong> をクリックし、Internet Identity を使用して接続します。</p>
 </li>
 <li>
-<p>Verify your identification number, then click <strong>Login</strong> to authenticate using the device and authentication method you have registered.</p>
+<p>ID番号（Anchor）を確認し、<strong>Login</strong> をクリックして、登録したデバイスと認証方法を使用して認証します。</p>
 </li>
 <li>
-<p>Click <strong>Proceed</strong> to access to the Network Nervous System (NNS) dapp.</p>
+<p>Network Nervous System (NNS) Dappにアクセスするには、<strong>Proceed</strong> をクリックします。</p>
 </li>
 <li>
-<p>Click <strong>Canisters</strong>, then click <strong>Create or Link Canister</strong>.</p>
+<p><strong>Canisters</strong> をクリックし、<strong>Create or Link Canister</strong> をクリックします。</p>
 </li>
 <li>
-<p>Click <strong>Create New Canister</strong> to create a new cycles wallet canister.</p>
+<p><strong>Create New Canister</strong> をクリックし、新しい Cycle Wallet Canister を作成します。</p>
 <div class="paragraph">
-<p>If you already have a cycles wallet canister, you can click <strong>Link Canister to Account</strong> to link an existing canister identifier to your account in the <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp.</p>
+<p>既に Cycle Wallet Canister をお持ちの方は、<strong>Link Canister to Account</strong> をクリックすると、 <a href="https://nns.ic0.app">Network Nervous System (NNS)</a> Dapp で既存の Canister 識別子をあなたのアカウントにリンクさせることができます。</p>
 </div>
 </li>
 <li>
-<p>Select one of your accounts that holds ICP utility tokens as the source account.</p>
+<p>ICP ユーティリティトークンを保有しているアカウントのうち、1つをソースアカウントとして選択します。</p>
 <div class="paragraph">
-<p>For example, if you have both a <strong>Main</strong> account and a <strong>Dev-Projects</strong> account, you might select <strong>Dev-Projects</strong> account if that account holds the ICP utility tokens that you want converted into cycles.</p>
+<p>例えば、<strong>メイン</strong> アカウントと <strong>Dev-Projects</strong> アカウントの両方を持っている場合、そのアカウントで Cycle に変換したい ICP ユーティリティトークンがある場合は、<strong>Dev-Projects</strong> アカウントを選択するとよいでしょう。</p>
 </div>
 </li>
 <li>
-<p>Click <strong>Amount</strong> and type the number of ICP utility tokens or e8s that you want to convert into cycles, then click <strong>Review Cycles Purchase</strong>.</p>
+<p><strong>Accout</strong> をクリックして、Cycle に変換したい ICP ユーティリティトークンまたは e8s の数を入力し、<strong>Review Cycles Purchase</strong> をクリックします。</p>
 <div class="paragraph">
-<p>The amount you specify must convert to a value greater than the 2T (two trillion) cycles minimum required to create a new canister identifier.
-For example:</p>
+<p>指定する量は、新しい Canister 識別子を作成するために必要な最小限の2 T（2兆）Cycle より大きい値に変換する必要があります。
+たとえば、以下のようになります。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/convert-to-cycles.png" alt="convert to cycles"></span></p>
 </div>
 </li>
 <li>
-<p>Review the ICP utility tokens to cycles details, then click <strong>Confirm</strong> to continue.</p>
+<p>ICP ユーティリティトークンから Cycle の詳細を確認し、<strong>Confirm</strong> をクリックして続行します。</p>
 <div class="paragraph">
-<p>After you click Confirm, you can review:
-- the new canister identifier
-- the number of cycles available for the canister to use
-- the controlling principal that currently has full management rights for the new canister</p>
+<p>Comfirm をクリックすると、次の内容を確認できます。
+- 新しい Canister の識別子
+- その Canister が使用できる Cycle 数
+- 新しい Canister の完全な管理権限を現在持っているコントロール Principal。</p>
 </div>
 <div class="paragraph">
 <p>+
-To change the principal used as the controller of the canister, click <strong>Change Controllers</strong>.</p>
+Canister のコントローラとして使用される Principal を変更するには、 <strong>Change Controllers</strong> をクリックします。</p>
 </div>
 <div class="paragraph">
 <p>+
-To add cycles to the canister, click <strong>Add Cycles</strong>.</p>
+Canister に Cycle を追加するには、<strong>Add Cycles</strong> をクリックします。</p>
 </div>
 </li>
 <li>
-<p>Return to the <strong>Canisters</strong> tab to see the canisters you have created.</p>
+<p><strong>Canisters</strong> タブに戻り、作成した Canister を確認します。</p>
 <div class="paragraph">
-<p>For example:</p>
+<p>例えば、以下のようになります。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/canister-list.png" alt="canister list"></span></p>

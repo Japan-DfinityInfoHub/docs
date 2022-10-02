@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>How-To: Claim neurons for seed participants :: Dfinity 日本語ドキュメント</title>
+    <title>方法：シード参加者向け Neuron を請求する :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/token-holders/seed-donations.html">
     <meta name="generator" content="Antora 2.3.4">
 <link rel="stylesheet" href="../../_/css/site.css">
@@ -1150,85 +1150,66 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="seed-donations.html">How-To: Claim neurons for seed participants</a></li>
+    <li><a href="seed-donations.html">方法：シード参加者向け Neuron を請求する</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/Japan-DfinityInfoHub/docs/edit/main/modules/token-holders/pages/seed-donations.adoc"><svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg></a></div>
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">How-To: Claim neurons for seed participants</h1>
+<h1 class="page">方法：シード参加者向け Neuron を請求する</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>A guide for seed contributors to claim their ICP utility tokens as NNS
-neurons. For controlling the neurons after claiming see this
+<p><em>シードコントリビューターが ICP ユーティリティトークンを NNS Neuron としてクレームするためのガイドです。クレーム後の Neuron 制御については、以下を参照してください。
 [<a href="https://medium.com/dfinity/integrating-ledger-nano-with-the-nns-front-end-dapp-user-manual-9c5600925e16" class="bare">https://medium.com/dfinity/integrating-ledger-nano-with-the-nns-front-end-dapp-user-manual-9c5600925e16</a>
-tutorial] instead.</em></p>
+チュートリアル]を参照してください。</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<h2 id="_はじめに"><a class="anchor" href="#_はじめに"></a>はじめに</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You are a <em>seed participant</em> if you donated to the DFINITY foundation
-in February of 2017 to support the development of the Internet Computer.
-At that time, 30 tokens per Swiss Franc of value donated were allotted
-to your key. These tokens are now called "ICP utility tokens" or "ICP"
-for short.</p>
+<p>2017年2月に DFINITY 財団に Internet Computer の開発支援のために寄付をされた方は、<em>seed 参加者</em> となります。
+その際、寄付された価値、1スイスフランにつき30トークンがあなたのキーに割り当てられました。このトークンは現在、「ICP ユーティリティ・トークン」、略して「ICP」と呼ばれています。</p>
 </div>
 <div class="paragraph">
-<p>At Genesis Unlock, your ICP were disbursed to you in the form of a
-basket of 49 voting neurons. These neurons
-already exist inside the Network Nervous System. Your neurons
-contain the tokens you have been awarded, which are staked inside.</p>
+<p>Genesis アンロックでは、ICP は49個の投票用 Neuron のバスケットという形で払い戻されました。バスケットに入ったのは49個の投票用 Neuron です。これらの Neuron は Network Nervous System にすでに存在しています。あなたの Neuron には授与されたトークンが入っており、そのトークンは内部でステークされています。</p>
 </div>
 <div class="paragraph">
-<p>Your neurons have been configured to vote automatically and are already
-earning voting rewards for you. You do not need to do anything to
-initialize your neurons in order to continue earning voting rewards.</p>
+<p>授与されたあなたの Neuron は自動的に投票するように設定され、すでに投票報酬を獲得しています。あなたは何もする必要はありません。投票報酬を獲得し続けるために、Neuron を初期化する必要はありません。</p>
 </div>
 <div class="paragraph">
-<p>The 49 neurons created for you have dissolve delays of 0 days, 30 days, 60 days, 90 days and so on. Apart
-from the first neuron which has a dissolve delay of 0 days (which can be
-dissolved immediately), the other dissolve delays may have a small
-random number of days added to it.</p>
+<p>作成された49個の Neuron は、0日、30日、60日、90日などの溶解遅延があります。ただし 溶解遅延が0日の最初の Neuron（すぐに溶解できる）を除いて、他の溶解遅延には、わずかなランダムな日数が追加されることがあります。</p>
 </div>
 <div class="paragraph">
-<p>Your neurons have also been pre-aged. At the moment of Genesis Unlock,
-their age was already set to 18 months old. This is important, because
-neuron age significantly increases your voting power and the voting
-rewards you receive.</p>
+<p>また、あなたの Neuron はプリエイジ(pre-Age)されています。Genesis アンロックの時点では エイジ(Age)がすでに18ヶ月に設定されています。Neuron エイジは投票力とあなたが受け取る投票報酬を大幅に増加させるため、重要なことです。</p>
 </div>
 <div class="paragraph">
-<p>To control your neurons, you must use the same secret key that you
-generated when the donation was made. It was recorded by you as a
-12-word mnemonic phrase. In order to control your neurons you need to
-first <em>claim</em> your basket of neurons. There are two ways to claim
-which are explained below in this article:</p>
+<p>Neuron を制御するためには、寄付をしたときに生成した秘密鍵を使用する必要があります。あなたが12単語のニーモニックフレーズとして記録したものです。Neuron を制御するためにはまず、自分の Neuron バスケットを <em>クレーム</em> します。請求する方法は2つあります。以下に説明します：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Claiming with Ledger Nano device (coming soon)</p>
+<p>Ledger Nano デバイスを用いたクレーム（近日公開予定）</p>
 </li>
 <li>
-<p>Claiming with an air-gapped computer + networked computer/smartphone</p>
+<p>エアギャップ・コンピュータ＋ネットワーク・コンピュータ／スマートフォンでのクレーム</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>After claiming, there are two ways to control your neurons:</p>
+<p>クレーム後、Neuron を制御する方法は2つあります：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The NNS dapp (GUI) as described in this
-<a href="https://medium.com/dfinity/integrating-ledger-nano-with-the-nns-front-end-dapp-user-manual-9c5600925e16">tutorial</a></p>
+<p>NNS dapp (GUI)は、以下の通りです。
+<a href="https://medium.com/dfinity/integrating-ledger-nano-with-the-nns-front-end-dapp-user-manual-9c5600925e16">チュートリアル</a></p>
 </li>
 <li>
-<p>A command line tool ic-hardware-wallet-cli available on
+<p>コマンドラインツール ic-hardware-wallet-cli は、以下のリンクから入手できます。
 <a href="https://github.com/dfinity/nns-dapp/tree/main/ic-hardware-wallet-cli">github</a></p>
 </li>
 </ul>
@@ -1236,54 +1217,37 @@ which are explained below in this article:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_claiming_with_a_ledger_nano_device_coming_soon"><a class="anchor" href="#_claiming_with_a_ledger_nano_device_coming_soon"></a>Claiming with a Ledger Nano device (coming soon)</h2>
+<h2 id="_ledger_nano_デバイスを用いたクレーム近日公開予定"><a class="anchor" href="#_ledger_nano_デバイスを用いたクレーム近日公開予定"></a>Ledger Nano デバイスを用いたクレーム（近日公開予定）</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This will come with one of the next updates of the "ICP" app for the
-Ledger Nano. The current release can manage neurons but cannot yet claim
-them.</p>
+<p>これは、Ledger Nano 用の ICP アプリで次のアップデートに含まれる予定です。現在のリリースでは、Neuron を管理することはできますがクレームすることはまだできません。</p>
 </div>
 <div class="paragraph">
-<p>Phase 1 release: The initial Phase 1 release of the "ICP" app for Ledger
-Nano was targeted at all consumers. It allows people to manage neurons,
-such as changing the dissolve delay, dissolving, disbursing, managing
-hotkeys, voting, etc. Of course, it also allows transferring liquid ICP
-in the native ledger.</p>
+<p>フェーズ１リリース：ICP アプリの最初のフェーズ１リリースは、Ledger Nano のためのものです。Nano はすべてのユーザーを対象としています。Neuron を管理することができます。溶解遅延の変更、溶解、払い出し、ホットキーの管理、投票など、Neuron を管理することができます。もちろん ICP の転送も可能です。</p>
 </div>
 <div class="paragraph">
-<p>Phase 2 release: The following Phase 2 release includes the
-<code>claim_neurons</code> function for seed round neurons. It is an
-update specifically for seed round folks.</p>
+<p>フェーズ２リリース：次のPhase ２リリースでは シードラウンド Neuron 用の <code>claim_neurons</code> 関数が含まれています。これはシードラウンドに参加した方に特化したアップデートです。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_claiming_with_an_air_gapped_computer"><a class="anchor" href="#_claiming_with_an_air_gapped_computer"></a>Claiming with an air-gapped computer</h2>
+<h2 id="_エアギャップコンピュータでクレームする"><a class="anchor" href="#_エアギャップコンピュータでクレームする"></a>エアギャップ・コンピュータでクレームする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Claiming requires access to your secret mnemonic phrase and to secret
-keys derived from it. It is highly advised that you use an air-gapped
-computer for the purpose of claiming. If you are not comfortable with
-such a setup or with any of the following steps then you have to wait
-for the next release of the "ICP" app for the Ledger Nano device.</p>
+<p>クレームには秘密のニーモニックフレーズと、そこから派生した秘密鍵へのアクセスが必要です。クレームの際には、エアギャップ・コンピュータを使用することを強くお勧めします。もし、このような設定に抵抗がある場合、Ledger Nano デバイス用の ICP アプリの次のリリースをお待ちください。</p>
 </div>
 <div class="paragraph">
-<p>As an air-gapped device you can use a Windows, Linux or MacOS machine.
-Linux includes Raspberry Pi.</p>
+<p>エアギャップデバイスとして、Windows、Linux、MacOS のマシンを使用することができます。Linux には Raspberry Pi が含まれます。</p>
 </div>
 <div class="sect2">
-<h3 id="_download_the_tools"><a class="anchor" href="#_download_the_tools"></a>Download the tools</h3>
+<h3 id="_ツールをダウンロードする"><a class="anchor" href="#_ツールをダウンロードする"></a>ツールをダウンロードする</h3>
 <div class="paragraph">
-<p>To download the tools you need a second, networked computer. The tools
-are called <code>keysmith</code> and <code>quill</code>. We describe here how to find and
-download a binary for your architecture. Alternatively, you can compile
-the tools yourself from the source code available on github for
-<a href="https://github.com/dfinity/keysmith">keysmith</a> and
-<a href="https://github.com/dfinity/quill">quill</a>.</p>
+<p>ツールをダウンロードするには、ネットワークに接続された2台目のコンピュータが必要です。ツールは <code>keysmith</code> と <code>quill</code> と呼ばれています。ここではアーキテクチャのバイナリを見つけ、ダウンロードする方法について説明します。あるいは、次のように github で公開されているソースコードから自分でコンパイルすることもできます。
+<a href="https://github.com/dfinity/keysmith">keysmith</a> と
+<a href="https://github.com/dfinity/quill">quill</a></p>
 </div>
 <div class="paragraph">
-<p>Binaries are available for the following hardware architectures. Here,
-architecture refers to the air-gapped computer, not the networked computer.</p>
+<p>以下のハードウェアアーキテクチャに対応したバイナリが用意されています。ここでのアーキテクチャは、ネットワークコンピュータではなく、エアギャップ・コンピュータを指します。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1332,37 +1296,28 @@ architecture refers to the air-gapped computer, not the networked computer.</p>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_download_keysmith"><a class="anchor" href="#_download_keysmith"></a>Download keysmith</h4>
+<h4 id="_keysmith_をダウンロードする"><a class="anchor" href="#_keysmith_をダウンロードする"></a>keysmith をダウンロードする</h4>
 <div class="paragraph">
-<p>Go to <a href="https://github.com/dfinity/keysmith/releases/">keysmith</a>, choose
-the latest release (currently v1.6.2) and fetch the <code>.tar.gz</code>
-file that matches the air-gapped machine&#8217;s architecture in the table
-above.</p>
+<p><a href="https://github.com/dfinity/keysmith/releases/">keysmith</a> にアクセスし、最新のリリース（現在v1.6.2）を選択します。表にあるエアギャップ・マシンのアーキテクチャに合致する <code>.tar.gz</code> ファイルを取得します。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_download_quill"><a class="anchor" href="#_download_quill"></a>Download quill</h4>
+<h4 id="_quill_をダウンロードする"><a class="anchor" href="#_quill_をダウンロードする"></a>quill をダウンロードする</h4>
 <div class="paragraph">
-<p>Go to <a href="https://github.com/dfinity/quill/releases">quill</a>, choose the
-latest release (must be &gt;= 0.2.12) and fetch the executable file that
-matches the air-gapped machine&#8217;s architecture in the table above.</p>
+<p><a href="https://github.com/dfinity/quill/releases">quill</a> にアクセスし、最新のリリース（0.2.12以上）を選び、上の表にあるエアギャップ・マシンのアーキテクチャに合致する実行ファイルを取得します。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_copy_to_air_gapped_machine"><a class="anchor" href="#_copy_to_air_gapped_machine"></a>Copy to air-gapped machine</h3>
+<h3 id="_エアギャップマシンにコピーする"><a class="anchor" href="#_エアギャップマシンにコピーする"></a>エアギャップ・マシンにコピーする</h3>
 <div class="paragraph">
-<p>Copy the keysmith <code>.tar.gz</code> file and the quill executable
-from the networked machine to the air-gapped machine. For example, you
-can do so with a USB drive.</p>
+<p>ネットワークに接続されたエアギャップ・マシンから、keysmith <code>.tar.gz</code> ファイルと quill 実行ファイルをコピーします。例えば 、USB ドライブで行うことができます。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_verify_the_hashes"><a class="anchor" href="#_verify_the_hashes"></a>Verify the hashes</h3>
+<h3 id="_ハッシュを検証する"><a class="anchor" href="#_ハッシュを検証する"></a>ハッシュを検証する</h3>
 <div class="paragraph">
-<p>On the air-gapped machine, go to the terminal. Change the directory to
-the folder where the keysmith .tar.gz files and quill executables are.
-Compute the SHA256 hashes with the commands</p>
+<p>エアギャップ・マシンでターミナルに移動します。ディレクトリを keysmith の.tar.gz ファイルとquill の実行ファイルがあるフォルダに変更します。SHA 256ハッシュを次のコマンドで計算します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1370,7 +1325,7 @@ Compute the SHA256 hashes with the commands</p>
 </div>
 </div>
 <div class="paragraph">
-<p>and</p>
+<p>と</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1378,7 +1333,7 @@ Compute the SHA256 hashes with the commands</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The hashes should match the following entries:</p>
+<p>ハッシュは以下のエントリーと一致する必要があります：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1397,7 +1352,7 @@ SHA256(keysmith-windows-amd64.tar.gz)=
 </div>
 </div>
 <div class="paragraph">
-<p>and</p>
+<p>と</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1413,9 +1368,9 @@ SHA256(quill-windows-x86_64.exe)=
 </div>
 </div>
 <div class="sect2">
-<h3 id="_unpack_and_install"><a class="anchor" href="#_unpack_and_install"></a>Unpack and install</h3>
+<h3 id="_開封とインストール"><a class="anchor" href="#_開封とインストール"></a>開封とインストール</h3>
 <div class="paragraph">
-<p>For keysmith:</p>
+<p>keysmith 側では：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1425,11 +1380,11 @@ sudo install keysmith /usr/local/bin</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You will be prompted to enter your laptop password.
-The password itself will not appear, simply type it and press enter.</p>
+<p>ノートパソコンのパスワードを入力する画面が表示されます。
+パスワード自体は表示されませんので、入力して Enter キーを押すだけです。</p>
 </div>
 <div class="paragraph">
-<p>For quill:</p>
+<p>quill 側では：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1441,12 +1396,12 @@ sudo install quill /usr/local/bin</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_produce_the_private_key_file_with_keysmith"><a class="anchor" href="#_produce_the_private_key_file_with_keysmith"></a>Produce the private key file with keysmith</h2>
+<h2 id="_keysmith_で秘密鍵ファイルを作成する"><a class="anchor" href="#_keysmith_で秘密鍵ファイルを作成する"></a>keysmith で秘密鍵ファイルを作成する</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_test_the_installation"><a class="anchor" href="#_test_the_installation"></a>Test the installation</h3>
+<h3 id="_インストールをテストする"><a class="anchor" href="#_インストールをテストする"></a>インストールをテストする</h3>
 <div class="paragraph">
-<p>On the air-gapped computer run:</p>
+<p>エアギャップ・コンピューターで以下のように打ちます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1454,7 +1409,7 @@ sudo install quill /usr/local/bin</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You should see:</p>
+<p>こう見えるはずです：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1474,18 +1429,16 @@ Available Commands:
 </div>
 </div>
 <div class="paragraph">
-<p>If you are using macOS, running <code>keysmith</code>
-for the first time might require you to grant permission under System
-Preferences &gt; Security &amp; Privacy &gt; General.</p>
+<p>macOS を使用している場合、初めて <code>keysmith</code> を実行すると、システムで許可を得る必要があるかもしれません。</p>
+</div>
+<div class="paragraph">
+<p>Preferences &gt; Security &amp; Privacy &gt; General</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_enter_your_mnemonic_phrase_aka_seed"><a class="anchor" href="#_enter_your_mnemonic_phrase_aka_seed"></a>Enter your mnemonic phrase (aka "seed")</h3>
+<h3 id="_ニーモニックフレーズ通称seed_を入力する"><a class="anchor" href="#_ニーモニックフレーズ通称seed_を入力する"></a>ニーモニックフレーズ（通称、Seed ）を入力する</h3>
 <div class="paragraph">
-<p>If you confident that your environment is secure, then you are ready to
-enter your seed for use with <code>keysmith</code>. For the duration of
-your session, you store your seed phrase in an environment variable. It
-will be eliminated from your system when you turn your computer off.</p>
+<p>自分の環境が安全であると確信が持てたら、次に <code>keysmith</code> で使用するシードを入力する準備が整います。セッションの間、シードフレーズを環境変数に保存します。これはコンピュータの電源を切ると、システムから削除されます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1493,11 +1446,10 @@ will be eliminated from your system when you turn your computer off.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Enter your seed phrase and finish with Return.</p>
+<p>シードフレーズを入力し、Return で終了します。</p>
 </div>
 <div class="paragraph">
-<p>If you prefer to not have your seed phrase displayed as you type then
-use this command instead:</p>
+<p>もし入力中にシードフレーズを表示させたくない場合は、代わりにこのコマンドを使用します：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1506,12 +1458,9 @@ use this command instead:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_optional_check_your_legacy_address_and_balance"><a class="anchor" href="#_optional_check_your_legacy_address_and_balance"></a>Optional: check your legacy address and balance</h3>
+<h3 id="_オプションレガシーアドレスと残高の確認をする"><a class="anchor" href="#_オプションレガシーアドレスと残高の確認をする"></a>オプション：レガシーアドレスと残高の確認をする</h3>
 <div class="paragraph">
-<p>At this point you can already verify your legacy address and ICPT
-balance. The legacy address matches to what was formerly called "DFN
-address" in the Dfinity Chrome extension. You may have copied it from
-the Chrome extension for your records back when you used the extension.</p>
+<p>この時点ですでにレガシーアドレスと ICPT の残高を確認することができます。レガシーアドレスは、以前 Dfinity の Chrome 拡張機能で「DFN アドレス」と呼ばれていたものと一致します。このアドレスは Chrome 拡張機能を使っていた頃の記録です。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1519,7 +1468,7 @@ the Chrome extension for your records back when you used the extension.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The output is a 40 character hex string. It looks something like this:</p>
+<p>出力は40文字の16進文字列です。以下のような文字列です：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1527,17 +1476,18 @@ the Chrome extension for your records back when you used the extension.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can check your ICPT balance as follows: Go to
-<a href="https://ic.rocks/principal/renrk-eyaaa-aaaaa-aaada-cai" class="bare">https://ic.rocks/principal/renrk-eyaaa-aaaaa-aaada-cai</a>, look for
-"Canister interface" and the method "balance". There, paste your DFN
-address in to the field labeled "text" and click the button labeled
-"Query". Your ICP balance will appear below "nat32".</p>
+<p>ICPT の残高は以下の方法で確認することができます：次のサイトにアクセスします。
+<a href="https://ic.rocks/principal/renrk-eyaaa-aaaaa-aaada-cai" class="bare">https://ic.rocks/principal/renrk-eyaaa-aaaaa-aaada-cai</a></p>
+</div>
+<div class="paragraph">
+<p>Canister interface と balance メソッドを探します。そこで、あなたの DFN アドレスをテキストフィールドに貼り付け、Query ボタンをクリックします。
+あなたの ICP 残高は、nat32 の下に表示されます。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_your_private_key_pem_file"><a class="anchor" href="#_create_your_private_key_pem_file"></a>Create your private key (.pem file)</h3>
+<h3 id="_秘密鍵を生成する_pem_file"><a class="anchor" href="#_秘密鍵を生成する_pem_file"></a>秘密鍵を生成する( .pem file )</h3>
 <div class="paragraph">
-<p>Derive your private key from your seed phrase.</p>
+<p>シードフレーズから秘密鍵を導き出します。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1545,21 +1495,17 @@ address in to the field labeled "text" and click the button labeled
 </div>
 </div>
 <div class="paragraph">
-<p>This creates a file <code>identity.pem</code> containing your private
-key.</p>
+<p>上記で秘密鍵を含むファイル <code>identity.pem</code> を作成します。</p>
 </div>
 <div class="sect3">
-<h4 id="_optional_store_pem_file_only_in_ram"><a class="anchor" href="#_optional_store_pem_file_only_in_ram"></a>Optional: Store .pem file only in RAM</h4>
+<h4 id="_オプション_pem_ファイルを_ram_にのみ保存する"><a class="anchor" href="#_オプション_pem_ファイルを_ram_にのみ保存する"></a>オプション：.pem ファイルを RAM にのみ保存する</h4>
 <div class="paragraph">
-<p>We will later wipe the identity.pem file from the filesystem. There is
-however a remaining risk that the data could survive in the disk and
-later extracted despite it being wiped. It is more secure to create a
-RAM disk and store the .pem file only in the RAM disk.</p>
+<p>後でファイルシステムから identity.pem ファイルを消去する予定です。しかし、データがディスクに残り、消去したにもかかわらず、後で取り出される危険性が残ります。RAM ディスクを作成し .pem ファイルを RAM ディスクにのみ格納する方がより安全です。</p>
 </div>
 <div class="sect4">
-<h5 id="_create_ram_disk_on_macos"><a class="anchor" href="#_create_ram_disk_on_macos"></a>Create RAM disk on MacOS</h5>
+<h5 id="_macosに_ram_ディスクを作成する"><a class="anchor" href="#_macosに_ram_ディスクを作成する"></a>MacOsに RAM ディスクを作成する</h5>
 <div class="paragraph">
-<p>Run these commands</p>
+<p>これらのコマンドを打ちます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1569,7 +1515,7 @@ cd /Volumes/RD</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>before running</p>
+<p>打つ前に</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1578,9 +1524,9 @@ cd /Volumes/RD</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_create_ram_disk_on_linux"><a class="anchor" href="#_create_ram_disk_on_linux"></a>Create RAM disk on Linux</h5>
+<h5 id="_linux_に_ram_ディスクを作成する"><a class="anchor" href="#_linux_に_ram_ディスクを作成する"></a>Linux に RAM ディスクを作成する</h5>
 <div class="paragraph">
-<p>Run these commands</p>
+<p>これらのコマンドを打ちます。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1592,7 +1538,7 @@ cd /mnt/ramdisk/workspace</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>before running</p>
+<p>打つ前に</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1601,9 +1547,9 @@ cd /mnt/ramdisk/workspace</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_create_ram_disk_on_windows"><a class="anchor" href="#_create_ram_disk_on_windows"></a>Create RAM disk on Windows</h5>
+<h5 id="_windows_に_ram_ディスクを作成する"><a class="anchor" href="#_windows_に_ram_ディスクを作成する"></a>Windows に RAM ディスクを作成する</h5>
 <div class="paragraph">
-<p>Todo</p>
+<p>（Todo）</p>
 </div>
 </div>
 </div>
@@ -1611,12 +1557,12 @@ cd /mnt/ramdisk/workspace</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_submit_claim_with_quill"><a class="anchor" href="#_submit_claim_with_quill"></a>Submit claim with quill</h2>
+<h2 id="_quill_でクレームをサブミットする"><a class="anchor" href="#_quill_でクレームをサブミットする"></a>quill でクレームをサブミットする</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_test_the_installation_2"><a class="anchor" href="#_test_the_installation_2"></a>Test the installation</h3>
+<h3 id="_インストールをテストする_2"><a class="anchor" href="#_インストールをテストする_2"></a>インストールをテストする</h3>
 <div class="paragraph">
-<p>On the air-gapped computer run:</p>
+<p>エアギャップ・コンピューターで以下のように打ちます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1624,7 +1570,7 @@ cd /mnt/ramdisk/workspace</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You should see:</p>
+<p>以下のように見えるはずです：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1655,15 +1601,16 @@ SUBCOMMANDS:
 </div>
 </div>
 <div class="paragraph">
-<p>If you are using macOS, running <code>quill</code> for
-the first time might require you to grant permission under System
-Preferences &gt; Security &amp; Privacy &gt; General.</p>
+<p>macOS を使用している場合、初めて <code>quill</code> を実行するときは、システムで許可を得る必要があるかもしれません。</p>
+</div>
+<div class="paragraph">
+<p>Preferences &gt; Security &amp; Privacy &gt; General</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_sign_the_claim_request"><a class="anchor" href="#_sign_the_claim_request"></a>Sign the claim request</h3>
+<h3 id="_クレームリクエストに署名する"><a class="anchor" href="#_クレームリクエストに署名する"></a>クレームリクエストに署名する</h3>
 <div class="paragraph">
-<p>On the air-gapped computer run:</p>
+<p>エアギャップ・コンピューターで以下のように打ちます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1672,13 +1619,11 @@ Preferences &gt; Security &amp; Privacy &gt; General.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_submit_the_claim_to_the_ic"><a class="anchor" href="#_submit_the_claim_to_the_ic"></a>Submit the claim to the IC</h3>
+<h3 id="_ic_にクレームをサブミットする"><a class="anchor" href="#_ic_にクレームをサブミットする"></a>IC にクレームをサブミットする</h3>
 <div class="sect3">
-<h4 id="_option_1_with_quill_on_the_networked_computer"><a class="anchor" href="#_option_1_with_quill_on_the_networked_computer"></a>Option 1: With quill on the networked computer</h4>
+<h4 id="_オプション1ネットワーク上のコンピュータで_quill_を使う"><a class="anchor" href="#_オプション1ネットワーク上のコンピュータで_quill_を使う"></a>オプション1：ネットワーク上のコンピュータで quill を使う</h4>
 <div class="paragraph">
-<p>Copy the resulting file <code>msg.json</code> back to the networked computer. On
-the networked computer, change into the directory where <code>msg.json</code> is
-and run:</p>
+<p>出来上がったファイル <code>msg.json</code> をネットワーク上のコンピュータにコピーして戻します。ネットワーク上のコンピュータで、<code>msg.json</code> があるディレクトリに移動し以下のように打ちます：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1686,44 +1631,43 @@ and run:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Your neurons should now be claimed.</p>
+<p>これであなたの Neuron はクレームされるはずです。</p>
 </div>
 <div class="paragraph">
-<p>You can double-check if you claim was successful in the following way:
-Go to <a href="https://ic.rocks/genesis/2d89d96b10f7a9456a9154b2f5309ee70df5bce1" class="bare">https://ic.rocks/genesis/2d89d96b10f7a9456a9154b2f5309ee70df5bce1</a>
-where you replace <code>2d89d96b10f7a9456a9154b2f5309ee70df5bce1</code>
-with your own DFN address. Under "Status" you should see "Claimed".</p>
+<p>請求が成功したかどうかは、次の方法で再確認することができます。
+<a href="https://ic.rocks/genesis/2d89d96b10f7a9456a9154b2f5309ee70df5bce1" class="bare">https://ic.rocks/genesis/2d89d96b10f7a9456a9154b2f5309ee70df5bce1</a>
+<code>2d89d96b10f7a9456a9154b2f5309ee70df5bce1</code> を自分の DFN アドレスに置き換えてください。
+"Status“ の下に  "Claimed“ と表示されているはずです。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_option_2_use_the_qr_scanner_app"><a class="anchor" href="#_option_2_use_the_qr_scanner_app"></a>Option 2: Use the QR scanner app</h4>
+<h4 id="_オプション2qr_スキャナーアプリを使用する"><a class="anchor" href="#_オプション2qr_スキャナーアプリを使用する"></a>オプション2：QR スキャナーアプリを使用する</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Install <code>qrencode</code></p>
+<p><code>qrencode</code> をイントールします。</p>
 </li>
 <li>
-<p>Run <code>cat msg.json | gzip -c | base64 | qrencode -o msg.png</code></p>
+<p><code>cat msg.json | gzip -c | base64 | qrencode -o msg.png</code> と打ちます。</p>
 </li>
 <li>
-<p>Open <code>msg.png</code> in an image viewer</p>
+<p>イメージビューワの <code>msg.png</code> を開きます。</p>
 </li>
 <li>
-<p>Open scanner app in a browser on a phone:
+<p>携帯電話のブラウザでスキャナアプリを開きます：
 <a href="https://p5deo-6aaaa-aaaab-aaaxq-cai.raw.ic0.app" class="bare">https://p5deo-6aaaa-aaaab-aaaxq-cai.raw.ic0.app</a></p>
 </li>
 <li>
-<p>Scan QR code and submit</p>
+<p>QR をスキャンしサブミットします。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_clean_up_the_air_gapped_computer"><a class="anchor" href="#_clean_up_the_air_gapped_computer"></a>Clean up the air-gapped computer</h3>
+<h3 id="_エアギャップコンピューターをクリーンアップする"><a class="anchor" href="#_エアギャップコンピューターをクリーンアップする"></a>エアギャップ・コンピューターをクリーンアップする</h3>
 <div class="paragraph">
-<p>If your claim was successful then do not forget to remove the
-<code>.pem</code> file on the air-gapped computer:</p>
+<p>請求が成功した場合、エアギャップ・コンピュータの <code>.pem</code> ファイルを削除することを忘れないでください。</p>
 </div>
 <div class="listingblock">
 <div class="content">

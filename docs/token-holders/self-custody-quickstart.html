@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Self-custody quick start :: Dfinity 日本語ドキュメント</title>
+    <title>セルフカストディのクイックスタート :: Dfinity 日本語ドキュメント</title>
     <link rel="canonical" href="https://nifty-beaver-611cb8.netlify.app/docs/token-holders/self-custody-quickstart.html">
     <meta name="description" content="How you can use your ICP tokens.">
     <meta name="keywords" content="Internet Computer,blockchain,cryptocurrency,ICP tokens,smart contracts,cycles,wallet,software canister,developer onboarding">
@@ -1161,79 +1161,79 @@
   </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Self-custody quick start</h1>
+<h1 class="page">セルフカストディのクイックスタート</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Within the Internet Computer ecosystem, Internet Computer Protocol tokens (ICP tokens) are a native utility token.
-ICP tokens play a key role in both the governance and economics of the Internet Computer.</p>
+<p>Internet Computer のエコシステム内では、Internet Computer プロトコル・トークン（ICP トークン）はネイティブ・ユーティリティ・トークンです。
+ICP トークンは、Internet Computer のガバナンスとエコノミクスの両方において重要な役割を担っています。</p>
 </div>
 <div class="paragraph">
-<p>This <em>Self-Custody Quick Start</em> scenario assumes:</p>
+<p>この <em>セルフカストディのクイックスタート</em> のシナリオは、以下を想定しています：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You are a new ICP token holder.</p>
+<p>あなたは新しい ICP トークン所有者である。</p>
 </li>
 <li>
-<p>You want to understand what you can do with your ICP tokens.</p>
+<p>あなたは ICP トークンで何ができるかを理解したい。</p>
 </li>
 <li>
-<p>You want to know how to convert, transfer, or lock your ICP tokens using the DFINITY Canister SDK command-line interface DFX.</p>
+<p>DFINITY Canister SDK コマンドラインインターフェース DFX を使用して、ICP トークンを変換、転送、ロックする方法を知りたい。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>If you aren&#8217;t yet a token holder, you&#8217;ll need to purchase ICP tokens from an exchange or receive a token grant before you can take custody. For an overview of how to get ICP tokens and custody options, see <a href="../developers-guide/concepts/tokens-cycles.html#get-cycles">How you can get ICP tokens</a> and <a href="custody-options-intro.html">Choosing self-custody for digital assets</a>.</p>
+<p>まだトークン保有者でない方は、ICP トークンを取引所から購入するか、トークン付与を受けてからカストディを行う必要があります。ICP トークンの入手方法とカストディオプションの概要については、<a href="../developers-guide/concepts/tokens-cycles.html#get-cycles">ICPトークンの入手方法</a> と<a href="custody-options-intro.html">デジタルアセットのセルフカストディを選択する</a> を参照して下さい。</p>
 </div>
 <div class="paragraph">
-<p>If you are using another application—such as the <a href="https://nns.ic0.app">Network Nervous System (NNS) application</a> or the user interface provided by a hardware wallet—to interact with your ICP tokens, you should refer to the documentation for that application.</p>
+<p>他のアプリケーション <a href="https://nns.ic0.app">Network Nervous System（NNS）アプリケーション</a> やハードウェアウォレットが提供するユーザーインターフェイスなどを使用して ICP トークンとやり取りする場合は、そのアプリケーションのドキュメントを参照してください。</p>
 </div>
 <div class="paragraph">
-<p>This <em>Self-Custody Quick Start</em> focuses solely on interacting with ICP tokens using the DFINITY Canister SDK command-line interface DFX.</p>
+<p>この <em>セルフカストディ クイックスタート</em> は、DFINITY Canister SDK コマンドラインインターフェース DFX を使用した ICP トークンとの対話にのみ焦点を当てています。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_how_you_can_use_icp_tokens"><a class="anchor" href="#_how_you_can_use_icp_tokens"></a>How you can use ICP tokens</h2>
+<h2 id="_icp_トークンの使用方法"><a class="anchor" href="#_icp_トークンの使用方法"></a>ICP トークンの使用方法</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following diagram provides a simplified overview of the three most common ways you can use tokens.</p>
+<p>次の図はトークンの最も一般的な3つの使用方法の概要を簡略化したものです。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="../developers-guide/_images/icp-tokens-how-to-use.svg" alt="icp tokens how to use"></span></p>
 </div>
 <div class="paragraph">
-<p>As this diagram suggests, how you use ICP tokens depends primarily on your goals in acquiring them.</p>
+<p>この図が示すように、ICP トークンの使用方法は、主にそれを取得する際の目標によって異なります。</p>
 </div>
 <div class="paragraph">
-<p>If you are a <strong>developer</strong> or <strong>entrepreneur</strong>, ICP tokens can be converted to <strong>cycles</strong>. Cycles can then be used to build and deploy applications to deliver products and services to the market.</p>
+<p>あなたが <strong>開発者</strong> または <strong>起業家</strong> である場合、ICP トークンは <strong>Cycle</strong> に変換することができます。Cycle は、製品やサービスを市場に提供するためのアプリケーションを構築し、デプロイするために使用することができます。</p>
 </div>
 <div class="paragraph">
-<p>If you are a member of the community interested in <strong>participating in governance</strong> and influencing the direction of the Internet Computer, you can lock up ICP tokens in a stake—called a neuron—so that you can submit and vote on proposals.</p>
+<p><strong>ガバナンスへの参加</strong> や Internet Computer の方向性に影響を与えることに関心のあるコミュニティのメンバーであれば、ICP トークンを Neuron と呼ばれるステークにロックして、プロポーザルの提出や投票ができるようにすることが可能です。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="self-before"><a class="anchor" href="#self-before"></a>Before you begin</h2>
+<h2 id="self-before"><a class="anchor" href="#self-before"></a>始める前に</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To get started, verify the following:</p>
+<p>はじめに、以下を確認します：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You have an internet connection and access to a shell terminal on your local <strong>Intel-based macOS</strong> or <strong>Linux</strong> computer.</p>
+<p>インターネットに接続し、ローカルの <strong>Intel-based macOS</strong> または <strong>Linux</strong> コンピュータ上のシェル端末にアクセスできること。</p>
 </li>
 <li>
-<p>You know how to open a new terminal shell on your local computer and how to run basic command-line programs in the terminal.</p>
+<p>ローカルコンピュータで新しいターミナルシェルを開く方法と、ターミナルで基本的なコマンドライン・プログラムを実行する方法を知っていること。</p>
 </li>
 <li>
-<p>You hold ICP tokens in a self-custody wallet.</p>
+<p>ICP トークンをセルフカストディウォレットに保管していること。</p>
 </li>
 <li>
-<p>You have downloaded and installed the DFINITY Canister Software Development Kit (SDK) by running the following command in a terminal on your local computer:</p>
+<p>ローカルコンピュータのターミナルで次のコマンドを実行して、DFINITY Canister Software Development Kit (SDK) をダウンロードおよびインストールすること：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sh -ci "$(curl -fsSL https://smartcontracts.org/install.sh)"</code></pre>
@@ -1241,20 +1241,19 @@ ICP tokens play a key role in both the governance and economics of the Internet 
 </div>
 </li>
 <li>
-<p>You have created a backup copy of the public/private key for the identity you are using for self-custody.</p>
+<p>セルフカストディに使用する Identity の公開鍵・秘密鍵のバックアップコピーを作成したこと。</p>
 <div class="paragraph">
-<p>For example, if you are using the default developer identity created using the DFINITY Canister Software Development Kit (SDK) <code>dfx</code> command-line interface,
-you should have a backup of the <code>~/.config/dfx/identity/default/identity.pem</code> file stored in a secure location.</p>
+<p>例えば、DFINITY Canister Software Development Kit (SDK) <code>dfx</code> コマンドラインインターフェイスを使用して作成したデフォルトの開発者用 Identity を使用している場合、安全な場所に <code>~/.config/dfx/identity/default/identity.pem</code> ファイルをバックアップしておく必要があります。</p>
 </div>
 </li>
 <li>
-<p>You have a secure environment in which to perform operations involving ICP tokens.</p>
+<p>ICP トークンを含む操作を実行するための安全な環境があること。</p>
 <div class="paragraph">
-<p>As a security best practice, any operations that involve the transfer of ICP tokens would require both an air-gapped computer with minimal hardware and software and a computer connected to the network.
-In practice, this requires moving files between two computers and taking other precautions to minimize risks.</p>
+<p>セキュリティのベストプラクティスとして、ICP トークンの授受を伴う作業には、最小限のハードウェアとソフトウェアを備えたエアギャップ付きのコンピューターと、ネットワークに接続されたコンピューターの両方が必要になります。
+実際には、2台のコンピュータ間でファイルを移動させるなど、リスクを最小限に抑えるための工夫が必要です。</p>
 </div>
 <div class="paragraph">
-<p>For simplicity, this <em>Self-custody quick start</em> describes how to complete key tasks using a single computer connected to the network.</p>
+<p>この <em>セルフカストディのクイックスタート</em> では、わかりやすくするために、ネットワークに接続された1台のコンピュータを使って、主要なタスクを完了する方法を説明します。</p>
 </div>
 </li>
 </ul>
@@ -1262,26 +1261,26 @@ In practice, this requires moving files between two computers and taking other p
 </div>
 </div>
 <div class="sect1">
-<h2 id="_connect_to_the_ledger_and_get_your_account_identifier"><a class="anchor" href="#_connect_to_the_ledger_and_get_your_account_identifier"></a>Connect to the ledger and get your account identifier</h2>
+<h2 id="_台帳に接続しアカウント_id_を取得する"><a class="anchor" href="#_台帳に接続しアカウント_id_を取得する"></a>台帳に接続し、アカウント ID を取得する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>All ICP token transactions are recorded in a ledger canister running on the Internet Computer.
-These instructions assume that you are using the <code>default</code> developer identity that <code>dfx</code> has created for you.</p>
+<p>ICP トークンの取引はすべて、Internet Computer 上で動作する台帳 Canister に記録されます。
+この説明では、<code>dfx</code> が作成した <code>default</code> 開発者 Identity を使用することを想定しています。</p>
 </div>
 <div class="paragraph">
-<p>This identity is represented by a <strong>principal</strong> data type and a textual representation of the principal often referred to as your <strong>principal identifier</strong>.
-This representation of your identity is similar to a Bitcoin or Ethereum address.</p>
+<p>この Identity は <strong>principal</strong> データ型で表され、 <strong>principal ID</strong> と呼ばれていたりします。
+この Identity の表現は、Bitcoin や Ethereum のアドレスに似ています。</p>
 </div>
 <div class="paragraph">
-<p>However, the principal associated with your developer identity is typically not the same as your <strong>account identifier</strong> in the ledger. The principal identifier and the account identifier are related—both provide a textual representation of your identity—but they use different formats.</p>
+<p>しかし、開発者 Identity に関連付けられた Principal は、通常、台帳上の <strong>Account ID</strong> と同じではありません。Principal 識別子と Account 識別子は関連しておりどちらもあなたの Identity をテキストで表現していますが、異なるフォーマットを使用しています。</p>
 </div>
 <div class="paragraph">
-<p>To connect to the ledger and get account information:</p>
+<p>台帳に接続してアカウント情報を取得するには、次のようにします：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create an empty <code>dfx.json</code> file in your current directory by running the following command:</p>
+<p>以下のコマンドを実行し、カレントディレクトリに空の <code>dfx.json</code> ファイルを作成します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">echo '{}' &gt; dfx.json</code></pre>
@@ -1289,14 +1288,14 @@ This representation of your identity is similar to a Bitcoin or Ethereum address
 </div>
 </li>
 <li>
-<p>Check the current status of the Internet Computer network and your ability to connect to it by running the following command</p>
+<p>次のコマンドを実行して、Internet Computer ネットワークの現在のステートと接続できることを確認します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ping ic</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You should see output similar to the following:</p>
+<p>以下のような出力が表示されるはずです：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1307,15 +1306,14 @@ This representation of your identity is similar to a Bitcoin or Ethereum address
 </div>
 </li>
 <li>
-<p>(Optional) Confirm the developer identity you are currently using by running the following command:</p>
+<p>（オプション） 以下のコマンドを実行して、現在使用している開発者 Identity を確認します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity whoami</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In most cases, you should see that you are currently using your <code>default</code> developer identity.
-For example:</p>
+<p>ほとんどの場合、現在 <code>default</code> の開発者 Identity を使用していることが確認できるはずです。たとえば：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1324,14 +1322,14 @@ For example:</p>
 </div>
 </li>
 <li>
-<p>(Optional) View the textual representation of the principal for your current identity by running the following command:</p>
+<p>（オプション）次のコマンドを実行して、現在の Identity の Principal のテキスト表現を表示します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity get-principal</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays output similar to the following:</p>
+<p>このコマンドは、次のような出力を表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1340,15 +1338,15 @@ For example:</p>
 </div>
 </li>
 <li>
-<p>Get the account identifier for your developer identity by running the following command:</p>
+<p>以下のコマンドを実行し、開発者 Indentity のAccount ID を取得します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger account-id</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays the ledger account identifier associated with your developer identity.
-For example, you should see output similar to the following:</p>
+<p>このコマンドは、開発者 Identity に関連付けられた台帳 Accout IDを表示します。
+たとえば、次のような出力が表示されるはずです：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1357,15 +1355,15 @@ For example, you should see output similar to the following:</p>
 </div>
 </li>
 <li>
-<p>Check your account balance by running the following command:</p>
+<p>以下のコマンドを実行して、アカウントの残高を確認します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic balance</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays the ICP token balance from the ledger account.
-For example, you should see output similar to the following:</p>
+<p>このコマンドは、台帳アカウントから ICP トークンの残高を表示します。
+例えば、次のような出力が表示されるはずです：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1378,28 +1376,28 @@ For example, you should see output similar to the following:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="convert-icp"><a class="anchor" href="#convert-icp"></a>Convert ICP tokens to cycles</h2>
+<h2 id="convert-icp"><a class="anchor" href="#convert-icp"></a>ICPトークンを Cycle に変換する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you want to use your ICP tokens in your ledger account to power application development, you first must convert them to cycles and transfer the cycles to a canister that will be your cycles wallet.</p>
+<p>ICP トークンを台帳アカウントで使用してアプリケーション開発の動力（ガス）としたい場合、まずトークンを Cycle に変換し、Cycle ウォレットとなる Canister に Cycle を転送する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>To convert ICP tokens to cycles:</p>
+<p>ICP トークンを Cycle に変換するには：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create a new canister with cycles by transferring ICP tokens from your ledger account by running a command similar to the following:</p>
+<p>以下のようなコマンドを実行して、台帳アカウントから ICP トークンを転送し、Cycle を持つ新しい Canister を作成します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic create-canister &lt;controller-principal-identifier&gt; --amount &lt;icp-tokens&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command converts the number of ICP tokens you specify for the <code>--amount</code> argument into cycles, and associates the cycles with a new canister identifier controlled by the principal you specify.</p>
+<p>このコマンドは、<code>--amount</code> 引数に指定した ICP トークンの数を Cycle に変換し、Cycle を指定した Principal で制御される新しい Canister ID に関連付けます。</p>
 </div>
 <div class="paragraph">
-<p>For example, the following command converts 1.25 ICP tokens into cycles and specifies the principal identifier for the default identity as the controller of the new canister:</p>
+<p>例えば、次のコマンドは 1.25 ICP トークンを Cycle に変換し、新しい Canister のコントローラーとしてdefault のPrincipal ID を指定します。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1407,7 +1405,7 @@ For example, you should see output similar to the following:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>If the transaction is successful, the ledger records the event and you should see output similar to the following:</p>
+<p>取引が成功した場合、台帳にはそのイベントが記録され、以下のような出力が表示されます：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1417,14 +1415,14 @@ Canister created with id: "53zcu-tiaaa-aaaaa-qaaba-cai"</pre>
 </div>
 </li>
 <li>
-<p>Install the cycles wallet code in the newly-created canister placeholder by running a command similar to the following:</p>
+<p>以下のようなコマンドを実行して、新しく作成した Canister プレースホルダーに Cycle ウォレットコードをインストールします：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity --network ic deploy-wallet &lt;canister-identifer&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example:</p>
+<p>たとえば：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1432,7 +1430,7 @@ Canister created with id: "53zcu-tiaaa-aaaaa-qaaba-cai"</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays output similar to the following:</p>
+<p>このコマンドは、次のような出力を表示します：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1446,18 +1444,18 @@ The wallet canister on the "ic" network for user "default" is "53zcu-tiaaa-aaaaa
 </div>
 </div>
 <div class="sect1">
-<h2 id="_transfer_icp_tokens_to_another_account"><a class="anchor" href="#_transfer_icp_tokens_to_another_account"></a>Transfer ICP tokens to another account</h2>
+<h2 id="_icp_トークンを他のアカウントに移動する"><a class="anchor" href="#_icp_トークンを他のアカウントに移動する"></a>ICP トークンを他のアカウントに移動する</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you want to transfer ICP tokens to another account in the ledger, you need to know the account identifier for the destination account.</p>
+<p>ICP トークンを台帳上の別のアカウントに転送したい場合は、転送先のアカウント ID を知っておく必要があります。</p>
 </div>
 <div class="paragraph">
-<p>To transfer ICP tokens to another account:</p>
+<p>ICP トークンを別のアカウントに転送するには：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check that you are using an identity with control over the ledger account by running the following command:</p>
+<p>以下のコマンドを実行して、台帳アカウントを制御できる Identity を使用していることを確認します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity whoami</code></pre>
@@ -1465,7 +1463,7 @@ The wallet canister on the "ic" network for user "default" is "53zcu-tiaaa-aaaaa
 </div>
 </li>
 <li>
-<p>Check the current balance in the ledger account associated with your identity by running the following command:</p>
+<p>以下のコマンドを実行して、自分の Identity に関連する台帳アカウントの現在の残高を確認します：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic balance</code></pre>
@@ -1473,14 +1471,14 @@ The wallet canister on the "ic" network for user "default" is "53zcu-tiaaa-aaaaa
 </div>
 </li>
 <li>
-<p>Transfer ICP tokens to another account by running a command similar to the following:</p>
+<p>以下のようなコマンドを実行して、ICP トークンを別のアカウントに転送します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic transfer &lt;destination-ledger-account-id&gt; --icp &lt;ICP-amount&gt; --memo &lt;numeric-memo&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example:</p>
+<p>たとえば：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1488,30 +1486,30 @@ The wallet canister on the "ic" network for user "default" is "53zcu-tiaaa-aaaaa
 </div>
 </div>
 <div class="paragraph">
-<p>This example illustrates how to transfer ICP tokens to the specified account using a whole number with the <code>--icp</code> command-line option.</p>
+<p>この例では、<code>--icp</code> コマンドラインオプションで整数を使用して、指定したアカウントに ICP トークンを転送する方法を説明します。</p>
 </div>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can also specify fractional units of ICP tokens—called <strong>e8s</strong>—using the <code>--e8s</code> option, either on its own or in conjunction with the <code>--icp</code> option.</p>
+<p><strong>e8s</strong> と呼ばれる ICP トークンの端数は、 <code>--e8s</code> オプションを単独で、あるいは <code>--icp</code> オプションと組み合わせて指定することができます。</p>
 </li>
 <li>
-<p>Alternatively, you can use the <code>--amount</code> to  specify the number of ICP tokens to transfer with fractional units up to 8 decimal places, for example, as <code>5.00000025</code>.</p>
+<p>また、<code>--amount</code> を使用すると、転送する ICP トークンの数を小数点以下8桁まで、例えば <code>5.00000025</code> のように指定することができます。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>The destination address can be an address in the ledger canister running on the Internet Computer network, an account you have added using the <a href="https://nns.ic0.app">Network Nervous System application</a>, or the address for a wallet you have on an exchange.</p>
+<p>宛先アドレスは、Internet Computer ネットワーク上で動作する台帳 Canister のアドレス、<a href="https://nns.ic0.app">Network Nervous System アプリケーション</a> を使って追加したアカウント、取引所で持っているウォレットアドレスのいずれかを使用できます。</p>
 </div>
 <div class="paragraph">
-<p>If you transfer the ICP tokens to an account in the <a href="https://nns.ic0.app">Network Nervous System application</a>, you might need to refresh the browser to see the transaction reflected.</p>
+<p><a href="https://nns.ic0.app">Network Nervous System アプリケーション</a> のアカウントに ICP トークンを転送した場合、取引が反映されるまでにブラウザを更新する必要がある場合があります。</p>
 </div>
 <div class="paragraph">
-<p>For more information about using the <code>dfx ledger</code> command-line options, see <a href="../developers-guide/cli-reference/dfx-ledger.html">dfx ledger</a>.</p>
+<p><code>dfx ledger</code> のコマンドラインオプションの使い方については、<a href="../developers-guide/cli-reference/dfx-ledger.html">dfx ledger</a> を参照してください。</p>
 </div>
 </li>
 </ol>
@@ -1519,19 +1517,19 @@ The wallet canister on the "ic" network for user "default" is "53zcu-tiaaa-aaaaa
 </div>
 </div>
 <div class="sect1">
-<h2 id="_lock_icp_tokens_by_staking_them_in_a_neuron"><a class="anchor" href="#_lock_icp_tokens_by_staking_them_in_a_neuron"></a>Lock ICP tokens by staking them in a neuron</h2>
+<h2 id="_icp_トークンを_neuron_に張り付けロックする"><a class="anchor" href="#_icp_トークンを_neuron_に張り付けロックする"></a>ICP トークンを Neuron に張り付け、ロックする</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you want to lock up ICP tokens to participate in governance and earn rewards, you must use the <a href="https://nns.ic0.app">Network Nervous System (NNS) application</a> or <code>dfx canister call</code> commands.</p>
+<p>ICP トークンをロックしてガバナンスに参加し、報酬を獲得したい場合は、<a href="https://nns.ic0.app">Network Nervous System (NNS) アプリケーション</a> または <code>dfx canister call</code> コマンドを使用する必要があります。</p>
 </div>
 <div class="paragraph">
-<p>Because locking up ICP tokens to create staked neurons is a more complex process when using the DFINITY Canister SDK command-line interface than it is when using the <a href="https://nns.ic0.app">Network Nervous System (NNS) application</a>, the steps aren&#8217;t included in this guide.</p>
+<p>ICP トークンをロックしてステークされた Neuron を作成するのは、DFINITY Canister SDK コマンドラインインターフェイスを使用する場合、<a href="https://nns.ic0.app">Network Nervous System（NNS）アプリケーション</a> を使用する場合よりも複雑なので、このガイドにはその手順は含まれていません。</p>
 </div>
 <div class="paragraph">
-<p>For information about the Network Nervous System, see <a href="https://medium.com/dfinity/understanding-the-internet-computers-network-nervous-system-neurons-and-icp-utility-tokens-730dab65cae8">Understanding the Internet Computer&#8217;s Network Nervous System, Neurons, and ICP Utility Tokens</a>.</p>
+<p>Network Nervous System については、<a href="https://medium.com/dfinity/understanding-the-internet-computers-network-nervous-system-neurons-and-icp-utility-tokens-730dab65cae8">Understanding the Internet Computer&#8217;s Network Nervous System, Neurons, and ICP Utility Tokens</a> を参照してください。</p>
 </div>
 <div class="paragraph">
-<p>For additional details about setting the locked period and dissolve delay for a neuron, see <a href="https://medium.com/dfinity/getting-started-on-the-internet-computers-network-nervous-system-app-wallet-61ecf111ea11">Getting Started | The Internet Computer Network Nervous System Application &amp; Wallet</a></p>
+<p>Neuron のロック期間と溶解遅延の設定についての詳細は、<a href="https://medium.com/dfinity/getting-started-on-the-internet-computers-network-nervous-system-app-wallet-61ecf111ea11">Getting Started | Internet Computer Network Nervous System Application &amp; Wallet</a> を参照してください。</p>
 </div>
 </div>
 </div>
